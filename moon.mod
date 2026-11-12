@@ -26,4 +26,13 @@ keywords = [
 
 preferred_target = "native"
 
-readme = "src/README.mbt.md"
+readme = "README.md"
+
+import {
+  "walkzzz/core@0.1.0",
+  "walkzzz/codec@0.1.0",
+  "walkzzz/process@0.1.0",
+  "walkzzz/photography@0.1.0",
+  "walkzzz/vision@0.1.0",
+  "walkzzz/domain@0.1.0",
+}

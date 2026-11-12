@@ -1,5 +1,0 @@
-import {
-  "walkzzz/image-core/types",
-  "moonbitlang/core/debug",
-  "moonbitlang/core/math",
-}

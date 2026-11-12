@@ -1,7 +1,0 @@
-import {
-  "walkzzz/image-core/types",
-}
-
-import {
-  "walkzzz/image-core/types",
-} for "test"

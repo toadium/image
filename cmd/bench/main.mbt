@@ -1,4 +1,5 @@
 ///|
 fn main {
-  @src.bench_run()
+  println("walkzzz/image benchmark runner (placeholder)")
+  println("Run: moon run --target native")
 }

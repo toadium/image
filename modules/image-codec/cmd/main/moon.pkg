@@ -1,6 +1,0 @@
-import {
-  "walkzzz/image-core/types",
-  "walkzzz/image-codec/lib",
-}
-
-pkgtype(kind: "executable")

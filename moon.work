@@ -1,10 +1,9 @@
 members = [
   ".",
-  "modules/image-core",
-  "modules/image-codec",
-  "modules/image-process",
-  "modules/image-photography",
-  "modules/image-vision",
-  "modules/image-domain",
-  "modules/image-advanced",
+  "core",
+  "codec",
+  "process",
+  "photography",
+  "vision",
+  "domain",
 ]

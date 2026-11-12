@@ -1,9 +1,0 @@
-import {
-  "walkzzz/image/src/types",
-  "walkzzz/image/src/pure/util" @pure_util,
-  "moonbitlang/core/math",
-}
-
-import {
-  "walkzzz/image/src/lib",
-} for "test"
