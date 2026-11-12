@@ -20,6 +20,35 @@
 | 测试 | 6486×4（native/wasm-gc/js/wasm）全绿 |
 | 状态 | ✅ 0 warning, 0 error |
 
+### v410.0.0 — clamp/min/max 去重 + 形式化验证扩展
+
+**2026-11-12** — 39 个私有 clamp 函数变体统一替换为 @safe_math 引用，3 个 min/max 替换为 @types.int_max/int_min。新增 clamp_byte/clamp_float/clamp_double/int_max/int_min 到 core/safe_math。
+
+| 类型 | 内容 |
+|------|------|
+| 去重 | 39 个私有 clamp 变体 → @safe_math / @types 引用 |
+| 去重 | 3 个私有 min/max → @types.int_max/int_min |
+| 新增 | clamp_byte(Int32→Byte) / clamp_float / clamp_double / int_max / int_min |
+| 净减 | 207 行代码（45 files, +471/-678） |
+| 测试 | 6526×4 全绿（+40 新增测试） |
+| 状态 | ✅ 0 warning, 0 error |
+
+### v410.1.0 — warning 治理
+
+**2026-11-12** — 9 个预留 proof 谓词加 `_` 前缀标记内部使用，未用参数加 `_` 前缀。全项目 0 warning 0 error。
+
+### v410.2.0 — R16 迭代清理
+
+**2026-11-12** — 删除 2791 个旧文件（src/ + modules/ + 临时文件 + 无关文件），净减 1.2M 行。derive 配套 extend 声明确认必需（不能删）。
+
+| 类型 | 内容 |
+|------|------|
+| 删除 | src/ (1297 files) + modules/ (1151 files) |
+| 删除 | 临时文件 (292: coverage_html, batch*.txt, *.log, test_pdf_pages/) |
+| 删除 | 无关文件 (51: ArcGIS 参考文档, Python 脚本, PROPOSAL.md 等) |
+| 净减 | 1,212,553 行（2795 files） |
+| 状态 | ✅ 0 warning, 0 error |
+
 ## Phase 16｜计算摄影大扩展（v376 ~ v391）
 
 ## Phase 17｜视频处理大扩展（v392 ~ v405）

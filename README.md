@@ -11,11 +11,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/version-0.5.0-orange)]()
 
-[![Tests](https://img.shields.io/badge/tests-6_486×4-4CAF50?style=flat-square)]()
-[![Coverage](https://img.shields.io/badge/coverage-90.4%25-4CAF50?style=flat-square)]()
+[![Tests](https://img.shields.io/badge/tests-6_526×4-4CAF50?style=flat-square)]()
+[![Proved](https://img.shields.io/badge/formal__proof-5%20goals-6E40C9?style=flat-square)]()
 [![Targets](https://img.shields.io/badge/targets-native%20%7C%20wasm--gc%20%7C%20js%20%7C%20wasm-2196F3?style=flat-square)]()
 [![Formats](https://img.shields.io/badge/formats-18-FF9800?style=flat-square)]()
-[![Packages](https://img.shields.io/badge/packages-62-9C27B0?style=flat-square)]()
+[![Packages](https://img.shields.io/badge/packages-71-9C27B0?style=flat-square)]()
 [![OSC2026](https://img.shields.io/badge/OSC2026-参赛项目-F44336?style=flat-square)](https://www.gitlink.org.cn/competitions/track1_2026MoonBit)
 
 [English](README.en.md) · 简体中文
@@ -47,7 +47,7 @@
 
 ### 🟢 四目标原生
 
-native / wasm-gc / js / wasm 共用同一代码库，**无条件编译**。6,486 测试 × 4 目标全绿。
+native / wasm-gc / js / wasm 共用同一代码库，**无条件编译**。6,526 测试 × 4 目标全绿。形式化验证 5 goals proved。
 
 </td>
 </tr>

@@ -12,7 +12,7 @@ You can browse and install extra skills here:
 | 属性 | 值 |
 |------|-----|
 | 版本 | 0.5.0 |
-| 测试 | 6486 (native) × 4 目标 |
+| 测试 | 6526 (native) × 4 目标 |
 | 架构 | 6 子模块工作空间 (core/codec/process/photography/vision/domain) |
 | 格式 | 18 种编解码 (PNG/JPEG/BMP/GIF/QOI/TGA/PSD/HDR/PNM/TIFF/ICO/CUR/ICNS/APNG/WebP/AVIF/HEIF/JPEG-XL) |
 | 形式化验证 | core/safe_math 包已启用 proof_enabled，5 goals proved（safe_mul/clamp_pixel_value/is_valid_index/is_valid_2d_index/rotate90_power_is_identity） |
