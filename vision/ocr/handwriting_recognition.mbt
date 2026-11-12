@@ -3,7 +3,7 @@
 
 ///|
 /// 手写体类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum HandwritingStyle {
   Print // 印刷体
   Cursive // 草书/连笔
@@ -13,11 +13,14 @@ pub(all) enum HandwritingStyle {
 }
 
 ///|
+pub extend HandwritingStyle with @debug.Debug::{to_repr}
+
+///|
 pub extend HandwritingStyle with Eq::{not_equal, equal}
 
 ///|
 /// 笔画类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum StrokeType {
   Horizontal // 横
   Vertical // 竖
@@ -31,10 +34,14 @@ pub(all) enum StrokeType {
 }
 
 ///|
+pub extend StrokeType with @debug.Debug::{to_repr}
+
+///|
 pub extend StrokeType with Eq::{not_equal, equal}
 
 ///|
 /// 笔画特征
+#derive(Eq, @debug.Debug)
 pub(all) struct StrokeFeature {
   stroke_type : StrokeType
   start_x : Double
@@ -48,7 +55,14 @@ pub(all) struct StrokeFeature {
 }
 
 ///|
+pub extend StrokeFeature with Eq::{not_equal, equal}
+
+///|
+pub extend StrokeFeature with @debug.Debug::{to_repr}
+
+///|
 /// 连笔分割结果
+#derive(Eq, @debug.Debug)
 pub(all) struct StrokeSegmentationResult {
   num_strokes : Int32
   strokes : Array[StrokeFeature]
@@ -57,7 +71,14 @@ pub(all) struct StrokeSegmentationResult {
 }
 
 ///|
+pub extend StrokeSegmentationResult with Eq::{not_equal, equal}
+
+///|
+pub extend StrokeSegmentationResult with @debug.Debug::{to_repr}
+
+///|
 /// 手写字符特征
+#derive(Eq, @debug.Debug)
 pub(all) struct HandwritingCharFeature {
   char : String
   num_strokes : Int32
@@ -74,7 +95,14 @@ pub(all) struct HandwritingCharFeature {
 }
 
 ///|
+pub extend HandwritingCharFeature with Eq::{not_equal, equal}
+
+///|
+pub extend HandwritingCharFeature with @debug.Debug::{to_repr}
+
+///|
 /// 手写字体模板
+#derive(Eq, @debug.Debug)
 pub(all) struct HandwritingTemplate {
   char : String
   style : HandwritingStyle
@@ -84,7 +112,14 @@ pub(all) struct HandwritingTemplate {
 }
 
 ///|
+pub extend HandwritingTemplate with Eq::{not_equal, equal}
+
+///|
+pub extend HandwritingTemplate with @debug.Debug::{to_repr}
+
+///|
 /// 手写识别配置
+#derive(Eq, @debug.Debug)
 pub(all) struct HandwritingRecognitionConfig {
   min_stroke_length : Double
   max_stroke_angle : Double
@@ -98,7 +133,14 @@ pub(all) struct HandwritingRecognitionConfig {
 }
 
 ///|
+pub extend HandwritingRecognitionConfig with Eq::{not_equal, equal}
+
+///|
+pub extend HandwritingRecognitionConfig with @debug.Debug::{to_repr}
+
+///|
 /// 手写识别结果
+#derive(Eq, @debug.Debug)
 pub(all) struct HandwritingRecognitionResult {
   predicted_char : String
   confidence : Double
@@ -111,6 +153,12 @@ pub(all) struct HandwritingRecognitionResult {
   matching_time_ms : Double
   total_time_ms : Double
 }
+
+///|
+pub extend HandwritingRecognitionResult with Eq::{not_equal, equal}
+
+///|
+pub extend HandwritingRecognitionResult with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认手写识别配置

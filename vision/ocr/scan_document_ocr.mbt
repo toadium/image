@@ -3,6 +3,7 @@
 
 ///|
 /// 扫描文档配置
+#derive(Eq, @debug.Debug)
 pub(all) struct ScanOCRConfig {
   language : String // "digit" / "english" / "chinese" / "multilingual"
   dpi : Int32 // 扫描 DPI（通常 300）
@@ -12,6 +13,12 @@ pub(all) struct ScanOCRConfig {
   layout_analysis : Bool // 是否进行版面分析
   confidence_threshold : Double // 置信度阈值
 }
+
+///|
+pub extend ScanOCRConfig with Eq::{not_equal, equal}
+
+///|
+pub extend ScanOCRConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认扫描 OCR 配置
@@ -29,6 +36,7 @@ pub fn scan_ocr_default_config() -> ScanOCRConfig {
 
 ///|
 /// 扫描质量评估结果
+#derive(Eq, @debug.Debug)
 pub(all) struct ScanQuality {
   brightness : Double // 平均亮度（0-255）
   contrast : Double // 对比度（标准差）
@@ -40,7 +48,14 @@ pub(all) struct ScanQuality {
 }
 
 ///|
+pub extend ScanQuality with Eq::{not_equal, equal}
+
+///|
+pub extend ScanQuality with @debug.Debug::{to_repr}
+
+///|
 /// 文本块（版面分析结果）
+#derive(Eq, @debug.Debug)
 pub(all) struct TextBlock {
   x : Int32
   y : Int32
@@ -53,7 +68,14 @@ pub(all) struct TextBlock {
 }
 
 ///|
+pub extend TextBlock with Eq::{not_equal, equal}
+
+///|
+pub extend TextBlock with @debug.Debug::{to_repr}
+
+///|
 /// OCR 页面结果
+#derive(Eq, @debug.Debug)
 pub(all) struct OCRPageResult {
   page_number : Int32
   width : Int32
@@ -63,6 +85,12 @@ pub(all) struct OCRPageResult {
   average_confidence : Double
   processing_time_ms : Double
 }
+
+///|
+pub extend OCRPageResult with Eq::{not_equal, equal}
+
+///|
+pub extend OCRPageResult with @debug.Debug::{to_repr}
 
 ///|
 /// 评估扫描图像质量

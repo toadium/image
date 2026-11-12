@@ -2,6 +2,7 @@
 package "walkzzz/vision/vlm_multimodal"
 
 import {
+  "moonbitlang/core/debug",
   "walkzzz/core/types",
 }
 
@@ -31,6 +32,7 @@ pub fn vlm_report_to_string(VisionTextEmbedding, VisionLanguageModelType) -> Str
 // Errors
 
 // Types and methods
+#derive(Eq, @debug.Debug)
 pub(all) struct DiffusionConfig {
   model_type : DiffusionModelType
   num_timesteps : Int32
@@ -43,8 +45,11 @@ pub(all) struct DiffusionConfig {
   use_ddim : Bool
   use_clip_guidance : Bool
 }
+pub fn DiffusionConfig::equal(Self, Self) -> Bool
+pub fn DiffusionConfig::not_equal(Self, Self) -> Bool
+pub fn DiffusionConfig::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum DiffusionModelType {
   StableDiffusion
   DALLE
@@ -58,7 +63,9 @@ pub(all) enum DiffusionModelType {
 }
 pub fn DiffusionModelType::equal(Self, Self) -> Bool
 pub fn DiffusionModelType::not_equal(Self, Self) -> Bool
+pub fn DiffusionModelType::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DiffusionResult {
   image : @types.Image
   num_steps : Int32
@@ -68,7 +75,11 @@ pub(all) struct DiffusionResult {
   seed : Int32
   generation_time_ms : Double
 }
+pub fn DiffusionResult::equal(Self, Self) -> Bool
+pub fn DiffusionResult::not_equal(Self, Self) -> Bool
+pub fn DiffusionResult::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct FusionConfig {
   strategy : MultimodalFusionStrategy
   num_modalities : Int32
@@ -78,14 +89,22 @@ pub(all) struct FusionConfig {
   dropout_rate : Double
   use_gating : Bool
 }
+pub fn FusionConfig::equal(Self, Self) -> Bool
+pub fn FusionConfig::not_equal(Self, Self) -> Bool
+pub fn FusionConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct FusionResult {
   fused_representation : Array[Double]
   modality_weights : Array[Double]
   fusion_strategy : MultimodalFusionStrategy
   hidden_dim : Int32
 }
+pub fn FusionResult::equal(Self, Self) -> Bool
+pub fn FusionResult::not_equal(Self, Self) -> Bool
+pub fn FusionResult::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct GenerativeAIConfig {
   task_type : GenerativeAITaskType
   vlm_config : VLMConfig
@@ -97,7 +116,11 @@ pub(all) struct GenerativeAIConfig {
   top_p : Double
   top_k : Int32
 }
+pub fn GenerativeAIConfig::equal(Self, Self) -> Bool
+pub fn GenerativeAIConfig::not_equal(Self, Self) -> Bool
+pub fn GenerativeAIConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct GenerativeAIResult {
   task_type : GenerativeAITaskType
   image : @types.Image
@@ -106,8 +129,11 @@ pub(all) struct GenerativeAIResult {
   generation_time_ms : Double
   num_iterations : Int32
 }
+pub fn GenerativeAIResult::equal(Self, Self) -> Bool
+pub fn GenerativeAIResult::not_equal(Self, Self) -> Bool
+pub fn GenerativeAIResult::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum GenerativeAITaskType {
   TextToImage
   ImageToText
@@ -121,8 +147,9 @@ pub(all) enum GenerativeAITaskType {
 }
 pub fn GenerativeAITaskType::equal(Self, Self) -> Bool
 pub fn GenerativeAITaskType::not_equal(Self, Self) -> Bool
+pub fn GenerativeAITaskType::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum MultimodalFusionStrategy {
   EarlyFusion
   LateFusion
@@ -134,7 +161,9 @@ pub(all) enum MultimodalFusionStrategy {
 }
 pub fn MultimodalFusionStrategy::equal(Self, Self) -> Bool
 pub fn MultimodalFusionStrategy::not_equal(Self, Self) -> Bool
+pub fn MultimodalFusionStrategy::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct VLMConfig {
   model_type : VisionLanguageModelType
   image_encoder_size : Int32
@@ -145,8 +174,11 @@ pub(all) struct VLMConfig {
   use_matching_loss : Bool
   use_captioning_loss : Bool
 }
+pub fn VLMConfig::equal(Self, Self) -> Bool
+pub fn VLMConfig::not_equal(Self, Self) -> Bool
+pub fn VLMConfig::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum VisionLanguageModelType {
   CLIP
   BLIP
@@ -161,13 +193,18 @@ pub(all) enum VisionLanguageModelType {
 }
 pub fn VisionLanguageModelType::equal(Self, Self) -> Bool
 pub fn VisionLanguageModelType::not_equal(Self, Self) -> Bool
+pub fn VisionLanguageModelType::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct VisionTextEmbedding {
   image_embedding : Array[Double]
   text_embedding : Array[Double]
   similarity : Double
   projection_dim : Int32
 }
+pub fn VisionTextEmbedding::equal(Self, Self) -> Bool
+pub fn VisionTextEmbedding::not_equal(Self, Self) -> Bool
+pub fn VisionTextEmbedding::to_repr(Self) -> @debug.Repr
 
 // Type aliases
 

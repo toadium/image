@@ -1,5 +1,6 @@
 import {
   "walkzzz/core/types",
+  "moonbitlang/core/debug",
 }
 
 import {

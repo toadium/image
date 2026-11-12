@@ -93,6 +93,7 @@ pub(all) struct ArnoldParams {
 
 ///|
 /// 加密质量评估
+#derive(Eq, Default, @debug.Debug)
 pub(all) struct ImageEncryptionQuality {
   entropy : Double
   correlation_horizontal : Double
@@ -103,6 +104,15 @@ pub(all) struct ImageEncryptionQuality {
   key_sensitivity : Double
   psnr : Double
 }
+
+///|
+pub extend ImageEncryptionQuality with @debug.Debug::{to_repr}
+
+///|
+pub extend ImageEncryptionQuality with Eq::{not_equal, equal}
+
+///|
+pub extend ImageEncryptionQuality with Default::{default}
 
 ///|
 /// 创建默认混沌参数

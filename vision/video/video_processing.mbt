@@ -3,6 +3,7 @@
 
 ///|
 /// 视频帧序列
+#derive(Eq, @debug.Debug)
 pub(all) struct VideoFrames {
   frames : Array[@types.Image]
   width : Int32
@@ -10,6 +11,12 @@ pub(all) struct VideoFrames {
   channels : Int32
   fps : Double
 }
+
+///|
+pub extend VideoFrames with Eq::{not_equal, equal}
+
+///|
+pub extend VideoFrames with @debug.Debug::{to_repr}
 
 ///|
 /// 创建视频帧序列

@@ -3,7 +3,7 @@
 
 ///|
 /// 压缩算法类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum CompressionAlgorithm {
   RunLengthEncoding
   HuffmanCoding
@@ -19,10 +19,14 @@ pub(all) enum CompressionAlgorithm {
 }
 
 ///|
+pub extend CompressionAlgorithm with @debug.Debug::{to_repr}
+
+///|
 pub extend CompressionAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 压缩结果
+#derive(Eq, @debug.Debug)
 pub(all) struct CompressionResult {
   compressed_data : Bytes
   original_size : Int32
@@ -35,7 +39,14 @@ pub(all) struct CompressionResult {
 }
 
 ///|
+pub extend CompressionResult with Eq::{not_equal, equal}
+
+///|
+pub extend CompressionResult with @debug.Debug::{to_repr}
+
+///|
 /// 压缩配置
+#derive(Eq, @debug.Debug)
 pub(all) struct CompressionConfig {
   algorithm : CompressionAlgorithm
   quality : Double
@@ -47,7 +58,14 @@ pub(all) struct CompressionConfig {
 }
 
 ///|
+pub extend CompressionConfig with Eq::{not_equal, equal}
+
+///|
+pub extend CompressionConfig with @debug.Debug::{to_repr}
+
+///|
 /// 压缩质量评估
+#derive(Eq, @debug.Debug)
 pub(all) struct CompressionQualityMetrics {
   psnr : Double
   ssim : Double
@@ -59,8 +77,14 @@ pub(all) struct CompressionQualityMetrics {
 }
 
 ///|
+pub extend CompressionQualityMetrics with Eq::{not_equal, equal}
+
+///|
+pub extend CompressionQualityMetrics with @debug.Debug::{to_repr}
+
+///|
 /// 量化表类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum QuantizationTableType {
   Luminance
   Chrominance
@@ -69,10 +93,14 @@ pub(all) enum QuantizationTableType {
 }
 
 ///|
+pub extend QuantizationTableType with @debug.Debug::{to_repr}
+
+///|
 pub extend QuantizationTableType with Eq::{not_equal, equal}
 
 ///|
 /// DCT 系数块
+#derive(Eq, @debug.Debug)
 pub(all) struct DCTBlock {
   coefficients : Array[Double]
   block_size : Int32
@@ -81,13 +109,26 @@ pub(all) struct DCTBlock {
 }
 
 ///|
+pub extend DCTBlock with Eq::{not_equal, equal}
+
+///|
+pub extend DCTBlock with @debug.Debug::{to_repr}
+
+///|
 /// 霍夫曼编码表
+#derive(Eq, @debug.Debug)
 pub(all) struct HuffmanTable {
   symbols : Array[Int32]
   codes : Array[Int32]
   code_lengths : Array[Int32]
   num_symbols : Int32
 }
+
+///|
+pub extend HuffmanTable with Eq::{not_equal, equal}
+
+///|
+pub extend HuffmanTable with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认压缩配置

@@ -3,6 +3,7 @@
 
 ///|
 /// 分割点结构体
+#derive(Eq, @debug.Debug)
 pub(all) struct SplitPoint {
   x : Int32
   y_top : Int32
@@ -11,12 +12,25 @@ pub(all) struct SplitPoint {
 }
 
 ///|
+pub extend SplitPoint with Eq::{not_equal, equal}
+
+///|
+pub extend SplitPoint with @debug.Debug::{to_repr}
+
+///|
 /// 滴水算法分割结果
+#derive(Eq, @debug.Debug)
 pub(all) struct DropFallResult {
   split_points : Array[SplitPoint]
   char_regions : Array[(Int32, Int32)]
   success : Bool
 }
+
+///|
+pub extend DropFallResult with Eq::{not_equal, equal}
+
+///|
+pub extend DropFallResult with @debug.Debug::{to_repr}
 
 ///|
 /// 滴水算法（Drop Fall Algorithm）

@@ -61,6 +61,7 @@ pub fn safe_mul3(a : Int32, b : Int32, c : Int32) -> Int32? {
 /// 判断维度是否在安全范围内（纯函数）。
 /// 返回 true 当且仅当 width/height/channels 均为正、
 /// 不超过 MAX_IMAGE_DIMENSION、且乘积不溢出 Int32。
+#inline
 pub fn dims_valid_check(w : Int32, h : Int32, c : Int32) -> Bool {
   1 <= w &&
   w <= 65535 &&
@@ -79,6 +80,7 @@ pub fn dims_valid_check(w : Int32, h : Int32, c : Int32) -> Bool {
 /// 通用整数钳制：将 v 限制在 [lo, hi] 范围内。
 /// 谓词 clamp_int_ok 保证结果在 [lo, hi] 范围内。
 /// 注意：当前 moon prove 对此函数后置条件求解超时，待优化。
+#inline
 pub fn clamp_int(v : Int32, lo : Int32, hi : Int32) -> Int32 {
   if v < lo {
     lo
@@ -112,6 +114,7 @@ pub fn clamp_pixel_value(
 /// 用于图像像素坐标的边界检查。
 /// 谓词 clamp_coord_ok 保证结果在 [0, max_val-1] 范围内（当 max > 0）。
 /// 注意：当前 moon prove 对此函数后置条件求解超时，待优化。
+#inline
 pub fn clamp_coord(v : Int32, max_val : Int32) -> Int32 {
   if v < 0 {
     0
@@ -125,6 +128,7 @@ pub fn clamp_coord(v : Int32, max_val : Int32) -> Int32 {
 ///|
 /// 字节钳制：将 Int32 值限制在 [0, 255] 并转为 Byte。
 /// 等价于 clamp_pixel_value(v).to_byte()，用于像素赋值。
+#inline
 pub fn clamp_byte(v : Int32) -> Byte {
   clamp_pixel_value(v).to_byte()
 }
@@ -132,6 +136,7 @@ pub fn clamp_byte(v : Int32) -> Byte {
 ///|
 /// 浮点钳制：将 Float 值 v 限制在 [lo, hi] 范围内。
 /// 用于 16-bit/float 图像处理的范围约束。
+#inline
 pub fn clamp_float(v : Float, lo : Float, hi : Float) -> Float {
   if v < lo {
     lo
@@ -145,6 +150,7 @@ pub fn clamp_float(v : Float, lo : Float, hi : Float) -> Float {
 ///|
 /// 双精度浮点钳制：将 Double 值 v 限制在 [lo, hi] 范围内。
 /// 用于高精度图像处理（HDR/频域）的范围约束。
+#inline
 pub fn clamp_double(v : Double, lo : Double, hi : Double) -> Double {
   if v < lo {
     lo
@@ -161,6 +167,7 @@ pub fn clamp_double(v : Double, lo : Double, hi : Double) -> Double {
 
 ///|
 /// 整数最大值：返回 a 和 b 中较大的那个。
+#inline
 pub fn int_max(a : Int32, b : Int32) -> Int32 {
   if a > b {
     a
@@ -171,6 +178,7 @@ pub fn int_max(a : Int32, b : Int32) -> Int32 {
 
 ///|
 /// 整数最小值：返回 a 和 b 中较小的那个。
+#inline
 pub fn int_min(a : Int32, b : Int32) -> Int32 {
   if a < b {
     a
@@ -187,6 +195,7 @@ pub fn int_min(a : Int32, b : Int32) -> Int32 {
 /// 安全的一维索引检查：0 <= index < length。
 ///
 /// ✅ 形式化验证：证明结果正确判定索引合法性。
+#inline
 pub fn is_valid_index(
   index : Int32,
   length : Int32,
@@ -200,6 +209,7 @@ pub fn is_valid_index(
 /// 安全的二维索引检查：0 <= x < width && 0 <= y < height。
 ///
 /// ✅ 形式化验证：证明结果正确判定 2D 索引合法性。
+#inline
 pub fn is_valid_2d_index(
   x : Int32,
   y : Int32,
@@ -220,6 +230,7 @@ pub fn is_valid_2d_index(
 /// 当 n 是 4 的倍数时，连续旋转 n 次 90° 回到原始状态。
 ///
 /// ✅ 形式化验证：证明结果等价于 n % 4 == 0。
+#inline
 pub fn rotate90_power_is_identity(
   n : Int32,
 ) -> Bool where {
@@ -239,6 +250,7 @@ pub fn rotate90_power_is_identity(
 /// PNG Paeth 预测函数。
 /// 选择 a、b、c 中最接近预测值 p = a + b - c 的那个。
 /// 结果必为 {a, b, c} 之一（PNG 规范保证）。
+#inline
 pub fn paeth_predict(a : Int32, b : Int32, c : Int32) -> Int32 {
   let p = a + b - c
   let pa = (p - a).abs()
@@ -256,6 +268,7 @@ pub fn paeth_predict(a : Int32, b : Int32, c : Int32) -> Int32 {
 ///|
 /// QOI 哈希函数：将 RGBA 像素映射到 [0, 63] 的索引。
 /// 结果在 [0, 63] 范围内（QOI 规范保证）。
+#inline
 pub fn qoi_hash(r : Int32, g : Int32, b : Int32, a : Int32) -> Int32 {
   (r * 3 + g * 5 + b * 7 + a * 11) % 64
 }
@@ -263,6 +276,7 @@ pub fn qoi_hash(r : Int32, g : Int32, b : Int32, a : Int32) -> Int32 {
 ///|
 /// GIF 3-3-2 量化：将 RGB 像素映射到 256 色调色板索引。
 /// 结果在 [0, 255] 范围内。
+#inline
 pub fn quantize_332(r : Int32, g : Int32, b : Int32) -> Int32 {
   let r_level = (r >> 5) & 0x07
   let g_level = (g >> 5) & 0x07
@@ -273,6 +287,7 @@ pub fn quantize_332(r : Int32, g : Int32, b : Int32) -> Int32 {
 ///|
 /// 汉明距离：计算两个整数在二进制表示下不同位的数量。
 /// 结果 >= 0。
+#inline
 pub fn hamming_distance(a : Int32, b : Int32) -> Int32 {
   let xor_val = a ^ b
   let mut count = 0

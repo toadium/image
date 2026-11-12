@@ -3,7 +3,7 @@
 
 ///|
 /// 风格迁移算法类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum StyleTransferAlgorithm {
   ColorTransfer
   TextureSynthesis
@@ -19,10 +19,14 @@ pub(all) enum StyleTransferAlgorithm {
 }
 
 ///|
+pub extend StyleTransferAlgorithm with @debug.Debug::{to_repr}
+
+///|
 pub extend StyleTransferAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 风格迁移结果
+#derive(Eq, @debug.Debug)
 pub(all) struct StyleTransferResult {
   image : @types.Image
   content_image_path : String
@@ -35,7 +39,14 @@ pub(all) struct StyleTransferResult {
 }
 
 ///|
+pub extend StyleTransferResult with Eq::{not_equal, equal}
+
+///|
+pub extend StyleTransferResult with @debug.Debug::{to_repr}
+
+///|
 /// 风格迁移配置
+#derive(Eq, @debug.Debug)
 pub(all) struct StyleTransferConfig {
   algorithm : StyleTransferAlgorithm
   style_strength : Double
@@ -47,7 +58,14 @@ pub(all) struct StyleTransferConfig {
 }
 
 ///|
+pub extend StyleTransferConfig with Eq::{not_equal, equal}
+
+///|
+pub extend StyleTransferConfig with @debug.Debug::{to_repr}
+
+///|
 /// 颜色统计信息
+#derive(Eq, @debug.Debug)
 pub(all) struct ColorStatistics {
   mean_r : Double
   mean_g : Double
@@ -64,7 +82,14 @@ pub(all) struct ColorStatistics {
 }
 
 ///|
+pub extend ColorStatistics with Eq::{not_equal, equal}
+
+///|
+pub extend ColorStatistics with @debug.Debug::{to_repr}
+
+///|
 /// 纹理特征
+#derive(Eq, @debug.Debug)
 pub(all) struct StyleTransferTextureFeatures {
   contrast : Double
   homogeneity : Double
@@ -77,8 +102,14 @@ pub(all) struct StyleTransferTextureFeatures {
 }
 
 ///|
+pub extend StyleTransferTextureFeatures with Eq::{not_equal, equal}
+
+///|
+pub extend StyleTransferTextureFeatures with @debug.Debug::{to_repr}
+
+///|
 /// 艺术风格类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum ArtStyle {
   Impressionist
   Cubist
@@ -92,6 +123,9 @@ pub(all) enum ArtStyle {
   Contemporary
   Unknown
 }
+
+///|
+pub extend ArtStyle with @debug.Debug::{to_repr}
 
 ///|
 pub extend ArtStyle with Eq::{not_equal, equal}

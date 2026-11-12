@@ -3,6 +3,7 @@
 
 ///|
 /// 表格线结构体
+#derive(Eq, @debug.Debug)
 pub(all) struct TableLine {
   x1 : Int32
   y1 : Int32
@@ -13,18 +14,28 @@ pub(all) struct TableLine {
 }
 
 ///|
+pub extend TableLine with Eq::{not_equal, equal}
+
+///|
+pub extend TableLine with @debug.Debug::{to_repr}
+
+///|
 /// 表格线类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum TableLineType {
   Horizontal
   Vertical
 }
 
 ///|
+pub extend TableLineType with @debug.Debug::{to_repr}
+
+///|
 pub extend TableLineType with Eq::{not_equal, equal}
 
 ///|
 /// 单元格结构体
+#derive(Eq, @debug.Debug)
 pub(all) struct TableCell {
   x : Int32
   y : Int32
@@ -37,7 +48,14 @@ pub(all) struct TableCell {
 }
 
 ///|
+pub extend TableCell with Eq::{not_equal, equal}
+
+///|
+pub extend TableCell with @debug.Debug::{to_repr}
+
+///|
 /// 表格结构结构体
+#derive(Eq, @debug.Debug)
 pub(all) struct TableStructure {
   rows : Int32
   cols : Int32
@@ -46,6 +64,12 @@ pub(all) struct TableStructure {
   vertical_lines : Array[TableLine]
   bounding_box : (Int32, Int32, Int32, Int32)
 }
+
+///|
+pub extend TableStructure with Eq::{not_equal, equal}
+
+///|
+pub extend TableStructure with @debug.Debug::{to_repr}
 
 ///|
 /// 检测水平表格线

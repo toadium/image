@@ -3,6 +3,7 @@
 
 ///|
 /// QR Code 解码结果
+#derive(Eq, Default, @debug.Debug)
 pub(all) struct QrDecodeResult {
   data : String
   version : Int32
@@ -11,6 +12,15 @@ pub(all) struct QrDecodeResult {
   confidence : Double
   corrected_errors : Int32
 }
+
+///|
+pub extend QrDecodeResult with Eq::{not_equal, equal}
+
+///|
+pub extend QrDecodeResult with Default::{default}
+
+///|
+pub extend QrDecodeResult with @debug.Debug::{to_repr}
 
 ///|
 /// QR Code 格式信息（15位）

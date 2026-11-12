@@ -3,12 +3,19 @@
 
 ///|
 /// 图像质量评估结果
+#derive(Eq, @debug.Debug)
 pub(all) struct QualityMetrics {
   mse : Double // 均方误差
   mae : Double // 平均绝对误差
   psnr : Double // 峰值信噪比（dB）
   ssim : Double // 结构相似性
 }
+
+///|
+pub extend QualityMetrics with Eq::{not_equal, equal}
+
+///|
+pub extend QualityMetrics with @debug.Debug::{to_repr}
 
 ///|
 /// 计算均方误差（MSE）

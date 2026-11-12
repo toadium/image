@@ -3,11 +3,18 @@
 
 ///|
 /// 图像融合配置
+#derive(Eq, @debug.Debug)
 pub(all) struct FusionConfig {
   method_type : String // "alpha" / "multifocus" / "exposure" / "laplacian"
   alpha : Double // Alpha 融合的权重（0-1）
   pyramid_levels : Int32 // 拉普拉斯金字塔层数
 }
+
+///|
+pub extend FusionConfig with Eq::{not_equal, equal}
+
+///|
+pub extend FusionConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认融合配置

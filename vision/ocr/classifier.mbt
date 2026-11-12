@@ -3,6 +3,7 @@
 
 ///|
 /// 分类结果结构体
+#derive(Eq, @debug.Debug)
 pub(all) struct ClassificationResult {
   label : String
   confidence : Double
@@ -10,14 +11,28 @@ pub(all) struct ClassificationResult {
 }
 
 ///|
+pub extend ClassificationResult with Eq::{not_equal, equal}
+
+///|
+pub extend ClassificationResult with @debug.Debug::{to_repr}
+
+///|
 /// 训练样本结构体
+#derive(Eq, @debug.Debug)
 pub(all) struct TrainingSample {
   features : Array[Double]
   label : String
 }
 
 ///|
+pub extend TrainingSample with Eq::{not_equal, equal}
+
+///|
+pub extend TrainingSample with @debug.Debug::{to_repr}
+
+///|
 /// KNN 分类器
+#derive(Eq, @debug.Debug)
 pub(all) struct KnnClassifier {
   samples : Array[TrainingSample]
   k : Int32
@@ -25,21 +40,37 @@ pub(all) struct KnnClassifier {
 }
 
 ///|
+pub extend KnnClassifier with Eq::{not_equal, equal}
+
+///|
+pub extend KnnClassifier with @debug.Debug::{to_repr}
+
+///|
 /// 模板匹配分类器
+#derive(Eq, @debug.Debug)
 pub(all) struct TemplateMatcher {
   templates : Array[(String, Array[Double])]
   distance_metric : String
 }
 
 ///|
+pub extend TemplateMatcher with Eq::{not_equal, equal}
+
+///|
+pub extend TemplateMatcher with @debug.Debug::{to_repr}
+
+///|
 /// 距离度量类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum DistanceMetric {
   Euclidean
   Manhattan
   Cosine
   Chebyshev
 }
+
+///|
+pub extend DistanceMetric with @debug.Debug::{to_repr}
 
 ///|
 pub extend DistanceMetric with Eq::{not_equal, equal}

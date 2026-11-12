@@ -3,7 +3,7 @@
 
 ///|
 /// 汉字结构类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum DictCharStructure {
   LeftRight // 左右结构
   UpDown // 上下结构
@@ -16,10 +16,14 @@ pub(all) enum DictCharStructure {
 }
 
 ///|
+pub extend DictCharStructure with @debug.Debug::{to_repr}
+
+///|
 pub extend DictCharStructure with Eq::{not_equal, equal}
 
 ///|
 /// 汉字部件
+#derive(Eq, @debug.Debug)
 pub(all) struct DictComponent {
   name : String
   stroke_count : Int32
@@ -29,7 +33,14 @@ pub(all) struct DictComponent {
 }
 
 ///|
+pub extend DictComponent with Eq::{not_equal, equal}
+
+///|
+pub extend DictComponent with @debug.Debug::{to_repr}
+
+///|
 /// 汉字条目
+#derive(Eq, @debug.Debug)
 pub(all) struct DictCharEntry {
   char : String
   unicode : String
@@ -43,7 +54,14 @@ pub(all) struct DictCharEntry {
 }
 
 ///|
+pub extend DictCharEntry with Eq::{not_equal, equal}
+
+///|
+pub extend DictCharEntry with @debug.Debug::{to_repr}
+
+///|
 /// 中文字库
+#derive(Eq, @debug.Debug)
 pub(all) struct DictChineseDict {
   chars : Array[DictCharEntry]
   total_chars : Int32
@@ -55,7 +73,14 @@ pub(all) struct DictChineseDict {
 }
 
 ///|
+pub extend DictChineseDict with Eq::{not_equal, equal}
+
+///|
+pub extend DictChineseDict with @debug.Debug::{to_repr}
+
+///|
 /// 部件识别结果
+#derive(Eq, @debug.Debug)
 pub(all) struct DictComponentResult {
   char : String
   detected_components : Array[DictComponent]
@@ -65,7 +90,14 @@ pub(all) struct DictComponentResult {
 }
 
 ///|
+pub extend DictComponentResult with Eq::{not_equal, equal}
+
+///|
+pub extend DictComponentResult with @debug.Debug::{to_repr}
+
+///|
 /// 汉字相似度匹配结果
+#derive(Eq, @debug.Debug)
 pub(all) struct DictCharMatch {
   target_char : String
   matched_char : String
@@ -75,6 +107,12 @@ pub(all) struct DictCharMatch {
   total_components : Int32
   stroke_diff : Int32
 }
+
+///|
+pub extend DictCharMatch with Eq::{not_equal, equal}
+
+///|
+pub extend DictCharMatch with @debug.Debug::{to_repr}
 
 ///|
 /// 获取常用汉字结构信息（简化版，覆盖高频字）

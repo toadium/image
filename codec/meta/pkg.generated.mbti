@@ -38,18 +38,19 @@ pub fn write_xmp_to_bytes(XmpInfo, Bytes) -> Bytes raise @types.LoadError
 // Errors
 
 // Types and methods
-#derive(Eq, @debug.Debug)
+#derive(Default, Eq, @debug.Debug)
 pub(all) struct ExifInfo {
   make : String
   model : String
   orientation : Int32
   date_time : String
 }
+pub fn ExifInfo::default() -> Self
 pub fn ExifInfo::equal(Self, Self) -> Bool
 pub fn ExifInfo::not_equal(Self, Self) -> Bool
 pub fn ExifInfo::to_repr(Self) -> @debug.Repr
 
-#derive(Eq, @debug.Debug)
+#derive(Default, Eq, @debug.Debug)
 pub(all) struct ExifInfoExtended {
   make : String
   model : String
@@ -68,11 +69,12 @@ pub(all) struct ExifInfoExtended {
   pixel_x_dim : Int32
   pixel_y_dim : Int32
 }
+pub fn ExifInfoExtended::default() -> Self
 pub fn ExifInfoExtended::equal(Self, Self) -> Bool
 pub fn ExifInfoExtended::not_equal(Self, Self) -> Bool
 pub fn ExifInfoExtended::to_repr(Self) -> @debug.Repr
 
-#derive(Eq, @debug.Debug)
+#derive(Default, Eq, @debug.Debug)
 pub(all) struct IptcInfo {
   title : String
   keywords : String
@@ -87,20 +89,22 @@ pub(all) struct IptcInfo {
   urgency : Int32
   raw_records : Array[(Int32, Int32, String)]
 }
+pub fn IptcInfo::default() -> Self
 pub fn IptcInfo::equal(Self, Self) -> Bool
 pub fn IptcInfo::not_equal(Self, Self) -> Bool
 pub fn IptcInfo::to_repr(Self) -> @debug.Repr
 
-#derive(Eq, @debug.Debug)
+#derive(Default, Eq, @debug.Debug)
 pub(all) struct PngTextChunk {
   keyword : String
   text : String
 }
+pub fn PngTextChunk::default() -> Self
 pub fn PngTextChunk::equal(Self, Self) -> Bool
 pub fn PngTextChunk::not_equal(Self, Self) -> Bool
 pub fn PngTextChunk::to_repr(Self) -> @debug.Repr
 
-#derive(Eq, @debug.Debug)
+#derive(Default, Eq, @debug.Debug)
 pub(all) struct XmpInfo {
   creator : String
   title : String
@@ -114,6 +118,7 @@ pub(all) struct XmpInfo {
   rating : Int32
   raw_xml : String
 }
+pub fn XmpInfo::default() -> Self
 pub fn XmpInfo::equal(Self, Self) -> Bool
 pub fn XmpInfo::not_equal(Self, Self) -> Bool
 pub fn XmpInfo::to_repr(Self) -> @debug.Repr

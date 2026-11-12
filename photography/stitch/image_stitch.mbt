@@ -3,6 +3,7 @@
 
 ///|
 /// 特征点
+#derive(Eq, @debug.Debug)
 pub(all) struct FeaturePoint {
   x : Double
   y : Double
@@ -12,7 +13,14 @@ pub(all) struct FeaturePoint {
 }
 
 ///|
+pub extend FeaturePoint with Eq::{not_equal, equal}
+
+///|
+pub extend FeaturePoint with @debug.Debug::{to_repr}
+
+///|
 /// 匹配对
+#derive(Eq, @debug.Debug)
 pub(all) struct MatchPair {
   query_idx : Int32
   train_idx : Int32
@@ -20,7 +28,14 @@ pub(all) struct MatchPair {
 }
 
 ///|
+pub extend MatchPair with Eq::{not_equal, equal}
+
+///|
+pub extend MatchPair with @debug.Debug::{to_repr}
+
+///|
 /// 单应性矩阵（3x3）
+#derive(Eq, @debug.Debug)
 pub(all) struct Homography {
   h00 : Double
   h01 : Double
@@ -34,7 +49,14 @@ pub(all) struct Homography {
 }
 
 ///|
+pub extend Homography with Eq::{not_equal, equal}
+
+///|
+pub extend Homography with @debug.Debug::{to_repr}
+
+///|
 /// 图像拼接配置
+#derive(Eq, @debug.Debug)
 pub(all) struct StitchConfig {
   max_features : Int32 // 最大特征点数
   ratio_threshold : Double // Lowe 比率测试阈值
@@ -44,6 +66,12 @@ pub(all) struct StitchConfig {
   blend_width : Int32 // 融合宽度（像素）
   use_multi_band : Bool // 是否使用多频段融合
 }
+
+///|
+pub extend StitchConfig with Eq::{not_equal, equal}
+
+///|
+pub extend StitchConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认图像拼接配置

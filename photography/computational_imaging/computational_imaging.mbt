@@ -3,7 +3,7 @@
 
 ///|
 /// 计算成像算法类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum ComputationalImagingAlgorithm {
   LightField
   Holography
@@ -17,11 +17,14 @@ pub(all) enum ComputationalImagingAlgorithm {
 }
 
 ///|
+pub extend ComputationalImagingAlgorithm with @debug.Debug::{to_repr}
+
+///|
 pub extend ComputationalImagingAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 光场表示类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum LightFieldRepresentation {
   TwoPlane
   Lumigraph
@@ -31,11 +34,14 @@ pub(all) enum LightFieldRepresentation {
 }
 
 ///|
+pub extend LightFieldRepresentation with @debug.Debug::{to_repr}
+
+///|
 pub extend LightFieldRepresentation with Eq::{not_equal, equal}
 
 ///|
 /// 全息图类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum HologramType {
   Fresnel
   Fourier
@@ -46,10 +52,14 @@ pub(all) enum HologramType {
 }
 
 ///|
+pub extend HologramType with @debug.Debug::{to_repr}
+
+///|
 pub extend HologramType with Eq::{not_equal, equal}
 
 ///|
 /// 光场相机参数
+#derive(Eq, @debug.Debug)
 pub(all) struct LightFieldCameraParams {
   num_views_x : Int32
   num_views_y : Int32
@@ -60,7 +70,14 @@ pub(all) struct LightFieldCameraParams {
 }
 
 ///|
+pub extend LightFieldCameraParams with Eq::{not_equal, equal}
+
+///|
+pub extend LightFieldCameraParams with @debug.Debug::{to_repr}
+
+///|
 /// 光场数据
+#derive(Eq, @debug.Debug)
 pub(all) struct LightFieldData {
   views : Array[@types.Image]
   num_views_x : Int32
@@ -70,7 +87,14 @@ pub(all) struct LightFieldData {
 }
 
 ///|
+pub extend LightFieldData with Eq::{not_equal, equal}
+
+///|
+pub extend LightFieldData with @debug.Debug::{to_repr}
+
+///|
 /// 全息图
+#derive(Eq, @debug.Debug)
 pub(all) struct Hologram {
   intensity : @types.Image
   phase : @types.Image
@@ -81,7 +105,14 @@ pub(all) struct Hologram {
 }
 
 ///|
+pub extend Hologram with Eq::{not_equal, equal}
+
+///|
+pub extend Hologram with @debug.Debug::{to_repr}
+
+///|
 /// CT 投影数据
+#derive(Eq, @debug.Debug)
 pub(all) struct CTProjectionData {
   projections : Array[@types.Image]
   num_angles : Int32
@@ -92,7 +123,14 @@ pub(all) struct CTProjectionData {
 }
 
 ///|
+pub extend CTProjectionData with Eq::{not_equal, equal}
+
+///|
+pub extend CTProjectionData with @debug.Debug::{to_repr}
+
+///|
 /// 相位恢复配置
+#derive(Eq, @debug.Debug)
 pub(all) struct PhaseRetrievalConfig {
   num_iterations : Int32
   algorithm : String
@@ -102,7 +140,14 @@ pub(all) struct PhaseRetrievalConfig {
 }
 
 ///|
+pub extend PhaseRetrievalConfig with Eq::{not_equal, equal}
+
+///|
+pub extend PhaseRetrievalConfig with @debug.Debug::{to_repr}
+
+///|
 /// 编码孔径模式
+#derive(Eq, @debug.Debug)
 pub(all) struct CodedAperturePattern {
   pattern : @types.Image
   pattern_size : Int32
@@ -111,7 +156,14 @@ pub(all) struct CodedAperturePattern {
 }
 
 ///|
+pub extend CodedAperturePattern with Eq::{not_equal, equal}
+
+///|
+pub extend CodedAperturePattern with @debug.Debug::{to_repr}
+
+///|
 /// 重聚焦结果
+#derive(Eq, @debug.Debug)
 pub(all) struct RefocusResult {
   image : @types.Image
   focus_depth : Double
@@ -120,7 +172,14 @@ pub(all) struct RefocusResult {
 }
 
 ///|
+pub extend RefocusResult with Eq::{not_equal, equal}
+
+///|
+pub extend RefocusResult with @debug.Debug::{to_repr}
+
+///|
 /// 视角合成结果
+#derive(Eq, @debug.Debug)
 pub(all) struct ViewSynthesisResult {
   image : @types.Image
   view_position : Array[Double]
@@ -129,7 +188,14 @@ pub(all) struct ViewSynthesisResult {
 }
 
 ///|
+pub extend ViewSynthesisResult with Eq::{not_equal, equal}
+
+///|
+pub extend ViewSynthesisResult with @debug.Debug::{to_repr}
+
+///|
 /// 重建结果
+#derive(Eq, @debug.Debug)
 pub(all) struct ImagingReconstructionResult {
   image : @types.Image
   algorithm : ComputationalImagingAlgorithm
@@ -139,6 +205,12 @@ pub(all) struct ImagingReconstructionResult {
   psnr : Double
   ssim : Double
 }
+
+///|
+pub extend ImagingReconstructionResult with Eq::{not_equal, equal}
+
+///|
+pub extend ImagingReconstructionResult with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认光场相机参数

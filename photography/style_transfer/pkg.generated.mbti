@@ -2,6 +2,7 @@
 package "walkzzz/photography/style_transfer"
 
 import {
+  "moonbitlang/core/debug",
   "walkzzz/core/types",
 }
 
@@ -39,7 +40,7 @@ pub fn watercolor(@types.Image, blur_radius? : Int32) -> @types.Image
 // Errors
 
 // Types and methods
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum ArtStyle {
   Impressionist
   Cubist
@@ -55,7 +56,9 @@ pub(all) enum ArtStyle {
 }
 pub fn ArtStyle::equal(Self, Self) -> Bool
 pub fn ArtStyle::not_equal(Self, Self) -> Bool
+pub fn ArtStyle::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct ColorStatistics {
   mean_r : Double
   mean_g : Double
@@ -70,8 +73,11 @@ pub(all) struct ColorStatistics {
   max_g : Double
   max_b : Double
 }
+pub fn ColorStatistics::equal(Self, Self) -> Bool
+pub fn ColorStatistics::not_equal(Self, Self) -> Bool
+pub fn ColorStatistics::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum StyleTransferAlgorithm {
   ColorTransfer
   TextureSynthesis
@@ -87,7 +93,9 @@ pub(all) enum StyleTransferAlgorithm {
 }
 pub fn StyleTransferAlgorithm::equal(Self, Self) -> Bool
 pub fn StyleTransferAlgorithm::not_equal(Self, Self) -> Bool
+pub fn StyleTransferAlgorithm::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct StyleTransferConfig {
   algorithm : StyleTransferAlgorithm
   style_strength : Double
@@ -97,7 +105,11 @@ pub(all) struct StyleTransferConfig {
   use_color_preservation : Bool
   resolution : Int32
 }
+pub fn StyleTransferConfig::equal(Self, Self) -> Bool
+pub fn StyleTransferConfig::not_equal(Self, Self) -> Bool
+pub fn StyleTransferConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct StyleTransferResult {
   image : @types.Image
   content_image_path : String
@@ -108,7 +120,11 @@ pub(all) struct StyleTransferResult {
   processing_time_ms : Double
   iterations : Int32
 }
+pub fn StyleTransferResult::equal(Self, Self) -> Bool
+pub fn StyleTransferResult::not_equal(Self, Self) -> Bool
+pub fn StyleTransferResult::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct StyleTransferTextureFeatures {
   contrast : Double
   homogeneity : Double
@@ -119,7 +135,11 @@ pub(all) struct StyleTransferTextureFeatures {
   directionality : Double
   regularity : Double
 }
+pub fn StyleTransferTextureFeatures::equal(Self, Self) -> Bool
+pub fn StyleTransferTextureFeatures::not_equal(Self, Self) -> Bool
+pub fn StyleTransferTextureFeatures::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct StylizeConfig {
   oil_paint_radius : Int32
   oil_paint_intensity : Int32
@@ -128,6 +148,9 @@ pub(all) struct StylizeConfig {
   cartoon_levels : Int32
   cartoon_edge_threshold : Double
 }
+pub fn StylizeConfig::equal(Self, Self) -> Bool
+pub fn StylizeConfig::not_equal(Self, Self) -> Bool
+pub fn StylizeConfig::to_repr(Self) -> @debug.Repr
 
 // Type aliases
 

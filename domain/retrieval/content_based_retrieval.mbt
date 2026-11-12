@@ -38,6 +38,7 @@ pub(all) struct CBIRImageFeature {
 
 ///|
 /// 检索结果
+#derive(Eq, Default, @debug.Debug)
 pub(all) struct CBIRRetrievalResult {
   image_id : String
   image_path : String
@@ -49,7 +50,17 @@ pub(all) struct CBIRRetrievalResult {
 }
 
 ///|
+pub extend CBIRRetrievalResult with @debug.Debug::{to_repr}
+
+///|
+pub extend CBIRRetrievalResult with Eq::{not_equal, equal}
+
+///|
+pub extend CBIRRetrievalResult with Default::{default}
+
+///|
 /// 检索结果列表
+#derive(Eq, Default, @debug.Debug)
 pub(all) struct CBIRRetrievalResultList {
   results : Array[CBIRRetrievalResult]
   num_results : Int32
@@ -57,6 +68,15 @@ pub(all) struct CBIRRetrievalResultList {
   retrieval_time_ms : Double
   total_images_in_index : Int32
 }
+
+///|
+pub extend CBIRRetrievalResultList with @debug.Debug::{to_repr}
+
+///|
+pub extend CBIRRetrievalResultList with Eq::{not_equal, equal}
+
+///|
+pub extend CBIRRetrievalResultList with Default::{default}
 
 ///|
 /// 图像索引
@@ -89,6 +109,7 @@ pub extend SimilarityMetric with Eq::{not_equal, equal}
 
 ///|
 /// 颜色直方图配置
+#derive(Eq, Default, @debug.Debug)
 pub(all) struct ColorHistogramConfig {
   num_bins : Int32
   color_space : String // "RGB" / "HSV" / "Gray"
@@ -97,7 +118,17 @@ pub(all) struct ColorHistogramConfig {
 }
 
 ///|
+pub extend ColorHistogramConfig with @debug.Debug::{to_repr}
+
+///|
+pub extend ColorHistogramConfig with Eq::{not_equal, equal}
+
+///|
+pub extend ColorHistogramConfig with Default::{default}
+
+///|
 /// LBP 特征配置
+#derive(Eq, Default, @debug.Debug)
 pub(all) struct LBPConfig {
   radius : Int32
   num_points : Int32
@@ -106,7 +137,17 @@ pub(all) struct LBPConfig {
 }
 
 ///|
+pub extend LBPConfig with @debug.Debug::{to_repr}
+
+///|
+pub extend LBPConfig with Eq::{not_equal, equal}
+
+///|
+pub extend LBPConfig with Default::{default}
+
+///|
 /// HOG 特征配置
+#derive(Eq, Default, @debug.Debug)
 pub(all) struct HOGConfig {
   cell_size : Int32
   block_size : Int32
@@ -115,13 +156,32 @@ pub(all) struct HOGConfig {
 }
 
 ///|
+pub extend HOGConfig with @debug.Debug::{to_repr}
+
+///|
+pub extend HOGConfig with Eq::{not_equal, equal}
+
+///|
+pub extend HOGConfig with Default::{default}
+
+///|
 /// Gabor 特征配置
+#derive(Eq, Default, @debug.Debug)
 pub(all) struct GaborConfig {
   num_scales : Int32
   num_orientations : Int32
   wavelength : Double
   aspect_ratio : Double
 }
+
+///|
+pub extend GaborConfig with @debug.Debug::{to_repr}
+
+///|
+pub extend GaborConfig with Eq::{not_equal, equal}
+
+///|
+pub extend GaborConfig with Default::{default}
 
 ///|
 /// 创建默认颜色直方图配置

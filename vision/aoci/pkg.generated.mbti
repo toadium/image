@@ -100,11 +100,15 @@ pub fn SymbolKind::not_equal(Self, Self) -> Bool
 pub fn SymbolKind::to_repr(Self) -> @debug.Repr
 pub fn SymbolKind::to_string(Self) -> String
 
+#derive(Eq, @debug.Debug)
 pub(all) struct VerifyResult {
   is_valid : Bool
   issues : Array[String]
 }
+pub fn VerifyResult::equal(Self, Self) -> Bool
 pub fn VerifyResult::make(is_valid~ : Bool, issues? : Array[String]) -> Self
+pub fn VerifyResult::not_equal(Self, Self) -> Bool
+pub fn VerifyResult::to_repr(Self) -> @debug.Repr
 
 // Type aliases
 

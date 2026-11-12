@@ -3,6 +3,7 @@
 
 ///|
 /// HDR 配置
+#derive(Eq, @debug.Debug)
 pub(all) struct HdrConfig {
   fusion_method : String // "average" / "weighted" / "mertens"
   tone_mapping : String // "reinhard" / "gamma" / "sigmoid"
@@ -10,6 +11,12 @@ pub(all) struct HdrConfig {
   reinhard_key : Double // Reinhard 色调映射关键值
   sigmoid_strength : Double // Sigmoid 强度
 }
+
+///|
+pub extend HdrConfig with Eq::{not_equal, equal}
+
+///|
+pub extend HdrConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认 HDR 配置

@@ -3,6 +3,7 @@
 
 ///|
 /// 光流向量
+#derive(Eq, @debug.Debug)
 pub(all) struct OpticalFlowVector {
   x : Double
   y : Double
@@ -11,7 +12,14 @@ pub(all) struct OpticalFlowVector {
 }
 
 ///|
+pub extend OpticalFlowVector with Eq::{not_equal, equal}
+
+///|
+pub extend OpticalFlowVector with @debug.Debug::{to_repr}
+
+///|
 /// 光流场
+#derive(Eq, @debug.Debug)
 pub(all) struct OpticalFlowField {
   width : Int32
   height : Int32
@@ -22,7 +30,14 @@ pub(all) struct OpticalFlowField {
 }
 
 ///|
+pub extend OpticalFlowField with Eq::{not_equal, equal}
+
+///|
+pub extend OpticalFlowField with @debug.Debug::{to_repr}
+
+///|
 /// 跟踪目标
+#derive(Eq, @debug.Debug)
 pub(all) struct TrackedObject {
   id : Int32
   label : String
@@ -43,7 +58,14 @@ pub(all) struct TrackedObject {
 }
 
 ///|
+pub extend TrackedObject with Eq::{not_equal, equal}
+
+///|
+pub extend TrackedObject with @debug.Debug::{to_repr}
+
+///|
 /// 跟踪结果
+#derive(Eq, @debug.Debug)
 pub(all) struct TrackingResult {
   frame_index : Int32
   objects : Array[TrackedObject]
@@ -52,8 +74,14 @@ pub(all) struct TrackingResult {
 }
 
 ///|
+pub extend TrackingResult with Eq::{not_equal, equal}
+
+///|
+pub extend TrackingResult with @debug.Debug::{to_repr}
+
+///|
 /// 动作类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum ActionType {
   Walking
   Running
@@ -71,10 +99,14 @@ pub(all) enum ActionType {
 }
 
 ///|
+pub extend ActionType with @debug.Debug::{to_repr}
+
+///|
 pub extend ActionType with Eq::{not_equal, equal}
 
 ///|
 /// 动作识别结果
+#derive(Eq, @debug.Debug)
 pub(all) struct ActionRecognitionResult {
   action_type : ActionType
   confidence : Double
@@ -87,7 +119,14 @@ pub(all) struct ActionRecognitionResult {
 }
 
 ///|
+pub extend ActionRecognitionResult with Eq::{not_equal, equal}
+
+///|
+pub extend ActionRecognitionResult with @debug.Debug::{to_repr}
+
+///|
 /// 视频稳定配置
+#derive(Eq, @debug.Debug)
 pub(all) struct VideoStabilizationConfig {
   smoothing_radius : Int32
   max_correction : Double
@@ -97,8 +136,14 @@ pub(all) struct VideoStabilizationConfig {
 }
 
 ///|
+pub extend VideoStabilizationConfig with Eq::{not_equal, equal}
+
+///|
+pub extend VideoStabilizationConfig with @debug.Debug::{to_repr}
+
+///|
 /// 关键帧类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum KeyframeType {
   SceneChange
   MotionPeak
@@ -108,10 +153,14 @@ pub(all) enum KeyframeType {
 }
 
 ///|
+pub extend KeyframeType with @debug.Debug::{to_repr}
+
+///|
 pub extend KeyframeType with Eq::{not_equal, equal}
 
 ///|
 /// 关键帧
+#derive(Eq, @debug.Debug)
 pub(all) struct Keyframe {
   frame_index : Int32
   timestamp_ms : Double
@@ -121,7 +170,14 @@ pub(all) struct Keyframe {
 }
 
 ///|
+pub extend Keyframe with Eq::{not_equal, equal}
+
+///|
+pub extend Keyframe with @debug.Debug::{to_repr}
+
+///|
 /// 视频摘要
+#derive(Eq, @debug.Debug)
 pub(all) struct VideoSummary {
   total_frames : Int32
   duration_ms : Double
@@ -132,6 +188,12 @@ pub(all) struct VideoSummary {
   scene_changes : Array[Int32]
   summary_text : String
 }
+
+///|
+pub extend VideoSummary with Eq::{not_equal, equal}
+
+///|
+pub extend VideoSummary with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认视频稳定配置

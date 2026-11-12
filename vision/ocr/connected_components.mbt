@@ -3,6 +3,7 @@
 
 ///|
 /// 连通域结构体
+#derive(Eq, @debug.Debug)
 pub(all) struct OcrConnectedComponent {
   label : Int32
   x : Int32
@@ -16,12 +17,25 @@ pub(all) struct OcrConnectedComponent {
 }
 
 ///|
+pub extend OcrConnectedComponent with Eq::{not_equal, equal}
+
+///|
+pub extend OcrConnectedComponent with @debug.Debug::{to_repr}
+
+///|
 /// 连通域标记结果
+#derive(Eq, @debug.Debug)
 pub(all) struct OcrConnectedComponentsResult {
   labels : Array[Int32]
   num_components : Int32
   components : Array[OcrConnectedComponent]
 }
+
+///|
+pub extend OcrConnectedComponentsResult with Eq::{not_equal, equal}
+
+///|
+pub extend OcrConnectedComponentsResult with @debug.Debug::{to_repr}
 
 ///|
 /// 二值图像连通域标记（4邻域或8邻域）

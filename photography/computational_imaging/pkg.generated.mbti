@@ -2,6 +2,7 @@
 package "walkzzz/photography/computational_imaging"
 
 import {
+  "moonbitlang/core/debug",
   "walkzzz/core/types",
 }
 
@@ -33,6 +34,7 @@ pub fn synthesize_view(LightFieldData, Double, Double) -> ViewSynthesisResult
 // Errors
 
 // Types and methods
+#derive(Eq, @debug.Debug)
 pub(all) struct CTProjectionData {
   projections : Array[@types.Image]
   num_angles : Int32
@@ -41,15 +43,22 @@ pub(all) struct CTProjectionData {
   source_distance : Double
   detector_distance : Double
 }
+pub fn CTProjectionData::equal(Self, Self) -> Bool
+pub fn CTProjectionData::not_equal(Self, Self) -> Bool
+pub fn CTProjectionData::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct CodedAperturePattern {
   pattern : @types.Image
   pattern_size : Int32
   code_type : String
   num_elements : Int32
 }
+pub fn CodedAperturePattern::equal(Self, Self) -> Bool
+pub fn CodedAperturePattern::not_equal(Self, Self) -> Bool
+pub fn CodedAperturePattern::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum ComputationalImagingAlgorithm {
   LightField
   Holography
@@ -63,7 +72,9 @@ pub(all) enum ComputationalImagingAlgorithm {
 }
 pub fn ComputationalImagingAlgorithm::equal(Self, Self) -> Bool
 pub fn ComputationalImagingAlgorithm::not_equal(Self, Self) -> Bool
+pub fn ComputationalImagingAlgorithm::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct Hologram {
   intensity : @types.Image
   phase : @types.Image
@@ -72,8 +83,11 @@ pub(all) struct Hologram {
   distance : Double
   pixel_size : Double
 }
+pub fn Hologram::equal(Self, Self) -> Bool
+pub fn Hologram::not_equal(Self, Self) -> Bool
+pub fn Hologram::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum HologramType {
   Fresnel
   Fourier
@@ -84,7 +98,9 @@ pub(all) enum HologramType {
 }
 pub fn HologramType::equal(Self, Self) -> Bool
 pub fn HologramType::not_equal(Self, Self) -> Bool
+pub fn HologramType::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct ImagingReconstructionResult {
   image : @types.Image
   algorithm : ComputationalImagingAlgorithm
@@ -94,7 +110,11 @@ pub(all) struct ImagingReconstructionResult {
   psnr : Double
   ssim : Double
 }
+pub fn ImagingReconstructionResult::equal(Self, Self) -> Bool
+pub fn ImagingReconstructionResult::not_equal(Self, Self) -> Bool
+pub fn ImagingReconstructionResult::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct LightFieldCameraParams {
   num_views_x : Int32
   num_views_y : Int32
@@ -103,7 +123,11 @@ pub(all) struct LightFieldCameraParams {
   sensor_pitch : Double
   num_aperture_samples : Int32
 }
+pub fn LightFieldCameraParams::equal(Self, Self) -> Bool
+pub fn LightFieldCameraParams::not_equal(Self, Self) -> Bool
+pub fn LightFieldCameraParams::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct LightFieldData {
   views : Array[@types.Image]
   num_views_x : Int32
@@ -111,8 +135,11 @@ pub(all) struct LightFieldData {
   total_views : Int32
   representation : LightFieldRepresentation
 }
+pub fn LightFieldData::equal(Self, Self) -> Bool
+pub fn LightFieldData::not_equal(Self, Self) -> Bool
+pub fn LightFieldData::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum LightFieldRepresentation {
   TwoPlane
   Lumigraph
@@ -122,7 +149,9 @@ pub(all) enum LightFieldRepresentation {
 }
 pub fn LightFieldRepresentation::equal(Self, Self) -> Bool
 pub fn LightFieldRepresentation::not_equal(Self, Self) -> Bool
+pub fn LightFieldRepresentation::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct PhaseRetrievalConfig {
   num_iterations : Int32
   algorithm : String
@@ -130,20 +159,31 @@ pub(all) struct PhaseRetrievalConfig {
   use_hybrid_input_output : Bool
   beta : Double
 }
+pub fn PhaseRetrievalConfig::equal(Self, Self) -> Bool
+pub fn PhaseRetrievalConfig::not_equal(Self, Self) -> Bool
+pub fn PhaseRetrievalConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct RefocusResult {
   image : @types.Image
   focus_depth : Double
   aperture_size : Double
   num_views_used : Int32
 }
+pub fn RefocusResult::equal(Self, Self) -> Bool
+pub fn RefocusResult::not_equal(Self, Self) -> Bool
+pub fn RefocusResult::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct ViewSynthesisResult {
   image : @types.Image
   view_position : Array[Double]
   num_source_views : Int32
   interpolation_method : String
 }
+pub fn ViewSynthesisResult::equal(Self, Self) -> Bool
+pub fn ViewSynthesisResult::not_equal(Self, Self) -> Bool
+pub fn ViewSynthesisResult::to_repr(Self) -> @debug.Repr
 
 // Type aliases
 

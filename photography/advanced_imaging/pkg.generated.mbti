@@ -2,6 +2,7 @@
 package "walkzzz/photography/advanced_imaging"
 
 import {
+  "moonbitlang/core/debug",
   "walkzzz/core/types",
 }
 
@@ -31,6 +32,7 @@ pub fn xray_enhance(@types.Image, Double) -> XRayData
 // Errors
 
 // Types and methods
+#derive(Eq, @debug.Debug)
 pub(all) struct AdvancedImagingConfig {
   modality : ImagingModality
   image_width : Int32
@@ -40,7 +42,11 @@ pub(all) struct AdvancedImagingConfig {
   use_enhancement : Bool
   calibration_factor : Double
 }
+pub fn AdvancedImagingConfig::equal(Self, Self) -> Bool
+pub fn AdvancedImagingConfig::not_equal(Self, Self) -> Bool
+pub fn AdvancedImagingConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct HyperspectralData {
   image_cube : Array[@types.Image]
   num_bands : Int32
@@ -49,8 +55,11 @@ pub(all) struct HyperspectralData {
   spatial_width : Int32
   spatial_height : Int32
 }
+pub fn HyperspectralData::equal(Self, Self) -> Bool
+pub fn HyperspectralData::not_equal(Self, Self) -> Bool
+pub fn HyperspectralData::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum ImagingModality {
   Quantum
   Terahertz
@@ -67,8 +76,9 @@ pub(all) enum ImagingModality {
 }
 pub fn ImagingModality::equal(Self, Self) -> Bool
 pub fn ImagingModality::not_equal(Self, Self) -> Bool
+pub fn ImagingModality::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum InfraredImagingType {
   MWIR
   LWIR
@@ -79,7 +89,9 @@ pub(all) enum InfraredImagingType {
 }
 pub fn InfraredImagingType::equal(Self, Self) -> Bool
 pub fn InfraredImagingType::not_equal(Self, Self) -> Bool
+pub fn InfraredImagingType::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct MRIData {
   t1_weighted : @types.Image
   t2_weighted : @types.Image
@@ -89,7 +101,11 @@ pub(all) struct MRIData {
   slice_thickness_mm : Double
   field_strength_t : Double
 }
+pub fn MRIData::equal(Self, Self) -> Bool
+pub fn MRIData::not_equal(Self, Self) -> Bool
+pub fn MRIData::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct PETData {
   activity_map : @types.Image
   radiotracer : String
@@ -98,7 +114,11 @@ pub(all) struct PETData {
   reconstruction_algorithm : String
   suv_scale : Double
 }
+pub fn PETData::equal(Self, Self) -> Bool
+pub fn PETData::not_equal(Self, Self) -> Bool
+pub fn PETData::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct PolarizationData {
   intensity : @types.Image
   degree_of_polarization : @types.Image
@@ -106,8 +126,11 @@ pub(all) struct PolarizationData {
   stokes_parameters : Array[@types.Image]
   num_stokes : Int32
 }
+pub fn PolarizationData::equal(Self, Self) -> Bool
+pub fn PolarizationData::not_equal(Self, Self) -> Bool
+pub fn PolarizationData::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum QuantumImagingAlgorithm {
   GhostImaging
   SinglePixel
@@ -118,7 +141,9 @@ pub(all) enum QuantumImagingAlgorithm {
 }
 pub fn QuantumImagingAlgorithm::equal(Self, Self) -> Bool
 pub fn QuantumImagingAlgorithm::not_equal(Self, Self) -> Bool
+pub fn QuantumImagingAlgorithm::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct ThermalData {
   temperature_map : @types.Image
   min_temperature : Double
@@ -127,7 +152,11 @@ pub(all) struct ThermalData {
   emissivity : Double
   units : String
 }
+pub fn ThermalData::equal(Self, Self) -> Bool
+pub fn ThermalData::not_equal(Self, Self) -> Bool
+pub fn ThermalData::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct UltrasoundData {
   b_mode : @types.Image
   doppler : @types.Image
@@ -136,7 +165,11 @@ pub(all) struct UltrasoundData {
   gain : Double
   frame_rate : Double
 }
+pub fn UltrasoundData::equal(Self, Self) -> Bool
+pub fn UltrasoundData::not_equal(Self, Self) -> Bool
+pub fn UltrasoundData::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct XRayData {
   projection : @types.Image
   energy_kev : Double
@@ -144,6 +177,9 @@ pub(all) struct XRayData {
   contrast : Double
   noise_level : Double
 }
+pub fn XRayData::equal(Self, Self) -> Bool
+pub fn XRayData::not_equal(Self, Self) -> Bool
+pub fn XRayData::to_repr(Self) -> @debug.Repr
 
 // Type aliases
 

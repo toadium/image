@@ -3,6 +3,7 @@
 
 ///|
 /// 中文 OCR 配置
+#derive(Eq, @debug.Debug)
 pub(all) struct ChineseOcrConfig {
   min_char_width : Int32
   max_char_width : Int32
@@ -10,6 +11,12 @@ pub(all) struct ChineseOcrConfig {
   distance_metric : String
   char_set : String // "common" / "full"
 }
+
+///|
+pub extend ChineseOcrConfig with Eq::{not_equal, equal}
+
+///|
+pub extend ChineseOcrConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认中文 OCR 配置

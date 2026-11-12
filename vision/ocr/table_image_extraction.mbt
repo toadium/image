@@ -3,6 +3,7 @@
 
 ///|
 /// 表格线检测结果
+#derive(Eq, @debug.Debug)
 pub(all) struct TableDetectionResult {
   horizontal_lines : Array[(Int32, Int32, Int32)] // (y, x_start, x_end)
   vertical_lines : Array[(Int32, Int32, Int32)] // (x, y_start, y_end)
@@ -13,7 +14,14 @@ pub(all) struct TableDetectionResult {
 }
 
 ///|
+pub extend TableDetectionResult with Eq::{not_equal, equal}
+
+///|
+pub extend TableDetectionResult with @debug.Debug::{to_repr}
+
+///|
 /// 单元格内容
+#derive(Eq, @debug.Debug)
 pub(all) struct TableCellContent {
   row : Int32
   col : Int32
@@ -29,7 +37,14 @@ pub(all) struct TableCellContent {
 }
 
 ///|
+pub extend TableCellContent with Eq::{not_equal, equal}
+
+///|
+pub extend TableCellContent with @debug.Debug::{to_repr}
+
+///|
 /// 完整表格识别结果
+#derive(Eq, @debug.Debug)
 pub(all) struct EnhancedTableResult {
   x : Int32
   y : Int32
@@ -45,7 +60,14 @@ pub(all) struct EnhancedTableResult {
 }
 
 ///|
+pub extend EnhancedTableResult with Eq::{not_equal, equal}
+
+///|
+pub extend EnhancedTableResult with @debug.Debug::{to_repr}
+
+///|
 /// 提取的图片区域
+#derive(Eq, @debug.Debug)
 pub(all) struct ExtractedImage {
   x : Int32
   y : Int32
@@ -58,6 +80,12 @@ pub(all) struct ExtractedImage {
   edge_density : Double
   file_name : String
 }
+
+///|
+pub extend ExtractedImage with Eq::{not_equal, equal}
+
+///|
+pub extend ExtractedImage with @debug.Debug::{to_repr}
 
 ///|
 /// 检测水平表格线（基于形态学操作的简化版）

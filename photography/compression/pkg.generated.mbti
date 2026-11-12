@@ -2,6 +2,7 @@
 package "walkzzz/photography/compression"
 
 import {
+  "moonbitlang/core/debug",
   "walkzzz/core/types",
 }
 
@@ -37,7 +38,7 @@ pub fn run_length_encode(Bytes) -> Bytes
 // Errors
 
 // Types and methods
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum CompressionAlgorithm {
   RunLengthEncoding
   HuffmanCoding
@@ -53,7 +54,9 @@ pub(all) enum CompressionAlgorithm {
 }
 pub fn CompressionAlgorithm::equal(Self, Self) -> Bool
 pub fn CompressionAlgorithm::not_equal(Self, Self) -> Bool
+pub fn CompressionAlgorithm::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct CompressionConfig {
   algorithm : CompressionAlgorithm
   quality : Double
@@ -63,7 +66,11 @@ pub(all) struct CompressionConfig {
   use_entropy_coding : Bool
   block_size : Int32
 }
+pub fn CompressionConfig::equal(Self, Self) -> Bool
+pub fn CompressionConfig::not_equal(Self, Self) -> Bool
+pub fn CompressionConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct CompressionQualityMetrics {
   psnr : Double
   ssim : Double
@@ -73,7 +80,11 @@ pub(all) struct CompressionQualityMetrics {
   structural_similarity : Double
   overall_quality : Double
 }
+pub fn CompressionQualityMetrics::equal(Self, Self) -> Bool
+pub fn CompressionQualityMetrics::not_equal(Self, Self) -> Bool
+pub fn CompressionQualityMetrics::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct CompressionResult {
   compressed_data : Bytes
   original_size : Int32
@@ -84,22 +95,33 @@ pub(all) struct CompressionResult {
   quality : Double
   processing_time_ms : Double
 }
+pub fn CompressionResult::equal(Self, Self) -> Bool
+pub fn CompressionResult::not_equal(Self, Self) -> Bool
+pub fn CompressionResult::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DCTBlock {
   coefficients : Array[Double]
   block_size : Int32
   width : Int32
   height : Int32
 }
+pub fn DCTBlock::equal(Self, Self) -> Bool
+pub fn DCTBlock::not_equal(Self, Self) -> Bool
+pub fn DCTBlock::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct HuffmanTable {
   symbols : Array[Int32]
   codes : Array[Int32]
   code_lengths : Array[Int32]
   num_symbols : Int32
 }
+pub fn HuffmanTable::equal(Self, Self) -> Bool
+pub fn HuffmanTable::not_equal(Self, Self) -> Bool
+pub fn HuffmanTable::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum QuantizationTableType {
   Luminance
   Chrominance
@@ -108,6 +130,7 @@ pub(all) enum QuantizationTableType {
 }
 pub fn QuantizationTableType::equal(Self, Self) -> Bool
 pub fn QuantizationTableType::not_equal(Self, Self) -> Bool
+pub fn QuantizationTableType::to_repr(Self) -> @debug.Repr
 
 // Type aliases
 

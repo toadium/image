@@ -3,6 +3,7 @@
 
 ///|
 /// 字符识别结果
+#derive(Eq, @debug.Debug)
 pub(all) struct CharRecognitionResult {
   expected : String
   actual : String
@@ -13,7 +14,14 @@ pub(all) struct CharRecognitionResult {
 }
 
 ///|
+pub extend CharRecognitionResult with Eq::{not_equal, equal}
+
+///|
+pub extend CharRecognitionResult with @debug.Debug::{to_repr}
+
+///|
 /// 准确率统计
+#derive(Eq, @debug.Debug)
 pub(all) struct AccuracyStats {
   total_chars : Int32
   correct_chars : Int32
@@ -32,7 +40,14 @@ pub(all) struct AccuracyStats {
 }
 
 ///|
+pub extend AccuracyStats with Eq::{not_equal, equal}
+
+///|
+pub extend AccuracyStats with @debug.Debug::{to_repr}
+
+///|
 /// 混淆矩阵条目
+#derive(Eq, @debug.Debug)
 pub(all) struct ConfusionEntry {
   expected : String
   actual : String
@@ -40,15 +55,28 @@ pub(all) struct ConfusionEntry {
 }
 
 ///|
+pub extend ConfusionEntry with Eq::{not_equal, equal}
+
+///|
+pub extend ConfusionEntry with @debug.Debug::{to_repr}
+
+///|
 /// 混淆矩阵
+#derive(Eq, @debug.Debug)
 pub(all) struct ConfusionMatrix {
   entries : Array[ConfusionEntry]
   total_errors : Int32
 }
 
 ///|
+pub extend ConfusionMatrix with Eq::{not_equal, equal}
+
+///|
+pub extend ConfusionMatrix with @debug.Debug::{to_repr}
+
+///|
 /// 错误类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum OcrErrorType {
   Substitution // 替换错误（A→B）
   Insertion // 插入错误（多识别了字符）
@@ -58,10 +86,14 @@ pub(all) enum OcrErrorType {
 }
 
 ///|
+pub extend OcrErrorType with @debug.Debug::{to_repr}
+
+///|
 pub extend OcrErrorType with Eq::{not_equal, equal}
 
 ///|
 /// 错误分析条目
+#derive(Eq, @debug.Debug)
 pub(all) struct ErrorAnalysisEntry {
   error_type : OcrErrorType
   expected : String
@@ -73,7 +105,14 @@ pub(all) struct ErrorAnalysisEntry {
 }
 
 ///|
+pub extend ErrorAnalysisEntry with Eq::{not_equal, equal}
+
+///|
+pub extend ErrorAnalysisEntry with @debug.Debug::{to_repr}
+
+///|
 /// 错误分析报告
+#derive(Eq, @debug.Debug)
 pub(all) struct ErrorAnalysisReport {
   total_errors : Int32
   substitution_count : Int32
@@ -85,7 +124,14 @@ pub(all) struct ErrorAnalysisReport {
 }
 
 ///|
+pub extend ErrorAnalysisReport with Eq::{not_equal, equal}
+
+///|
+pub extend ErrorAnalysisReport with @debug.Debug::{to_repr}
+
+///|
 /// 性能基准结果
+#derive(Eq, @debug.Debug)
 pub(all) struct PerformanceBenchmark {
   total_time_ms : Double
   preprocess_time_ms : Double
@@ -97,6 +143,12 @@ pub(all) struct PerformanceBenchmark {
   memory_usage_mb : Double
   cpu_usage_percent : Double
 }
+
+///|
+pub extend PerformanceBenchmark with Eq::{not_equal, equal}
+
+///|
+pub extend PerformanceBenchmark with @debug.Debug::{to_repr}
 
 ///|
 /// 计算字符级准确率

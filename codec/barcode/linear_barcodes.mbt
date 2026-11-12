@@ -3,7 +3,7 @@
 
 ///|
 /// Code128 字符集类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum Code128Charset {
   CodeA
   CodeB
@@ -12,6 +12,9 @@ pub(all) enum Code128Charset {
 
 ///|
 pub extend Code128Charset with Eq::{not_equal, equal}
+
+///|
+pub extend Code128Charset with @debug.Debug::{to_repr}
 
 ///|
 /// Code128 编码表（107个码字）

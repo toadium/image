@@ -3,6 +3,7 @@
 
 ///|
 /// 增强多语言识别配置
+#derive(Eq, @debug.Debug)
 pub(all) struct MultilingualOcrEnhancedConfig {
   enable_chinese : Bool
   enable_english : Bool
@@ -17,6 +18,12 @@ pub(all) struct MultilingualOcrEnhancedConfig {
   punctuation_normalization : Bool // 标点符号规范化
   use_language_model : Bool // 使用语言模型后处理
 }
+
+///|
+pub extend MultilingualOcrEnhancedConfig with Eq::{not_equal, equal}
+
+///|
+pub extend MultilingualOcrEnhancedConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认增强多语言识别配置
@@ -39,11 +46,18 @@ pub fn multilingual_ocr_enhanced_default_config() -> MultilingualOcrEnhancedConf
 
 ///|
 /// 语言检测结果
+#derive(Eq, @debug.Debug)
 pub(all) struct LanguageDetectionResult {
   language : String // "chinese" / "english" / "digit" / "punctuation" / "japanese" / "korean" / "mixed" / "unknown"
   confidence : Double
   probabilities : Array[(String, Double)]
 }
+
+///|
+pub extend LanguageDetectionResult with Eq::{not_equal, equal}
+
+///|
+pub extend LanguageDetectionResult with @debug.Debug::{to_repr}
 
 ///|
 /// 增强语言检测（基于多特征的分类器）

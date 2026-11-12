@@ -3,11 +3,21 @@
 
 ///|
 /// 流式解码信息
+#derive(Eq, Default, @debug.Debug)
 pub(all) struct StreamInfo {
   width : Int32
   height : Int32
   channels : Int32
 }
+
+///|
+pub extend StreamInfo with Eq::{not_equal, equal}
+
+///|
+pub extend StreamInfo with Default::{default}
+
+///|
+pub extend StreamInfo with @debug.Debug::{to_repr}
 
 ///|
 /// 流式解码：逐行回调处理。

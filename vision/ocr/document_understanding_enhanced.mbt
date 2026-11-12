@@ -3,7 +3,7 @@
 
 ///|
 /// 文档块类型（增强版）
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum DocumentBlockType {
   Title
   Heading1
@@ -21,10 +21,14 @@ pub(all) enum DocumentBlockType {
 }
 
 ///|
+pub extend DocumentBlockType with @debug.Debug::{to_repr}
+
+///|
 pub extend DocumentBlockType with Eq::{not_equal, equal}
 
 ///|
 /// 文档块结构体（增强版）
+#derive(Eq, @debug.Debug)
 pub(all) struct DocumentBlock {
   block_type : DocumentBlockType
   x : Int32
@@ -45,7 +49,14 @@ pub(all) struct DocumentBlock {
 }
 
 ///|
+pub extend DocumentBlock with Eq::{not_equal, equal}
+
+///|
+pub extend DocumentBlock with @debug.Debug::{to_repr}
+
+///|
 /// 文档结构树节点
+#derive(Eq, @debug.Debug)
 pub(all) struct DocumentTreeNode {
   node_id : Int32
   block : DocumentBlock
@@ -54,7 +65,14 @@ pub(all) struct DocumentTreeNode {
 }
 
 ///|
+pub extend DocumentTreeNode with Eq::{not_equal, equal}
+
+///|
+pub extend DocumentTreeNode with @debug.Debug::{to_repr}
+
+///|
 /// 增强文档理解配置
+#derive(Eq, @debug.Debug)
 pub(all) struct DocumentUnderstandingEnhancedConfig {
   min_block_width : Int32
   min_block_height : Int32
@@ -65,6 +83,12 @@ pub(all) struct DocumentUnderstandingEnhancedConfig {
   enable_hierarchy : Bool
   enable_title_detection : Bool
 }
+
+///|
+pub extend DocumentUnderstandingEnhancedConfig with Eq::{not_equal, equal}
+
+///|
+pub extend DocumentUnderstandingEnhancedConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认增强文档理解配置

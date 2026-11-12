@@ -3,6 +3,7 @@
 
 ///|
 /// 完善中文 OCR 配置
+#derive(Eq, @debug.Debug)
 pub(all) struct AdvancedChineseOcrConfig {
   min_char_width : Int32
   max_char_width : Int32
@@ -12,6 +13,12 @@ pub(all) struct AdvancedChineseOcrConfig {
   use_radical_decomposition : Bool
   use_structure_analysis : Bool
 }
+
+///|
+pub extend AdvancedChineseOcrConfig with Eq::{not_equal, equal}
+
+///|
+pub extend AdvancedChineseOcrConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认完善中文 OCR 配置
@@ -29,6 +36,7 @@ pub fn advanced_chinese_ocr_default_config() -> AdvancedChineseOcrConfig {
 
 ///|
 /// 汉字部件结构体
+#derive(Eq, @debug.Debug)
 pub(all) struct ChineseRadical {
   name : String
   strokes : Int32
@@ -36,7 +44,14 @@ pub(all) struct ChineseRadical {
 }
 
 ///|
+pub extend ChineseRadical with Eq::{not_equal, equal}
+
+///|
+pub extend ChineseRadical with @debug.Debug::{to_repr}
+
+///|
 /// 汉字结构信息
+#derive(Eq, @debug.Debug)
 pub(all) struct ChineseCharStructure {
   char : String
   radical : String
@@ -44,6 +59,12 @@ pub(all) struct ChineseCharStructure {
   structure_type : String // "single" / "left-right" / "top-bottom" / "surround" / "complex"
   components : Array[String]
 }
+
+///|
+pub extend ChineseCharStructure with Eq::{not_equal, equal}
+
+///|
+pub extend ChineseCharStructure with @debug.Debug::{to_repr}
 
 ///|
 /// 生成 3500 常用汉字模板

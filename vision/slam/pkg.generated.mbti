@@ -2,6 +2,7 @@
 package "walkzzz/vision/slam"
 
 import {
+  "moonbitlang/core/debug",
   "walkzzz/core/types",
 }
 
@@ -27,13 +28,18 @@ pub fn triangulate_points(Array[Array[Double]], CameraPose, CameraPose, SLAMConf
 // Errors
 
 // Types and methods
+#derive(Eq, @debug.Debug)
 pub(all) struct CameraPose {
   position : Array[Double]
   rotation : Array[Double]
   timestamp : Double
   confidence : Double
 }
+pub fn CameraPose::equal(Self, Self) -> Bool
+pub fn CameraPose::not_equal(Self, Self) -> Bool
+pub fn CameraPose::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct FeatureTrackingResult {
   tracked_features : Array[Array[Double]]
   num_tracked : Int32
@@ -41,7 +47,11 @@ pub(all) struct FeatureTrackingResult {
   parallax : Double
   is_keyframe : Bool
 }
+pub fn FeatureTrackingResult::equal(Self, Self) -> Bool
+pub fn FeatureTrackingResult::not_equal(Self, Self) -> Bool
+pub fn FeatureTrackingResult::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct KeyFrame {
   pose : CameraPose
   image : @types.Image
@@ -51,7 +61,11 @@ pub(all) struct KeyFrame {
   timestamp : Double
   is_loop_closure : Bool
 }
+pub fn KeyFrame::equal(Self, Self) -> Bool
+pub fn KeyFrame::not_equal(Self, Self) -> Bool
+pub fn KeyFrame::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct LoopClosureResult {
   is_loop_detected : Bool
   loop_frame_index : Int32
@@ -59,7 +73,11 @@ pub(all) struct LoopClosureResult {
   transformation : Array[Double]
   num_inliers : Int32
 }
+pub fn LoopClosureResult::equal(Self, Self) -> Bool
+pub fn LoopClosureResult::not_equal(Self, Self) -> Bool
+pub fn LoopClosureResult::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct MapPoint {
   position : Array[Double]
   color : Array[Int32]
@@ -68,8 +86,11 @@ pub(all) struct MapPoint {
   num_observations : Int32
   is_outlier : Bool
 }
+pub fn MapPoint::equal(Self, Self) -> Bool
+pub fn MapPoint::not_equal(Self, Self) -> Bool
+pub fn MapPoint::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum SLAMAlgorithm {
   MonoSLAM
   ORBSLAM
@@ -83,7 +104,9 @@ pub(all) enum SLAMAlgorithm {
 }
 pub fn SLAMAlgorithm::equal(Self, Self) -> Bool
 pub fn SLAMAlgorithm::not_equal(Self, Self) -> Bool
+pub fn SLAMAlgorithm::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct SLAMConfig {
   algorithm : SLAMAlgorithm
   feature_threshold : Double
@@ -97,7 +120,11 @@ pub(all) struct SLAMConfig {
   camera_cx : Double
   camera_cy : Double
 }
+pub fn SLAMConfig::equal(Self, Self) -> Bool
+pub fn SLAMConfig::not_equal(Self, Self) -> Bool
+pub fn SLAMConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct SLAMState {
   current_pose : CameraPose
   trajectory : Array[CameraPose]
@@ -109,6 +136,9 @@ pub(all) struct SLAMState {
   is_mapping : Bool
   processing_time_ms : Double
 }
+pub fn SLAMState::equal(Self, Self) -> Bool
+pub fn SLAMState::not_equal(Self, Self) -> Bool
+pub fn SLAMState::to_repr(Self) -> @debug.Repr
 
 // Type aliases
 

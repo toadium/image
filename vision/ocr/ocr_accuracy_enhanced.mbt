@@ -3,6 +3,7 @@
 
 ///|
 /// 准确率提升配置
+#derive(Eq, @debug.Debug)
 pub(all) struct OcrAccuracyEnhancedConfig {
   use_zernike_moments : Bool
   use_gabor_features : Bool
@@ -13,6 +14,12 @@ pub(all) struct OcrAccuracyEnhancedConfig {
   knn_k : Int32
   scales : Array[Int32] // 多尺度识别的尺寸列表
 }
+
+///|
+pub extend OcrAccuracyEnhancedConfig with Eq::{not_equal, equal}
+
+///|
+pub extend OcrAccuracyEnhancedConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认准确率提升配置

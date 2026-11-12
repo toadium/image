@@ -3,6 +3,7 @@
 
 ///|
 /// 图像验证结果
+#derive(Eq, Default, @debug.Debug)
 pub(all) struct ImageValidationResult {
   is_valid : Bool
   errors : Array[String]
@@ -13,6 +14,15 @@ pub(all) struct ImageValidationResult {
   data_size : Int32
   expected_data_size : Int32
 }
+
+///|
+pub extend ImageValidationResult with @debug.Debug::{to_repr}
+
+///|
+pub extend ImageValidationResult with Eq::{not_equal, equal}
+
+///|
+pub extend ImageValidationResult with Default::{default}
 
 ///|
 /// 验证图像有效性
@@ -217,12 +227,22 @@ pub let is_valid_2d_index : (Int32, Int32, Int32, Int32) -> Bool = @safe_math.is
 
 ///|
 /// 性能计时器
+#derive(Eq, Default, @debug.Debug)
 pub(all) struct PerformanceTimer {
   start_time_ms : Double
   end_time_ms : Double
   elapsed_ms : Double
   operation_name : String
 }
+
+///|
+pub extend PerformanceTimer with @debug.Debug::{to_repr}
+
+///|
+pub extend PerformanceTimer with Eq::{not_equal, equal}
+
+///|
+pub extend PerformanceTimer with Default::{default}
 
 ///|
 /// 创建性能计时器
@@ -237,6 +257,7 @@ pub fn create_performance_timer(operation_name : String) -> PerformanceTimer {
 
 ///|
 /// 内存使用统计
+#derive(Eq, Default, @debug.Debug)
 pub(all) struct MemoryUsageStats {
   allocated_bytes : Int32
   freed_bytes : Int32
@@ -245,6 +266,15 @@ pub(all) struct MemoryUsageStats {
   allocation_count : Int32
   free_count : Int32
 }
+
+///|
+pub extend MemoryUsageStats with @debug.Debug::{to_repr}
+
+///|
+pub extend MemoryUsageStats with Eq::{not_equal, equal}
+
+///|
+pub extend MemoryUsageStats with Default::{default}
 
 ///|
 /// 创建内存使用统计
@@ -304,6 +334,7 @@ pub fn create_production_error(
 
 ///|
 /// 重试配置
+#derive(Eq, Default, @debug.Debug)
 pub(all) struct RetryConfig {
   max_retries : Int32
   initial_delay_ms : Double
@@ -312,6 +343,15 @@ pub(all) struct RetryConfig {
   retry_on_timeout : Bool
   retry_on_internal_error : Bool
 }
+
+///|
+pub extend RetryConfig with @debug.Debug::{to_repr}
+
+///|
+pub extend RetryConfig with Eq::{not_equal, equal}
+
+///|
+pub extend RetryConfig with Default::{default}
 
 ///|
 /// 创建默认重试配置

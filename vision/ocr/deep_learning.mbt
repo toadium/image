@@ -3,7 +3,7 @@
 
 ///|
 /// 神经网络层类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum DLLayerType {
   Conv2D
   MaxPool2D
@@ -19,10 +19,14 @@ pub(all) enum DLLayerType {
 }
 
 ///|
+pub extend DLLayerType with @debug.Debug::{to_repr}
+
+///|
 pub extend DLLayerType with Eq::{not_equal, equal}
 
 ///|
 /// 卷积层配置
+#derive(Eq, @debug.Debug)
 pub(all) struct DLConv2DConfig {
   in_channels : Int32
   out_channels : Int32
@@ -33,7 +37,14 @@ pub(all) struct DLConv2DConfig {
 }
 
 ///|
+pub extend DLConv2DConfig with Eq::{not_equal, equal}
+
+///|
+pub extend DLConv2DConfig with @debug.Debug::{to_repr}
+
+///|
 /// 全连接层配置
+#derive(Eq, @debug.Debug)
 pub(all) struct DLDenseConfig {
   in_features : Int32
   out_features : Int32
@@ -42,7 +53,14 @@ pub(all) struct DLDenseConfig {
 }
 
 ///|
+pub extend DLDenseConfig with Eq::{not_equal, equal}
+
+///|
+pub extend DLDenseConfig with @debug.Debug::{to_repr}
+
+///|
 /// 神经网络层
+#derive(Eq, @debug.Debug)
 pub(all) struct DLNeuralLayer {
   layer_type : DLLayerType
   name : String
@@ -54,7 +72,14 @@ pub(all) struct DLNeuralLayer {
 }
 
 ///|
+pub extend DLNeuralLayer with Eq::{not_equal, equal}
+
+///|
+pub extend DLNeuralLayer with @debug.Debug::{to_repr}
+
+///|
 /// CNN 模型配置
+#derive(Eq, @debug.Debug)
 pub(all) struct DLCnnModelConfig {
   model_name : String
   input_width : Int32
@@ -69,7 +94,14 @@ pub(all) struct DLCnnModelConfig {
 }
 
 ///|
+pub extend DLCnnModelConfig with Eq::{not_equal, equal}
+
+///|
+pub extend DLCnnModelConfig with @debug.Debug::{to_repr}
+
+///|
 /// 训练样本
+#derive(Eq, @debug.Debug)
 pub(all) struct DLTrainingSample {
   image_data : Array[Double]
   label : Int32
@@ -79,7 +111,14 @@ pub(all) struct DLTrainingSample {
 }
 
 ///|
+pub extend DLTrainingSample with Eq::{not_equal, equal}
+
+///|
+pub extend DLTrainingSample with @debug.Debug::{to_repr}
+
+///|
 /// 训练历史
+#derive(Eq, @debug.Debug)
 pub(all) struct DLTrainingHistory {
   epoch : Int32
   train_loss : Double
@@ -91,7 +130,14 @@ pub(all) struct DLTrainingHistory {
 }
 
 ///|
+pub extend DLTrainingHistory with Eq::{not_equal, equal}
+
+///|
+pub extend DLTrainingHistory with @debug.Debug::{to_repr}
+
+///|
 /// 推理结果
+#derive(Eq, @debug.Debug)
 pub(all) struct DLInferenceResult {
   predicted_class : Int32
   predicted_label : String
@@ -101,13 +147,26 @@ pub(all) struct DLInferenceResult {
 }
 
 ///|
+pub extend DLInferenceResult with Eq::{not_equal, equal}
+
+///|
+pub extend DLInferenceResult with @debug.Debug::{to_repr}
+
+///|
 /// 特征提取器
+#derive(Eq, @debug.Debug)
 pub(all) struct DLFeatureExtractor {
   model_name : String
   feature_dim : Int32
   layer_name : String
   weights : Array[Double]
 }
+
+///|
+pub extend DLFeatureExtractor with Eq::{not_equal, equal}
+
+///|
+pub extend DLFeatureExtractor with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认 CNN 模型配置（用于字符识别）

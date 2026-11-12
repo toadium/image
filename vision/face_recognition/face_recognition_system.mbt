@@ -3,7 +3,7 @@
 
 ///|
 /// 人脸检测算法类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum FaceDetectionAlgorithm {
   HaarCascade
   HOG_SVM
@@ -16,11 +16,14 @@ pub(all) enum FaceDetectionAlgorithm {
 }
 
 ///|
+pub extend FaceDetectionAlgorithm with @debug.Debug::{to_repr}
+
+///|
 pub extend FaceDetectionAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 人脸识别算法类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum FaceRecognitionAlgorithm {
   FaceNet
   ArcFace
@@ -33,11 +36,14 @@ pub(all) enum FaceRecognitionAlgorithm {
 }
 
 ///|
+pub extend FaceRecognitionAlgorithm with @debug.Debug::{to_repr}
+
+///|
 pub extend FaceRecognitionAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 表情类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum ExpressionType {
   Neutral
   Happy
@@ -51,10 +57,14 @@ pub(all) enum ExpressionType {
 }
 
 ///|
+pub extend ExpressionType with @debug.Debug::{to_repr}
+
+///|
 pub extend ExpressionType with Eq::{not_equal, equal}
 
 ///|
 /// 人脸检测结果
+#derive(Eq, @debug.Debug)
 pub(all) struct FaceDetectionResult {
   bounding_box : Array[Double]
   confidence : Double
@@ -68,7 +78,14 @@ pub(all) struct FaceDetectionResult {
 }
 
 ///|
+pub extend FaceDetectionResult with Eq::{not_equal, equal}
+
+///|
+pub extend FaceDetectionResult with @debug.Debug::{to_repr}
+
+///|
 /// 人脸特征向量
+#derive(Eq, @debug.Debug)
 pub(all) struct FaceFeature {
   vector : Array[Double]
   dimension : Int32
@@ -77,7 +94,14 @@ pub(all) struct FaceFeature {
 }
 
 ///|
+pub extend FaceFeature with Eq::{not_equal, equal}
+
+///|
+pub extend FaceFeature with @debug.Debug::{to_repr}
+
+///|
 /// 人脸识别结果
+#derive(Eq, @debug.Debug)
 pub(all) struct FaceRecognitionResult {
   face_id : Int32
   identity : String
@@ -89,7 +113,14 @@ pub(all) struct FaceRecognitionResult {
 }
 
 ///|
+pub extend FaceRecognitionResult with Eq::{not_equal, equal}
+
+///|
+pub extend FaceRecognitionResult with @debug.Debug::{to_repr}
+
+///|
 /// 表情识别结果
+#derive(Eq, @debug.Debug)
 pub(all) struct ExpressionRecognitionResult {
   expression : ExpressionType
   confidence : Double
@@ -99,7 +130,14 @@ pub(all) struct ExpressionRecognitionResult {
 }
 
 ///|
+pub extend ExpressionRecognitionResult with Eq::{not_equal, equal}
+
+///|
+pub extend ExpressionRecognitionResult with @debug.Debug::{to_repr}
+
+///|
 /// 年龄性别估计结果
+#derive(Eq, @debug.Debug)
 pub(all) struct AgeGenderEstimationResult {
   age : Double
   age_range : Array[Double]
@@ -109,7 +147,14 @@ pub(all) struct AgeGenderEstimationResult {
 }
 
 ///|
+pub extend AgeGenderEstimationResult with Eq::{not_equal, equal}
+
+///|
+pub extend AgeGenderEstimationResult with @debug.Debug::{to_repr}
+
+///|
 /// 人脸属性分析结果
+#derive(Eq, @debug.Debug)
 pub(all) struct FaceAttributeAnalysis {
   detection : FaceDetectionResult
   recognition : FaceRecognitionResult
@@ -122,7 +167,14 @@ pub(all) struct FaceAttributeAnalysis {
 }
 
 ///|
+pub extend FaceAttributeAnalysis with Eq::{not_equal, equal}
+
+///|
+pub extend FaceAttributeAnalysis with @debug.Debug::{to_repr}
+
+///|
 /// 人脸库
+#derive(Eq, @debug.Debug)
 pub(all) struct FaceDatabase {
   faces : Array[FaceFeature]
   identities : Array[String]
@@ -132,7 +184,14 @@ pub(all) struct FaceDatabase {
 }
 
 ///|
+pub extend FaceDatabase with Eq::{not_equal, equal}
+
+///|
+pub extend FaceDatabase with @debug.Debug::{to_repr}
+
+///|
 /// 人脸识别配置
+#derive(Eq, @debug.Debug)
 pub(all) struct FaceRecognitionConfig {
   detection_algorithm : FaceDetectionAlgorithm
   recognition_algorithm : FaceRecognitionAlgorithm
@@ -144,6 +203,12 @@ pub(all) struct FaceRecognitionConfig {
   use_alignment : Bool
   feature_dimension : Int32
 }
+
+///|
+pub extend FaceRecognitionConfig with Eq::{not_equal, equal}
+
+///|
+pub extend FaceRecognitionConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认人脸识别配置

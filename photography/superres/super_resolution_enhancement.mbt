@@ -3,7 +3,7 @@
 
 ///|
 /// 超分辨率算法类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum SuperResolutionAlgorithm {
   NearestNeighbor
   Bilinear
@@ -16,10 +16,14 @@ pub(all) enum SuperResolutionAlgorithm {
 }
 
 ///|
+pub extend SuperResolutionAlgorithm with @debug.Debug::{to_repr}
+
+///|
 pub extend SuperResolutionAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 超分辨率结果
+#derive(Eq, @debug.Debug)
 pub(all) struct SuperResolutionResult {
   image : @types.Image
   original_width : Int32
@@ -34,7 +38,14 @@ pub(all) struct SuperResolutionResult {
 }
 
 ///|
+pub extend SuperResolutionResult with Eq::{not_equal, equal}
+
+///|
+pub extend SuperResolutionResult with @debug.Debug::{to_repr}
+
+///|
 /// 插值配置
+#derive(Eq, @debug.Debug)
 pub(all) struct InterpolationConfig {
   algorithm : SuperResolutionAlgorithm
   scale_factor : Double
@@ -44,7 +55,14 @@ pub(all) struct InterpolationConfig {
 }
 
 ///|
+pub extend InterpolationConfig with Eq::{not_equal, equal}
+
+///|
+pub extend InterpolationConfig with @debug.Debug::{to_repr}
+
+///|
 /// 图像质量指标
+#derive(Eq, @debug.Debug)
 pub(all) struct ImageQualityMetrics {
   psnr : Double
   ssim : Double
@@ -57,7 +75,14 @@ pub(all) struct ImageQualityMetrics {
 }
 
 ///|
+pub extend ImageQualityMetrics with Eq::{not_equal, equal}
+
+///|
+pub extend ImageQualityMetrics with @debug.Debug::{to_repr}
+
+///|
 /// 图像增强配置
+#derive(Eq, @debug.Debug)
 pub(all) struct EnhancementConfig {
   brightness : Double
   contrast : Double
@@ -69,6 +94,12 @@ pub(all) struct EnhancementConfig {
   clahe_clip_limit : Double
   clahe_tile_size : Int32
 }
+
+///|
+pub extend EnhancementConfig with Eq::{not_equal, equal}
+
+///|
+pub extend EnhancementConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认插值配置

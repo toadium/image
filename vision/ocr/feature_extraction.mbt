@@ -3,6 +3,7 @@
 
 ///|
 /// HOG 特征描述子
+#derive(Eq, @debug.Debug)
 pub(all) struct HogFeatures {
   features : Array[Double]
   cell_size : Int32
@@ -12,7 +13,14 @@ pub(all) struct HogFeatures {
 }
 
 ///|
+pub extend HogFeatures with Eq::{not_equal, equal}
+
+///|
+pub extend HogFeatures with @debug.Debug::{to_repr}
+
+///|
 /// LBP 特征描述子
+#derive(Eq, @debug.Debug)
 pub(all) struct LbpFeatures {
   features : Array[Double]
   num_bins : Int32
@@ -21,7 +29,14 @@ pub(all) struct LbpFeatures {
 }
 
 ///|
+pub extend LbpFeatures with Eq::{not_equal, equal}
+
+///|
+pub extend LbpFeatures with @debug.Debug::{to_repr}
+
+///|
 /// 投影特征
+#derive(Eq, @debug.Debug)
 pub(all) struct ProjectionFeatures {
   horizontal : Array[Double]
   vertical : Array[Double]
@@ -32,7 +47,14 @@ pub(all) struct ProjectionFeatures {
 }
 
 ///|
+pub extend ProjectionFeatures with Eq::{not_equal, equal}
+
+///|
+pub extend ProjectionFeatures with @debug.Debug::{to_repr}
+
+///|
 /// 网格特征
+#derive(Eq, @debug.Debug)
 pub(all) struct GridFeatures {
   features : Array[Double]
   grid_rows : Int32
@@ -40,7 +62,14 @@ pub(all) struct GridFeatures {
 }
 
 ///|
+pub extend GridFeatures with Eq::{not_equal, equal}
+
+///|
+pub extend GridFeatures with @debug.Debug::{to_repr}
+
+///|
 /// 统计特征
+#derive(Eq, @debug.Debug)
 pub(all) struct StatisticalFeatures {
   mean : Double
   std : Double
@@ -51,6 +80,12 @@ pub(all) struct StatisticalFeatures {
   contrast : Double
   homogeneity : Double
 }
+
+///|
+pub extend StatisticalFeatures with Eq::{not_equal, equal}
+
+///|
+pub extend StatisticalFeatures with @debug.Debug::{to_repr}
 
 ///|
 /// 计算 HOG 特征（方向梯度直方图）

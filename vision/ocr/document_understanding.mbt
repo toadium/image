@@ -3,7 +3,7 @@
 
 ///|
 /// 文档元素类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum DocumentElementType {
   Title
   Subtitle
@@ -21,10 +21,14 @@ pub(all) enum DocumentElementType {
 }
 
 ///|
+pub extend DocumentElementType with @debug.Debug::{to_repr}
+
+///|
 pub extend DocumentElementType with Eq::{not_equal, equal}
 
 ///|
 /// 文档元素结构体
+#derive(Eq, @debug.Debug)
 pub(all) struct DocumentElement {
   element_type : DocumentElementType
   x : Int32
@@ -39,7 +43,14 @@ pub(all) struct DocumentElement {
 }
 
 ///|
+pub extend DocumentElement with Eq::{not_equal, equal}
+
+///|
+pub extend DocumentElement with @debug.Debug::{to_repr}
+
+///|
 /// 文档结构结构体
+#derive(Eq, @debug.Debug)
 pub(all) struct DocumentStructure {
   elements : Array[DocumentElement]
   num_elements : Int32
@@ -49,6 +60,12 @@ pub(all) struct DocumentStructure {
   reading_order : Array[Int32]
   bounding_box : (Int32, Int32, Int32, Int32)
 }
+
+///|
+pub extend DocumentStructure with Eq::{not_equal, equal}
+
+///|
+pub extend DocumentStructure with @debug.Debug::{to_repr}
 
 ///|
 /// 分析文档版面（检测文本块、分类元素类型）

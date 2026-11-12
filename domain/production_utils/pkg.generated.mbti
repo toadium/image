@@ -2,6 +2,7 @@
 package "walkzzz/domain/production_utils"
 
 import {
+  "moonbitlang/core/debug",
   "walkzzz/core/types",
 }
 
@@ -47,6 +48,7 @@ pub fn validation_result_to_string(ImageValidationResult) -> String
 // Errors
 
 // Types and methods
+#derive(Default, Eq, @debug.Debug)
 pub(all) struct ImageValidationResult {
   is_valid : Bool
   errors : Array[String]
@@ -57,7 +59,12 @@ pub(all) struct ImageValidationResult {
   data_size : Int32
   expected_data_size : Int32
 }
+pub fn ImageValidationResult::default() -> Self
+pub fn ImageValidationResult::equal(Self, Self) -> Bool
+pub fn ImageValidationResult::not_equal(Self, Self) -> Bool
+pub fn ImageValidationResult::to_repr(Self) -> @debug.Repr
 
+#derive(Default, Eq, @debug.Debug)
 pub(all) struct MemoryUsageStats {
   allocated_bytes : Int32
   freed_bytes : Int32
@@ -66,13 +73,22 @@ pub(all) struct MemoryUsageStats {
   allocation_count : Int32
   free_count : Int32
 }
+pub fn MemoryUsageStats::default() -> Self
+pub fn MemoryUsageStats::equal(Self, Self) -> Bool
+pub fn MemoryUsageStats::not_equal(Self, Self) -> Bool
+pub fn MemoryUsageStats::to_repr(Self) -> @debug.Repr
 
+#derive(Default, Eq, @debug.Debug)
 pub(all) struct PerformanceTimer {
   start_time_ms : Double
   end_time_ms : Double
   elapsed_ms : Double
   operation_name : String
 }
+pub fn PerformanceTimer::default() -> Self
+pub fn PerformanceTimer::equal(Self, Self) -> Bool
+pub fn PerformanceTimer::not_equal(Self, Self) -> Bool
+pub fn PerformanceTimer::to_repr(Self) -> @debug.Repr
 
 pub(all) struct ProductionError {
   code : ProductionErrorCode
@@ -96,6 +112,7 @@ pub(all) enum ProductionErrorCode {
 pub fn ProductionErrorCode::equal(Self, Self) -> Bool
 pub fn ProductionErrorCode::not_equal(Self, Self) -> Bool
 
+#derive(Default, Eq, @debug.Debug)
 pub(all) struct RetryConfig {
   max_retries : Int32
   initial_delay_ms : Double
@@ -104,6 +121,10 @@ pub(all) struct RetryConfig {
   retry_on_timeout : Bool
   retry_on_internal_error : Bool
 }
+pub fn RetryConfig::default() -> Self
+pub fn RetryConfig::equal(Self, Self) -> Bool
+pub fn RetryConfig::not_equal(Self, Self) -> Bool
+pub fn RetryConfig::to_repr(Self) -> @debug.Repr
 
 // Type aliases
 

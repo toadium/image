@@ -3,7 +3,7 @@
 
 ///|
 /// Markdown 元素类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum MarkdownElementType {
   Title
   Heading1
@@ -21,10 +21,14 @@ pub(all) enum MarkdownElementType {
 }
 
 ///|
+pub extend MarkdownElementType with @debug.Debug::{to_repr}
+
+///|
 pub extend MarkdownElementType with Eq::{not_equal, equal}
 
 ///|
 /// Markdown 元素
+#derive(Eq, @debug.Debug)
 pub(all) struct MarkdownElement {
   element_type : MarkdownElementType
   x : Int32
@@ -36,7 +40,14 @@ pub(all) struct MarkdownElement {
 }
 
 ///|
+pub extend MarkdownElement with Eq::{not_equal, equal}
+
+///|
+pub extend MarkdownElement with @debug.Debug::{to_repr}
+
+///|
 /// 表格数据
+#derive(Eq, @debug.Debug)
 pub(all) struct MarkdownTable {
   rows : Int32
   cols : Int32
@@ -45,7 +56,14 @@ pub(all) struct MarkdownTable {
 }
 
 ///|
+pub extend MarkdownTable with Eq::{not_equal, equal}
+
+///|
+pub extend MarkdownTable with @debug.Debug::{to_repr}
+
+///|
 /// 图片区域
+#derive(Eq, @debug.Debug)
 pub(all) struct MarkdownImage {
   x : Int32
   y : Int32
@@ -56,7 +74,14 @@ pub(all) struct MarkdownImage {
 }
 
 ///|
+pub extend MarkdownImage with Eq::{not_equal, equal}
+
+///|
+pub extend MarkdownImage with @debug.Debug::{to_repr}
+
+///|
 /// 符号识别结果
+#derive(Eq, @debug.Debug)
 pub(all) struct MarkdownSymbol {
   symbol : String
   unicode : String
@@ -67,7 +92,14 @@ pub(all) struct MarkdownSymbol {
 }
 
 ///|
+pub extend MarkdownSymbol with Eq::{not_equal, equal}
+
+///|
+pub extend MarkdownSymbol with @debug.Debug::{to_repr}
+
+///|
 /// 完整 Markdown 文档
+#derive(Eq, @debug.Debug)
 pub(all) struct MarkdownDocument {
   title : String
   elements : Array[MarkdownElement]
@@ -76,6 +108,12 @@ pub(all) struct MarkdownDocument {
   symbols : Array[MarkdownSymbol]
   reading_order : Array[Int32]
 }
+
+///|
+pub extend MarkdownDocument with Eq::{not_equal, equal}
+
+///|
+pub extend MarkdownDocument with @debug.Debug::{to_repr}
 
 ///|
 /// 常见符号映射表

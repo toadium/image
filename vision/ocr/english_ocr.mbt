@@ -3,6 +3,7 @@
 
 ///|
 /// 英文 OCR 配置
+#derive(Eq, @debug.Debug)
 pub(all) struct EnglishOcrConfig {
   min_char_width : Int32
   max_char_width : Int32
@@ -10,6 +11,12 @@ pub(all) struct EnglishOcrConfig {
   distance_metric : String
   case_sensitive : Bool
 }
+
+///|
+pub extend EnglishOcrConfig with Eq::{not_equal, equal}
+
+///|
+pub extend EnglishOcrConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认英文 OCR 配置

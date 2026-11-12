@@ -3,6 +3,7 @@
 
 ///|
 /// 后处理配置
+#derive(Eq, @debug.Debug)
 pub(all) struct PostProcessConfig {
   use_dictionary : Bool
   use_ngram : Bool
@@ -10,6 +11,12 @@ pub(all) struct PostProcessConfig {
   min_confidence : Double
   max_candidates : Int32
 }
+
+///|
+pub extend PostProcessConfig with Eq::{not_equal, equal}
+
+///|
+pub extend PostProcessConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认后处理配置
@@ -25,10 +32,17 @@ pub fn postprocess_default_config() -> PostProcessConfig {
 
 ///|
 /// 词典结构体
+#derive(Eq, @debug.Debug)
 pub(all) struct Dictionary {
   words : Array[String]
   word_set : Array[String] // 用于快速查找（简化版）
 }
+
+///|
+pub extend Dictionary with Eq::{not_equal, equal}
+
+///|
+pub extend Dictionary with @debug.Debug::{to_repr}
 
 ///|
 /// 创建词典
@@ -163,11 +177,18 @@ pub fn dictionary_match(
 
 ///|
 /// N-gram 语言模型
+#derive(Eq, @debug.Debug)
 pub(all) struct NgramModel {
   n : Int32
   bigram_counts : Array[(String, Int32)] // 简化版：存储bigram和计数
   unigram_counts : Array[(String, Int32)]
 }
+
+///|
+pub extend NgramModel with Eq::{not_equal, equal}
+
+///|
+pub extend NgramModel with @debug.Debug::{to_repr}
 
 ///|
 /// 创建 N-gram 模型（从文本训练）

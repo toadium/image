@@ -3,6 +3,7 @@
 
 ///|
 /// OCR 识别结果结构体
+#derive(Eq, @debug.Debug)
 pub(all) struct OcrResult {
   text : String
   confidence : Double
@@ -10,7 +11,14 @@ pub(all) struct OcrResult {
 }
 
 ///|
+pub extend OcrResult with Eq::{not_equal, equal}
+
+///|
+pub extend OcrResult with @debug.Debug::{to_repr}
+
+///|
 /// 单个字符识别结果
+#derive(Eq, @debug.Debug)
 pub(all) struct OcrCharResult {
   char : String
   confidence : Double
@@ -21,7 +29,14 @@ pub(all) struct OcrCharResult {
 }
 
 ///|
+pub extend OcrCharResult with Eq::{not_equal, equal}
+
+///|
+pub extend OcrCharResult with @debug.Debug::{to_repr}
+
+///|
 /// 数字 OCR 配置
+#derive(Eq, @debug.Debug)
 pub(all) struct DigitOcrConfig {
   min_char_width : Int32
   max_char_width : Int32
@@ -30,6 +45,12 @@ pub(all) struct DigitOcrConfig {
   k : Int32
   distance_metric : String
 }
+
+///|
+pub extend DigitOcrConfig with Eq::{not_equal, equal}
+
+///|
+pub extend DigitOcrConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认数字 OCR 配置

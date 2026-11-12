@@ -2,10 +2,17 @@
 // 验证符号索引的完整性和一致性
 
 ///|
+#derive(Eq, @debug.Debug)
 pub(all) struct VerifyResult {
   is_valid : Bool
   issues : Array[String]
 }
+
+///|
+pub extend VerifyResult with Eq::{not_equal, equal}
+
+///|
+pub extend VerifyResult with @debug.Debug::{to_repr}
 
 ///|
 pub fn VerifyResult::make(

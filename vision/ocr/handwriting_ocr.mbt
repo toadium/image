@@ -3,6 +3,7 @@
 
 ///|
 /// 手写体识别配置
+#derive(Eq, @debug.Debug)
 pub(all) struct HandwritingOcrConfig {
   min_char_width : Int32
   max_char_width : Int32
@@ -13,6 +14,12 @@ pub(all) struct HandwritingOcrConfig {
   flexibility : Double // 0.0-1.0，越高越灵活
   use_slant_correction : Bool
 }
+
+///|
+pub extend HandwritingOcrConfig with Eq::{not_equal, equal}
+
+///|
+pub extend HandwritingOcrConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认手写体识别配置

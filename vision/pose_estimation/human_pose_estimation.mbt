@@ -3,7 +3,7 @@
 
 ///|
 /// 姿态估计算法类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum PoseEstimationAlgorithm {
   OpenPose
   MediaPipe
@@ -17,11 +17,14 @@ pub(all) enum PoseEstimationAlgorithm {
 }
 
 ///|
+pub extend PoseEstimationAlgorithm with @debug.Debug::{to_repr}
+
+///|
 pub extend PoseEstimationAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 动作识别算法类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum ActionRecognitionAlgorithm {
   C3D
   I3D
@@ -35,10 +38,14 @@ pub(all) enum ActionRecognitionAlgorithm {
 }
 
 ///|
+pub extend ActionRecognitionAlgorithm with @debug.Debug::{to_repr}
+
+///|
 pub extend ActionRecognitionAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 人体关键点
+#derive(Eq, @debug.Debug)
 pub(all) struct Keypoint {
   x : Double
   y : Double
@@ -48,7 +55,14 @@ pub(all) struct Keypoint {
 }
 
 ///|
+pub extend Keypoint with Eq::{not_equal, equal}
+
+///|
+pub extend Keypoint with @debug.Debug::{to_repr}
+
+///|
 /// 人体姿态
+#derive(Eq, @debug.Debug)
 pub(all) struct HumanPose {
   keypoints : Array[Keypoint]
   num_keypoints : Int32
@@ -59,7 +73,14 @@ pub(all) struct HumanPose {
 }
 
 ///|
+pub extend HumanPose with Eq::{not_equal, equal}
+
+///|
+pub extend HumanPose with @debug.Debug::{to_repr}
+
+///|
 /// 骨架连接
+#derive(Eq, @debug.Debug)
 pub(all) struct SkeletonConnection {
   joint1 : Int32
   joint2 : Int32
@@ -69,7 +90,14 @@ pub(all) struct SkeletonConnection {
 }
 
 ///|
+pub extend SkeletonConnection with Eq::{not_equal, equal}
+
+///|
+pub extend SkeletonConnection with @debug.Debug::{to_repr}
+
+///|
 /// 动作识别结果
+#derive(Eq, @debug.Debug)
 pub(all) struct ActionRecognitionResult {
   action_name : String
   confidence : Double
@@ -81,8 +109,14 @@ pub(all) struct ActionRecognitionResult {
 }
 
 ///|
+pub extend ActionRecognitionResult with Eq::{not_equal, equal}
+
+///|
+pub extend ActionRecognitionResult with @debug.Debug::{to_repr}
+
+///|
 /// 手势类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum GestureType {
   OpenPalm
   Fist
@@ -97,10 +131,14 @@ pub(all) enum GestureType {
 }
 
 ///|
+pub extend GestureType with @debug.Debug::{to_repr}
+
+///|
 pub extend GestureType with Eq::{not_equal, equal}
 
 ///|
 /// 手势识别结果
+#derive(Eq, @debug.Debug)
 pub(all) struct GestureRecognitionResult {
   gesture_type : GestureType
   confidence : Double
@@ -110,7 +148,14 @@ pub(all) struct GestureRecognitionResult {
 }
 
 ///|
+pub extend GestureRecognitionResult with Eq::{not_equal, equal}
+
+///|
+pub extend GestureRecognitionResult with @debug.Debug::{to_repr}
+
+///|
 /// 姿态估计配置
+#derive(Eq, @debug.Debug)
 pub(all) struct PoseEstimationConfig {
   algorithm : PoseEstimationAlgorithm
   num_keypoints : Int32
@@ -123,7 +168,14 @@ pub(all) struct PoseEstimationConfig {
 }
 
 ///|
+pub extend PoseEstimationConfig with Eq::{not_equal, equal}
+
+///|
+pub extend PoseEstimationConfig with @debug.Debug::{to_repr}
+
+///|
 /// 动作识别配置
+#derive(Eq, @debug.Debug)
 pub(all) struct ActionRecognitionConfig {
   algorithm : ActionRecognitionAlgorithm
   num_classes : Int32
@@ -133,6 +185,12 @@ pub(all) struct ActionRecognitionConfig {
   use_temporal_smoothing : Bool
   smoothing_window : Int32
 }
+
+///|
+pub extend ActionRecognitionConfig with Eq::{not_equal, equal}
+
+///|
+pub extend ActionRecognitionConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认姿态估计配置

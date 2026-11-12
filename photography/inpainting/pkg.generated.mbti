@@ -2,6 +2,7 @@
 package "walkzzz/photography/inpainting"
 
 import {
+  "moonbitlang/core/debug",
   "walkzzz/core/types",
 }
 
@@ -31,7 +32,7 @@ pub fn inpainting_report_to_string(InpaintingResult) -> String
 // Errors
 
 // Types and methods
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum DehazeAlgorithm {
   DarkChannelPrior
   ColorAttenuation
@@ -42,7 +43,9 @@ pub(all) enum DehazeAlgorithm {
 }
 pub fn DehazeAlgorithm::equal(Self, Self) -> Bool
 pub fn DehazeAlgorithm::not_equal(Self, Self) -> Bool
+pub fn DehazeAlgorithm::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DehazeResult {
   image : @types.Image
   algorithm : DehazeAlgorithm
@@ -50,8 +53,11 @@ pub(all) struct DehazeResult {
   transmission_map : Array[Double]
   processing_time_ms : Double
 }
+pub fn DehazeResult::equal(Self, Self) -> Bool
+pub fn DehazeResult::not_equal(Self, Self) -> Bool
+pub fn DehazeResult::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum DerainAlgorithm {
   DictionaryLearning
   ConvolutionalNeuralNetwork
@@ -61,15 +67,20 @@ pub(all) enum DerainAlgorithm {
 }
 pub fn DerainAlgorithm::equal(Self, Self) -> Bool
 pub fn DerainAlgorithm::not_equal(Self, Self) -> Bool
+pub fn DerainAlgorithm::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DerainResult {
   image : @types.Image
   algorithm : DerainAlgorithm
   rain_streaks_removed : Int32
   processing_time_ms : Double
 }
+pub fn DerainResult::equal(Self, Self) -> Bool
+pub fn DerainResult::not_equal(Self, Self) -> Bool
+pub fn DerainResult::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum InpaintingAlgorithm {
   Telea
   NavierStokes
@@ -80,7 +91,9 @@ pub(all) enum InpaintingAlgorithm {
 }
 pub fn InpaintingAlgorithm::equal(Self, Self) -> Bool
 pub fn InpaintingAlgorithm::not_equal(Self, Self) -> Bool
+pub fn InpaintingAlgorithm::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct InpaintingConfig {
   algorithm : InpaintingAlgorithm
   radius : Int32
@@ -88,7 +101,11 @@ pub(all) struct InpaintingConfig {
   use_edge_preservation : Bool
   tolerance : Double
 }
+pub fn InpaintingConfig::equal(Self, Self) -> Bool
+pub fn InpaintingConfig::not_equal(Self, Self) -> Bool
+pub fn InpaintingConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct InpaintingResult {
   image : @types.Image
   mask : @types.Image
@@ -98,6 +115,9 @@ pub(all) struct InpaintingResult {
   processing_time_ms : Double
   iterations : Int32
 }
+pub fn InpaintingResult::equal(Self, Self) -> Bool
+pub fn InpaintingResult::not_equal(Self, Self) -> Bool
+pub fn InpaintingResult::to_repr(Self) -> @debug.Repr
 
 // Type aliases
 

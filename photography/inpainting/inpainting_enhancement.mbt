@@ -3,7 +3,7 @@
 
 ///|
 /// 修复算法类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum InpaintingAlgorithm {
   Telea
   NavierStokes
@@ -14,10 +14,14 @@ pub(all) enum InpaintingAlgorithm {
 }
 
 ///|
+pub extend InpaintingAlgorithm with @debug.Debug::{to_repr}
+
+///|
 pub extend InpaintingAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 修复结果
+#derive(Eq, @debug.Debug)
 pub(all) struct InpaintingResult {
   image : @types.Image
   mask : @types.Image
@@ -29,7 +33,14 @@ pub(all) struct InpaintingResult {
 }
 
 ///|
+pub extend InpaintingResult with Eq::{not_equal, equal}
+
+///|
+pub extend InpaintingResult with @debug.Debug::{to_repr}
+
+///|
 /// 修复配置
+#derive(Eq, @debug.Debug)
 pub(all) struct InpaintingConfig {
   algorithm : InpaintingAlgorithm
   radius : Int32
@@ -39,8 +50,14 @@ pub(all) struct InpaintingConfig {
 }
 
 ///|
+pub extend InpaintingConfig with Eq::{not_equal, equal}
+
+///|
+pub extend InpaintingConfig with @debug.Debug::{to_repr}
+
+///|
 /// 去雾算法类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum DehazeAlgorithm {
   DarkChannelPrior
   ColorAttenuation
@@ -51,10 +68,14 @@ pub(all) enum DehazeAlgorithm {
 }
 
 ///|
+pub extend DehazeAlgorithm with @debug.Debug::{to_repr}
+
+///|
 pub extend DehazeAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 去雾结果
+#derive(Eq, @debug.Debug)
 pub(all) struct DehazeResult {
   image : @types.Image
   algorithm : DehazeAlgorithm
@@ -64,8 +85,14 @@ pub(all) struct DehazeResult {
 }
 
 ///|
+pub extend DehazeResult with Eq::{not_equal, equal}
+
+///|
+pub extend DehazeResult with @debug.Debug::{to_repr}
+
+///|
 /// 去雨算法类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum DerainAlgorithm {
   DictionaryLearning
   ConvolutionalNeuralNetwork
@@ -75,16 +102,26 @@ pub(all) enum DerainAlgorithm {
 }
 
 ///|
+pub extend DerainAlgorithm with @debug.Debug::{to_repr}
+
+///|
 pub extend DerainAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 去雨结果
+#derive(Eq, @debug.Debug)
 pub(all) struct DerainResult {
   image : @types.Image
   algorithm : DerainAlgorithm
   rain_streaks_removed : Int32
   processing_time_ms : Double
 }
+
+///|
+pub extend DerainResult with Eq::{not_equal, equal}
+
+///|
+pub extend DerainResult with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认修复配置

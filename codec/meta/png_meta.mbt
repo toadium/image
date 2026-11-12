@@ -4,7 +4,7 @@
 
 ///|
 /// PNG text chunk（关键字-文本对）
-#derive(Eq, @debug.Debug)
+#derive(Eq, Default, @debug.Debug)
 pub(all) struct PngTextChunk {
   keyword : String
   text : String
@@ -15,6 +15,9 @@ pub extend PngTextChunk with @debug.Debug::{to_repr}
 
 ///|
 pub extend PngTextChunk with Eq::{not_equal, equal}
+
+///|
+pub extend PngTextChunk with Default::{default}
 
 ///|
 fn read_png_bytes_as_string(data : Bytes, start : Int32, end : Int32) -> String {

@@ -4,7 +4,7 @@
 
 ///|
 /// XMP 元数据（常用字段）
-#derive(Eq, @debug.Debug)
+#derive(Eq, Default, @debug.Debug)
 pub(all) struct XmpInfo {
   creator : String
   title : String
@@ -21,6 +21,9 @@ pub(all) struct XmpInfo {
 
 ///|
 pub extend XmpInfo with Eq::{not_equal, equal}
+
+///|
+pub extend XmpInfo with Default::{default}
 
 ///|
 pub extend XmpInfo with @debug.Debug::{to_repr}

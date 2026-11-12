@@ -3,7 +3,7 @@
 
 ///|
 /// 布局类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum LayoutType {
   SingleColumn
   DoubleColumn
@@ -13,11 +13,14 @@ pub(all) enum LayoutType {
 }
 
 ///|
+pub extend LayoutType with @debug.Debug::{to_repr}
+
+///|
 pub extend LayoutType with Eq::{not_equal, equal}
 
 ///|
 /// 页面区域类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum PageRegionType {
   Header
   Footer
@@ -28,10 +31,14 @@ pub(all) enum PageRegionType {
 }
 
 ///|
+pub extend PageRegionType with @debug.Debug::{to_repr}
+
+///|
 pub extend PageRegionType with Eq::{not_equal, equal}
 
 ///|
 /// 页面区域
+#derive(Eq, @debug.Debug)
 pub(all) struct PageRegion {
   region_type : PageRegionType
   x : Int32
@@ -42,7 +49,14 @@ pub(all) struct PageRegion {
 }
 
 ///|
+pub extend PageRegion with Eq::{not_equal, equal}
+
+///|
+pub extend PageRegion with @debug.Debug::{to_repr}
+
+///|
 /// 文本行属性
+#derive(Eq, @debug.Debug)
 pub(all) struct TextLineAttributes {
   x : Int32
   y : Int32
@@ -58,8 +72,14 @@ pub(all) struct TextLineAttributes {
 }
 
 ///|
+pub extend TextLineAttributes with Eq::{not_equal, equal}
+
+///|
+pub extend TextLineAttributes with @debug.Debug::{to_repr}
+
+///|
 /// 列表项类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum ListItemType {
   Bullet
   Numbered
@@ -70,10 +90,14 @@ pub(all) enum ListItemType {
 }
 
 ///|
+pub extend ListItemType with @debug.Debug::{to_repr}
+
+///|
 pub extend ListItemType with Eq::{not_equal, equal}
 
 ///|
 /// 列表项
+#derive(Eq, @debug.Debug)
 pub(all) struct ListItemInfo {
   item_type : ListItemType
   marker : String
@@ -82,7 +106,14 @@ pub(all) struct ListItemInfo {
 }
 
 ///|
+pub extend ListItemInfo with Eq::{not_equal, equal}
+
+///|
+pub extend ListItemInfo with @debug.Debug::{to_repr}
+
+///|
 /// 增强版文档元素
+#derive(Eq, @debug.Debug)
 pub(all) struct EnhancedDocumentElement {
   element_type : MarkdownElementType
   x : Int32
@@ -102,7 +133,14 @@ pub(all) struct EnhancedDocumentElement {
 }
 
 ///|
+pub extend EnhancedDocumentElement with Eq::{not_equal, equal}
+
+///|
+pub extend EnhancedDocumentElement with @debug.Debug::{to_repr}
+
+///|
 /// 增强版文档结构
+#derive(Eq, @debug.Debug)
 pub(all) struct EnhancedDocument {
   layout_type : LayoutType
   num_columns : Int32
@@ -116,6 +154,12 @@ pub(all) struct EnhancedDocument {
   reading_order : Array[Int32]
   column_boundaries : Array[Int32]
 }
+
+///|
+pub extend EnhancedDocument with Eq::{not_equal, equal}
+
+///|
+pub extend EnhancedDocument with @debug.Debug::{to_repr}
 
 ///|
 /// 检测页面布局类型（单栏/双栏/多栏）

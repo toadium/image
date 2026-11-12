@@ -2,6 +2,7 @@
 package "walkzzz/vision/face_recognition"
 
 import {
+  "moonbitlang/core/debug",
   "walkzzz/core/types",
 }
 
@@ -33,6 +34,7 @@ pub fn recognize_face_in_database(FaceDatabase, FaceFeature, Array[Double]) -> F
 // Errors
 
 // Types and methods
+#derive(Eq, @debug.Debug)
 pub(all) struct AgeGenderEstimationResult {
   age : Double
   age_range : Array[Double]
@@ -40,7 +42,11 @@ pub(all) struct AgeGenderEstimationResult {
   gender_confidence : Double
   is_male : Bool
 }
+pub fn AgeGenderEstimationResult::equal(Self, Self) -> Bool
+pub fn AgeGenderEstimationResult::not_equal(Self, Self) -> Bool
+pub fn AgeGenderEstimationResult::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct ExpressionRecognitionResult {
   expression : ExpressionType
   confidence : Double
@@ -48,8 +54,11 @@ pub(all) struct ExpressionRecognitionResult {
   num_classes : Int32
   dominant_expression : String
 }
+pub fn ExpressionRecognitionResult::equal(Self, Self) -> Bool
+pub fn ExpressionRecognitionResult::not_equal(Self, Self) -> Bool
+pub fn ExpressionRecognitionResult::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum ExpressionType {
   Neutral
   Happy
@@ -63,7 +72,9 @@ pub(all) enum ExpressionType {
 }
 pub fn ExpressionType::equal(Self, Self) -> Bool
 pub fn ExpressionType::not_equal(Self, Self) -> Bool
+pub fn ExpressionType::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct FaceAttributeAnalysis {
   detection : FaceDetectionResult
   recognition : FaceRecognitionResult
@@ -74,7 +85,11 @@ pub(all) struct FaceAttributeAnalysis {
   sharpness : Double
   occlusion_rate : Double
 }
+pub fn FaceAttributeAnalysis::equal(Self, Self) -> Bool
+pub fn FaceAttributeAnalysis::not_equal(Self, Self) -> Bool
+pub fn FaceAttributeAnalysis::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct FaceDatabase {
   faces : Array[FaceFeature]
   identities : Array[String]
@@ -82,8 +97,11 @@ pub(all) struct FaceDatabase {
   threshold : Double
   algorithm : FaceRecognitionAlgorithm
 }
+pub fn FaceDatabase::equal(Self, Self) -> Bool
+pub fn FaceDatabase::not_equal(Self, Self) -> Bool
+pub fn FaceDatabase::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum FaceDetectionAlgorithm {
   HaarCascade
   HOG_SVM
@@ -96,7 +114,9 @@ pub(all) enum FaceDetectionAlgorithm {
 }
 pub fn FaceDetectionAlgorithm::equal(Self, Self) -> Bool
 pub fn FaceDetectionAlgorithm::not_equal(Self, Self) -> Bool
+pub fn FaceDetectionAlgorithm::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct FaceDetectionResult {
   bounding_box : Array[Double]
   confidence : Double
@@ -108,15 +128,22 @@ pub(all) struct FaceDetectionResult {
   pitch : Double
   roll : Double
 }
+pub fn FaceDetectionResult::equal(Self, Self) -> Bool
+pub fn FaceDetectionResult::not_equal(Self, Self) -> Bool
+pub fn FaceDetectionResult::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct FaceFeature {
   vector : Array[Double]
   dimension : Int32
   norm : Double
   is_normalized : Bool
 }
+pub fn FaceFeature::equal(Self, Self) -> Bool
+pub fn FaceFeature::not_equal(Self, Self) -> Bool
+pub fn FaceFeature::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum FaceRecognitionAlgorithm {
   FaceNet
   ArcFace
@@ -129,7 +156,9 @@ pub(all) enum FaceRecognitionAlgorithm {
 }
 pub fn FaceRecognitionAlgorithm::equal(Self, Self) -> Bool
 pub fn FaceRecognitionAlgorithm::not_equal(Self, Self) -> Bool
+pub fn FaceRecognitionAlgorithm::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct FaceRecognitionConfig {
   detection_algorithm : FaceDetectionAlgorithm
   recognition_algorithm : FaceRecognitionAlgorithm
@@ -141,7 +170,11 @@ pub(all) struct FaceRecognitionConfig {
   use_alignment : Bool
   feature_dimension : Int32
 }
+pub fn FaceRecognitionConfig::equal(Self, Self) -> Bool
+pub fn FaceRecognitionConfig::not_equal(Self, Self) -> Bool
+pub fn FaceRecognitionConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct FaceRecognitionResult {
   face_id : Int32
   identity : String
@@ -151,6 +184,9 @@ pub(all) struct FaceRecognitionResult {
   matched_face_id : Int32
   bounding_box : Array[Double]
 }
+pub fn FaceRecognitionResult::equal(Self, Self) -> Bool
+pub fn FaceRecognitionResult::not_equal(Self, Self) -> Bool
+pub fn FaceRecognitionResult::to_repr(Self) -> @debug.Repr
 
 // Type aliases
 

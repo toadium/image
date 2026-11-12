@@ -3,7 +3,7 @@
 
 ///|
 /// 视觉语言模型类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum VisionLanguageModelType {
   CLIP
   BLIP
@@ -18,11 +18,14 @@ pub(all) enum VisionLanguageModelType {
 }
 
 ///|
+pub extend VisionLanguageModelType with @debug.Debug::{to_repr}
+
+///|
 pub extend VisionLanguageModelType with Eq::{not_equal, equal}
 
 ///|
 /// 多模态融合策略
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum MultimodalFusionStrategy {
   EarlyFusion
   LateFusion
@@ -34,11 +37,14 @@ pub(all) enum MultimodalFusionStrategy {
 }
 
 ///|
+pub extend MultimodalFusionStrategy with @debug.Debug::{to_repr}
+
+///|
 pub extend MultimodalFusionStrategy with Eq::{not_equal, equal}
 
 ///|
 /// 扩散模型类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum DiffusionModelType {
   StableDiffusion
   DALLE
@@ -52,11 +58,14 @@ pub(all) enum DiffusionModelType {
 }
 
 ///|
+pub extend DiffusionModelType with @debug.Debug::{to_repr}
+
+///|
 pub extend DiffusionModelType with Eq::{not_equal, equal}
 
 ///|
 /// 生成式AI任务类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum GenerativeAITaskType {
   TextToImage
   ImageToText
@@ -70,10 +79,14 @@ pub(all) enum GenerativeAITaskType {
 }
 
 ///|
+pub extend GenerativeAITaskType with @debug.Debug::{to_repr}
+
+///|
 pub extend GenerativeAITaskType with Eq::{not_equal, equal}
 
 ///|
 /// 视觉语言模型配置
+#derive(Eq, @debug.Debug)
 pub(all) struct VLMConfig {
   model_type : VisionLanguageModelType
   image_encoder_size : Int32
@@ -86,7 +99,14 @@ pub(all) struct VLMConfig {
 }
 
 ///|
+pub extend VLMConfig with Eq::{not_equal, equal}
+
+///|
+pub extend VLMConfig with @debug.Debug::{to_repr}
+
+///|
 /// 多模态融合配置
+#derive(Eq, @debug.Debug)
 pub(all) struct FusionConfig {
   strategy : MultimodalFusionStrategy
   num_modalities : Int32
@@ -98,7 +118,14 @@ pub(all) struct FusionConfig {
 }
 
 ///|
+pub extend FusionConfig with Eq::{not_equal, equal}
+
+///|
+pub extend FusionConfig with @debug.Debug::{to_repr}
+
+///|
 /// 扩散模型配置
+#derive(Eq, @debug.Debug)
 pub(all) struct DiffusionConfig {
   model_type : DiffusionModelType
   num_timesteps : Int32
@@ -113,7 +140,14 @@ pub(all) struct DiffusionConfig {
 }
 
 ///|
+pub extend DiffusionConfig with Eq::{not_equal, equal}
+
+///|
+pub extend DiffusionConfig with @debug.Debug::{to_repr}
+
+///|
 /// 生成式AI配置
+#derive(Eq, @debug.Debug)
 pub(all) struct GenerativeAIConfig {
   task_type : GenerativeAITaskType
   vlm_config : VLMConfig
@@ -127,7 +161,14 @@ pub(all) struct GenerativeAIConfig {
 }
 
 ///|
+pub extend GenerativeAIConfig with Eq::{not_equal, equal}
+
+///|
+pub extend GenerativeAIConfig with @debug.Debug::{to_repr}
+
+///|
 /// 视觉文本嵌入
+#derive(Eq, @debug.Debug)
 pub(all) struct VisionTextEmbedding {
   image_embedding : Array[Double]
   text_embedding : Array[Double]
@@ -136,7 +177,14 @@ pub(all) struct VisionTextEmbedding {
 }
 
 ///|
+pub extend VisionTextEmbedding with Eq::{not_equal, equal}
+
+///|
+pub extend VisionTextEmbedding with @debug.Debug::{to_repr}
+
+///|
 /// 多模态融合结果
+#derive(Eq, @debug.Debug)
 pub(all) struct FusionResult {
   fused_representation : Array[Double]
   modality_weights : Array[Double]
@@ -145,7 +193,14 @@ pub(all) struct FusionResult {
 }
 
 ///|
+pub extend FusionResult with Eq::{not_equal, equal}
+
+///|
+pub extend FusionResult with @debug.Debug::{to_repr}
+
+///|
 /// 扩散生成结果
+#derive(Eq, @debug.Debug)
 pub(all) struct DiffusionResult {
   image : @types.Image
   num_steps : Int32
@@ -157,7 +212,14 @@ pub(all) struct DiffusionResult {
 }
 
 ///|
+pub extend DiffusionResult with Eq::{not_equal, equal}
+
+///|
+pub extend DiffusionResult with @debug.Debug::{to_repr}
+
+///|
 /// 生成式AI结果
+#derive(Eq, @debug.Debug)
 pub(all) struct GenerativeAIResult {
   task_type : GenerativeAITaskType
   image : @types.Image
@@ -166,6 +228,12 @@ pub(all) struct GenerativeAIResult {
   generation_time_ms : Double
   num_iterations : Int32
 }
+
+///|
+pub extend GenerativeAIResult with Eq::{not_equal, equal}
+
+///|
+pub extend GenerativeAIResult with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认VLM配置

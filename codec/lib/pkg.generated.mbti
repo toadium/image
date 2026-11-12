@@ -58,11 +58,16 @@ pub fn save_image_with_quality(@types.Image, @types.ImageFormat, Int32) -> Bytes
 // Errors
 
 // Types and methods
+#derive(Default, Eq, @debug.Debug)
 pub(all) struct StreamInfo {
   width : Int32
   height : Int32
   channels : Int32
 }
+pub fn StreamInfo::default() -> Self
+pub fn StreamInfo::equal(Self, Self) -> Bool
+pub fn StreamInfo::not_equal(Self, Self) -> Bool
+pub fn StreamInfo::to_repr(Self) -> @debug.Repr
 
 #derive(Eq, @debug.Debug)
 pub(all) struct UnifiedImageInfo {

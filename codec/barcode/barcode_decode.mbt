@@ -3,7 +3,7 @@
 
 ///|
 /// 条形码类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum BarcodeType {
   Ean13
   UpcA
@@ -16,7 +16,11 @@ pub(all) enum BarcodeType {
 pub extend BarcodeType with Eq::{not_equal, equal}
 
 ///|
+pub extend BarcodeType with @debug.Debug::{to_repr}
+
+///|
 /// 条形码识别结果
+#derive(Eq, @debug.Debug)
 pub(all) struct BarcodeResult {
   barcode_type : BarcodeType
   data : String
@@ -28,7 +32,14 @@ pub(all) struct BarcodeResult {
 }
 
 ///|
+pub extend BarcodeResult with Eq::{not_equal, equal}
+
+///|
+pub extend BarcodeResult with @debug.Debug::{to_repr}
+
+///|
 /// 条形码识别配置
+#derive(Eq, Default, @debug.Debug)
 pub(all) struct BarcodeConfig {
   enable_ean13 : Bool
   enable_upca : Bool
@@ -39,6 +50,15 @@ pub(all) struct BarcodeConfig {
   scan_lines : Int32 // 扫描线数量
   quiet_zone_required : Bool // 是否要求静区
 }
+
+///|
+pub extend BarcodeConfig with Eq::{not_equal, equal}
+
+///|
+pub extend BarcodeConfig with Default::{default}
+
+///|
+pub extend BarcodeConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认条形码识别配置
@@ -384,12 +404,22 @@ fn validate_ean13_checksum(barcode : String) -> Bool {
 
 ///|
 /// QR Code 定位图案（Finder Pattern）
+#derive(Eq, Default, @debug.Debug)
 pub(all) struct QrFinderPattern {
   x : Double
   y : Double
   size : Double
   quality : Double
 }
+
+///|
+pub extend QrFinderPattern with Eq::{not_equal, equal}
+
+///|
+pub extend QrFinderPattern with Default::{default}
+
+///|
+pub extend QrFinderPattern with @debug.Debug::{to_repr}
 
 ///|
 /// 检测 QR Code 定位图案

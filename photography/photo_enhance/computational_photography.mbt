@@ -3,7 +3,7 @@
 
 ///|
 /// HDR 曝光类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum ExposureType {
   Underexposed
   Normal
@@ -12,10 +12,14 @@ pub(all) enum ExposureType {
 }
 
 ///|
+pub extend ExposureType with @debug.Debug::{to_repr}
+
+///|
 pub extend ExposureType with Eq::{not_equal, equal}
 
 ///|
 /// HDR 图像
+#derive(Eq, @debug.Debug)
 pub(all) struct HdrImage {
   width : Int32
   height : Int32
@@ -26,8 +30,14 @@ pub(all) struct HdrImage {
 }
 
 ///|
+pub extend HdrImage with Eq::{not_equal, equal}
+
+///|
+pub extend HdrImage with @debug.Debug::{to_repr}
+
+///|
 /// 色调映射算法类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum ToneMappingType {
   Reinhard
   Drago
@@ -37,10 +47,14 @@ pub(all) enum ToneMappingType {
 }
 
 ///|
+pub extend ToneMappingType with @debug.Debug::{to_repr}
+
+///|
 pub extend ToneMappingType with Eq::{not_equal, equal}
 
 ///|
 /// 色调映射配置
+#derive(Eq, @debug.Debug)
 pub(all) struct ToneMappingConfig {
   algorithm : ToneMappingType
   exposure : Double
@@ -50,7 +64,14 @@ pub(all) struct ToneMappingConfig {
 }
 
 ///|
+pub extend ToneMappingConfig with Eq::{not_equal, equal}
+
+///|
+pub extend ToneMappingConfig with @debug.Debug::{to_repr}
+
+///|
 /// 全景拼接配置
+#derive(Eq, @debug.Debug)
 pub(all) struct PanoramaConfig {
   overlap_threshold : Double
   max_features : Int32
@@ -60,7 +81,14 @@ pub(all) struct PanoramaConfig {
 }
 
 ///|
+pub extend PanoramaConfig with Eq::{not_equal, equal}
+
+///|
+pub extend PanoramaConfig with @debug.Debug::{to_repr}
+
+///|
 /// 全景拼接结果
+#derive(Eq, @debug.Debug)
 pub(all) struct PanoramaResult {
   width : Int32
   height : Int32
@@ -70,7 +98,14 @@ pub(all) struct PanoramaResult {
 }
 
 ///|
+pub extend PanoramaResult with Eq::{not_equal, equal}
+
+///|
+pub extend PanoramaResult with @debug.Debug::{to_repr}
+
+///|
 /// 景深配置
+#derive(Eq, @debug.Debug)
 pub(all) struct DepthOfFieldConfig {
   focal_point_x : Int32
   focal_point_y : Int32
@@ -79,13 +114,26 @@ pub(all) struct DepthOfFieldConfig {
 }
 
 ///|
+pub extend DepthOfFieldConfig with Eq::{not_equal, equal}
+
+///|
+pub extend DepthOfFieldConfig with @debug.Debug::{to_repr}
+
+///|
 /// 夜景增强配置
+#derive(Eq, @debug.Debug)
 pub(all) struct NightEnhanceConfig {
   denoise_strength : Double
   brightness_boost : Double
   contrast_enhance : Double
   noise_reduction : Bool
 }
+
+///|
+pub extend NightEnhanceConfig with Eq::{not_equal, equal}
+
+///|
+pub extend NightEnhanceConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认 HDR 配置

@@ -2,6 +2,7 @@
 package "walkzzz/domain/remote_sensing"
 
 import {
+  "moonbitlang/core/debug",
   "walkzzz/core/types",
 }
 
@@ -51,6 +52,7 @@ pub fn vegetation_coverage(@types.Image, ndvi_soil? : Double, ndvi_veg? : Double
 // Errors
 
 // Types and methods
+#derive(Default, Eq, @debug.Debug)
 pub(all) struct ChangeDetectionResult {
   width : Int32
   height : Int32
@@ -60,7 +62,12 @@ pub(all) struct ChangeDetectionResult {
   change_intensity : Array[Double]
   threshold : Double
 }
+pub fn ChangeDetectionResult::default() -> Self
+pub fn ChangeDetectionResult::equal(Self, Self) -> Bool
+pub fn ChangeDetectionResult::not_equal(Self, Self) -> Bool
+pub fn ChangeDetectionResult::to_repr(Self) -> @debug.Repr
 
+#derive(Default, Eq, @debug.Debug)
 pub(all) struct ClassificationResult {
   width : Int32
   height : Int32
@@ -71,8 +78,12 @@ pub(all) struct ClassificationResult {
   overall_accuracy : Double
   kappa_coefficient : Double
 }
+pub fn ClassificationResult::default() -> Self
+pub fn ClassificationResult::equal(Self, Self) -> Bool
+pub fn ClassificationResult::not_equal(Self, Self) -> Bool
+pub fn ClassificationResult::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum LandCoverClass {
   Water
   Forest
@@ -88,6 +99,7 @@ pub(all) enum LandCoverClass {
 }
 pub fn LandCoverClass::equal(Self, Self) -> Bool
 pub fn LandCoverClass::not_equal(Self, Self) -> Bool
+pub fn LandCoverClass::to_repr(Self) -> @debug.Repr
 
 pub(all) struct MultispectralImage {
   width : Int32
@@ -108,7 +120,7 @@ pub(all) struct RemoteSensingImage {
   cloud_cover : Double
 }
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum RemoteSensingImageType {
   Optical
   Multispectral
@@ -120,7 +132,9 @@ pub(all) enum RemoteSensingImageType {
 }
 pub fn RemoteSensingImageType::equal(Self, Self) -> Bool
 pub fn RemoteSensingImageType::not_equal(Self, Self) -> Bool
+pub fn RemoteSensingImageType::to_repr(Self) -> @debug.Repr
 
+#derive(Default, Eq, @debug.Debug)
 pub(all) struct RemoteSensingQuality {
   snr : Double
   cloud_cover : Double
@@ -128,7 +142,12 @@ pub(all) struct RemoteSensingQuality {
   radiometric_accuracy : Double
   overall_quality : Double
 }
+pub fn RemoteSensingQuality::default() -> Self
+pub fn RemoteSensingQuality::equal(Self, Self) -> Bool
+pub fn RemoteSensingQuality::not_equal(Self, Self) -> Bool
+pub fn RemoteSensingQuality::to_repr(Self) -> @debug.Repr
 
+#derive(Default, Eq, @debug.Debug)
 pub(all) struct SpectralSignature {
   wavelengths : Array[Double]
   reflectance : Array[Double]
@@ -137,7 +156,12 @@ pub(all) struct SpectralSignature {
   std_reflectance : Double
   absorption_features : Array[(Double, Double)]
 }
+pub fn SpectralSignature::default() -> Self
+pub fn SpectralSignature::equal(Self, Self) -> Bool
+pub fn SpectralSignature::not_equal(Self, Self) -> Bool
+pub fn SpectralSignature::to_repr(Self) -> @debug.Repr
 
+#derive(Default, Eq, @debug.Debug)
 pub(all) struct TextureFeatures {
   contrast : Double
   homogeneity : Double
@@ -147,7 +171,12 @@ pub(all) struct TextureFeatures {
   variance : Double
   dissimilarity : Double
 }
+pub fn TextureFeatures::default() -> Self
+pub fn TextureFeatures::equal(Self, Self) -> Bool
+pub fn TextureFeatures::not_equal(Self, Self) -> Bool
+pub fn TextureFeatures::to_repr(Self) -> @debug.Repr
 
+#derive(Default, Eq, @debug.Debug)
 pub(all) struct VegetationIndices {
   ndvi : Array[Double]
   ndwi : Array[Double]
@@ -156,6 +185,10 @@ pub(all) struct VegetationIndices {
   savi : Array[Double]
   msavi : Array[Double]
 }
+pub fn VegetationIndices::default() -> Self
+pub fn VegetationIndices::equal(Self, Self) -> Bool
+pub fn VegetationIndices::not_equal(Self, Self) -> Bool
+pub fn VegetationIndices::to_repr(Self) -> @debug.Repr
 
 // Type aliases
 

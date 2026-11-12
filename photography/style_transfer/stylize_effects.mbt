@@ -3,6 +3,7 @@
 
 ///|
 /// 风格化配置
+#derive(Eq, @debug.Debug)
 pub(all) struct StylizeConfig {
   oil_paint_radius : Int32 // 油画效果半径
   oil_paint_intensity : Int32 // 油画色阶数
@@ -11,6 +12,12 @@ pub(all) struct StylizeConfig {
   cartoon_levels : Int32 // 卡通色阶数
   cartoon_edge_threshold : Double // 卡通边缘阈值
 }
+
+///|
+pub extend StylizeConfig with Eq::{not_equal, equal}
+
+///|
+pub extend StylizeConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认风格化配置

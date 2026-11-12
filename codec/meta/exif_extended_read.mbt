@@ -4,7 +4,7 @@
 
 ///|
 /// 扩展 EXIF 元数据信息
-#derive(Eq, @debug.Debug)
+#derive(Eq, Default, @debug.Debug)
 pub(all) struct ExifInfoExtended {
   make : String
   model : String
@@ -26,6 +26,9 @@ pub(all) struct ExifInfoExtended {
 
 ///|
 pub extend ExifInfoExtended with Eq::{not_equal, equal}
+
+///|
+pub extend ExifInfoExtended with Default::{default}
 
 ///|
 pub extend ExifInfoExtended with @debug.Debug::{to_repr}

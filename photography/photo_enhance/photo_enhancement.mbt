@@ -3,11 +3,18 @@
 
 ///|
 /// 低光增强配置
+#derive(Eq, @debug.Debug)
 pub(all) struct LowLightConfig {
   method_type : String // "gamma" / "log" / "retinex"
   gamma : Double // Gamma 校正参数
   strength : Double // 增强强度
 }
+
+///|
+pub extend LowLightConfig with Eq::{not_equal, equal}
+
+///|
+pub extend LowLightConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认低光增强配置

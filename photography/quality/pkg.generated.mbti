@@ -2,6 +2,7 @@
 package "walkzzz/photography/quality"
 
 import {
+  "moonbitlang/core/debug",
   "walkzzz/core/types",
 }
 
@@ -23,12 +24,16 @@ pub fn images_equal(@types.Image, @types.Image) -> Bool
 // Errors
 
 // Types and methods
+#derive(Eq, @debug.Debug)
 pub(all) struct QualityMetrics {
   mse : Double
   mae : Double
   psnr : Double
   ssim : Double
 }
+pub fn QualityMetrics::equal(Self, Self) -> Bool
+pub fn QualityMetrics::not_equal(Self, Self) -> Bool
+pub fn QualityMetrics::to_repr(Self) -> @debug.Repr
 
 // Type aliases
 

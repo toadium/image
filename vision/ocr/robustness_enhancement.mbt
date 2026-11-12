@@ -3,7 +3,7 @@
 
 ///|
 /// 扫描质量等级
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum ScanQualityLevel {
   Excellent // 优秀：可直接识别
   Good // 良好：轻微预处理即可
@@ -13,10 +13,14 @@ pub(all) enum ScanQualityLevel {
 }
 
 ///|
+pub extend ScanQualityLevel with @debug.Debug::{to_repr}
+
+///|
 pub extend ScanQualityLevel with Eq::{not_equal, equal}
 
 ///|
 /// 自适应预处理配置
+#derive(Eq, @debug.Debug)
 pub(all) struct AdaptivePreprocessConfig {
   quality_level : ScanQualityLevel
   denoise_strength : Int32 // 去噪强度 0-5
@@ -30,8 +34,14 @@ pub(all) struct AdaptivePreprocessConfig {
 }
 
 ///|
+pub extend AdaptivePreprocessConfig with Eq::{not_equal, equal}
+
+///|
+pub extend AdaptivePreprocessConfig with @debug.Debug::{to_repr}
+
+///|
 /// 畸变类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum DistortionType {
   Skew // 倾斜
   Perspective // 透视畸变
@@ -44,10 +54,14 @@ pub(all) enum DistortionType {
 }
 
 ///|
+pub extend DistortionType with @debug.Debug::{to_repr}
+
+///|
 pub extend DistortionType with Eq::{not_equal, equal}
 
 ///|
 /// 畸变检测结果
+#derive(Eq, @debug.Debug)
 pub(all) struct DistortionDetectionResult {
   distortion_type : DistortionType
   severity : Double // 0.0-1.0
@@ -57,8 +71,14 @@ pub(all) struct DistortionDetectionResult {
 }
 
 ///|
+pub extend DistortionDetectionResult with Eq::{not_equal, equal}
+
+///|
+pub extend DistortionDetectionResult with @debug.Debug::{to_repr}
+
+///|
 /// 复杂版面类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum ComplexLayoutType {
   SingleColumn
   DoubleColumn
@@ -71,10 +91,14 @@ pub(all) enum ComplexLayoutType {
 }
 
 ///|
+pub extend ComplexLayoutType with @debug.Debug::{to_repr}
+
+///|
 pub extend ComplexLayoutType with Eq::{not_equal, equal}
 
 ///|
 /// 复杂版面分析结果
+#derive(Eq, @debug.Debug)
 pub(all) struct ComplexLayoutAnalysis {
   layout_type : ComplexLayoutType
   num_columns : Int32
@@ -86,7 +110,14 @@ pub(all) struct ComplexLayoutAnalysis {
 }
 
 ///|
+pub extend ComplexLayoutAnalysis with Eq::{not_equal, equal}
+
+///|
+pub extend ComplexLayoutAnalysis with @debug.Debug::{to_repr}
+
+///|
 /// 鲁棒性评估报告
+#derive(Eq, @debug.Debug)
 pub(all) struct RobustnessReport {
   overall_score : Double
   quality_score : Double
@@ -97,6 +128,12 @@ pub(all) struct RobustnessReport {
   estimated_accuracy : Double
   processing_recommendation : String
 }
+
+///|
+pub extend RobustnessReport with Eq::{not_equal, equal}
+
+///|
+pub extend RobustnessReport with @debug.Debug::{to_repr}
 
 ///|
 /// 根据扫描质量自动选择预处理配置

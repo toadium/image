@@ -3,7 +3,7 @@
 
 ///|
 /// 场景分类算法类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum SceneClassificationAlgorithm {
   ResNet
   VGG
@@ -18,11 +18,14 @@ pub(all) enum SceneClassificationAlgorithm {
 }
 
 ///|
+pub extend SceneClassificationAlgorithm with @debug.Debug::{to_repr}
+
+///|
 pub extend SceneClassificationAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 图像描述算法类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum ImageCaptioningAlgorithm {
   ShowAndTell
   ShowAttendAndTell
@@ -36,11 +39,14 @@ pub(all) enum ImageCaptioningAlgorithm {
 }
 
 ///|
+pub extend ImageCaptioningAlgorithm with @debug.Debug::{to_repr}
+
+///|
 pub extend ImageCaptioningAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 视觉问答算法类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum VisualQuestionAnsweringAlgorithm {
   VQA
   VisualBERT
@@ -54,10 +60,14 @@ pub(all) enum VisualQuestionAnsweringAlgorithm {
 }
 
 ///|
+pub extend VisualQuestionAnsweringAlgorithm with @debug.Debug::{to_repr}
+
+///|
 pub extend VisualQuestionAnsweringAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 场景分类结果
+#derive(Eq, @debug.Debug)
 pub(all) struct SceneClassificationResult {
   scene_type : String
   confidence : Double
@@ -68,7 +78,14 @@ pub(all) struct SceneClassificationResult {
 }
 
 ///|
+pub extend SceneClassificationResult with Eq::{not_equal, equal}
+
+///|
+pub extend SceneClassificationResult with @debug.Debug::{to_repr}
+
+///|
 /// 图像描述结果
+#derive(Eq, @debug.Debug)
 pub(all) struct ImageCaptioningResult {
   caption : String
   confidence : Double
@@ -80,7 +97,14 @@ pub(all) struct ImageCaptioningResult {
 }
 
 ///|
+pub extend ImageCaptioningResult with Eq::{not_equal, equal}
+
+///|
+pub extend ImageCaptioningResult with @debug.Debug::{to_repr}
+
+///|
 /// 视觉问答结果
+#derive(Eq, @debug.Debug)
 pub(all) struct VisualQuestionAnsweringResult {
   answer : String
   confidence : Double
@@ -91,7 +115,14 @@ pub(all) struct VisualQuestionAnsweringResult {
 }
 
 ///|
+pub extend VisualQuestionAnsweringResult with Eq::{not_equal, equal}
+
+///|
+pub extend VisualQuestionAnsweringResult with @debug.Debug::{to_repr}
+
+///|
 /// 场景图节点
+#derive(Eq, @debug.Debug)
 pub(all) struct SceneGraphNode {
   object_id : Int32
   object_name : String
@@ -101,7 +132,14 @@ pub(all) struct SceneGraphNode {
 }
 
 ///|
+pub extend SceneGraphNode with Eq::{not_equal, equal}
+
+///|
+pub extend SceneGraphNode with @debug.Debug::{to_repr}
+
+///|
 /// 场景图关系
+#derive(Eq, @debug.Debug)
 pub(all) struct SceneGraphRelation {
   subject_id : Int32
   object_id : Int32
@@ -110,7 +148,14 @@ pub(all) struct SceneGraphRelation {
 }
 
 ///|
+pub extend SceneGraphRelation with Eq::{not_equal, equal}
+
+///|
+pub extend SceneGraphRelation with @debug.Debug::{to_repr}
+
+///|
 /// 场景图
+#derive(Eq, @debug.Debug)
 pub(all) struct SceneGraph {
   nodes : Array[SceneGraphNode]
   relations : Array[SceneGraphRelation]
@@ -119,7 +164,14 @@ pub(all) struct SceneGraph {
 }
 
 ///|
+pub extend SceneGraph with Eq::{not_equal, equal}
+
+///|
+pub extend SceneGraph with @debug.Debug::{to_repr}
+
+///|
 /// 场景理解配置
+#derive(Eq, @debug.Debug)
 pub(all) struct SceneUnderstandingConfig {
   classification_algorithm : SceneClassificationAlgorithm
   captioning_algorithm : ImageCaptioningAlgorithm
@@ -130,6 +182,12 @@ pub(all) struct SceneUnderstandingConfig {
   use_attention : Bool
   use_scene_graph : Bool
 }
+
+///|
+pub extend SceneUnderstandingConfig with Eq::{not_equal, equal}
+
+///|
+pub extend SceneUnderstandingConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认场景理解配置

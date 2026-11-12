@@ -298,6 +298,7 @@ pub fn zero_motion_ratio(Array[MotionVector]) -> Double
 // Errors
 
 // Types and methods
+#derive(Eq, @debug.Debug)
 pub(all) struct ActionRecognitionResult {
   action_type : ActionType
   confidence : Double
@@ -308,8 +309,11 @@ pub(all) struct ActionRecognitionResult {
   direction : Double
   key_points : Array[(Int32, Int32)]
 }
+pub fn ActionRecognitionResult::equal(Self, Self) -> Bool
+pub fn ActionRecognitionResult::not_equal(Self, Self) -> Bool
+pub fn ActionRecognitionResult::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum ActionType {
   Walking
   Running
@@ -327,6 +331,7 @@ pub(all) enum ActionType {
 }
 pub fn ActionType::equal(Self, Self) -> Bool
 pub fn ActionType::not_equal(Self, Self) -> Bool
+pub fn ActionType::to_repr(Self) -> @debug.Repr
 
 #derive(Eq, @debug.Debug)
 pub(all) struct BackgroundModel {
@@ -444,6 +449,7 @@ pub fn FrameType::equal(Self, Self) -> Bool
 pub fn FrameType::not_equal(Self, Self) -> Bool
 pub fn FrameType::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct Keyframe {
   frame_index : Int32
   timestamp_ms : Double
@@ -451,8 +457,11 @@ pub(all) struct Keyframe {
   score : Double
   thumbnail : @types.Image
 }
+pub fn Keyframe::equal(Self, Self) -> Bool
+pub fn Keyframe::not_equal(Self, Self) -> Bool
+pub fn Keyframe::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum KeyframeType {
   SceneChange
   MotionPeak
@@ -462,6 +471,7 @@ pub(all) enum KeyframeType {
 }
 pub fn KeyframeType::equal(Self, Self) -> Bool
 pub fn KeyframeType::not_equal(Self, Self) -> Bool
+pub fn KeyframeType::to_repr(Self) -> @debug.Repr
 
 #derive(Eq, @debug.Debug)
 pub(all) struct MotionEstimateResult {
@@ -552,6 +562,7 @@ pub fn MultiTrackingMethod::equal(Self, Self) -> Bool
 pub fn MultiTrackingMethod::not_equal(Self, Self) -> Bool
 pub fn MultiTrackingMethod::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct OpticalFlowField {
   width : Int32
   height : Int32
@@ -560,13 +571,20 @@ pub(all) struct OpticalFlowField {
   max_magnitude : Double
   motion_direction : Double
 }
+pub fn OpticalFlowField::equal(Self, Self) -> Bool
+pub fn OpticalFlowField::not_equal(Self, Self) -> Bool
+pub fn OpticalFlowField::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct OpticalFlowVector {
   x : Double
   y : Double
   magnitude : Double
   angle : Double
 }
+pub fn OpticalFlowVector::equal(Self, Self) -> Bool
+pub fn OpticalFlowVector::not_equal(Self, Self) -> Bool
+pub fn OpticalFlowVector::to_repr(Self) -> @debug.Repr
 
 #derive(Eq, @debug.Debug)
 pub(all) enum ResolutionMode {
@@ -690,6 +708,7 @@ pub fn TimelapseConfig::equal(Self, Self) -> Bool
 pub fn TimelapseConfig::not_equal(Self, Self) -> Bool
 pub fn TimelapseConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct TrackedObject {
   id : Int32
   label : String
@@ -708,13 +727,20 @@ pub(all) struct TrackedObject {
   color_histogram : Array[Double]
   trajectory : Array[(Int32, Int32)]
 }
+pub fn TrackedObject::equal(Self, Self) -> Bool
+pub fn TrackedObject::not_equal(Self, Self) -> Bool
+pub fn TrackedObject::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct TrackingResult {
   frame_index : Int32
   objects : Array[TrackedObject]
   tracking_time_ms : Double
   num_objects : Int32
 }
+pub fn TrackingResult::equal(Self, Self) -> Bool
+pub fn TrackingResult::not_equal(Self, Self) -> Bool
+pub fn TrackingResult::to_repr(Self) -> @debug.Repr
 
 #derive(Eq, @debug.Debug)
 pub(all) struct TrajectoryPoint {
@@ -832,6 +858,7 @@ pub fn VideoFormat::equal(Self, Self) -> Bool
 pub fn VideoFormat::not_equal(Self, Self) -> Bool
 pub fn VideoFormat::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct VideoFrames {
   frames : Array[@types.Image]
   width : Int32
@@ -839,6 +866,9 @@ pub(all) struct VideoFrames {
   channels : Int32
   fps : Double
 }
+pub fn VideoFrames::equal(Self, Self) -> Bool
+pub fn VideoFrames::not_equal(Self, Self) -> Bool
+pub fn VideoFrames::to_repr(Self) -> @debug.Repr
 
 #derive(Eq, @debug.Debug)
 pub(all) struct VideoInpaintConfig {
@@ -925,6 +955,7 @@ pub fn VideoSegmentationMethod::equal(Self, Self) -> Bool
 pub fn VideoSegmentationMethod::not_equal(Self, Self) -> Bool
 pub fn VideoSegmentationMethod::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct VideoStabilizationConfig {
   smoothing_radius : Int32
   max_correction : Double
@@ -932,7 +963,11 @@ pub(all) struct VideoStabilizationConfig {
   enable_rotation_correction : Bool
   enable_scale_correction : Bool
 }
+pub fn VideoStabilizationConfig::equal(Self, Self) -> Bool
+pub fn VideoStabilizationConfig::not_equal(Self, Self) -> Bool
+pub fn VideoStabilizationConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct VideoSummary {
   total_frames : Int32
   duration_ms : Double
@@ -943,6 +978,9 @@ pub(all) struct VideoSummary {
   scene_changes : Array[Int32]
   summary_text : String
 }
+pub fn VideoSummary::equal(Self, Self) -> Bool
+pub fn VideoSummary::not_equal(Self, Self) -> Bool
+pub fn VideoSummary::to_repr(Self) -> @debug.Repr
 
 // Type aliases
 

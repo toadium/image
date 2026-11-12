@@ -3,7 +3,7 @@
 
 ///|
 /// 成像模态类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum ImagingModality {
   Quantum
   Terahertz
@@ -20,11 +20,14 @@ pub(all) enum ImagingModality {
 }
 
 ///|
+pub extend ImagingModality with @debug.Debug::{to_repr}
+
+///|
 pub extend ImagingModality with Eq::{not_equal, equal}
 
 ///|
 /// 量子成像算法类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum QuantumImagingAlgorithm {
   GhostImaging
   SinglePixel
@@ -35,11 +38,14 @@ pub(all) enum QuantumImagingAlgorithm {
 }
 
 ///|
+pub extend QuantumImagingAlgorithm with @debug.Debug::{to_repr}
+
+///|
 pub extend QuantumImagingAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 红外成像类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum InfraredImagingType {
   MWIR
   LWIR
@@ -50,10 +56,14 @@ pub(all) enum InfraredImagingType {
 }
 
 ///|
+pub extend InfraredImagingType with @debug.Debug::{to_repr}
+
+///|
 pub extend InfraredImagingType with Eq::{not_equal, equal}
 
 ///|
 /// 高光谱数据
+#derive(Eq, @debug.Debug)
 pub(all) struct HyperspectralData {
   image_cube : Array[@types.Image]
   num_bands : Int32
@@ -64,7 +74,14 @@ pub(all) struct HyperspectralData {
 }
 
 ///|
+pub extend HyperspectralData with Eq::{not_equal, equal}
+
+///|
+pub extend HyperspectralData with @debug.Debug::{to_repr}
+
+///|
 /// 偏振数据
+#derive(Eq, @debug.Debug)
 pub(all) struct PolarizationData {
   intensity : @types.Image
   degree_of_polarization : @types.Image
@@ -74,7 +91,14 @@ pub(all) struct PolarizationData {
 }
 
 ///|
+pub extend PolarizationData with Eq::{not_equal, equal}
+
+///|
+pub extend PolarizationData with @debug.Debug::{to_repr}
+
+///|
 /// 热成像数据
+#derive(Eq, @debug.Debug)
 pub(all) struct ThermalData {
   temperature_map : @types.Image
   min_temperature : Double
@@ -85,7 +109,14 @@ pub(all) struct ThermalData {
 }
 
 ///|
+pub extend ThermalData with Eq::{not_equal, equal}
+
+///|
+pub extend ThermalData with @debug.Debug::{to_repr}
+
+///|
 /// X射线数据
+#derive(Eq, @debug.Debug)
 pub(all) struct XRayData {
   projection : @types.Image
   energy_kev : Double
@@ -95,7 +126,14 @@ pub(all) struct XRayData {
 }
 
 ///|
+pub extend XRayData with Eq::{not_equal, equal}
+
+///|
+pub extend XRayData with @debug.Debug::{to_repr}
+
+///|
 /// 超声数据
+#derive(Eq, @debug.Debug)
 pub(all) struct UltrasoundData {
   b_mode : @types.Image
   doppler : @types.Image
@@ -106,7 +144,14 @@ pub(all) struct UltrasoundData {
 }
 
 ///|
+pub extend UltrasoundData with Eq::{not_equal, equal}
+
+///|
+pub extend UltrasoundData with @debug.Debug::{to_repr}
+
+///|
 /// MRI数据
+#derive(Eq, @debug.Debug)
 pub(all) struct MRIData {
   t1_weighted : @types.Image
   t2_weighted : @types.Image
@@ -118,7 +163,14 @@ pub(all) struct MRIData {
 }
 
 ///|
+pub extend MRIData with Eq::{not_equal, equal}
+
+///|
+pub extend MRIData with @debug.Debug::{to_repr}
+
+///|
 /// PET数据
+#derive(Eq, @debug.Debug)
 pub(all) struct PETData {
   activity_map : @types.Image
   radiotracer : String
@@ -129,7 +181,14 @@ pub(all) struct PETData {
 }
 
 ///|
+pub extend PETData with Eq::{not_equal, equal}
+
+///|
+pub extend PETData with @debug.Debug::{to_repr}
+
+///|
 /// 成像配置
+#derive(Eq, @debug.Debug)
 pub(all) struct AdvancedImagingConfig {
   modality : ImagingModality
   image_width : Int32
@@ -139,6 +198,12 @@ pub(all) struct AdvancedImagingConfig {
   use_enhancement : Bool
   calibration_factor : Double
 }
+
+///|
+pub extend AdvancedImagingConfig with Eq::{not_equal, equal}
+
+///|
+pub extend AdvancedImagingConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认高级成像配置

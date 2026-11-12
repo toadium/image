@@ -3,7 +3,7 @@
 
 ///|
 /// 自动驾驶任务类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum AutonomousDrivingTask {
   LaneDetection
   TrafficSignRecognition
@@ -17,11 +17,14 @@ pub(all) enum AutonomousDrivingTask {
 }
 
 ///|
+pub extend AutonomousDrivingTask with @debug.Debug::{to_repr}
+
+///|
 pub extend AutonomousDrivingTask with Eq::{not_equal, equal}
 
 ///|
 /// 机器人视觉任务类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum RobotVisionTask {
   ObjectRecognition
   GraspDetection
@@ -35,11 +38,14 @@ pub(all) enum RobotVisionTask {
 }
 
 ///|
+pub extend RobotVisionTask with @debug.Debug::{to_repr}
+
+///|
 pub extend RobotVisionTask with Eq::{not_equal, equal}
 
 ///|
 /// 工业检测任务类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum IndustrialInspectionTask {
   DefectDetection
   SurfaceInspection
@@ -53,11 +59,14 @@ pub(all) enum IndustrialInspectionTask {
 }
 
 ///|
+pub extend IndustrialInspectionTask with @debug.Debug::{to_repr}
+
+///|
 pub extend IndustrialInspectionTask with Eq::{not_equal, equal}
 
 ///|
 /// 安防监控任务类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum SecurityMonitoringTask {
   IntrusionDetection
   FaceRecognition
@@ -71,11 +80,14 @@ pub(all) enum SecurityMonitoringTask {
 }
 
 ///|
+pub extend SecurityMonitoringTask with @debug.Debug::{to_repr}
+
+///|
 pub extend SecurityMonitoringTask with Eq::{not_equal, equal}
 
 ///|
 /// 农业视觉任务类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum AgriculturalVisionTask {
   CropDetection
   WeedDetection
@@ -89,11 +101,14 @@ pub(all) enum AgriculturalVisionTask {
 }
 
 ///|
+pub extend AgriculturalVisionTask with @debug.Debug::{to_repr}
+
+///|
 pub extend AgriculturalVisionTask with Eq::{not_equal, equal}
 
 ///|
 /// 天文图像处理任务类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum AstronomicalImageTask {
   StarDetection
   GalaxyClassification
@@ -107,10 +122,14 @@ pub(all) enum AstronomicalImageTask {
 }
 
 ///|
+pub extend AstronomicalImageTask with @debug.Debug::{to_repr}
+
+///|
 pub extend AstronomicalImageTask with Eq::{not_equal, equal}
 
 ///|
 /// 检测结果
+#derive(Eq, @debug.Debug)
 pub(all) struct DetectionResultIV {
   class_name : String
   confidence : Double
@@ -120,7 +139,14 @@ pub(all) struct DetectionResultIV {
 }
 
 ///|
+pub extend DetectionResultIV with Eq::{not_equal, equal}
+
+///|
+pub extend DetectionResultIV with @debug.Debug::{to_repr}
+
+///|
 /// 车道线检测结果
+#derive(Eq, @debug.Debug)
 pub(all) struct LaneDetectionResult {
   lanes : Array[Array[Array[Double]]]
   num_lanes : Int32
@@ -130,7 +156,14 @@ pub(all) struct LaneDetectionResult {
 }
 
 ///|
+pub extend LaneDetectionResult with Eq::{not_equal, equal}
+
+///|
+pub extend LaneDetectionResult with @debug.Debug::{to_repr}
+
+///|
 /// 交通标志识别结果
+#derive(Eq, @debug.Debug)
 pub(all) struct TrafficSignResult {
   sign_type : String
   sign_value : String
@@ -140,7 +173,14 @@ pub(all) struct TrafficSignResult {
 }
 
 ///|
+pub extend TrafficSignResult with Eq::{not_equal, equal}
+
+///|
+pub extend TrafficSignResult with @debug.Debug::{to_repr}
+
+///|
 /// 缺陷检测结果
+#derive(Eq, @debug.Debug)
 pub(all) struct DefectDetectionResult {
   defect_type : String
   severity : String
@@ -151,7 +191,14 @@ pub(all) struct DefectDetectionResult {
 }
 
 ///|
+pub extend DefectDetectionResult with Eq::{not_equal, equal}
+
+///|
+pub extend DefectDetectionResult with @debug.Debug::{to_repr}
+
+///|
 /// 入侵检测结果
+#derive(Eq, @debug.Debug)
 pub(all) struct IntrusionDetectionResult {
   is_intrusion : Bool
   confidence : Double
@@ -162,7 +209,14 @@ pub(all) struct IntrusionDetectionResult {
 }
 
 ///|
+pub extend IntrusionDetectionResult with Eq::{not_equal, equal}
+
+///|
+pub extend IntrusionDetectionResult with @debug.Debug::{to_repr}
+
+///|
 /// 作物检测结果
+#derive(Eq, @debug.Debug)
 pub(all) struct CropDetectionResult {
   crop_type : String
   health_status : String
@@ -173,7 +227,14 @@ pub(all) struct CropDetectionResult {
 }
 
 ///|
+pub extend CropDetectionResult with Eq::{not_equal, equal}
+
+///|
+pub extend CropDetectionResult with @debug.Debug::{to_repr}
+
+///|
 /// 星体检测结果
+#derive(Eq, @debug.Debug)
 pub(all) struct StarDetectionResult {
   stars : Array[Array[Double]]
   num_stars : Int32
@@ -183,7 +244,14 @@ pub(all) struct StarDetectionResult {
 }
 
 ///|
+pub extend StarDetectionResult with Eq::{not_equal, equal}
+
+///|
+pub extend StarDetectionResult with @debug.Debug::{to_repr}
+
+///|
 /// 智能视觉配置
+#derive(Eq, @debug.Debug)
 pub(all) struct IntelligentVisionConfig {
   confidence_threshold : Double
   nms_threshold : Double
@@ -192,6 +260,12 @@ pub(all) struct IntelligentVisionConfig {
   use_gpu : Bool
   model_type : String
 }
+
+///|
+pub extend IntelligentVisionConfig with Eq::{not_equal, equal}
+
+///|
+pub extend IntelligentVisionConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认智能视觉配置

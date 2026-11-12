@@ -3,7 +3,7 @@
 
 ///|
 /// 语言类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum LanguageType {
   Chinese
   English
@@ -14,10 +14,14 @@ pub(all) enum LanguageType {
 }
 
 ///|
+pub extend LanguageType with @debug.Debug::{to_repr}
+
+///|
 pub extend LanguageType with Eq::{not_equal, equal}
 
 ///|
 /// 多语言识别配置
+#derive(Eq, @debug.Debug)
 pub(all) struct MultilingualOcrConfig {
   enable_chinese : Bool
   enable_english : Bool
@@ -27,6 +31,12 @@ pub(all) struct MultilingualOcrConfig {
   distance_metric : String
   auto_language_detection : Bool
 }
+
+///|
+pub extend MultilingualOcrConfig with Eq::{not_equal, equal}
+
+///|
+pub extend MultilingualOcrConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认多语言识别配置
@@ -44,11 +54,18 @@ pub fn multilingual_ocr_default_config() -> MultilingualOcrConfig {
 
 ///|
 /// 标点符号模板
+#derive(Eq, @debug.Debug)
 pub(all) struct PunctuationTemplate {
   char : String
   features : Array[Double]
   width_ratio : Double // 相对宽度（窄/宽）
 }
+
+///|
+pub extend PunctuationTemplate with Eq::{not_equal, equal}
+
+///|
+pub extend PunctuationTemplate with @debug.Debug::{to_repr}
 
 ///|
 /// 生成标点符号模板

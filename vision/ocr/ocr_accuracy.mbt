@@ -3,6 +3,7 @@
 
 ///|
 /// 训练样本数据集
+#derive(Eq, @debug.Debug)
 pub(all) struct TrainingDataset {
   samples : Array[TrainingSample]
   labels : Array[String]
@@ -11,7 +12,14 @@ pub(all) struct TrainingDataset {
 }
 
 ///|
+pub extend TrainingDataset with Eq::{not_equal, equal}
+
+///|
+pub extend TrainingDataset with @debug.Debug::{to_repr}
+
+///|
 /// 集成分类器配置
+#derive(Eq, @debug.Debug)
 pub(all) struct EnsembleConfig {
   use_knn : Bool
   use_template : Bool
@@ -19,6 +27,12 @@ pub(all) struct EnsembleConfig {
   knn_k : Int32
   voting_method : String // "majority" / "weighted" / "confidence"
 }
+
+///|
+pub extend EnsembleConfig with Eq::{not_equal, equal}
+
+///|
+pub extend EnsembleConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认集成配置

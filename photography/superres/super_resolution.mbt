@@ -3,6 +3,7 @@
 
 ///|
 /// 超分辨率配置
+#derive(Eq, @debug.Debug)
 pub(all) struct SuperResolutionConfig {
   scale : Double // 放大倍数
   method_type : String // "bicubic" / "lanczos" / "edge_preserving"
@@ -10,6 +11,12 @@ pub(all) struct SuperResolutionConfig {
   edge_threshold : Double // 边缘阈值
   sharpen_amount : Double // 锐化强度
 }
+
+///|
+pub extend SuperResolutionConfig with Eq::{not_equal, equal}
+
+///|
+pub extend SuperResolutionConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认超分辨率配置

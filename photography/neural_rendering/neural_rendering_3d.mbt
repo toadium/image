@@ -3,7 +3,7 @@
 
 ///|
 /// 神经渲染算法类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum NeuralRenderingAlgorithm {
   NeRF
   NeRFStudio
@@ -17,11 +17,14 @@ pub(all) enum NeuralRenderingAlgorithm {
 }
 
 ///|
+pub extend NeuralRenderingAlgorithm with @debug.Debug::{to_repr}
+
+///|
 pub extend NeuralRenderingAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 3D 重建算法类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum ReconstructionAlgorithm {
   MultiViewStereo
   StructureFromMotion
@@ -34,10 +37,14 @@ pub(all) enum ReconstructionAlgorithm {
 }
 
 ///|
+pub extend ReconstructionAlgorithm with @debug.Debug::{to_repr}
+
+///|
 pub extend ReconstructionAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 射线
+#derive(Eq, @debug.Debug)
 pub(all) struct Ray {
   origin : Array[Double]
   direction : Array[Double]
@@ -46,7 +53,14 @@ pub(all) struct Ray {
 }
 
 ///|
+pub extend Ray with Eq::{not_equal, equal}
+
+///|
+pub extend Ray with @debug.Debug::{to_repr}
+
+///|
 /// 3D 点
+#derive(Eq, @debug.Debug)
 pub(all) struct Point3D {
   position : Array[Double]
   color : Array[Double]
@@ -55,7 +69,14 @@ pub(all) struct Point3D {
 }
 
 ///|
+pub extend Point3D with Eq::{not_equal, equal}
+
+///|
+pub extend Point3D with @debug.Debug::{to_repr}
+
+///|
 /// 体素
+#derive(Eq, @debug.Debug)
 pub(all) struct Voxel {
   position : Array[Double]
   size : Double
@@ -65,7 +86,14 @@ pub(all) struct Voxel {
 }
 
 ///|
+pub extend Voxel with Eq::{not_equal, equal}
+
+///|
+pub extend Voxel with @debug.Debug::{to_repr}
+
+///|
 /// 3D 高斯
+#derive(Eq, @debug.Debug)
 pub(all) struct Gaussian3D {
   position : Array[Double]
   rotation : Array[Double]
@@ -76,7 +104,14 @@ pub(all) struct Gaussian3D {
 }
 
 ///|
+pub extend Gaussian3D with Eq::{not_equal, equal}
+
+///|
+pub extend Gaussian3D with @debug.Debug::{to_repr}
+
+///|
 /// NeRF 配置
+#derive(Eq, @debug.Debug)
 pub(all) struct NeRFConfig {
   num_samples_per_ray : Int32
   num_importance_samples : Int32
@@ -89,7 +124,14 @@ pub(all) struct NeRFConfig {
 }
 
 ///|
+pub extend NeRFConfig with Eq::{not_equal, equal}
+
+///|
+pub extend NeRFConfig with @debug.Debug::{to_repr}
+
+///|
 /// 3D 高斯泼溅配置
+#derive(Eq, @debug.Debug)
 pub(all) struct GaussianSplattingConfig {
   num_gaussians : Int32
   sh_degree : Int32
@@ -100,7 +142,14 @@ pub(all) struct GaussianSplattingConfig {
 }
 
 ///|
+pub extend GaussianSplattingConfig with Eq::{not_equal, equal}
+
+///|
+pub extend GaussianSplattingConfig with @debug.Debug::{to_repr}
+
+///|
 /// 相机参数
+#derive(Eq, @debug.Debug)
 pub(all) struct CameraParams {
   position : Array[Double]
   rotation : Array[Double]
@@ -113,7 +162,14 @@ pub(all) struct CameraParams {
 }
 
 ///|
+pub extend CameraParams with Eq::{not_equal, equal}
+
+///|
+pub extend CameraParams with @debug.Debug::{to_repr}
+
+///|
 /// 渲染结果
+#derive(Eq, @debug.Debug)
 pub(all) struct RenderingResult {
   image : @types.Image
   depth_map : @types.Image
@@ -125,7 +181,14 @@ pub(all) struct RenderingResult {
 }
 
 ///|
+pub extend RenderingResult with Eq::{not_equal, equal}
+
+///|
+pub extend RenderingResult with @debug.Debug::{to_repr}
+
+///|
 /// 3D 重建结果
+#derive(Eq, @debug.Debug)
 pub(all) struct ReconstructionResult {
   point_cloud : Array[Point3D]
   num_points : Int32
@@ -135,6 +198,12 @@ pub(all) struct ReconstructionResult {
   coverage : Double
   accuracy : Double
 }
+
+///|
+pub extend ReconstructionResult with Eq::{not_equal, equal}
+
+///|
+pub extend ReconstructionResult with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认 NeRF 配置

@@ -3,7 +3,7 @@
 
 ///|
 /// 融合算法类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum FusionAlgorithm {
   WeightedAverage
   LaplacianPyramid
@@ -19,10 +19,14 @@ pub(all) enum FusionAlgorithm {
 }
 
 ///|
+pub extend FusionAlgorithm with @debug.Debug::{to_repr}
+
+///|
 pub extend FusionAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 融合结果
+#derive(Eq, @debug.Debug)
 pub(all) struct FusionResult {
   image : @types.Image
   algorithm : FusionAlgorithm
@@ -32,7 +36,14 @@ pub(all) struct FusionResult {
 }
 
 ///|
+pub extend FusionResult with Eq::{not_equal, equal}
+
+///|
+pub extend FusionResult with @debug.Debug::{to_repr}
+
+///|
 /// 融合配置
+#derive(Eq, @debug.Debug)
 pub(all) struct FusionEnhancedConfig {
   algorithm : FusionAlgorithm
   weights : Array[Double]
@@ -41,8 +52,14 @@ pub(all) struct FusionEnhancedConfig {
 }
 
 ///|
+pub extend FusionEnhancedConfig with Eq::{not_equal, equal}
+
+///|
+pub extend FusionEnhancedConfig with @debug.Debug::{to_repr}
+
+///|
 /// 配准算法类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum RegistrationAlgorithm {
   PhaseCorrelation
   FeatureBased
@@ -53,10 +70,14 @@ pub(all) enum RegistrationAlgorithm {
 }
 
 ///|
+pub extend RegistrationAlgorithm with @debug.Debug::{to_repr}
+
+///|
 pub extend RegistrationAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 配准结果
+#derive(Eq, @debug.Debug)
 pub(all) struct RegistrationResult {
   image : @types.Image
   algorithm : RegistrationAlgorithm
@@ -69,7 +90,14 @@ pub(all) struct RegistrationResult {
 }
 
 ///|
+pub extend RegistrationResult with Eq::{not_equal, equal}
+
+///|
+pub extend RegistrationResult with @debug.Debug::{to_repr}
+
+///|
 /// 配准配置
+#derive(Eq, @debug.Debug)
 pub(all) struct RegistrationAdvancedConfig {
   algorithm : RegistrationAlgorithm
   max_iterations : Int32
@@ -78,7 +106,14 @@ pub(all) struct RegistrationAdvancedConfig {
 }
 
 ///|
+pub extend RegistrationAdvancedConfig with Eq::{not_equal, equal}
+
+///|
+pub extend RegistrationAdvancedConfig with @debug.Debug::{to_repr}
+
+///|
 /// 变换矩阵
+#derive(Eq, @debug.Debug)
 pub(all) struct TransformMatrix {
   a : Double
   b : Double
@@ -87,6 +122,12 @@ pub(all) struct TransformMatrix {
   e : Double
   f : Double
 }
+
+///|
+pub extend TransformMatrix with Eq::{not_equal, equal}
+
+///|
+pub extend TransformMatrix with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认融合配置

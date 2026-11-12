@@ -3,6 +3,7 @@
 
 ///|
 /// 文本区域结构体
+#derive(Eq, @debug.Debug)
 pub(all) struct TextRegion {
   x : Int32
   y : Int32
@@ -12,8 +13,14 @@ pub(all) struct TextRegion {
 }
 
 ///|
+pub extend TextRegion with Eq::{not_equal, equal}
+
+///|
+pub extend TextRegion with @debug.Debug::{to_repr}
+
+///|
 /// 文本区域类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum TextRegionType {
   Text
   Image
@@ -22,16 +29,26 @@ pub(all) enum TextRegionType {
 }
 
 ///|
+pub extend TextRegionType with @debug.Debug::{to_repr}
+
+///|
 pub extend TextRegionType with Eq::{not_equal, equal}
 
 ///|
 /// 文本行结构体
+#derive(Eq, @debug.Debug)
 pub(all) struct TextLine {
   x : Int32
   y : Int32
   width : Int32
   height : Int32
 }
+
+///|
+pub extend TextLine with Eq::{not_equal, equal}
+
+///|
+pub extend TextLine with @debug.Debug::{to_repr}
 
 ///|
 /// 检测文本区域（基于投影分析）

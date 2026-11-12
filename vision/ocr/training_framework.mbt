@@ -3,7 +3,7 @@
 
 ///|
 /// 优化器类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum OptimizerType {
   SGD
   Momentum
@@ -13,10 +13,14 @@ pub(all) enum OptimizerType {
 }
 
 ///|
+pub extend OptimizerType with @debug.Debug::{to_repr}
+
+///|
 pub extend OptimizerType with Eq::{not_equal, equal}
 
 ///|
 /// 优化器配置
+#derive(Eq, @debug.Debug)
 pub(all) struct OptimizerConfig {
   optimizer_type : OptimizerType
   learning_rate : Double
@@ -29,8 +33,14 @@ pub(all) struct OptimizerConfig {
 }
 
 ///|
+pub extend OptimizerConfig with Eq::{not_equal, equal}
+
+///|
+pub extend OptimizerConfig with @debug.Debug::{to_repr}
+
+///|
 /// 学习率调度器类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum LRSchedulerType {
   Constant
   StepDecay
@@ -41,10 +51,14 @@ pub(all) enum LRSchedulerType {
 }
 
 ///|
+pub extend LRSchedulerType with @debug.Debug::{to_repr}
+
+///|
 pub extend LRSchedulerType with Eq::{not_equal, equal}
 
 ///|
 /// 学习率调度器配置
+#derive(Eq, @debug.Debug)
 pub(all) struct LRSchedulerConfig {
   scheduler_type : LRSchedulerType
   initial_lr : Double
@@ -57,8 +71,14 @@ pub(all) struct LRSchedulerConfig {
 }
 
 ///|
+pub extend LRSchedulerConfig with Eq::{not_equal, equal}
+
+///|
+pub extend LRSchedulerConfig with @debug.Debug::{to_repr}
+
+///|
 /// 数据增强类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum AugmentationType {
   RandomRotation
   RandomShift
@@ -72,10 +92,14 @@ pub(all) enum AugmentationType {
 }
 
 ///|
+pub extend AugmentationType with @debug.Debug::{to_repr}
+
+///|
 pub extend AugmentationType with Eq::{not_equal, equal}
 
 ///|
 /// 数据增强配置
+#derive(Eq, @debug.Debug)
 pub(all) struct AugmentationConfig {
   enabled : Bool
   augmentation_types : Array[AugmentationType]
@@ -90,7 +114,14 @@ pub(all) struct AugmentationConfig {
 }
 
 ///|
+pub extend AugmentationConfig with Eq::{not_equal, equal}
+
+///|
+pub extend AugmentationConfig with @debug.Debug::{to_repr}
+
+///|
 /// 训练配置
+#derive(Eq, @debug.Debug)
 pub(all) struct TrainingConfig {
   epochs : Int32
   batch_size : Int32
@@ -108,7 +139,14 @@ pub(all) struct TrainingConfig {
 }
 
 ///|
+pub extend TrainingConfig with Eq::{not_equal, equal}
+
+///|
+pub extend TrainingConfig with @debug.Debug::{to_repr}
+
+///|
 /// 训练指标
+#derive(Eq, @debug.Debug)
 pub(all) struct TrainingMetrics {
   epoch : Int32
   train_loss : Double
@@ -121,7 +159,14 @@ pub(all) struct TrainingMetrics {
 }
 
 ///|
+pub extend TrainingMetrics with Eq::{not_equal, equal}
+
+///|
+pub extend TrainingMetrics with @debug.Debug::{to_repr}
+
+///|
 /// 训练状态
+#derive(Eq, @debug.Debug)
 pub(all) struct TrainingState {
   current_epoch : Int32
   best_val_accuracy : Double
@@ -134,7 +179,14 @@ pub(all) struct TrainingState {
 }
 
 ///|
+pub extend TrainingState with Eq::{not_equal, equal}
+
+///|
+pub extend TrainingState with @debug.Debug::{to_repr}
+
+///|
 /// 数据加载器
+#derive(Eq, @debug.Debug)
 pub(all) struct DataLoader {
   samples : Array[DLTrainingSample]
   batch_size : Int32
@@ -142,6 +194,12 @@ pub(all) struct DataLoader {
   current_index : Int32
   epoch : Int32
 }
+
+///|
+pub extend DataLoader with Eq::{not_equal, equal}
+
+///|
+pub extend DataLoader with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认训练配置

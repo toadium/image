@@ -3,6 +3,7 @@
 
 ///|
 /// 投影结果结构体
+#derive(Eq, @debug.Debug)
 pub(all) struct ProjectionResult {
   projection : Array[Int32]
   peaks : Array[Int32]
@@ -10,6 +11,12 @@ pub(all) struct ProjectionResult {
   mean : Double
   stddev : Double
 }
+
+///|
+pub extend ProjectionResult with Eq::{not_equal, equal}
+
+///|
+pub extend ProjectionResult with @debug.Debug::{to_repr}
 
 ///|
 /// 水平投影（按行统计前景像素数）
@@ -132,6 +139,7 @@ fn analyze_projection(projection : Array[Int32]) -> ProjectionResult {
 
 ///|
 /// 文本行结构体
+#derive(Eq, @debug.Debug)
 pub(all) struct TextLineInfo {
   y_start : Int32
   y_end : Int32
@@ -142,6 +150,12 @@ pub(all) struct TextLineInfo {
   pixel_count : Int32
   baseline : Int32
 }
+
+///|
+pub extend TextLineInfo with Eq::{not_equal, equal}
+
+///|
+pub extend TextLineInfo with @debug.Debug::{to_repr}
 
 ///|
 /// 检测文本行（基于水平投影）
@@ -293,6 +307,7 @@ pub fn detect_text_lines_projection(
 
 ///|
 /// 字符分割结构体
+#derive(Eq, @debug.Debug)
 pub(all) struct CharSegment {
   x_start : Int32
   x_end : Int32
@@ -302,6 +317,12 @@ pub(all) struct CharSegment {
   height : Int32
   pixel_count : Int32
 }
+
+///|
+pub extend CharSegment with Eq::{not_equal, equal}
+
+///|
+pub extend CharSegment with @debug.Debug::{to_repr}
 
 ///|
 /// 文本行字符分割（基于垂直投影）

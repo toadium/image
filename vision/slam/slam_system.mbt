@@ -3,7 +3,7 @@
 
 ///|
 /// SLAM 算法类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum SLAMAlgorithm {
   MonoSLAM
   ORBSLAM
@@ -17,10 +17,14 @@ pub(all) enum SLAMAlgorithm {
 }
 
 ///|
+pub extend SLAMAlgorithm with @debug.Debug::{to_repr}
+
+///|
 pub extend SLAMAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 相机位姿
+#derive(Eq, @debug.Debug)
 pub(all) struct CameraPose {
   position : Array[Double]
   rotation : Array[Double]
@@ -29,7 +33,14 @@ pub(all) struct CameraPose {
 }
 
 ///|
+pub extend CameraPose with Eq::{not_equal, equal}
+
+///|
+pub extend CameraPose with @debug.Debug::{to_repr}
+
+///|
 /// 3D 地图点
+#derive(Eq, @debug.Debug)
 pub(all) struct MapPoint {
   position : Array[Double]
   color : Array[Int32]
@@ -40,7 +51,14 @@ pub(all) struct MapPoint {
 }
 
 ///|
+pub extend MapPoint with Eq::{not_equal, equal}
+
+///|
+pub extend MapPoint with @debug.Debug::{to_repr}
+
+///|
 /// 关键帧
+#derive(Eq, @debug.Debug)
 pub(all) struct KeyFrame {
   pose : CameraPose
   image : @types.Image
@@ -52,7 +70,14 @@ pub(all) struct KeyFrame {
 }
 
 ///|
+pub extend KeyFrame with Eq::{not_equal, equal}
+
+///|
+pub extend KeyFrame with @debug.Debug::{to_repr}
+
+///|
 /// SLAM 状态
+#derive(Eq, @debug.Debug)
 pub(all) struct SLAMState {
   current_pose : CameraPose
   trajectory : Array[CameraPose]
@@ -66,7 +91,14 @@ pub(all) struct SLAMState {
 }
 
 ///|
+pub extend SLAMState with Eq::{not_equal, equal}
+
+///|
+pub extend SLAMState with @debug.Debug::{to_repr}
+
+///|
 /// SLAM 配置
+#derive(Eq, @debug.Debug)
 pub(all) struct SLAMConfig {
   algorithm : SLAMAlgorithm
   feature_threshold : Double
@@ -82,7 +114,14 @@ pub(all) struct SLAMConfig {
 }
 
 ///|
+pub extend SLAMConfig with Eq::{not_equal, equal}
+
+///|
+pub extend SLAMConfig with @debug.Debug::{to_repr}
+
+///|
 /// 特征跟踪结果
+#derive(Eq, @debug.Debug)
 pub(all) struct FeatureTrackingResult {
   tracked_features : Array[Array[Double]]
   num_tracked : Int32
@@ -92,7 +131,14 @@ pub(all) struct FeatureTrackingResult {
 }
 
 ///|
+pub extend FeatureTrackingResult with Eq::{not_equal, equal}
+
+///|
+pub extend FeatureTrackingResult with @debug.Debug::{to_repr}
+
+///|
 /// 回环检测结果
+#derive(Eq, @debug.Debug)
 pub(all) struct LoopClosureResult {
   is_loop_detected : Bool
   loop_frame_index : Int32
@@ -100,6 +146,12 @@ pub(all) struct LoopClosureResult {
   transformation : Array[Double]
   num_inliers : Int32
 }
+
+///|
+pub extend LoopClosureResult with Eq::{not_equal, equal}
+
+///|
+pub extend LoopClosureResult with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认 SLAM 配置

@@ -3,6 +3,7 @@
 
 ///|
 /// 纠错结果
+#derive(Eq, @debug.Debug)
 pub(all) struct CorrectionResult {
   original : String
   corrected : String
@@ -12,7 +13,14 @@ pub(all) struct CorrectionResult {
 }
 
 ///|
+pub extend CorrectionResult with Eq::{not_equal, equal}
+
+///|
+pub extend CorrectionResult with @debug.Debug::{to_repr}
+
+///|
 /// 纠错条目
+#derive(Eq, @debug.Debug)
 pub(all) struct CorrectionEntry {
   position : Int32
   original_char : String
@@ -22,7 +30,14 @@ pub(all) struct CorrectionEntry {
 }
 
 ///|
+pub extend CorrectionEntry with Eq::{not_equal, equal}
+
+///|
+pub extend CorrectionEntry with @debug.Debug::{to_repr}
+
+///|
 /// 相似字符映射
+#derive(Eq, @debug.Debug)
 pub(all) struct SimilarCharMapping {
   char : String
   similar_chars : Array[String]
@@ -30,7 +45,14 @@ pub(all) struct SimilarCharMapping {
 }
 
 ///|
+pub extend SimilarCharMapping with Eq::{not_equal, equal}
+
+///|
+pub extend SimilarCharMapping with @debug.Debug::{to_repr}
+
+///|
 /// 常见错误模式
+#derive(Eq, @debug.Debug)
 pub(all) struct CommonErrorPattern {
   pattern : String
   correction : String
@@ -40,7 +62,14 @@ pub(all) struct CommonErrorPattern {
 }
 
 ///|
+pub extend CommonErrorPattern with Eq::{not_equal, equal}
+
+///|
+pub extend CommonErrorPattern with @debug.Debug::{to_repr}
+
+///|
 /// 词典条目
+#derive(Eq, @debug.Debug)
 pub(all) struct DictionaryEntry {
   word : String
   frequency : Int32
@@ -48,7 +77,14 @@ pub(all) struct DictionaryEntry {
 }
 
 ///|
+pub extend DictionaryEntry with Eq::{not_equal, equal}
+
+///|
+pub extend DictionaryEntry with @debug.Debug::{to_repr}
+
+///|
 /// 语言模型状态
+#derive(Eq, @debug.Debug)
 pub(all) struct LanguageModelState {
   dictionary : Array[DictionaryEntry]
   common_errors : Array[CommonErrorPattern]
@@ -56,6 +92,12 @@ pub(all) struct LanguageModelState {
   total_words : Int32
   total_corrections : Int32
 }
+
+///|
+pub extend LanguageModelState with Eq::{not_equal, equal}
+
+///|
+pub extend LanguageModelState with @debug.Debug::{to_repr}
 
 ///|
 /// 获取常见相似字符映射（英文/数字）

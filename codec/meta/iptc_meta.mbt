@@ -4,7 +4,7 @@
 
 ///|
 /// IPTC IIM 元数据（常用字段）
-#derive(Eq, @debug.Debug)
+#derive(Eq, Default, @debug.Debug)
 pub(all) struct IptcInfo {
   title : String
   keywords : String
@@ -22,6 +22,9 @@ pub(all) struct IptcInfo {
 
 ///|
 pub extend IptcInfo with Eq::{not_equal, equal}
+
+///|
+pub extend IptcInfo with Default::{default}
 
 ///|
 pub extend IptcInfo with @debug.Debug::{to_repr}

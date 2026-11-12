@@ -2,6 +2,7 @@
 package "walkzzz/vision/scene_understanding"
 
 import {
+  "moonbitlang/core/debug",
   "walkzzz/core/types",
 }
 
@@ -25,7 +26,7 @@ pub fn understand_scene(@types.Image, SceneUnderstandingConfig) -> (SceneClassif
 // Errors
 
 // Types and methods
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum ImageCaptioningAlgorithm {
   ShowAndTell
   ShowAttendAndTell
@@ -39,7 +40,9 @@ pub(all) enum ImageCaptioningAlgorithm {
 }
 pub fn ImageCaptioningAlgorithm::equal(Self, Self) -> Bool
 pub fn ImageCaptioningAlgorithm::not_equal(Self, Self) -> Bool
+pub fn ImageCaptioningAlgorithm::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct ImageCaptioningResult {
   caption : String
   confidence : Double
@@ -49,8 +52,11 @@ pub(all) struct ImageCaptioningResult {
   cider_score : Double
   generation_time_ms : Double
 }
+pub fn ImageCaptioningResult::equal(Self, Self) -> Bool
+pub fn ImageCaptioningResult::not_equal(Self, Self) -> Bool
+pub fn ImageCaptioningResult::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum SceneClassificationAlgorithm {
   ResNet
   VGG
@@ -65,7 +71,9 @@ pub(all) enum SceneClassificationAlgorithm {
 }
 pub fn SceneClassificationAlgorithm::equal(Self, Self) -> Bool
 pub fn SceneClassificationAlgorithm::not_equal(Self, Self) -> Bool
+pub fn SceneClassificationAlgorithm::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct SceneClassificationResult {
   scene_type : String
   confidence : Double
@@ -74,14 +82,22 @@ pub(all) struct SceneClassificationResult {
   num_classes : Int32
   scene_category : String
 }
+pub fn SceneClassificationResult::equal(Self, Self) -> Bool
+pub fn SceneClassificationResult::not_equal(Self, Self) -> Bool
+pub fn SceneClassificationResult::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct SceneGraph {
   nodes : Array[SceneGraphNode]
   relations : Array[SceneGraphRelation]
   num_objects : Int32
   num_relations : Int32
 }
+pub fn SceneGraph::equal(Self, Self) -> Bool
+pub fn SceneGraph::not_equal(Self, Self) -> Bool
+pub fn SceneGraph::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct SceneGraphNode {
   object_id : Int32
   object_name : String
@@ -89,14 +105,22 @@ pub(all) struct SceneGraphNode {
   attributes : Array[String]
   confidence : Double
 }
+pub fn SceneGraphNode::equal(Self, Self) -> Bool
+pub fn SceneGraphNode::not_equal(Self, Self) -> Bool
+pub fn SceneGraphNode::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct SceneGraphRelation {
   subject_id : Int32
   object_id : Int32
   relation : String
   confidence : Double
 }
+pub fn SceneGraphRelation::equal(Self, Self) -> Bool
+pub fn SceneGraphRelation::not_equal(Self, Self) -> Bool
+pub fn SceneGraphRelation::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct SceneUnderstandingConfig {
   classification_algorithm : SceneClassificationAlgorithm
   captioning_algorithm : ImageCaptioningAlgorithm
@@ -107,8 +131,11 @@ pub(all) struct SceneUnderstandingConfig {
   use_attention : Bool
   use_scene_graph : Bool
 }
+pub fn SceneUnderstandingConfig::equal(Self, Self) -> Bool
+pub fn SceneUnderstandingConfig::not_equal(Self, Self) -> Bool
+pub fn SceneUnderstandingConfig::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum VisualQuestionAnsweringAlgorithm {
   VQA
   VisualBERT
@@ -122,7 +149,9 @@ pub(all) enum VisualQuestionAnsweringAlgorithm {
 }
 pub fn VisualQuestionAnsweringAlgorithm::equal(Self, Self) -> Bool
 pub fn VisualQuestionAnsweringAlgorithm::not_equal(Self, Self) -> Bool
+pub fn VisualQuestionAnsweringAlgorithm::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct VisualQuestionAnsweringResult {
   answer : String
   confidence : Double
@@ -131,6 +160,9 @@ pub(all) struct VisualQuestionAnsweringResult {
   answer_type : String
   reasoning_steps : Array[String]
 }
+pub fn VisualQuestionAnsweringResult::equal(Self, Self) -> Bool
+pub fn VisualQuestionAnsweringResult::not_equal(Self, Self) -> Bool
+pub fn VisualQuestionAnsweringResult::to_repr(Self) -> @debug.Repr
 
 // Type aliases
 

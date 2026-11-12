@@ -2,6 +2,7 @@
 package "walkzzz/codec/barcode"
 
 import {
+  "moonbitlang/core/debug",
   "walkzzz/core/types",
 }
 
@@ -31,6 +32,7 @@ pub fn reed_solomon_decode(Array[Int32], Int32) -> (Array[Int32], Int32)
 // Errors
 
 // Types and methods
+#derive(Default, Eq, @debug.Debug)
 pub(all) struct BarcodeConfig {
   enable_ean13 : Bool
   enable_upca : Bool
@@ -41,7 +43,12 @@ pub(all) struct BarcodeConfig {
   scan_lines : Int32
   quiet_zone_required : Bool
 }
+pub fn BarcodeConfig::default() -> Self
+pub fn BarcodeConfig::equal(Self, Self) -> Bool
+pub fn BarcodeConfig::not_equal(Self, Self) -> Bool
+pub fn BarcodeConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct BarcodeResult {
   barcode_type : BarcodeType
   data : String
@@ -51,8 +58,11 @@ pub(all) struct BarcodeResult {
   width : Int32
   height : Int32
 }
+pub fn BarcodeResult::equal(Self, Self) -> Bool
+pub fn BarcodeResult::not_equal(Self, Self) -> Bool
+pub fn BarcodeResult::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum BarcodeType {
   Ean13
   UpcA
@@ -62,8 +72,9 @@ pub(all) enum BarcodeType {
 }
 pub fn BarcodeType::equal(Self, Self) -> Bool
 pub fn BarcodeType::not_equal(Self, Self) -> Bool
+pub fn BarcodeType::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum Code128Charset {
   CodeA
   CodeB
@@ -71,7 +82,9 @@ pub(all) enum Code128Charset {
 }
 pub fn Code128Charset::equal(Self, Self) -> Bool
 pub fn Code128Charset::not_equal(Self, Self) -> Bool
+pub fn Code128Charset::to_repr(Self) -> @debug.Repr
 
+#derive(Default, Eq, @debug.Debug)
 pub(all) struct QrDecodeResult {
   data : String
   version : Int32
@@ -80,13 +93,22 @@ pub(all) struct QrDecodeResult {
   confidence : Double
   corrected_errors : Int32
 }
+pub fn QrDecodeResult::default() -> Self
+pub fn QrDecodeResult::equal(Self, Self) -> Bool
+pub fn QrDecodeResult::not_equal(Self, Self) -> Bool
+pub fn QrDecodeResult::to_repr(Self) -> @debug.Repr
 
+#derive(Default, Eq, @debug.Debug)
 pub(all) struct QrFinderPattern {
   x : Double
   y : Double
   size : Double
   quality : Double
 }
+pub fn QrFinderPattern::default() -> Self
+pub fn QrFinderPattern::equal(Self, Self) -> Bool
+pub fn QrFinderPattern::not_equal(Self, Self) -> Bool
+pub fn QrFinderPattern::to_repr(Self) -> @debug.Repr
 
 // Type aliases
 

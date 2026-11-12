@@ -23,7 +23,7 @@ fn parse_int_str(s : String) -> Int32 {
 
 ///|
 /// 部署环境类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum DeploymentEnvironment {
   Development
   Staging
@@ -31,10 +31,14 @@ pub(all) enum DeploymentEnvironment {
 }
 
 ///|
+pub extend DeploymentEnvironment with @debug.Debug::{to_repr}
+
+///|
 pub extend DeploymentEnvironment with Eq::{not_equal, equal}
 
 ///|
 /// CLI 配置
+#derive(Eq, @debug.Debug)
 pub(all) struct CliConfig {
   input_path : String
   output_path : String
@@ -48,7 +52,14 @@ pub(all) struct CliConfig {
 }
 
 ///|
+pub extend CliConfig with Eq::{not_equal, equal}
+
+///|
+pub extend CliConfig with @debug.Debug::{to_repr}
+
+///|
 /// API Server 配置
+#derive(Eq, @debug.Debug)
 pub(all) struct ApiServerConfig {
   host : String
   port : Int32
@@ -61,7 +72,14 @@ pub(all) struct ApiServerConfig {
 }
 
 ///|
+pub extend ApiServerConfig with Eq::{not_equal, equal}
+
+///|
+pub extend ApiServerConfig with @debug.Debug::{to_repr}
+
+///|
 /// Docker 配置
+#derive(Eq, @debug.Debug)
 pub(all) struct DockerConfig {
   base_image : String
   app_port : Int32
@@ -73,7 +91,14 @@ pub(all) struct DockerConfig {
 }
 
 ///|
+pub extend DockerConfig with Eq::{not_equal, equal}
+
+///|
+pub extend DockerConfig with @debug.Debug::{to_repr}
+
+///|
 /// 模型打包配置
+#derive(Eq, @debug.Debug)
 pub(all) struct ModelPackageConfig {
   model_name : String
   version : String
@@ -84,6 +109,12 @@ pub(all) struct ModelPackageConfig {
   num_classes : Int32
   compression : String
 }
+
+///|
+pub extend ModelPackageConfig with Eq::{not_equal, equal}
+
+///|
+pub extend ModelPackageConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认 CLI 配置

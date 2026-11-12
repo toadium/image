@@ -3,6 +3,7 @@
 
 ///|
 /// 批处理配置
+#derive(Eq, @debug.Debug)
 pub(all) struct BatchOcrConfig {
   max_concurrent : Int32 // 最大并发数
   batch_size : Int32 // 每批处理数量
@@ -16,8 +17,14 @@ pub(all) struct BatchOcrConfig {
 }
 
 ///|
+pub extend BatchOcrConfig with Eq::{not_equal, equal}
+
+///|
+pub extend BatchOcrConfig with @debug.Debug::{to_repr}
+
+///|
 /// 批处理任务状态
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum BatchTaskStatus {
   Pending
   Processing
@@ -27,10 +34,14 @@ pub(all) enum BatchTaskStatus {
 }
 
 ///|
+pub extend BatchTaskStatus with @debug.Debug::{to_repr}
+
+///|
 pub extend BatchTaskStatus with Eq::{not_equal, equal}
 
 ///|
 /// 单个批处理任务
+#derive(Eq, @debug.Debug)
 pub(all) struct BatchTask {
   task_id : String
   input_path : String
@@ -46,7 +57,14 @@ pub(all) struct BatchTask {
 }
 
 ///|
+pub extend BatchTask with Eq::{not_equal, equal}
+
+///|
+pub extend BatchTask with @debug.Debug::{to_repr}
+
+///|
 /// 批处理进度
+#derive(Eq, @debug.Debug)
 pub(all) struct BatchProgress {
   total_tasks : Int32
   completed_tasks : Int32
@@ -62,7 +80,14 @@ pub(all) struct BatchProgress {
 }
 
 ///|
+pub extend BatchProgress with Eq::{not_equal, equal}
+
+///|
+pub extend BatchProgress with @debug.Debug::{to_repr}
+
+///|
 /// 批处理结果汇总
+#derive(Eq, @debug.Debug)
 pub(all) struct BatchResultSummary {
   total_tasks : Int32
   successful_tasks : Int32
@@ -80,7 +105,14 @@ pub(all) struct BatchResultSummary {
 }
 
 ///|
+pub extend BatchResultSummary with Eq::{not_equal, equal}
+
+///|
+pub extend BatchResultSummary with @debug.Debug::{to_repr}
+
+///|
 /// 内存使用统计
+#derive(Eq, @debug.Debug)
 pub(all) struct MemoryUsageStats {
   current_usage_mb : Double
   peak_usage_mb : Double
@@ -89,6 +121,12 @@ pub(all) struct MemoryUsageStats {
   total_freed : Int32
   gc_count : Int32
 }
+
+///|
+pub extend MemoryUsageStats with Eq::{not_equal, equal}
+
+///|
+pub extend MemoryUsageStats with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认批处理配置

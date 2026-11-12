@@ -2,6 +2,7 @@
 package "walkzzz/vision/ocr"
 
 import {
+  "moonbitlang/core/debug",
   "walkzzz/core/types",
 }
 
@@ -621,6 +622,7 @@ pub fn weighted_knn_classify(Array[Double], Array[(String, Array[Double])], k? :
 // Errors
 
 // Types and methods
+#derive(Eq, @debug.Debug)
 pub(all) struct AccuracyStats {
   total_chars : Int32
   correct_chars : Int32
@@ -637,7 +639,11 @@ pub(all) struct AccuracyStats {
   recall : Double
   f1_score : Double
 }
+pub fn AccuracyStats::equal(Self, Self) -> Bool
+pub fn AccuracyStats::not_equal(Self, Self) -> Bool
+pub fn AccuracyStats::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct AdaptivePreprocessConfig {
   quality_level : ScanQualityLevel
   denoise_strength : Int32
@@ -649,7 +655,11 @@ pub(all) struct AdaptivePreprocessConfig {
   morph_close_enabled : Bool
   recommended_dpi : Int32
 }
+pub fn AdaptivePreprocessConfig::equal(Self, Self) -> Bool
+pub fn AdaptivePreprocessConfig::not_equal(Self, Self) -> Bool
+pub fn AdaptivePreprocessConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct AdvancedChineseOcrConfig {
   min_char_width : Int32
   max_char_width : Int32
@@ -659,7 +669,11 @@ pub(all) struct AdvancedChineseOcrConfig {
   use_radical_decomposition : Bool
   use_structure_analysis : Bool
 }
+pub fn AdvancedChineseOcrConfig::equal(Self, Self) -> Bool
+pub fn AdvancedChineseOcrConfig::not_equal(Self, Self) -> Bool
+pub fn AdvancedChineseOcrConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct ApiServerConfig {
   host : String
   port : Int32
@@ -670,7 +684,11 @@ pub(all) struct ApiServerConfig {
   auth_token : String
   rate_limit_per_minute : Int32
 }
+pub fn ApiServerConfig::equal(Self, Self) -> Bool
+pub fn ApiServerConfig::not_equal(Self, Self) -> Bool
+pub fn ApiServerConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct AugmentationConfig {
   enabled : Bool
   augmentation_types : Array[AugmentationType]
@@ -683,8 +701,11 @@ pub(all) struct AugmentationConfig {
   contrast_range : Double
   probability : Double
 }
+pub fn AugmentationConfig::equal(Self, Self) -> Bool
+pub fn AugmentationConfig::not_equal(Self, Self) -> Bool
+pub fn AugmentationConfig::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum AugmentationType {
   RandomRotation
   RandomShift
@@ -698,7 +719,9 @@ pub(all) enum AugmentationType {
 }
 pub fn AugmentationType::equal(Self, Self) -> Bool
 pub fn AugmentationType::not_equal(Self, Self) -> Bool
+pub fn AugmentationType::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct BatchOcrConfig {
   max_concurrent : Int32
   batch_size : Int32
@@ -710,7 +733,11 @@ pub(all) struct BatchOcrConfig {
   save_intermediate : Bool
   output_directory : String
 }
+pub fn BatchOcrConfig::equal(Self, Self) -> Bool
+pub fn BatchOcrConfig::not_equal(Self, Self) -> Bool
+pub fn BatchOcrConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct BatchProgress {
   total_tasks : Int32
   completed_tasks : Int32
@@ -724,7 +751,11 @@ pub(all) struct BatchProgress {
   pages_per_second : Double
   chars_per_second : Double
 }
+pub fn BatchProgress::equal(Self, Self) -> Bool
+pub fn BatchProgress::not_equal(Self, Self) -> Bool
+pub fn BatchProgress::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct BatchResultSummary {
   total_tasks : Int32
   successful_tasks : Int32
@@ -740,7 +771,11 @@ pub(all) struct BatchResultSummary {
   failed_task_ids : Array[String]
   output_files : Array[String]
 }
+pub fn BatchResultSummary::equal(Self, Self) -> Bool
+pub fn BatchResultSummary::not_equal(Self, Self) -> Bool
+pub fn BatchResultSummary::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct BatchTask {
   task_id : String
   input_path : String
@@ -754,8 +789,11 @@ pub(all) struct BatchTask {
   char_count : Int32
   accuracy_estimate : Double
 }
+pub fn BatchTask::equal(Self, Self) -> Bool
+pub fn BatchTask::not_equal(Self, Self) -> Bool
+pub fn BatchTask::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum BatchTaskStatus {
   Pending
   Processing
@@ -765,7 +803,9 @@ pub(all) enum BatchTaskStatus {
 }
 pub fn BatchTaskStatus::equal(Self, Self) -> Bool
 pub fn BatchTaskStatus::not_equal(Self, Self) -> Bool
+pub fn BatchTaskStatus::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct CharRecognitionResult {
   expected : String
   actual : String
@@ -774,7 +814,11 @@ pub(all) struct CharRecognitionResult {
   x : Int32
   y : Int32
 }
+pub fn CharRecognitionResult::equal(Self, Self) -> Bool
+pub fn CharRecognitionResult::not_equal(Self, Self) -> Bool
+pub fn CharRecognitionResult::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct CharSegment {
   x_start : Int32
   x_end : Int32
@@ -784,7 +828,11 @@ pub(all) struct CharSegment {
   height : Int32
   pixel_count : Int32
 }
+pub fn CharSegment::equal(Self, Self) -> Bool
+pub fn CharSegment::not_equal(Self, Self) -> Bool
+pub fn CharSegment::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct ChineseCharInfo {
   char : String
   radical : String
@@ -793,7 +841,11 @@ pub(all) struct ChineseCharInfo {
   complexity : Int32
   common_grade : Int32
 }
+pub fn ChineseCharInfo::equal(Self, Self) -> Bool
+pub fn ChineseCharInfo::not_equal(Self, Self) -> Bool
+pub fn ChineseCharInfo::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct ChineseCharStructure {
   char : String
   radical : String
@@ -801,7 +853,11 @@ pub(all) struct ChineseCharStructure {
   structure_type : String
   components : Array[String]
 }
+pub fn ChineseCharStructure::equal(Self, Self) -> Bool
+pub fn ChineseCharStructure::not_equal(Self, Self) -> Bool
+pub fn ChineseCharStructure::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct ChineseOcrConfig {
   min_char_width : Int32
   max_char_width : Int32
@@ -809,19 +865,31 @@ pub(all) struct ChineseOcrConfig {
   distance_metric : String
   char_set : String
 }
+pub fn ChineseOcrConfig::equal(Self, Self) -> Bool
+pub fn ChineseOcrConfig::not_equal(Self, Self) -> Bool
+pub fn ChineseOcrConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct ChineseRadical {
   name : String
   strokes : Int32
   position : String
 }
+pub fn ChineseRadical::equal(Self, Self) -> Bool
+pub fn ChineseRadical::not_equal(Self, Self) -> Bool
+pub fn ChineseRadical::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct ClassificationResult {
   label : String
   confidence : Double
   top_k : Array[(String, Double)]
 }
+pub fn ClassificationResult::equal(Self, Self) -> Bool
+pub fn ClassificationResult::not_equal(Self, Self) -> Bool
+pub fn ClassificationResult::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct CliConfig {
   input_path : String
   output_path : String
@@ -833,7 +901,11 @@ pub(all) struct CliConfig {
   verbose : Bool
   batch_size : Int32
 }
+pub fn CliConfig::equal(Self, Self) -> Bool
+pub fn CliConfig::not_equal(Self, Self) -> Bool
+pub fn CliConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct CommonErrorPattern {
   pattern : String
   correction : String
@@ -841,7 +913,11 @@ pub(all) struct CommonErrorPattern {
   context_before : String
   context_after : String
 }
+pub fn CommonErrorPattern::equal(Self, Self) -> Bool
+pub fn CommonErrorPattern::not_equal(Self, Self) -> Bool
+pub fn CommonErrorPattern::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct ComplexLayoutAnalysis {
   layout_type : ComplexLayoutType
   num_columns : Int32
@@ -851,8 +927,11 @@ pub(all) struct ComplexLayoutAnalysis {
   reading_order_strategy : String
   confidence : Double
 }
+pub fn ComplexLayoutAnalysis::equal(Self, Self) -> Bool
+pub fn ComplexLayoutAnalysis::not_equal(Self, Self) -> Bool
+pub fn ComplexLayoutAnalysis::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum ComplexLayoutType {
   SingleColumn
   DoubleColumn
@@ -865,18 +944,28 @@ pub(all) enum ComplexLayoutType {
 }
 pub fn ComplexLayoutType::equal(Self, Self) -> Bool
 pub fn ComplexLayoutType::not_equal(Self, Self) -> Bool
+pub fn ComplexLayoutType::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct ConfusionEntry {
   expected : String
   actual : String
   count : Int32
 }
+pub fn ConfusionEntry::equal(Self, Self) -> Bool
+pub fn ConfusionEntry::not_equal(Self, Self) -> Bool
+pub fn ConfusionEntry::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct ConfusionMatrix {
   entries : Array[ConfusionEntry]
   total_errors : Int32
 }
+pub fn ConfusionMatrix::equal(Self, Self) -> Bool
+pub fn ConfusionMatrix::not_equal(Self, Self) -> Bool
+pub fn ConfusionMatrix::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct CorrectionEntry {
   position : Int32
   original_char : String
@@ -884,7 +973,11 @@ pub(all) struct CorrectionEntry {
   reason : String
   confidence : Double
 }
+pub fn CorrectionEntry::equal(Self, Self) -> Bool
+pub fn CorrectionEntry::not_equal(Self, Self) -> Bool
+pub fn CorrectionEntry::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct CorrectionResult {
   original : String
   corrected : String
@@ -892,7 +985,11 @@ pub(all) struct CorrectionResult {
   confidence : Double
   corrections : Array[CorrectionEntry]
 }
+pub fn CorrectionResult::equal(Self, Self) -> Bool
+pub fn CorrectionResult::not_equal(Self, Self) -> Bool
+pub fn CorrectionResult::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DLCnnModelConfig {
   model_name : String
   input_width : Int32
@@ -905,7 +1002,11 @@ pub(all) struct DLCnnModelConfig {
   batch_size : Int32
   epochs : Int32
 }
+pub fn DLCnnModelConfig::equal(Self, Self) -> Bool
+pub fn DLCnnModelConfig::not_equal(Self, Self) -> Bool
+pub fn DLCnnModelConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DLConv2DConfig {
   in_channels : Int32
   out_channels : Int32
@@ -914,21 +1015,33 @@ pub(all) struct DLConv2DConfig {
   padding : Int32
   activation : String
 }
+pub fn DLConv2DConfig::equal(Self, Self) -> Bool
+pub fn DLConv2DConfig::not_equal(Self, Self) -> Bool
+pub fn DLConv2DConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DLDenseConfig {
   in_features : Int32
   out_features : Int32
   activation : String
   dropout_rate : Double
 }
+pub fn DLDenseConfig::equal(Self, Self) -> Bool
+pub fn DLDenseConfig::not_equal(Self, Self) -> Bool
+pub fn DLDenseConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DLFeatureExtractor {
   model_name : String
   feature_dim : Int32
   layer_name : String
   weights : Array[Double]
 }
+pub fn DLFeatureExtractor::equal(Self, Self) -> Bool
+pub fn DLFeatureExtractor::not_equal(Self, Self) -> Bool
+pub fn DLFeatureExtractor::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DLInferenceResult {
   predicted_class : Int32
   predicted_label : String
@@ -936,8 +1049,11 @@ pub(all) struct DLInferenceResult {
   top_k_predictions : Array[(Int32, Double)]
   inference_time_ms : Double
 }
+pub fn DLInferenceResult::equal(Self, Self) -> Bool
+pub fn DLInferenceResult::not_equal(Self, Self) -> Bool
+pub fn DLInferenceResult::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum DLLayerType {
   Conv2D
   MaxPool2D
@@ -953,7 +1069,9 @@ pub(all) enum DLLayerType {
 }
 pub fn DLLayerType::equal(Self, Self) -> Bool
 pub fn DLLayerType::not_equal(Self, Self) -> Bool
+pub fn DLLayerType::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DLNeuralLayer {
   layer_type : DLLayerType
   name : String
@@ -963,7 +1081,11 @@ pub(all) struct DLNeuralLayer {
   input_shape : Array[Int32]
   output_shape : Array[Int32]
 }
+pub fn DLNeuralLayer::equal(Self, Self) -> Bool
+pub fn DLNeuralLayer::not_equal(Self, Self) -> Bool
+pub fn DLNeuralLayer::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DLTrainingHistory {
   epoch : Int32
   train_loss : Double
@@ -973,7 +1095,11 @@ pub(all) struct DLTrainingHistory {
   learning_rate : Double
   time_ms : Double
 }
+pub fn DLTrainingHistory::equal(Self, Self) -> Bool
+pub fn DLTrainingHistory::not_equal(Self, Self) -> Bool
+pub fn DLTrainingHistory::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DLTrainingSample {
   image_data : Array[Double]
   label : Int32
@@ -981,7 +1107,11 @@ pub(all) struct DLTrainingSample {
   width : Int32
   height : Int32
 }
+pub fn DLTrainingSample::equal(Self, Self) -> Bool
+pub fn DLTrainingSample::not_equal(Self, Self) -> Bool
+pub fn DLTrainingSample::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DataLoader {
   samples : Array[DLTrainingSample]
   batch_size : Int32
@@ -989,8 +1119,11 @@ pub(all) struct DataLoader {
   current_index : Int32
   epoch : Int32
 }
+pub fn DataLoader::equal(Self, Self) -> Bool
+pub fn DataLoader::not_equal(Self, Self) -> Bool
+pub fn DataLoader::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum DeploymentEnvironment {
   Development
   Staging
@@ -998,7 +1131,9 @@ pub(all) enum DeploymentEnvironment {
 }
 pub fn DeploymentEnvironment::equal(Self, Self) -> Bool
 pub fn DeploymentEnvironment::not_equal(Self, Self) -> Bool
+pub fn DeploymentEnvironment::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DictCharEntry {
   char : String
   unicode : String
@@ -1010,7 +1145,11 @@ pub(all) struct DictCharEntry {
   frequency : Int32
   level : String
 }
+pub fn DictCharEntry::equal(Self, Self) -> Bool
+pub fn DictCharEntry::not_equal(Self, Self) -> Bool
+pub fn DictCharEntry::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DictCharMatch {
   target_char : String
   matched_char : String
@@ -1020,8 +1159,11 @@ pub(all) struct DictCharMatch {
   total_components : Int32
   stroke_diff : Int32
 }
+pub fn DictCharMatch::equal(Self, Self) -> Bool
+pub fn DictCharMatch::not_equal(Self, Self) -> Bool
+pub fn DictCharMatch::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum DictCharStructure {
   LeftRight
   UpDown
@@ -1034,7 +1176,9 @@ pub(all) enum DictCharStructure {
 }
 pub fn DictCharStructure::equal(Self, Self) -> Bool
 pub fn DictCharStructure::not_equal(Self, Self) -> Bool
+pub fn DictCharStructure::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DictChineseDict {
   chars : Array[DictCharEntry]
   total_chars : Int32
@@ -1044,7 +1188,11 @@ pub(all) struct DictChineseDict {
   radical_index : Array[(String, Array[Int32])]
   pinyin_index : Array[(String, Array[Int32])]
 }
+pub fn DictChineseDict::equal(Self, Self) -> Bool
+pub fn DictChineseDict::not_equal(Self, Self) -> Bool
+pub fn DictChineseDict::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DictComponent {
   name : String
   stroke_count : Int32
@@ -1052,7 +1200,11 @@ pub(all) struct DictComponent {
   width_ratio : Double
   height_ratio : Double
 }
+pub fn DictComponent::equal(Self, Self) -> Bool
+pub fn DictComponent::not_equal(Self, Self) -> Bool
+pub fn DictComponent::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DictComponentResult {
   char : String
   detected_components : Array[DictComponent]
@@ -1060,18 +1212,30 @@ pub(all) struct DictComponentResult {
   confidence : Double
   candidate_chars : Array[(String, Double)]
 }
+pub fn DictComponentResult::equal(Self, Self) -> Bool
+pub fn DictComponentResult::not_equal(Self, Self) -> Bool
+pub fn DictComponentResult::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct Dictionary {
   words : Array[String]
   word_set : Array[String]
 }
+pub fn Dictionary::equal(Self, Self) -> Bool
+pub fn Dictionary::not_equal(Self, Self) -> Bool
+pub fn Dictionary::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DictionaryEntry {
   word : String
   frequency : Int32
   category : String
 }
+pub fn DictionaryEntry::equal(Self, Self) -> Bool
+pub fn DictionaryEntry::not_equal(Self, Self) -> Bool
+pub fn DictionaryEntry::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DigitOcrConfig {
   min_char_width : Int32
   max_char_width : Int32
@@ -1080,8 +1244,11 @@ pub(all) struct DigitOcrConfig {
   k : Int32
   distance_metric : String
 }
+pub fn DigitOcrConfig::equal(Self, Self) -> Bool
+pub fn DigitOcrConfig::not_equal(Self, Self) -> Bool
+pub fn DigitOcrConfig::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum DistanceMetric {
   Euclidean
   Manhattan
@@ -1090,7 +1257,9 @@ pub(all) enum DistanceMetric {
 }
 pub fn DistanceMetric::equal(Self, Self) -> Bool
 pub fn DistanceMetric::not_equal(Self, Self) -> Bool
+pub fn DistanceMetric::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DistortionDetectionResult {
   distortion_type : DistortionType
   severity : Double
@@ -1098,8 +1267,11 @@ pub(all) struct DistortionDetectionResult {
   confidence : Double
   correction_params : Array[(String, Double)]
 }
+pub fn DistortionDetectionResult::equal(Self, Self) -> Bool
+pub fn DistortionDetectionResult::not_equal(Self, Self) -> Bool
+pub fn DistortionDetectionResult::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum DistortionType {
   Skew
   Perspective
@@ -1112,7 +1284,9 @@ pub(all) enum DistortionType {
 }
 pub fn DistortionType::equal(Self, Self) -> Bool
 pub fn DistortionType::not_equal(Self, Self) -> Bool
+pub fn DistortionType::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DockerConfig {
   base_image : String
   app_port : Int32
@@ -1122,7 +1296,11 @@ pub(all) struct DockerConfig {
   environment : DeploymentEnvironment
   volumes : Array[(String, String)]
 }
+pub fn DockerConfig::equal(Self, Self) -> Bool
+pub fn DockerConfig::not_equal(Self, Self) -> Bool
+pub fn DockerConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DocumentBlock {
   block_type : DocumentBlockType
   x : Int32
@@ -1141,8 +1319,11 @@ pub(all) struct DocumentBlock {
   parent_id : Int32
   children_ids : Array[Int32]
 }
+pub fn DocumentBlock::equal(Self, Self) -> Bool
+pub fn DocumentBlock::not_equal(Self, Self) -> Bool
+pub fn DocumentBlock::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum DocumentBlockType {
   Title
   Heading1
@@ -1160,7 +1341,9 @@ pub(all) enum DocumentBlockType {
 }
 pub fn DocumentBlockType::equal(Self, Self) -> Bool
 pub fn DocumentBlockType::not_equal(Self, Self) -> Bool
+pub fn DocumentBlockType::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DocumentElement {
   element_type : DocumentElementType
   x : Int32
@@ -1173,8 +1356,11 @@ pub(all) struct DocumentElement {
   font_weight : String
   reading_order : Int32
 }
+pub fn DocumentElement::equal(Self, Self) -> Bool
+pub fn DocumentElement::not_equal(Self, Self) -> Bool
+pub fn DocumentElement::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum DocumentElementType {
   Title
   Subtitle
@@ -1192,7 +1378,9 @@ pub(all) enum DocumentElementType {
 }
 pub fn DocumentElementType::equal(Self, Self) -> Bool
 pub fn DocumentElementType::not_equal(Self, Self) -> Bool
+pub fn DocumentElementType::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DocumentStructure {
   elements : Array[DocumentElement]
   num_elements : Int32
@@ -1202,14 +1390,22 @@ pub(all) struct DocumentStructure {
   reading_order : Array[Int32]
   bounding_box : (Int32, Int32, Int32, Int32)
 }
+pub fn DocumentStructure::equal(Self, Self) -> Bool
+pub fn DocumentStructure::not_equal(Self, Self) -> Bool
+pub fn DocumentStructure::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DocumentTreeNode {
   node_id : Int32
   block : DocumentBlock
   children : Array[DocumentTreeNode]
   depth : Int32
 }
+pub fn DocumentTreeNode::equal(Self, Self) -> Bool
+pub fn DocumentTreeNode::not_equal(Self, Self) -> Bool
+pub fn DocumentTreeNode::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DocumentUnderstandingEnhancedConfig {
   min_block_width : Int32
   min_block_height : Int32
@@ -1220,13 +1416,21 @@ pub(all) struct DocumentUnderstandingEnhancedConfig {
   enable_hierarchy : Bool
   enable_title_detection : Bool
 }
+pub fn DocumentUnderstandingEnhancedConfig::equal(Self, Self) -> Bool
+pub fn DocumentUnderstandingEnhancedConfig::not_equal(Self, Self) -> Bool
+pub fn DocumentUnderstandingEnhancedConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct DropFallResult {
   split_points : Array[SplitPoint]
   char_regions : Array[(Int32, Int32)]
   success : Bool
 }
+pub fn DropFallResult::equal(Self, Self) -> Bool
+pub fn DropFallResult::not_equal(Self, Self) -> Bool
+pub fn DropFallResult::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct EnglishOcrConfig {
   min_char_width : Int32
   max_char_width : Int32
@@ -1234,7 +1438,11 @@ pub(all) struct EnglishOcrConfig {
   distance_metric : String
   case_sensitive : Bool
 }
+pub fn EnglishOcrConfig::equal(Self, Self) -> Bool
+pub fn EnglishOcrConfig::not_equal(Self, Self) -> Bool
+pub fn EnglishOcrConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct EnhancedChineseOcrConfig {
   min_char_width : Int32
   max_char_width : Int32
@@ -1245,7 +1453,11 @@ pub(all) struct EnhancedChineseOcrConfig {
   use_stroke_features : Bool
   use_radical_hint : Bool
 }
+pub fn EnhancedChineseOcrConfig::equal(Self, Self) -> Bool
+pub fn EnhancedChineseOcrConfig::not_equal(Self, Self) -> Bool
+pub fn EnhancedChineseOcrConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct EnhancedDocument {
   layout_type : LayoutType
   num_columns : Int32
@@ -1259,7 +1471,11 @@ pub(all) struct EnhancedDocument {
   reading_order : Array[Int32]
   column_boundaries : Array[Int32]
 }
+pub fn EnhancedDocument::equal(Self, Self) -> Bool
+pub fn EnhancedDocument::not_equal(Self, Self) -> Bool
+pub fn EnhancedDocument::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct EnhancedDocumentElement {
   element_type : MarkdownElementType
   x : Int32
@@ -1277,7 +1493,11 @@ pub(all) struct EnhancedDocumentElement {
   is_header : Bool
   is_footer : Bool
 }
+pub fn EnhancedDocumentElement::equal(Self, Self) -> Bool
+pub fn EnhancedDocumentElement::not_equal(Self, Self) -> Bool
+pub fn EnhancedDocumentElement::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct EnhancedTableResult {
   x : Int32
   y : Int32
@@ -1291,7 +1511,11 @@ pub(all) struct EnhancedTableResult {
   detection : TableDetectionResult
   confidence : Double
 }
+pub fn EnhancedTableResult::equal(Self, Self) -> Bool
+pub fn EnhancedTableResult::not_equal(Self, Self) -> Bool
+pub fn EnhancedTableResult::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct EnsembleConfig {
   use_knn : Bool
   use_template : Bool
@@ -1299,7 +1523,11 @@ pub(all) struct EnsembleConfig {
   knn_k : Int32
   voting_method : String
 }
+pub fn EnsembleConfig::equal(Self, Self) -> Bool
+pub fn EnsembleConfig::not_equal(Self, Self) -> Bool
+pub fn EnsembleConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct ErrorAnalysisEntry {
   error_type : OcrErrorType
   expected : String
@@ -1309,7 +1537,11 @@ pub(all) struct ErrorAnalysisEntry {
   confidence : Double
   count : Int32
 }
+pub fn ErrorAnalysisEntry::equal(Self, Self) -> Bool
+pub fn ErrorAnalysisEntry::not_equal(Self, Self) -> Bool
+pub fn ErrorAnalysisEntry::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct ErrorAnalysisReport {
   total_errors : Int32
   substitution_count : Int32
@@ -1319,7 +1551,11 @@ pub(all) struct ErrorAnalysisReport {
   top_errors : Array[ErrorAnalysisEntry]
   suggestions : Array[String]
 }
+pub fn ErrorAnalysisReport::equal(Self, Self) -> Bool
+pub fn ErrorAnalysisReport::not_equal(Self, Self) -> Bool
+pub fn ErrorAnalysisReport::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct ExtractedImage {
   x : Int32
   y : Int32
@@ -1332,13 +1568,21 @@ pub(all) struct ExtractedImage {
   edge_density : Double
   file_name : String
 }
+pub fn ExtractedImage::equal(Self, Self) -> Bool
+pub fn ExtractedImage::not_equal(Self, Self) -> Bool
+pub fn ExtractedImage::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct GridFeatures {
   features : Array[Double]
   grid_rows : Int32
   grid_cols : Int32
 }
+pub fn GridFeatures::equal(Self, Self) -> Bool
+pub fn GridFeatures::not_equal(Self, Self) -> Bool
+pub fn GridFeatures::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct HandwritingCharFeature {
   char : String
   num_strokes : Int32
@@ -1353,7 +1597,11 @@ pub(all) struct HandwritingCharFeature {
   slant_angle : Double
   size_normalized : Bool
 }
+pub fn HandwritingCharFeature::equal(Self, Self) -> Bool
+pub fn HandwritingCharFeature::not_equal(Self, Self) -> Bool
+pub fn HandwritingCharFeature::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct HandwritingOcrConfig {
   min_char_width : Int32
   max_char_width : Int32
@@ -1364,7 +1612,11 @@ pub(all) struct HandwritingOcrConfig {
   flexibility : Double
   use_slant_correction : Bool
 }
+pub fn HandwritingOcrConfig::equal(Self, Self) -> Bool
+pub fn HandwritingOcrConfig::not_equal(Self, Self) -> Bool
+pub fn HandwritingOcrConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct HandwritingOcrEnhancedConfig {
   min_char_width : Int32
   max_char_width : Int32
@@ -1379,7 +1631,11 @@ pub(all) struct HandwritingOcrEnhancedConfig {
   use_stroke_features : Bool
   use_postprocessing : Bool
 }
+pub fn HandwritingOcrEnhancedConfig::equal(Self, Self) -> Bool
+pub fn HandwritingOcrEnhancedConfig::not_equal(Self, Self) -> Bool
+pub fn HandwritingOcrEnhancedConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct HandwritingRecognitionConfig {
   min_stroke_length : Double
   max_stroke_angle : Double
@@ -1391,7 +1647,11 @@ pub(all) struct HandwritingRecognitionConfig {
   max_candidates : Int32
   style_priority : HandwritingStyle
 }
+pub fn HandwritingRecognitionConfig::equal(Self, Self) -> Bool
+pub fn HandwritingRecognitionConfig::not_equal(Self, Self) -> Bool
+pub fn HandwritingRecognitionConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct HandwritingRecognitionResult {
   predicted_char : String
   confidence : Double
@@ -1404,7 +1664,11 @@ pub(all) struct HandwritingRecognitionResult {
   matching_time_ms : Double
   total_time_ms : Double
 }
+pub fn HandwritingRecognitionResult::equal(Self, Self) -> Bool
+pub fn HandwritingRecognitionResult::not_equal(Self, Self) -> Bool
+pub fn HandwritingRecognitionResult::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct HandwritingStrokeFeatures {
   num_strokes : Int32
   stroke_directions : Array[Double]
@@ -1412,8 +1676,11 @@ pub(all) struct HandwritingStrokeFeatures {
   connectivity : Double
   curvature : Double
 }
+pub fn HandwritingStrokeFeatures::equal(Self, Self) -> Bool
+pub fn HandwritingStrokeFeatures::not_equal(Self, Self) -> Bool
+pub fn HandwritingStrokeFeatures::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum HandwritingStyle {
   Print
   Cursive
@@ -1423,7 +1690,9 @@ pub(all) enum HandwritingStyle {
 }
 pub fn HandwritingStyle::equal(Self, Self) -> Bool
 pub fn HandwritingStyle::not_equal(Self, Self) -> Bool
+pub fn HandwritingStyle::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct HandwritingTemplate {
   char : String
   style : HandwritingStyle
@@ -1431,7 +1700,11 @@ pub(all) struct HandwritingTemplate {
   sample_count : Int32
   avg_accuracy : Double
 }
+pub fn HandwritingTemplate::equal(Self, Self) -> Bool
+pub fn HandwritingTemplate::not_equal(Self, Self) -> Bool
+pub fn HandwritingTemplate::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct HogFeatures {
   features : Array[Double]
   cell_size : Int32
@@ -1439,13 +1712,21 @@ pub(all) struct HogFeatures {
   width : Int32
   height : Int32
 }
+pub fn HogFeatures::equal(Self, Self) -> Bool
+pub fn HogFeatures::not_equal(Self, Self) -> Bool
+pub fn HogFeatures::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct KnnClassifier {
   samples : Array[TrainingSample]
   k : Int32
   distance_metric : String
 }
+pub fn KnnClassifier::equal(Self, Self) -> Bool
+pub fn KnnClassifier::not_equal(Self, Self) -> Bool
+pub fn KnnClassifier::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct LRSchedulerConfig {
   scheduler_type : LRSchedulerType
   initial_lr : Double
@@ -1456,8 +1737,11 @@ pub(all) struct LRSchedulerConfig {
   patience : Int32
   factor : Double
 }
+pub fn LRSchedulerConfig::equal(Self, Self) -> Bool
+pub fn LRSchedulerConfig::not_equal(Self, Self) -> Bool
+pub fn LRSchedulerConfig::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum LRSchedulerType {
   Constant
   StepDecay
@@ -1468,13 +1752,19 @@ pub(all) enum LRSchedulerType {
 }
 pub fn LRSchedulerType::equal(Self, Self) -> Bool
 pub fn LRSchedulerType::not_equal(Self, Self) -> Bool
+pub fn LRSchedulerType::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct LanguageDetectionResult {
   language : String
   confidence : Double
   probabilities : Array[(String, Double)]
 }
+pub fn LanguageDetectionResult::equal(Self, Self) -> Bool
+pub fn LanguageDetectionResult::not_equal(Self, Self) -> Bool
+pub fn LanguageDetectionResult::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct LanguageModelState {
   dictionary : Array[DictionaryEntry]
   common_errors : Array[CommonErrorPattern]
@@ -1482,8 +1772,11 @@ pub(all) struct LanguageModelState {
   total_words : Int32
   total_corrections : Int32
 }
+pub fn LanguageModelState::equal(Self, Self) -> Bool
+pub fn LanguageModelState::not_equal(Self, Self) -> Bool
+pub fn LanguageModelState::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum LanguageType {
   Chinese
   English
@@ -1494,8 +1787,9 @@ pub(all) enum LanguageType {
 }
 pub fn LanguageType::equal(Self, Self) -> Bool
 pub fn LanguageType::not_equal(Self, Self) -> Bool
+pub fn LanguageType::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum LayoutType {
   SingleColumn
   DoubleColumn
@@ -1505,22 +1799,31 @@ pub(all) enum LayoutType {
 }
 pub fn LayoutType::equal(Self, Self) -> Bool
 pub fn LayoutType::not_equal(Self, Self) -> Bool
+pub fn LayoutType::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct LbpFeatures {
   features : Array[Double]
   num_bins : Int32
   radius : Int32
   num_points : Int32
 }
+pub fn LbpFeatures::equal(Self, Self) -> Bool
+pub fn LbpFeatures::not_equal(Self, Self) -> Bool
+pub fn LbpFeatures::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct ListItemInfo {
   item_type : ListItemType
   marker : String
   level : Int32
   number : Int32
 }
+pub fn ListItemInfo::equal(Self, Self) -> Bool
+pub fn ListItemInfo::not_equal(Self, Self) -> Bool
+pub fn ListItemInfo::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum ListItemType {
   Bullet
   Numbered
@@ -1531,7 +1834,9 @@ pub(all) enum ListItemType {
 }
 pub fn ListItemType::equal(Self, Self) -> Bool
 pub fn ListItemType::not_equal(Self, Self) -> Bool
+pub fn ListItemType::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct MarkdownDocument {
   title : String
   elements : Array[MarkdownElement]
@@ -1540,7 +1845,11 @@ pub(all) struct MarkdownDocument {
   symbols : Array[MarkdownSymbol]
   reading_order : Array[Int32]
 }
+pub fn MarkdownDocument::equal(Self, Self) -> Bool
+pub fn MarkdownDocument::not_equal(Self, Self) -> Bool
+pub fn MarkdownDocument::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct MarkdownElement {
   element_type : MarkdownElementType
   x : Int32
@@ -1550,8 +1859,11 @@ pub(all) struct MarkdownElement {
   content : String
   confidence : Double
 }
+pub fn MarkdownElement::equal(Self, Self) -> Bool
+pub fn MarkdownElement::not_equal(Self, Self) -> Bool
+pub fn MarkdownElement::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum MarkdownElementType {
   Title
   Heading1
@@ -1569,7 +1881,9 @@ pub(all) enum MarkdownElementType {
 }
 pub fn MarkdownElementType::equal(Self, Self) -> Bool
 pub fn MarkdownElementType::not_equal(Self, Self) -> Bool
+pub fn MarkdownElementType::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct MarkdownImage {
   x : Int32
   y : Int32
@@ -1578,7 +1892,11 @@ pub(all) struct MarkdownImage {
   image_type : String
   confidence : Double
 }
+pub fn MarkdownImage::equal(Self, Self) -> Bool
+pub fn MarkdownImage::not_equal(Self, Self) -> Bool
+pub fn MarkdownImage::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct MarkdownSymbol {
   symbol : String
   unicode : String
@@ -1587,14 +1905,22 @@ pub(all) struct MarkdownSymbol {
   y : Int32
   confidence : Double
 }
+pub fn MarkdownSymbol::equal(Self, Self) -> Bool
+pub fn MarkdownSymbol::not_equal(Self, Self) -> Bool
+pub fn MarkdownSymbol::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct MarkdownTable {
   rows : Int32
   cols : Int32
   cells : Array[Array[String]]
   has_header : Bool
 }
+pub fn MarkdownTable::equal(Self, Self) -> Bool
+pub fn MarkdownTable::not_equal(Self, Self) -> Bool
+pub fn MarkdownTable::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct MemoryUsageStats {
   current_usage_mb : Double
   peak_usage_mb : Double
@@ -1603,7 +1929,11 @@ pub(all) struct MemoryUsageStats {
   total_freed : Int32
   gc_count : Int32
 }
+pub fn MemoryUsageStats::equal(Self, Self) -> Bool
+pub fn MemoryUsageStats::not_equal(Self, Self) -> Bool
+pub fn MemoryUsageStats::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct ModelPackageConfig {
   model_name : String
   version : String
@@ -1614,7 +1944,11 @@ pub(all) struct ModelPackageConfig {
   num_classes : Int32
   compression : String
 }
+pub fn ModelPackageConfig::equal(Self, Self) -> Bool
+pub fn ModelPackageConfig::not_equal(Self, Self) -> Bool
+pub fn ModelPackageConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct MultilingualOcrConfig {
   enable_chinese : Bool
   enable_english : Bool
@@ -1624,7 +1958,11 @@ pub(all) struct MultilingualOcrConfig {
   distance_metric : String
   auto_language_detection : Bool
 }
+pub fn MultilingualOcrConfig::equal(Self, Self) -> Bool
+pub fn MultilingualOcrConfig::not_equal(Self, Self) -> Bool
+pub fn MultilingualOcrConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct MultilingualOcrEnhancedConfig {
   enable_chinese : Bool
   enable_english : Bool
@@ -1639,13 +1977,21 @@ pub(all) struct MultilingualOcrEnhancedConfig {
   punctuation_normalization : Bool
   use_language_model : Bool
 }
+pub fn MultilingualOcrEnhancedConfig::equal(Self, Self) -> Bool
+pub fn MultilingualOcrEnhancedConfig::not_equal(Self, Self) -> Bool
+pub fn MultilingualOcrEnhancedConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct NgramModel {
   n : Int32
   bigram_counts : Array[(String, Int32)]
   unigram_counts : Array[(String, Int32)]
 }
+pub fn NgramModel::equal(Self, Self) -> Bool
+pub fn NgramModel::not_equal(Self, Self) -> Bool
+pub fn NgramModel::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct OCRPageResult {
   page_number : Int32
   width : Int32
@@ -1655,7 +2001,11 @@ pub(all) struct OCRPageResult {
   average_confidence : Double
   processing_time_ms : Double
 }
+pub fn OCRPageResult::equal(Self, Self) -> Bool
+pub fn OCRPageResult::not_equal(Self, Self) -> Bool
+pub fn OCRPageResult::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct OcrAccuracyEnhancedConfig {
   use_zernike_moments : Bool
   use_gabor_features : Bool
@@ -1666,7 +2016,11 @@ pub(all) struct OcrAccuracyEnhancedConfig {
   knn_k : Int32
   scales : Array[Int32]
 }
+pub fn OcrAccuracyEnhancedConfig::equal(Self, Self) -> Bool
+pub fn OcrAccuracyEnhancedConfig::not_equal(Self, Self) -> Bool
+pub fn OcrAccuracyEnhancedConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct OcrCharResult {
   char : String
   confidence : Double
@@ -1675,7 +2029,11 @@ pub(all) struct OcrCharResult {
   width : Int32
   height : Int32
 }
+pub fn OcrCharResult::equal(Self, Self) -> Bool
+pub fn OcrCharResult::not_equal(Self, Self) -> Bool
+pub fn OcrCharResult::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct OcrConnectedComponent {
   label : Int32
   x : Int32
@@ -1687,14 +2045,21 @@ pub(all) struct OcrConnectedComponent {
   bounding_box : (Int32, Int32, Int32, Int32)
   centroid : (Double, Double)
 }
+pub fn OcrConnectedComponent::equal(Self, Self) -> Bool
+pub fn OcrConnectedComponent::not_equal(Self, Self) -> Bool
+pub fn OcrConnectedComponent::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct OcrConnectedComponentsResult {
   labels : Array[Int32]
   num_components : Int32
   components : Array[OcrConnectedComponent]
 }
+pub fn OcrConnectedComponentsResult::equal(Self, Self) -> Bool
+pub fn OcrConnectedComponentsResult::not_equal(Self, Self) -> Bool
+pub fn OcrConnectedComponentsResult::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum OcrErrorType {
   Substitution
   Insertion
@@ -1704,13 +2069,19 @@ pub(all) enum OcrErrorType {
 }
 pub fn OcrErrorType::equal(Self, Self) -> Bool
 pub fn OcrErrorType::not_equal(Self, Self) -> Bool
+pub fn OcrErrorType::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct OcrResult {
   text : String
   confidence : Double
   characters : Array[OcrCharResult]
 }
+pub fn OcrResult::equal(Self, Self) -> Bool
+pub fn OcrResult::not_equal(Self, Self) -> Bool
+pub fn OcrResult::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct OptimizerConfig {
   optimizer_type : OptimizerType
   learning_rate : Double
@@ -1721,8 +2092,11 @@ pub(all) struct OptimizerConfig {
   weight_decay : Double
   grad_clip : Double
 }
+pub fn OptimizerConfig::equal(Self, Self) -> Bool
+pub fn OptimizerConfig::not_equal(Self, Self) -> Bool
+pub fn OptimizerConfig::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum OptimizerType {
   SGD
   Momentum
@@ -1732,7 +2106,9 @@ pub(all) enum OptimizerType {
 }
 pub fn OptimizerType::equal(Self, Self) -> Bool
 pub fn OptimizerType::not_equal(Self, Self) -> Bool
+pub fn OptimizerType::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct PageRegion {
   region_type : PageRegionType
   x : Int32
@@ -1741,8 +2117,11 @@ pub(all) struct PageRegion {
   height : Int32
   confidence : Double
 }
+pub fn PageRegion::equal(Self, Self) -> Bool
+pub fn PageRegion::not_equal(Self, Self) -> Bool
+pub fn PageRegion::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum PageRegionType {
   Header
   Footer
@@ -1753,7 +2132,9 @@ pub(all) enum PageRegionType {
 }
 pub fn PageRegionType::equal(Self, Self) -> Bool
 pub fn PageRegionType::not_equal(Self, Self) -> Bool
+pub fn PageRegionType::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct PerformanceBenchmark {
   total_time_ms : Double
   preprocess_time_ms : Double
@@ -1765,7 +2146,11 @@ pub(all) struct PerformanceBenchmark {
   memory_usage_mb : Double
   cpu_usage_percent : Double
 }
+pub fn PerformanceBenchmark::equal(Self, Self) -> Bool
+pub fn PerformanceBenchmark::not_equal(Self, Self) -> Bool
+pub fn PerformanceBenchmark::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct PostProcessConfig {
   use_dictionary : Bool
   use_ngram : Bool
@@ -1773,7 +2158,11 @@ pub(all) struct PostProcessConfig {
   min_confidence : Double
   max_candidates : Int32
 }
+pub fn PostProcessConfig::equal(Self, Self) -> Bool
+pub fn PostProcessConfig::not_equal(Self, Self) -> Bool
+pub fn PostProcessConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct ProjectionFeatures {
   horizontal : Array[Double]
   vertical : Array[Double]
@@ -1782,7 +2171,11 @@ pub(all) struct ProjectionFeatures {
   vertical_mean : Double
   vertical_std : Double
 }
+pub fn ProjectionFeatures::equal(Self, Self) -> Bool
+pub fn ProjectionFeatures::not_equal(Self, Self) -> Bool
+pub fn ProjectionFeatures::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct ProjectionResult {
   projection : Array[Int32]
   peaks : Array[Int32]
@@ -1790,13 +2183,21 @@ pub(all) struct ProjectionResult {
   mean : Double
   stddev : Double
 }
+pub fn ProjectionResult::equal(Self, Self) -> Bool
+pub fn ProjectionResult::not_equal(Self, Self) -> Bool
+pub fn ProjectionResult::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct PunctuationTemplate {
   char : String
   features : Array[Double]
   width_ratio : Double
 }
+pub fn PunctuationTemplate::equal(Self, Self) -> Bool
+pub fn PunctuationTemplate::not_equal(Self, Self) -> Bool
+pub fn PunctuationTemplate::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct RobustnessReport {
   overall_score : Double
   quality_score : Double
@@ -1807,7 +2208,11 @@ pub(all) struct RobustnessReport {
   estimated_accuracy : Double
   processing_recommendation : String
 }
+pub fn RobustnessReport::equal(Self, Self) -> Bool
+pub fn RobustnessReport::not_equal(Self, Self) -> Bool
+pub fn RobustnessReport::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct ScanOCRConfig {
   language : String
   dpi : Int32
@@ -1817,7 +2222,11 @@ pub(all) struct ScanOCRConfig {
   layout_analysis : Bool
   confidence_threshold : Double
 }
+pub fn ScanOCRConfig::equal(Self, Self) -> Bool
+pub fn ScanOCRConfig::not_equal(Self, Self) -> Bool
+pub fn ScanOCRConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct ScanQuality {
   brightness : Double
   contrast : Double
@@ -1827,8 +2236,11 @@ pub(all) struct ScanQuality {
   overall_score : Double
   issues : Array[String]
 }
+pub fn ScanQuality::equal(Self, Self) -> Bool
+pub fn ScanQuality::not_equal(Self, Self) -> Bool
+pub fn ScanQuality::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum ScanQualityLevel {
   Excellent
   Good
@@ -1838,20 +2250,30 @@ pub(all) enum ScanQualityLevel {
 }
 pub fn ScanQualityLevel::equal(Self, Self) -> Bool
 pub fn ScanQualityLevel::not_equal(Self, Self) -> Bool
+pub fn ScanQualityLevel::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct SimilarCharMapping {
   char : String
   similar_chars : Array[String]
   context_hint : String
 }
+pub fn SimilarCharMapping::equal(Self, Self) -> Bool
+pub fn SimilarCharMapping::not_equal(Self, Self) -> Bool
+pub fn SimilarCharMapping::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct SplitPoint {
   x : Int32
   y_top : Int32
   y_bottom : Int32
   confidence : Double
 }
+pub fn SplitPoint::equal(Self, Self) -> Bool
+pub fn SplitPoint::not_equal(Self, Self) -> Bool
+pub fn SplitPoint::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct StatisticalFeatures {
   mean : Double
   std : Double
@@ -1862,7 +2284,11 @@ pub(all) struct StatisticalFeatures {
   contrast : Double
   homogeneity : Double
 }
+pub fn StatisticalFeatures::equal(Self, Self) -> Bool
+pub fn StatisticalFeatures::not_equal(Self, Self) -> Bool
+pub fn StatisticalFeatures::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct StrokeFeature {
   stroke_type : StrokeType
   start_x : Double
@@ -1874,15 +2300,22 @@ pub(all) struct StrokeFeature {
   curvature : Double
   pressure : Double
 }
+pub fn StrokeFeature::equal(Self, Self) -> Bool
+pub fn StrokeFeature::not_equal(Self, Self) -> Bool
+pub fn StrokeFeature::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct StrokeSegmentationResult {
   num_strokes : Int32
   strokes : Array[StrokeFeature]
   segmentation_points : Array[(Int32, Int32)]
   confidence : Double
 }
+pub fn StrokeSegmentationResult::equal(Self, Self) -> Bool
+pub fn StrokeSegmentationResult::not_equal(Self, Self) -> Bool
+pub fn StrokeSegmentationResult::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum StrokeType {
   Horizontal
   Vertical
@@ -1896,7 +2329,9 @@ pub(all) enum StrokeType {
 }
 pub fn StrokeType::equal(Self, Self) -> Bool
 pub fn StrokeType::not_equal(Self, Self) -> Bool
+pub fn StrokeType::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct TableCell {
   x : Int32
   y : Int32
@@ -1907,7 +2342,11 @@ pub(all) struct TableCell {
   row_span : Int32
   col_span : Int32
 }
+pub fn TableCell::equal(Self, Self) -> Bool
+pub fn TableCell::not_equal(Self, Self) -> Bool
+pub fn TableCell::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct TableCellContent {
   row : Int32
   col : Int32
@@ -1921,7 +2360,11 @@ pub(all) struct TableCellContent {
   is_header : Bool
   is_merged : Bool
 }
+pub fn TableCellContent::equal(Self, Self) -> Bool
+pub fn TableCellContent::not_equal(Self, Self) -> Bool
+pub fn TableCellContent::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct TableDetectionResult {
   horizontal_lines : Array[(Int32, Int32, Int32)]
   vertical_lines : Array[(Int32, Int32, Int32)]
@@ -1930,7 +2373,11 @@ pub(all) struct TableDetectionResult {
   num_cols : Int32
   confidence : Double
 }
+pub fn TableDetectionResult::equal(Self, Self) -> Bool
+pub fn TableDetectionResult::not_equal(Self, Self) -> Bool
+pub fn TableDetectionResult::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct TableLine {
   x1 : Int32
   y1 : Int32
@@ -1939,15 +2386,20 @@ pub(all) struct TableLine {
   line_type : TableLineType
   thickness : Int32
 }
+pub fn TableLine::equal(Self, Self) -> Bool
+pub fn TableLine::not_equal(Self, Self) -> Bool
+pub fn TableLine::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum TableLineType {
   Horizontal
   Vertical
 }
 pub fn TableLineType::equal(Self, Self) -> Bool
 pub fn TableLineType::not_equal(Self, Self) -> Bool
+pub fn TableLineType::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct TableStructure {
   rows : Int32
   cols : Int32
@@ -1956,12 +2408,20 @@ pub(all) struct TableStructure {
   vertical_lines : Array[TableLine]
   bounding_box : (Int32, Int32, Int32, Int32)
 }
+pub fn TableStructure::equal(Self, Self) -> Bool
+pub fn TableStructure::not_equal(Self, Self) -> Bool
+pub fn TableStructure::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct TemplateMatcher {
   templates : Array[(String, Array[Double])]
   distance_metric : String
 }
+pub fn TemplateMatcher::equal(Self, Self) -> Bool
+pub fn TemplateMatcher::not_equal(Self, Self) -> Bool
+pub fn TemplateMatcher::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct TextBlock {
   x : Int32
   y : Int32
@@ -1972,14 +2432,22 @@ pub(all) struct TextBlock {
   confidence : Double
   reading_order : Int32
 }
+pub fn TextBlock::equal(Self, Self) -> Bool
+pub fn TextBlock::not_equal(Self, Self) -> Bool
+pub fn TextBlock::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct TextLine {
   x : Int32
   y : Int32
   width : Int32
   height : Int32
 }
+pub fn TextLine::equal(Self, Self) -> Bool
+pub fn TextLine::not_equal(Self, Self) -> Bool
+pub fn TextLine::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct TextLineAttributes {
   x : Int32
   y : Int32
@@ -1993,7 +2461,11 @@ pub(all) struct TextLineAttributes {
   text : String
   alignment : String
 }
+pub fn TextLineAttributes::equal(Self, Self) -> Bool
+pub fn TextLineAttributes::not_equal(Self, Self) -> Bool
+pub fn TextLineAttributes::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct TextLineInfo {
   y_start : Int32
   y_end : Int32
@@ -2004,7 +2476,11 @@ pub(all) struct TextLineInfo {
   pixel_count : Int32
   baseline : Int32
 }
+pub fn TextLineInfo::equal(Self, Self) -> Bool
+pub fn TextLineInfo::not_equal(Self, Self) -> Bool
+pub fn TextLineInfo::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct TextRegion {
   x : Int32
   y : Int32
@@ -2012,8 +2488,11 @@ pub(all) struct TextRegion {
   height : Int32
   region_type : TextRegionType
 }
+pub fn TextRegion::equal(Self, Self) -> Bool
+pub fn TextRegion::not_equal(Self, Self) -> Bool
+pub fn TextRegion::to_repr(Self) -> @debug.Repr
 
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum TextRegionType {
   Text
   Image
@@ -2022,7 +2501,9 @@ pub(all) enum TextRegionType {
 }
 pub fn TextRegionType::equal(Self, Self) -> Bool
 pub fn TextRegionType::not_equal(Self, Self) -> Bool
+pub fn TextRegionType::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct TrainingConfig {
   epochs : Int32
   batch_size : Int32
@@ -2038,14 +2519,22 @@ pub(all) struct TrainingConfig {
   shuffle : Bool
   random_seed : Int32
 }
+pub fn TrainingConfig::equal(Self, Self) -> Bool
+pub fn TrainingConfig::not_equal(Self, Self) -> Bool
+pub fn TrainingConfig::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct TrainingDataset {
   samples : Array[TrainingSample]
   labels : Array[String]
   num_samples : Int32
   num_classes : Int32
 }
+pub fn TrainingDataset::equal(Self, Self) -> Bool
+pub fn TrainingDataset::not_equal(Self, Self) -> Bool
+pub fn TrainingDataset::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct TrainingMetrics {
   epoch : Int32
   train_loss : Double
@@ -2056,12 +2545,20 @@ pub(all) struct TrainingMetrics {
   time_ms : Double
   is_best : Bool
 }
+pub fn TrainingMetrics::equal(Self, Self) -> Bool
+pub fn TrainingMetrics::not_equal(Self, Self) -> Bool
+pub fn TrainingMetrics::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct TrainingSample {
   features : Array[Double]
   label : String
 }
+pub fn TrainingSample::equal(Self, Self) -> Bool
+pub fn TrainingSample::not_equal(Self, Self) -> Bool
+pub fn TrainingSample::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct TrainingState {
   current_epoch : Int32
   best_val_accuracy : Double
@@ -2072,6 +2569,9 @@ pub(all) struct TrainingState {
   is_completed : Bool
   stop_reason : String
 }
+pub fn TrainingState::equal(Self, Self) -> Bool
+pub fn TrainingState::not_equal(Self, Self) -> Bool
+pub fn TrainingState::to_repr(Self) -> @debug.Repr
 
 // Type aliases
 

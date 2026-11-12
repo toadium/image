@@ -3,6 +3,7 @@
 
 ///|
 /// 增强手写体识别配置
+#derive(Eq, @debug.Debug)
 pub(all) struct HandwritingOcrEnhancedConfig {
   min_char_width : Int32
   max_char_width : Int32
@@ -17,6 +18,12 @@ pub(all) struct HandwritingOcrEnhancedConfig {
   use_stroke_features : Bool
   use_postprocessing : Bool
 }
+
+///|
+pub extend HandwritingOcrEnhancedConfig with Eq::{not_equal, equal}
+
+///|
+pub extend HandwritingOcrEnhancedConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认增强手写体识别配置
@@ -39,6 +46,7 @@ pub fn handwriting_ocr_enhanced_default_config() -> HandwritingOcrEnhancedConfig
 
 ///|
 /// 手写体笔画特征
+#derive(Eq, @debug.Debug)
 pub(all) struct HandwritingStrokeFeatures {
   num_strokes : Int32 // 估计笔画数
   stroke_directions : Array[Double] // 主要笔画方向（弧度）
@@ -46,6 +54,12 @@ pub(all) struct HandwritingStrokeFeatures {
   connectivity : Double // 连通性（连笔程度）
   curvature : Double // 曲率（弯曲程度）
 }
+
+///|
+pub extend HandwritingStrokeFeatures with Eq::{not_equal, equal}
+
+///|
+pub extend HandwritingStrokeFeatures with @debug.Debug::{to_repr}
 
 ///|
 /// 生成增强手写体模板（每字符5种变体）

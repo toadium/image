@@ -3,7 +3,7 @@
 
 ///|
 /// 遥感图像类型
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum RemoteSensingImageType {
   Optical
   Multispectral
@@ -16,6 +16,9 @@ pub(all) enum RemoteSensingImageType {
 
 ///|
 pub extend RemoteSensingImageType with Eq::{not_equal, equal}
+
+///|
+pub extend RemoteSensingImageType with @debug.Debug::{to_repr}
 
 ///|
 /// 遥感图像
@@ -33,7 +36,7 @@ pub(all) struct RemoteSensingImage {
 
 ///|
 /// 地物类别
-#derive(Eq)
+#derive(Eq, @debug.Debug)
 pub(all) enum LandCoverClass {
   Water
   Forest
@@ -52,7 +55,11 @@ pub(all) enum LandCoverClass {
 pub extend LandCoverClass with Eq::{not_equal, equal}
 
 ///|
+pub extend LandCoverClass with @debug.Debug::{to_repr}
+
+///|
 /// 分类结果
+#derive(Eq, Default, @debug.Debug)
 pub(all) struct ClassificationResult {
   width : Int32
   height : Int32
@@ -65,7 +72,17 @@ pub(all) struct ClassificationResult {
 }
 
 ///|
+pub extend ClassificationResult with @debug.Debug::{to_repr}
+
+///|
+pub extend ClassificationResult with Eq::{not_equal, equal}
+
+///|
+pub extend ClassificationResult with Default::{default}
+
+///|
 /// 变化检测结果
+#derive(Eq, Default, @debug.Debug)
 pub(all) struct ChangeDetectionResult {
   width : Int32
   height : Int32
@@ -77,7 +94,17 @@ pub(all) struct ChangeDetectionResult {
 }
 
 ///|
+pub extend ChangeDetectionResult with @debug.Debug::{to_repr}
+
+///|
+pub extend ChangeDetectionResult with Eq::{not_equal, equal}
+
+///|
+pub extend ChangeDetectionResult with Default::{default}
+
+///|
 /// 植被指数
+#derive(Eq, Default, @debug.Debug)
 pub(all) struct VegetationIndices {
   ndvi : Array[Double] // 归一化植被指数
   ndwi : Array[Double] // 归一化水体指数
@@ -88,7 +115,17 @@ pub(all) struct VegetationIndices {
 }
 
 ///|
+pub extend VegetationIndices with @debug.Debug::{to_repr}
+
+///|
+pub extend VegetationIndices with Eq::{not_equal, equal}
+
+///|
+pub extend VegetationIndices with Default::{default}
+
+///|
 /// 光谱特征
+#derive(Eq, Default, @debug.Debug)
 pub(all) struct SpectralSignature {
   wavelengths : Array[Double]
   reflectance : Array[Double]
@@ -99,7 +136,17 @@ pub(all) struct SpectralSignature {
 }
 
 ///|
+pub extend SpectralSignature with @debug.Debug::{to_repr}
+
+///|
+pub extend SpectralSignature with Eq::{not_equal, equal}
+
+///|
+pub extend SpectralSignature with Default::{default}
+
+///|
 /// 纹理特征
+#derive(Eq, Default, @debug.Debug)
 pub(all) struct TextureFeatures {
   contrast : Double
   homogeneity : Double
@@ -111,7 +158,17 @@ pub(all) struct TextureFeatures {
 }
 
 ///|
+pub extend TextureFeatures with @debug.Debug::{to_repr}
+
+///|
+pub extend TextureFeatures with Eq::{not_equal, equal}
+
+///|
+pub extend TextureFeatures with Default::{default}
+
+///|
 /// 遥感图像质量
+#derive(Eq, Default, @debug.Debug)
 pub(all) struct RemoteSensingQuality {
   snr : Double
   cloud_cover : Double
@@ -119,6 +176,15 @@ pub(all) struct RemoteSensingQuality {
   radiometric_accuracy : Double
   overall_quality : Double
 }
+
+///|
+pub extend RemoteSensingQuality with @debug.Debug::{to_repr}
+
+///|
+pub extend RemoteSensingQuality with Eq::{not_equal, equal}
+
+///|
+pub extend RemoteSensingQuality with Default::{default}
 
 ///|
 /// 创建默认遥感图像

@@ -3,6 +3,7 @@
 
 ///|
 /// 增强中文 OCR 配置
+#derive(Eq, @debug.Debug)
 pub(all) struct EnhancedChineseOcrConfig {
   min_char_width : Int32
   max_char_width : Int32
@@ -13,6 +14,12 @@ pub(all) struct EnhancedChineseOcrConfig {
   use_stroke_features : Bool
   use_radical_hint : Bool
 }
+
+///|
+pub extend EnhancedChineseOcrConfig with Eq::{not_equal, equal}
+
+///|
+pub extend EnhancedChineseOcrConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 创建默认增强中文 OCR 配置
@@ -31,6 +38,7 @@ pub fn enhanced_chinese_ocr_default_config() -> EnhancedChineseOcrConfig {
 
 ///|
 /// 汉字结构信息（增强版）
+#derive(Eq, @debug.Debug)
 pub(all) struct ChineseCharInfo {
   char : String
   radical : String
@@ -39,6 +47,12 @@ pub(all) struct ChineseCharInfo {
   complexity : Int32 // 1-5 复杂度等级
   common_grade : Int32 // 常用等级 1-5
 }
+
+///|
+pub extend ChineseCharInfo with Eq::{not_equal, equal}
+
+///|
+pub extend ChineseCharInfo with @debug.Debug::{to_repr}
 
 ///|
 /// 生成汉字结构信息数据库（1000常用字）
