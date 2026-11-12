@@ -2,6 +2,24 @@
 
 > 下表为**功能迭代版本**（v0.1 → v237.0.0）演进历史。mooncakes **包版本**为 `0.5.0`（mooncakes 早期阶段 0.x.y 格式），对应最新功能版本 v237.0.0。
 
+## Phase 18｜架构全面重构：多模块工作空间（v0.5.0 重构）
+
+### 0.5.0-refactor — 多模块工作空间架构重构
+
+**2026-11-12** — 从 src/ 单体巨石架构重构为根目录下 6 子模块工作空间架构。参考 pinyin 项目模式：子模块直接放根目录，image.mbt 仅含 version + 文档不做 reexport，用户直接 import 子模块包。
+
+| 类型 | 内容 |
+|------|------|
+| 架构 | src/ 单体 → 6 子模块 (core/codec/process/photography/vision/domain) 多模块工作空间 |
+| 删除 | src/ 目录（含 20K 行 reexport.mbt）、modules/ 目录、33 个 _advanced 存根包、pure/ 目录 |
+| 合并 | denoise→enhance, segmentation→segment, forensics_enhanced→forensics, fusion_enhanced→fusion, stylize→style_transfer, registration_advanced→registration, enhance/hdr→photo_enhance |
+| 打散 | cv_advanced (72 文件) → 按功能域分散到现有包 |
+| 重构 | reexport 模式 → pinyin 模式（image.mbt 仅 version + 文档，不做 reexport） |
+| 清理 | 根目录临时文件、ArcGIS 参考文档、GeoVerse 相关文件 |
+| Breaking | @image.xxx → @filter.xxx / @lib.xxx / @types.Image（有意简化 API） |
+| 测试 | 6486×4（native/wasm-gc/js/wasm）全绿 |
+| 状态 | ✅ 0 warning, 0 error |
+
 ## Phase 16｜计算摄影大扩展（v376 ~ v391）
 
 ## Phase 17｜视频处理大扩展（v392 ~ v405）

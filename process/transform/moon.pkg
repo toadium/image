@@ -1,0 +1,9 @@
+import {
+  "walkzzz/core/types",
+  "walkzzz/codec/util" @pure_util,
+  "moonbitlang/core/math",
+}
+
+import {
+  "walkzzz/codec/lib",
+} for "test"

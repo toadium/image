@@ -1,29 +1,30 @@
 <div align="center">
 
-# image
+<!-- Hero Banner -->
+<img src="https://raw.githubusercontent.com/walkzzz/image/main/docs/assets/banner.svg" alt="image" width="480" />
+
+# **image**
 
 **Pure MoonBit Image Library** · Zero C Dependencies · Four-Target Native Support
 
+[![MoonBit](https://img.shields.io/badge/MoonBit-0.1.20260819-6E40C9?logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxMCIgY3k9IjEwIiByPSI4IiBmaWxsPSIjNkU0MEM5Ii8+PC9zdmc+)](https://www.moonbitlang.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![MoonBit](https://img.shields.io/badge/MoonBit-0.1.20260819-blue)](https://www.moonbitlang.com/)
-[![OSC2026](https://img.shields.io/badge/OSC2026-Contest%20Project-orange)](https://www.gitlink.org.cn/competitions/track1_2026MoonBit)
-[![Targets](https://img.shields.io/badge/targets-native%20%7C%20wasm--gc%20%7C%20js%20%7C%20wasm-success)]()
-[![Tests](https://img.shields.io/badge/tests-5995-brightgreen)]()
-[![Coverage](https://img.shields.io/badge/coverage-90.4%25-brightgreen)]()
-[![Functions](https://img.shields.io/badge/API-1338%20functions%20%2B%20491%20types-blueviolet)]()
 [![Version](https://img.shields.io/badge/version-0.5.0-orange)]()
 
-[Highlights](#-highlights) · [Format Support](#-format-support) · [Quick Start](#-quick-start) · [Features](#-features) · [Multi-Target](#-multi-target-support) · [Package Structure](#-package-structure) · [Docs](#-documentation) · [Build](#-build--test) · [Contributing](#-contributing)
+[![Tests](https://img.shields.io/badge/tests-6_486×4-4CAF50?style=flat-square)]()
+[![Coverage](https://img.shields.io/badge/coverage-90.4%25-4CAF50?style=flat-square)]()
+[![Targets](https://img.shields.io/badge/targets-native%20%7C%20wasm--gc%20%7C%20js%20%7C%20wasm-2196F3?style=flat-square)]()
+[![Formats](https://img.shields.io/badge/formats-18-FF9800?style=flat-square)]()
+[![Packages](https://img.shields.io/badge/packages-62-9C27B0?style=flat-square)]()
+[![OSC2026](https://img.shields.io/badge/OSC2026-Contest-F44336?style=flat-square)](https://www.gitlink.org.cn/competitions/track1_2026MoonBit)
+
+简体中文 · [English](README.en.md)
+
+**[Highlights](#-highlights)** · **[Formats](#-format-support--18)** · **[Quick Start](#-quick-start)** · **[Architecture](#-architecture)** · **[Features](#-features)** · **[Docs](#-documentation)**
 
 </div>
 
 ---
-
-## 📖 Introduction
-
-`image` is a pure MoonBit image processing library with **zero C FFI dependencies**. It covers decoding and encoding of 18 formats, providing complete capabilities from basic pixel operations to advanced computer vision algorithms. Install: `moon add walkzzz/image`.
-
-> For detailed notes (version mapping, format detection, multi-target, core constraints), see [docs/notes.md](docs/notes.md).
 
 ## 🏆 OSC 2026 Contest Declaration
 
@@ -33,42 +34,92 @@ This project participates in the **2026 MoonBit Domestic Open Source Ecosystem C
 
 ## ✨ Highlights
 
-| | Feature | Description |
-|---|---|---|
-| 🟢 | **Zero C deps** | Fully pure MoonBit, no C compiler needed, minimal deployment |
-| 🟢 | **Four targets** | native / wasm-gc / js / wasm share one codebase, no conditional compilation |
-| 🟢 | **Broad format coverage** | PNG / JPEG / BMP / GIF / QOI / TGA / PSD / HDR / PNM / TIFF / ICO / CUR / ICNS / APNG / WebP / AVIF / HEIF / JPEG-XL — includes exclusive PSD, HDR |
-| 🟢 | **Full pixel depth** | 8-bit `Image`, 16-bit `Image16`, HDR float `ImageF` |
-| 🟢 | **1338 APIs** | From basic I/O to FFT, Canny, watershed, SLIC, ORB, SIFT, SIFT matching, RANSAC homography, grabCut, streaming decode, optical flow, template matching, WebP lossy codec, full OCR pipeline (digit/English/Chinese/table/handwriting/multilingual) |
-| 🟢 | **Full OCR pipeline** | Preprocessing→text detection→char segmentation→feature extraction→classifier→digit/English/Chinese OCR→table recognition→postprocessing→document understanding→handwriting→multilingual, 19 module files |
-| 🟢 | **Streaming decode** | Row-by-row / chunked / channel-specified callbacks (currently full decode then row dispatch; incremental decode planned for v5.0) |
-| 🟢 | **Safety hardening** | MAX_IMAGE_DIMENSION(65535) guard + check_dims validation at all decoder entry points + safe_mul overflow protection |
-| 🟢 | **Multi-package architecture** | 100+ sub-packages with clear responsibilities, parallel compilation, independent testing |
+<table>
+<tr>
+<td width="50%">
+
+### 🟢 Zero C Dependencies
+
+Fully pure MoonBit, no C compiler needed. `moon add walkzzz/image` and you're done. Four targets, zero configuration.
+
+</td>
+<td width="50%">
+
+### 🟢 Four Targets Native
+
+native / wasm-gc / js / wasm share one codebase, **no conditional compilation**. 6,486 tests × 4 targets all green.
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 🟢 18 Formats
+
+PNG · JPEG · BMP · GIF · QOI · TGA · PSD · HDR · PNM · TIFF · ICO · CUR · ICNS · APNG · WebP · AVIF · HEIF · JPEG-XL
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 🟢 Three Pixel Depths
+
+8-bit `Image` · 16-bit `Image16` · HDR float `ImageF`
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 🟢 Full OCR Pipeline
+
+Preprocessing → Text Detection → Segmentation → Feature Extraction → Classifier → Digit/English/Chinese OCR → Table Recognition → Handwriting → Multilingual
+
+</td>
+<td width="50%">
+
+### 🟢 Safety Hardened
+
+MAX_IMAGE_DIMENSION(65535) guard + check_dims validation + safe_mul overflow protection + **Formal Verification** (moon prove)
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 🟢 Formally Verified
+
+Core safety functions carry SMT-checkable proofs: representation invariants, overflow safety, dimension validation — not just tested, **mathematically guaranteed**
+
+</td>
+</tr>
+</table>
 
 ---
 
-## 🖼️ Format Support
+## 🖼️ Format Support · 18
 
 | Format | Decode | Encode | Notes |
 |:------:|:------:|:------:|-------|
-| PNG | ✅ | ✅ | 8/16-bit, Adam7 interlacing |
-| JPEG | ✅ | ✅ | baseline, adjustable quality |
-| BMP | ✅ | ✅ | 1/4/8/16/24/32-bit |
-| GIF | ✅ | ✅ | animated GIF decode/encode |
-| QOI | ✅ | ✅ | Quite OK Image |
-| TGA | ✅ | ✅ | with RLE |
-| PSD | ✅ | — | Photoshop document (exclusive) |
-| HDR | ✅ | ✅ | IEEE 754 float (exclusive) |
-| PNM | ✅ | ✅ | PPM / PGM |
-| TIFF | ✅ | ✅ | uncompressed/LZW/PackBits |
-| ICO | ✅ | ✅ | single/multi-size |
-| CUR | ✅ | ✅ | Windows cursor |
-| ICNS | ✅ | ✅ | macOS icon |
-| APNG | ✅ | ✅ | animated PNG |
-| WebP | ✅ (lossless) | ✅ (lossy VP8) | lossless (VP8L) decode + lossy (VP8) encode; note: lossy encode output cannot be decoded by this library |
-| AVIF | ✅ | — | AV1 keyframe decode |
-| HEIF | ✅ | — | AV1/HEIC decode |
-| JPEG-XL | ✅ | — | basic decode |
+| **PNG** | ✅ | ✅ | 8/16-bit, Adam7 interlacing |
+| **JPEG** | ✅ | ✅ | baseline, adjustable quality |
+| **BMP** | ✅ | ✅ | 1/4/8/16/24/32-bit |
+| **GIF** | ✅ | ✅ | animated GIF decode/encode |
+| **QOI** | ✅ | ✅ | Quite OK Image |
+| **TGA** | ✅ | ✅ | with RLE |
+| **PSD** | ✅ | — | Photoshop document **(exclusive)** |
+| **HDR** | ✅ | ✅ | IEEE 754 float **(exclusive)** |
+| **PNM** | ✅ | ✅ | PPM / PGM |
+| **TIFF** | ✅ | ✅ | uncompressed/LZW/PackBits |
+| **ICO** | ✅ | ✅ | single/multi-size |
+| **CUR** | ✅ | ✅ | Windows cursor |
+| **ICNS** | ✅ | ✅ | macOS icon |
+| **APNG** | ✅ | ✅ | animated PNG |
+| **WebP** | ✅ (lossless) | ✅ (lossy VP8) | VP8L decode + VP8 encode |
+| **AVIF** | ✅ | — | AV1 keyframe decode |
+| **HEIF** | ✅ | — | AV1/HEIC decode |
+| **JPEG-XL** | ✅ | — | basic decode |
 
 ---
 
@@ -80,132 +131,191 @@ This project participates in the **2026 MoonBit Domestic Open Source Ecosystem C
 moon add walkzzz/image
 ```
 
-### Minimal Example
+### 30-Second Example
 
 ```moonbit
-// Decode from bytes
-let img : Image = load_from_bytes(png_bytes)
-println("width=\{img.width}, height=\{img.height}, channels=\{img.channels}")
+import "walkzzz/core/types"
+import "walkzzz/codec/lib"
+import "walkzzz/process/filter"
+import "walkzzz/process/transform"
 
-// Encode to PNG bytes
-let out : Bytes = write_png_to_bytes(img)
+// Decode — auto-detect 18 formats
+let img : Image = @lib.load_from_bytes_auto(data)
 
-// Resize (7 filters × 4 edge modes)
-let resized : Image = resize(img, 128, 128)
+// Process — blur / resize / rotate
+let blurred = @filter.gaussian_blur(img, 3.0)
+let resized = @transform.resize(img, 256, 256)
 
-// Auto-detect format and decode
-let any : Image = decode_any(data, req_channels=Some(3))
-
-// Load animated GIF
-let anim : GifAnimation = load_gif_from_bytes(gif_bytes)
-println("frames=\{anim.frames.length()}, delays=\{anim.delays}")
-
-// Query image info without decoding pixels
-let info : ImageInfo? = info_from_bytes(data)
-
-// Streaming decode: row callback (currently full decode then row dispatch)
-decode_stream(data, fn(row, y) {
-  // Process row y pixels: row : Array[Array[Int]]
-})
+// Encode — output as PNG bytes
+let out : Bytes = @lib.write_png_to_bytes(resized)
 ```
 
 ### Error Handling
 
 ```moonbit
 try {
-  let img = load_from_bytes(data)
+  let img = @lib.load_from_bytes(data)
 } catch {
-  LoadError::FileIO(msg) => println("File IO error: \{msg}")
+  LoadError::FileIO(msg) => println("IO error: \{msg}")
   LoadError::DecodeFailed(msg) => println("Decode failed: \{msg}")
   LoadError::UnsupportedFormat(msg) => println("Unsupported format: \{msg}")
 }
 ```
 
-### Advanced Example: SIFT Feature Matching
+### Advanced: SIFT Feature Matching
 
 ```moonbit
+import "walkzzz/process/feature"
+
 // Detect SIFT features
-let kp1 = sift_detect(img1)
-let kp2 = sift_detect(img2)
+let kp1 = @feature.sift_detect(img1)
+let kp2 = @feature.sift_detect(img2)
 
 // L2 distance + Lowe ratio test matching
-let matches = sift_match(kp1, kp2, ratio_threshold=0.75)
+let matches = @feature.sift_match(kp1, kp2, ratio_threshold=0.75)
 
 // RANSAC robust homography estimation
-let homography = ransac_homography(matches, threshold=5.0, iterations=1000)
+let homography = @feature.ransac_homography(matches, threshold=5.0, iterations=1000)
 ```
 
-### Complete Examples
+### Streaming Decode
 
-`src/examples/` contains **32 examples** covering all API scenarios. See [docs/examples.md](docs/examples.md).
+```moonbit
+import "walkzzz/codec/lib"
+
+// Row-by-row callback (full decode then dispatch; incremental planned for v5.0)
+@lib.decode_stream(data, fn(row, y) {
+  // Process row y pixels: row : Array[Array[Int]]
+})
+```
+
+---
+
+## 🏗️ Architecture
+
+```mermaid
+graph TD
+    CORE["<b>core</b><br/>Base Types<br/>Image · Image16 · ImageF"] --> CODEC["<b>codec</b><br/>Codecs<br/>18 Formats · Color · Metadata"]
+    CODEC --> PROCESS["<b>process</b><br/>Processing<br/>Filter · Edge · Feature · Segment"]
+    PROCESS --> PHOTO["<b>photography</b><br/>Computational Photo<br/>HDR · Fusion · Stitch · Style"]
+    PROCESS --> VISION["<b>vision</b><br/>Computer Vision<br/>OCR · Face · SLAM · Scene"]
+    VISION --> DOMAIN["<b>domain</b><br/>Domain Apps<br/>Medical · RS · Forensics · Reg"]
+
+    style CORE fill:#4CAF50,color:#fff,stroke:#388E3C
+    style CODEC fill:#2196F3,color:#fff,stroke:#1565C0
+    style PROCESS fill:#FF9800,color:#fff,stroke:#E65100
+    style PHOTO fill:#9C27B0,color:#fff,stroke:#6A1B9A
+    style VISION fill:#F44336,color:#fff,stroke:#C62828
+    style DOMAIN fill:#607D8B,color:#fff,stroke:#37474F
+```
+
+### Package Structure
+
+```
+walkzzz/image (root module — facade, no reexport)
+├── core/                        # L0: Base types
+│   └── types/                   #   Image, Image16, ImageF, LoadError, Pixel
+├── codec/                       # L1: Codecs
+│   ├── codec/                   #   18 format codecs (png/ jpeg/ bmp/ gif/ ...)
+│   ├── lib/                     #   High-level wrapper (auto dispatch + streaming)
+│   ├── color/                   #   Color space conversion
+│   ├── meta/                    #   EXIF/XMP/IPTC/PNG text
+│   ├── barcode/                 #   QR/barcode
+│   └── util/                    #   resize/zlib/config
+├── process/                     # L2: Image processing
+│   ├── color/ filter/ edge/ feature/ segment/
+│   ├── transform/ frequency/ enhance/ detection/ stereo3d/
+├── photography/                 # L3a: Computational photography
+│   ├── photo_enhance/ superres/ fusion/ stitch/ style_transfer/ inpainting/
+│   └── computational_imaging/ neural_rendering/ compression/ quality/
+├── vision/                      # L3b: Computer vision
+│   ├── ocr/ face_recognition/ slam/ video/ scene_understanding/
+│   └── spatiotemporal/ vlm_multimodal/ fieldimg/ imgir/ aoci/
+└── domain/                      # L4: Domain applications
+    ├── medical/ remote_sensing/ encryption/ watermark/
+    ├── forensics/ registration/ retrieval/ pipeline/
+    └── texture/ mesh/ point_cloud/ agent_kit/ self_evolve/
+```
+
+### Import Pattern
+
+```moonbit
+// Direct import sub-module packages — clear, on-demand, zero coupling
+import "walkzzz/core/types"          // @types.Image
+import "walkzzz/codec/lib"           // @lib.load_from_bytes_auto()
+import "walkzzz/process/filter"      // @filter.gaussian_blur()
+import "walkzzz/process/feature"     // @feature.sift_detect()
+import "walkzzz/vision/ocr"          // @ocr.recognize_text()
+```
 
 ---
 
 ## 🧰 Features
 
-1338 public APIs by category. See [docs/features.md](docs/features.md) for overview and [docs/api_reference.md](docs/api_reference.md) for full signatures (1338 functions + 491 types).
+### Image Processing (process/)
 
-### OCR Features (v7.0 - v9.4)
+| Category | Algorithms |
+|----------|-----------|
+| **Filter** | Box · Gaussian · Median · Bilateral · Gabor · NLM denoising |
+| **Edge** | Sobel · Canny · Hough transform · Contour extraction |
+| **Feature** | Harris · ORB · SIFT · Template matching · Optical flow · GLCM · LBP · Hu moments |
+| **Segment** | Watershed · SLIC superpixels · grabCut · K-means · Connected components |
+| **Frequency** | FFT · DCT · Haar wavelet · Frequency filtering |
+| **Transform** | Affine · Perspective · Seam Carving · Pyramids |
+| **Enhance** | CLAHE · Retinex(SSR/MSR/MSRCR) · Dehaze · Inpainting |
+| **Color** | HSV · HSL · YCbCr · XYZ · Lab · CMYK · Adaptive threshold |
 
-| Module | Features | Version |
-|--------|----------|---------|
-| **Preprocessing** | Sauvola/Niblack/Otsu binarization, document enhancement, deskew, layout analysis | v7.0 |
-| **Text Detection** | Connected components, projection analysis, text line detection, char segmentation | v7.1 |
-| **Char Segmentation** | Drop fall algorithm, touching char detection, connected component segmentation | v7.2 |
-| **Feature Extraction** | HOG, LBP, projection features, grid features, statistical features, combined features | v7.3 |
-| **Classifier** | KNN, template matching, 4 distance metrics, feature normalization/standardization | v7.4 |
-| **Digit OCR** | 0-9 digit recognition, 7-segment display templates | v7.5 |
-| **English OCR** | Digits+uppercase+lowercase, 36+ char templates | v8.0 |
-| **Postprocessing** | Dictionary matching, N-gram language model, spell correction, confusion correction | v8.1 |
-| **Chinese OCR** | 100 common chars basic, 500+ common chars advanced, radical decomposition | v8.2/v9.0 |
-| **Table Recognition** | Table line detection, structure analysis, cell extraction | v8.3 |
-| **Accuracy Boost** | Hu moments, training data management, feature augmentation, ensemble learning | v9.1 |
-| **Document Understanding** | Layout analysis, reading order, heading/body classification, 14 element types | v9.2 |
-| **Handwriting OCR** | Multi-variant templates, flexible segmentation, slant correction, variant voting | v9.3 |
-| **Multilingual** | Language detection, Chinese-English mixed, 50+ punctuation templates, auto detection | v9.4 |
+### Computational Photography (photography/)
+
+HDR · Super-resolution · Image fusion · Panorama stitching · Style transfer · Inpainting · Computational imaging · Neural rendering · Compression · Quality assessment
+
+### Computer Vision (vision/)
+
+Full OCR pipeline · Face recognition · Pose estimation · SLAM · Video processing · Scene understanding · Spatiotemporal analysis · VLM multimodal
+
+### OCR Full Pipeline (vision/ocr/)
+
+| Stage | Capabilities |
+|-------|-------------|
+| **Preprocessing** | Sauvola/Niblack/Otsu binarization · Document enhancement · Deskew · Layout analysis |
+| **Detection** | Connected components · Projection analysis · Text line detection · Char segmentation |
+| **Features** | HOG · LBP · Projection · Grid · Statistical · Combined features |
+| **Classification** | KNN · Template matching · 4 distance metrics · Normalization |
+| **Recognition** | Digit OCR(0-9) · English(36+ chars) · Chinese(500+ common chars) |
+| **Post-processing** | Dictionary · N-gram · Spell correction · Confusion correction |
+| **Extensions** | Table recognition · Document understanding · Handwriting · Multilingual · Hu moments · Ensemble |
+
+---
 
 ## 🎯 Multi-Target Support
 
 | Target | Backend | Tests | Status |
-|:------:|:-------:|:-----:|:------:|
-| **native** | Pure MoonBit | 4824 | ✅ |
-| **wasm-gc** | Pure MoonBit | 4824 | ✅ |
-| **js** | Pure MoonBit | 4824 | ✅ |
-| **wasm** | Pure MoonBit | 4824 | ✅ |
+|:------:|:-------:|------:|:------:|
+| **native** | Pure MoonBit | 6,486 | ✅ |
+| **wasm-gc** | Pure MoonBit | 6,486 | ✅ |
+| **js** | Pure MoonBit | 6,486 | ✅ |
+| **wasm** | Pure MoonBit | 6,486 | ✅ |
+
+> Same codebase, **no conditional compilation**, all four targets share all source files.
 
 ---
 
-## 📦 Package Structure
+## 📊 vs stb_image.h
 
-```
-src/
-├── types/              # All-target types (Image, Image16, ImageF, LoadError, etc.)
-├── pure/               # Pure MoonBit backend (no C FFI)
-│   ├── codec/          #   Format codecs (18 formats)
-│   ├── color/          #   Color operations
-│   └── util/           #   Utilities
-├── lib/                # High-level wrapper (auto format dispatch)
-├── meta/               # Metadata (EXIF, PNG meta)
-├── process/            # Advanced image processing (90 sub-packages)
-│   ├── color/          #   Color conversion/adjust/CLAHE/adaptive threshold/Retinex/dehaze
-│   ├── edge/           #   Edge detection/Canny/Hough/contours
-│   ├── feature/        #   Feature detection: Harris/ORB/SIFT/template matching/optical flow/GLCM/LBP
-│   ├── filter/         #   Filtering/denoising/inpainting
-│   ├── frequency/      #   FFT/DCT/Haar wavelet/frequency filtering
-│   ├── segment/        #   Watershed/SLIC/grabCut/morphology/connected components
-│   ├── transform/      #   Geometric transforms/perspective/Seam Carving/pyramids
-│   └── ocr/            #   Full OCR pipeline (19 modules)
-│       ├── preprocess  #     binarization/document_enhance/deskew/layout_analysis
-│       ├── detection   #     connected_components/projection_analysis/char_segmentation
-│       ├── features    #     feature_extraction/classifier
-│       ├── recognition #     digit_ocr/english_ocr/chinese_ocr/advanced_chinese_ocr
-│       ├── postprocess #     postprocess/table_recognition/document_understanding
-│       └── extension   #     ocr_accuracy/handwriting_ocr/multilingual_ocr
-├── examples/           # Example code (32 examples, all API coverage)
-├── util/               # Utility functions (built on pure)
-├── bench.mbt           # Performance benchmarks
-└── reexport.mbt        # Top-level API re-export (1338 pub fn + 491 pub type)
-```
+| | **stb_image.h** | **walkzzz/image** |
+|---|---|---|
+| Language | C | **MoonBit** |
+| Dependencies | C compiler | **Zero C deps** |
+| Targets | native | **native / wasm-gc / js / wasm** |
+| Formats | 7 | **18** |
+| Pixel depth | 8-bit | **8-bit + 16-bit + HDR float** |
+| Streaming | ❌ | ✅ |
+| Computer Vision | ❌ | ✅ (Canny/SIFT/ORB/Optical flow/RANSAC...) |
+| Frequency analysis | ❌ | ✅ (FFT/DCT/Wavelet) |
+| Segmentation | ❌ | ✅ (Watershed/SLIC/grabCut) |
+| OCR | ❌ | ✅ (Full pipeline: digit/English/Chinese/table/handwriting) |
+| **Formal verification** | ❌ | ✅ (moon prove: 5 goals proved, overflow safety/pixel clamp/index check/rotation identity) |
+| Memory safety | Manual | **GC managed** |
 
 ---
 
@@ -213,16 +323,17 @@ src/
 
 | Document | Description |
 |----------|-------------|
-| [docs/architecture.md](docs/architecture.md) | Architecture diagram, package dependencies, design decisions |
-| [docs/api_reference.md](docs/api_reference.md) | Full API reference (1338 functions + 491 types) |
+| [docs/architecture.md](docs/architecture.md) | Architecture diagram, module dependencies, design decisions |
+| [docs/api_reference.md](docs/api_reference.md) | Full API reference |
 | [docs/roadmap.md](docs/roadmap.md) | Iteration roadmap |
-| [docs/comparison.md](docs/comparison.md) | mooncakes.io image library comparison |
-| [docs/performance_report.md](docs/performance_report.md) | Performance benchmark report (46 benchmarks) |
-| [docs/notes.md](docs/notes.md) | Usage notes and core constraints |
-| [docs/examples.md](docs/examples.md) | Complete examples (32 examples) |
-| [docs/features.md](docs/features.md) | Feature overview (1338 APIs by category) |
-| [docs/contributing.md](docs/contributing.md) | Contributing guide (dev setup/workflow/conventions) |
 | [docs/changelog.md](docs/changelog.md) | Version changelog |
+| [docs/comparison.md](docs/comparison.md) | mooncakes.io image library comparison |
+| [docs/performance_report.md](docs/performance_report.md) | Performance benchmark report |
+| [docs/notes.md](docs/notes.md) | Usage notes and core constraints |
+| [docs/examples.md](docs/examples.md) | Example collection |
+| [docs/features.md](docs/features.md) | Feature category overview |
+| [docs/contributing.md](docs/contributing.md) | Contributing guide |
+| [docs/skill.md](docs/skill.md) | AI-assisted development notes |
 
 ---
 
@@ -230,25 +341,25 @@ src/
 
 ```bash
 # Compile check (four targets)
-moon check
-moon check --target wasm-gc
-moon check --target js
-moon check --target wasm
+moon check && moon check --target wasm-gc && moon check --target js && moon check --target wasm
 
-# Run tests (5995 × 4 targets)
+# Run tests (6,486 × 4 targets)
 moon test --target native
 moon test --target wasm-gc
 moon test --target js
 moon test --target wasm
 
-# Run benchmarks
+# Benchmarks
 moon run --target native
 
-# Regenerate API interface
+# API interface generation
 moon info
 
-# Code coverage analysis
-moon coverage analyze
+# Formal verification (requires Why3 + z3/cvc5)
+moon prove core/types
+
+# Format
+moon fmt
 ```
 
 ---
@@ -265,55 +376,6 @@ Issues and Pull Requests are welcome! See [docs/contributing.md](docs/contributi
 
 ---
 
-## 🔗 Porting Notes
-
-### Original Project
-
-| Attribute | Value |
-|-----------|-------|
-| Original | [stb](https://github.com/nothings/stb) — `stb_image.h` |
-| Author | Sean Barrett (@nothings) |
-| Original License | MIT / Public Domain |
-| Original Language | C (single-header library) |
-| Port Target | MoonBit (pure language, zero C FFI) |
-
-### Porting Scope
-
-This project uses `stb_image.h` as a reference base, re-implementing its core image codec capabilities in pure MoonBit:
-
-- **Format codecs**: PNG / JPEG / BMP / GIF / QOI / TGA / PSD / HDR / PNM / TIFF / ICO / CUR / ICNS / APNG / WebP / AVIF / HEIF / JPEG-XL — 18 formats
-- **Pixel depth**: 8-bit `Image`, 16-bit `Image16`, HDR float `ImageF`
-- **Basic operations**: resize / crop / rotate / flip / color conversion / channel ops / draw / composite
-
-### Extensions Beyond Original
-
-On top of the port, this project adds many advanced capabilities **not in `stb_image.h`**:
-
-- **Streaming decode** — Row-by-row / chunked callback interface
-- **Computer vision algorithms** — Canny / Harris / ORB / SIFT / template matching / optical flow / RANSAC / grabCut
-- **Frequency domain analysis** — FFT / DCT / Haar wavelet / frequency filtering
-- **Image segmentation** — Watershed / SLIC superpixels / K-means / connected components
-- **Advanced filtering** — Bilateral / NLM denoising / CLAHE / Retinex / dehazing / inpainting
-- **Feature descriptors** — LBP / GLCM texture / Hu moments / perceptual hash
-- **WebP lossy (VP8) encoding** — Original does not support WebP
-- **Full OCR pipeline** — Preprocessing/text detection/char segmentation/feature extraction/classifier/digit OCR/English OCR/Chinese OCR/table recognition/postprocessing
-- **OCR extensions** — Advanced Chinese OCR (500+ chars)/accuracy boost (Hu moments/ensemble learning)/document understanding/handwriting recognition/multilingual mixed recognition
-- **Safety hardening** — Dimension overflow guards + overflow-safe multiplication + decoder entry validation
-
-### Differences from Original
-
-| Aspect | stb_image.h | This Project |
-|--------|-------------|--------------|
-| Language | C | MoonBit |
-| Dependencies | C compiler | Zero C deps |
-| Targets | native | native / wasm-gc / js / wasm |
-| Formats | 7 | 18 |
-| APIs | ~30 | 1338 |
-| Advanced algorithms | None | 90+ sub-packages |
-| Memory safety | Manual | GC managed |
-
----
-
 ## 🙏 Acknowledgments
 
 - **[stb](https://github.com/nothings/stb)** — Reference for the original C implementation
@@ -324,6 +386,8 @@ On top of the port, this project adds many advanced capabilities **not in `stb_i
 
 <div align="center">
 
-If this project helps you, please consider ⭐ Starring it!
+**If this project helps you, please consider ⭐ Starring it!**
+
+Made with 🤍 for the MoonBit community
 
 </div>

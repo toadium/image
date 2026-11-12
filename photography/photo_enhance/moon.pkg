@@ -1,0 +1,8 @@
+import {
+  "walkzzz/core/types",
+  "moonbitlang/core/math",
+}
+
+import {
+  "walkzzz/core/types",
+} for "test"

@@ -1,0 +1,13 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "walkzzz/image"
+
+// Values
+pub let version : String
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits

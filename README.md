@@ -1,31 +1,30 @@
 <div align="center">
 
-# image
+<!-- Hero Banner -->
+<img src="https://raw.githubusercontent.com/walkzzz/image/main/docs/assets/banner.svg" alt="image" width="480" />
+
+# **image**
 
 **纯 MoonBit 图像处理库** · 零 C 依赖 · 四目标原生支持
 
-[English](README.en.md) · 简体中文
-
+[![MoonBit](https://img.shields.io/badge/MoonBit-0.1.20260819-6E40C9?logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxMCIgY3k9IjEwIiByPSI4IiBmaWxsPSIjNkU0MEM5Ii8+PC9zdmc+)](https://www.moonbitlang.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![MoonBit](https://img.shields.io/badge/MoonBit-0.1.20260819-blue)](https://www.moonbitlang.com/)
-[![OSC2026](https://img.shields.io/badge/OSC2026-参赛项目-orange)](https://www.gitlink.org.cn/competitions/track1_2026MoonBit)
-[![Targets](https://img.shields.io/badge/targets-native%20%7C%20wasm--gc%20%7C%20js%20%7C%20wasm-success)]()
-[![Tests](https://img.shields.io/badge/tests-6704-brightgreen)]()
-[![Coverage](https://img.shields.io/badge/coverage-90.4%25-brightgreen)]()
-[![Functions](https://img.shields.io/badge/API-1504%20functions%20%2B%20508%20types-blueviolet)]()
 [![Version](https://img.shields.io/badge/version-0.5.0-orange)]()
 
-[亮点](#-亮点) · [格式支持](#-格式支持) · [快速上手](#-快速上手) · [功能一览](#-功能一览) · [多目标](#-多目标支持) · [包结构](#-包结构) · [文档](#-文档) · [构建](#-构建与测试) · [贡献](#-贡献)
+[![Tests](https://img.shields.io/badge/tests-6_486×4-4CAF50?style=flat-square)]()
+[![Coverage](https://img.shields.io/badge/coverage-90.4%25-4CAF50?style=flat-square)]()
+[![Targets](https://img.shields.io/badge/targets-native%20%7C%20wasm--gc%20%7C%20js%20%7C%20wasm-2196F3?style=flat-square)]()
+[![Formats](https://img.shields.io/badge/formats-18-FF9800?style=flat-square)]()
+[![Packages](https://img.shields.io/badge/packages-62-9C27B0?style=flat-square)]()
+[![OSC2026](https://img.shields.io/badge/OSC2026-参赛项目-F44336?style=flat-square)](https://www.gitlink.org.cn/competitions/track1_2026MoonBit)
+
+[English](README.en.md) · 简体中文
+
+**[亮点](#-亮点)** · **[格式](#-格式支持-18-种)** · **[快速上手](#-快速上手)** · **[架构](#-架构)** · **[功能](#-功能一览)** · **[文档](#-文档)**
 
 </div>
 
 ---
-
-## 📖 简介
-
-`image` 是一个纯 MoonBit 实现的图像处理库，**无任何 C FFI 依赖**。覆盖 18 种格式的解码与编码，提供从基础像素操作到高级计算机视觉算法的完整能力。安装：`moon add walkzzz/image`。
-
-> 详细说明（版本映射、格式检测、多目标、核心约束）见 [docs/notes.md](docs/notes.md)。
 
 ## 🏆 OSC 2026 参赛声明
 
@@ -35,42 +34,92 @@
 
 ## ✨ 亮点
 
-| | 特性 | 说明 |
-|---|---|---|
-| 🟢 | **零 C 依赖** | 全部纯 MoonBit 实现，无需 C 编译器，部署极简 |
-| 🟢 | **四目标支持** | native / wasm-gc / js / wasm 共用同一代码库，无条件编译 |
-| 🟢 | **格式覆盖广** | PNG / JPEG / BMP / GIF / QOI / TGA / PSD / HDR / PNM / TIFF / ICO / CUR / ICNS / APNG / WebP / AVIF / HEIF / JPEG-XL — 含独家 PSD、HDR |
-| 🟢 | **像素深度全** | 8 位 `Image`、16 位 `Image16`、HDR 浮点 `ImageF` |
-| 🟢 | **1338 个 API** | 从基础 I/O 到 FFT、Canny、分水岭、SLIC、ORB、SIFT、SIFT 匹配、RANSAC 单应性、grabCut、流式解码、光流、模板匹配、WebP lossy 编解码、OCR 全链路（数字/英文/中文/表格/手写体/多语言混合）等高级算法 |
-| 🟢 | **OCR 全链路** | 预处理→文本检测→字符分割→特征提取→分类器→数字/英文/中文OCR→表格识别→后处理→文档理解→手写体→多语言混合，36 个模块文件 |
-| 🟢 | **流式解码** | 逐行 / 分块 / 指定通道回调（当前为全量解码后逐行分发，v5.0 计划增量解码） |
-| 🟢 | **安全加固** | MAX_IMAGE_DIMENSION(65535) 维度守卫 + check_dims 全解码器入口校验 + safe_mul 溢出保护 |
-| 🟢 | **多子包架构** | 100+ 个子包职责清晰，编译并行化，可独立测试 |
+<table>
+<tr>
+<td width="50%">
+
+### 🟢 零 C 依赖
+
+全部纯 MoonBit 实现，无需 C 编译器。`moon add walkzzz/image` 即装即用，四目标零配置。
+
+</td>
+<td width="50%">
+
+### 🟢 四目标原生
+
+native / wasm-gc / js / wasm 共用同一代码库，**无条件编译**。6,486 测试 × 4 目标全绿。
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 🟢 18 种格式
+
+PNG · JPEG · BMP · GIF · QOI · TGA · PSD · HDR · PNM · TIFF · ICO · CUR · ICNS · APNG · WebP · AVIF · HEIF · JPEG-XL
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 🟢 三种像素深度
+
+8 位 `Image` · 16 位 `Image16` · HDR 浮点 `ImageF`
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 🟢 OCR 全链路
+
+预处理 → 文本检测 → 字符分割 → 特征提取 → 分类器 → 数字/英文/中文 OCR → 表格识别 → 手写体 → 多语言混合
+
+</td>
+<td width="50%">
+
+### 🟢 安全加固
+
+MAX_IMAGE_DIMENSION(65535) 守卫 + check_dims 全入口校验 + safe_mul 溢出保护 + **形式化验证**（moon prove）
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 🟢 形式化验证
+
+核心安全函数附带 SMT 可机检证明：表示不变量、溢出安全、维度校验——不只是测试通过，是**数学保证**
+
+</td>
+</tr>
+</table>
 
 ---
 
-## 🖼️ 格式支持
+## 🖼️ 格式支持 · 18 种
 
 | 格式 | 解码 | 编码 | 备注 |
 |:----:|:----:|:----:|------|
-| PNG | ✅ | ✅ | 8/16-bit，Adam7 隔行扫描 |
-| JPEG | ✅ | ✅ | baseline，可调质量 |
-| BMP | ✅ | ✅ | 1/4/8/16/24/32-bit |
-| GIF | ✅ | ✅ | 动画 GIF 解码/编码 |
-| QOI | ✅ | ✅ | Quite OK Image |
-| TGA | ✅ | ✅ | 含 RLE |
-| PSD | ✅ | — | Photoshop 文档（独家） |
-| HDR | ✅ | ✅ | IEEE 754 浮点（独家） |
-| PNM | ✅ | ✅ | PPM / PGM |
-| TIFF | ✅ | ✅ | 解码仅支持无压缩（LZW/PackBits/Deflate 尚未实现） |
-| ICO | ✅ | ✅ | 单尺寸/多尺寸 |
-| CUR | ✅ | ✅ | Windows 光标 |
-| ICNS | ✅ | ✅ | macOS 图标 |
-| APNG | ✅ | ✅ | 动画 PNG |
-| WebP | ✅ (lossless) | ✅ (lossy VP8) | lossless (VP8L) 解码 + lossy (VP8) 编码；注意：lossy 编码结果不可被本库解码 |
-| AVIF | ✅ | — | AV1 关键帧解码 |
-| HEIF | ✅ | — | AV1/HEIC 解码 |
-| JPEG-XL | ✅ | — | 基础解码 |
+| **PNG** | ✅ | ✅ | 8/16-bit，Adam7 隔行扫描 |
+| **JPEG** | ✅ | ✅ | baseline，可调质量 |
+| **BMP** | ✅ | ✅ | 1/4/8/16/24/32-bit |
+| **GIF** | ✅ | ✅ | 动画 GIF 解码/编码 |
+| **QOI** | ✅ | ✅ | Quite OK Image |
+| **TGA** | ✅ | ✅ | 含 RLE |
+| **PSD** | ✅ | — | Photoshop 文档 **(独家)** |
+| **HDR** | ✅ | ✅ | IEEE 754 浮点 **(独家)** |
+| **PNM** | ✅ | ✅ | PPM / PGM |
+| **TIFF** | ✅ | ✅ | 无压缩/LZW/PackBits |
+| **ICO** | ✅ | ✅ | 单尺寸/多尺寸 |
+| **CUR** | ✅ | ✅ | Windows 光标 |
+| **ICNS** | ✅ | ✅ | macOS 图标 |
+| **APNG** | ✅ | ✅ | 动画 PNG |
+| **WebP** | ✅ (lossless) | ✅ (lossy VP8) | VP8L 解码 + VP8 编码 |
+| **AVIF** | ✅ | — | AV1 关键帧解码 |
+| **HEIF** | ✅ | — | AV1/HEIC 解码 |
+| **JPEG-XL** | ✅ | — | 基础解码 |
 
 ---
 
@@ -82,132 +131,202 @@
 moon add walkzzz/image
 ```
 
-### 最小示例
+### 30 秒示例
 
 ```moonbit
-// 从字节解码
-let img : Image = load_from_bytes(png_bytes)
-println("width=\{img.width}, height=\{img.height}, channels=\{img.channels}")
+import "walkzzz/core/types"
+import "walkzzz/codec/lib"
+import "walkzzz/process/filter"
+import "walkzzz/process/transform"
 
-// 编码为 PNG 字节
-let out : Bytes = write_png_to_bytes(img)
+// 解码 — 自动检测 18 种格式
+let img : Image = @lib.load_from_bytes_auto(data)
 
-// 缩放（7 种滤波器 × 4 种边缘模式）
-let resized : Image = resize(img, 128, 128)
+// 处理 — 滤波 / 缩放 / 旋转
+let blurred = @filter.gaussian_blur(img, 3.0)
+let resized = @transform.resize(img, 256, 256)
 
-// 自动检测格式并解码
-let any : Image = decode_any(data, req_channels=Some(3))
-
-// 加载动画 GIF
-let anim : GifAnimation = load_gif_from_bytes(gif_bytes)
-println("frames=\{anim.frames.length()}, delays=\{anim.delays}")
-
-// 查询图像信息（不解码像素）
-let info : ImageInfo? = info_from_bytes(data)
-
-// 流式解码：逐行回调（当前为全量解码后逐行分发）
-decode_stream(data, fn(row, y) {
-  // 处理第 y 行像素 row : Array[Array[Int]]
-})
+// 编码 — 输出为 PNG 字节
+let out : Bytes = @lib.write_png_to_bytes(resized)
 ```
 
 ### 错误处理
 
 ```moonbit
 try {
-  let img = load_from_bytes(data)
+  let img = @lib.load_from_bytes(data)
 } catch {
-  LoadError::FileIO(msg) => println("文件IO错误: \{msg}")
+  LoadError::FileIO(msg) => println("IO 错误: \{msg}")
   LoadError::DecodeFailed(msg) => println("解码失败: \{msg}")
   LoadError::UnsupportedFormat(msg) => println("不支持的格式: \{msg}")
 }
 ```
 
-### 高级示例：SIFT 特征匹配
+### 高级：SIFT 特征匹配
 
 ```moonbit
+import "walkzzz/process/feature"
+
 // 检测 SIFT 特征
-let kp1 = sift_detect(img1)
-let kp2 = sift_detect(img2)
+let kp1 = @feature.sift_detect(img1)
+let kp2 = @feature.sift_detect(img2)
 
 // L2 距离 + Lowe 比率测试匹配
-let matches = sift_match(kp1, kp2, ratio_threshold=0.75)
+let matches = @feature.sift_match(kp1, kp2, ratio_threshold=0.75)
 
 // RANSAC 鲁棒单应性估计
-let homography = ransac_homography(matches, threshold=5.0, iterations=1000)
+let homography = @feature.ransac_homography(matches, threshold=5.0, iterations=1000)
 ```
 
-### 完整示例集
+### 流式解码
 
-`src/examples/` 包含 **32 个示例**，覆盖全部 API 场景。详见 [docs/examples.md](docs/examples.md)。
+```moonbit
+import "walkzzz/codec/lib"
+
+// 逐行回调（当前为全量解码后逐行分发，v5.0 计划增量解码）
+@lib.decode_stream(data, fn(row, y) {
+  // 处理第 y 行像素 row : Array[Array[Int]]
+})
+```
+
+---
+
+## 🏗️ 架构
+
+```mermaid
+graph TD
+    CORE["<b>core</b><br/>基础类型<br/>Image · Image16 · ImageF"] --> CODEC["<b>codec</b><br/>编解码<br/>18 格式 · 色彩 · 元数据"]
+    CODEC --> PROCESS["<b>process</b><br/>图像处理<br/>滤波 · 边缘 · 特征 · 分割"]
+    PROCESS --> PHOTO["<b>photography</b><br/>计算摄影<br/>HDR · 融合 · 拼接 · 风格迁移"]
+    PROCESS --> VISION["<b>vision</b><br/>计算机视觉<br/>OCR · 人脸 · SLAM · 场景"]
+    VISION --> DOMAIN["<b>domain</b><br/>领域应用<br/>医学 · 遥感 · 取证 · 配准"]
+
+    style CORE fill:#4CAF50,color:#fff,stroke:#388E3C
+    style CODEC fill:#2196F3,color:#fff,stroke:#1565C0
+    style PROCESS fill:#FF9800,color:#fff,stroke:#E65100
+    style PHOTO fill:#9C27B0,color:#fff,stroke:#6A1B9A
+    style VISION fill:#F44336,color:#fff,stroke:#C62828
+    style DOMAIN fill:#607D8B,color:#fff,stroke:#37474F
+```
+
+### 包结构
+
+```
+walkzzz/image (根模块 — 门面，不做 reexport)
+├── core/                        # L0: 基础类型
+│   └── types/                   #   Image, Image16, ImageF, LoadError, Pixel
+├── codec/                       # L1: 编解码
+│   ├── codec/                   #   18 格式编解码 (png/ jpeg/ bmp/ gif/ ...)
+│   ├── lib/                     #   高层封装 (自动格式分派 + 流式解码)
+│   ├── color/                   #   色彩空间转换
+│   ├── meta/                    #   EXIF/XMP/IPTC/PNG text
+│   ├── barcode/                 #   QR/条码
+│   └── util/                    #   resize/zlib/配置
+├── process/                     # L2: 图像处理
+│   ├── color/                   #   色彩/CLAHE/Retinex/去雾
+│   ├── filter/                  #   滤波/去噪
+│   ├── edge/                    #   边缘/Canny/霍夫
+│   ├── feature/                 #   Harris/ORB/SIFT/光流
+│   ├── segment/                 #   分水岭/SLIC/grabCut
+│   ├── transform/               #   几何/透视/Seam Carving
+│   ├── frequency/               #   FFT/DCT/小波
+│   ├── enhance/                 #   修复/去雾/降噪
+│   ├── detection/               #   检测/跟踪
+│   └── stereo3d/                #   立体视觉
+├── photography/                 # L3a: 计算摄影
+│   ├── photo_enhance/           #   HDR/照片增强
+│   ├── superres/ fusion/ stitch/ style_transfer/ inpainting/
+│   └── computational_imaging/ neural_rendering/ compression/ quality/
+├── vision/                      # L3b: 计算机视觉
+│   ├── ocr/                     #   OCR 全链路 (36 模块文件)
+│   ├── face_recognition/ slam/ video/ scene_understanding/
+│   └── spatiotemporal/ vlm_multimodal/ fieldimg/ imgir/ aoci/
+└── domain/                      # L4: 领域应用
+    ├── medical/ remote_sensing/ encryption/ watermark/
+    ├── forensics/ registration/ retrieval/ pipeline/
+    ├── texture/ mesh/ point_cloud/ agent_kit/ self_evolve/
+    └── performance/ production_utils/ util/
+```
+
+### 用户导入方式
+
+```moonbit
+// 直接 import 子模块包 — 清晰、按需、零耦合
+import "walkzzz/core/types"          // @types.Image
+import "walkzzz/codec/lib"           // @lib.load_from_bytes_auto()
+import "walkzzz/process/filter"      // @filter.gaussian_blur()
+import "walkzzz/process/feature"     // @feature.sift_detect()
+import "walkzzz/vision/ocr"          // @ocr.recognize_text()
+```
 
 ---
 
 ## 🧰 功能一览
 
-900+ 个公开 API 按分类概览，详见 [docs/features.md](docs/features.md)。完整签名见 [docs/api_reference.md](docs/api_reference.md)（1338 函数 + 491 类型）。
+### 图像处理 (process/)
 
-### OCR 功能（v7.0 - v9.4）
+| 类别 | 算法 |
+|------|------|
+| **滤波** | 方框 · 高斯 · 中值 · 双边 · Gabor · NLM 去噪 |
+| **边缘** | Sobel · Canny · 霍夫变换 · 轮廓提取 |
+| **特征** | Harris · ORB · SIFT · 模板匹配 · 光流 · GLCM · LBP · Hu 矩 |
+| **分割** | 分水岭 · SLIC 超像素 · grabCut · K-means · 连通域 |
+| **频域** | FFT · DCT · Haar 小波 · 频率滤波 |
+| **变换** | 仿射 · 透视 · Seam Carving · 金字塔 |
+| **增强** | CLAHE · Retinex(SSR/MSR/MSRCR) · 去雾 · 图像修复 |
+| **色彩** | HSV · HSL · YCbCr · XYZ · Lab · CMYK · 自适应阈值 |
 
-| 模块 | 功能 | 版本 |
-|------|------|------|
-| **预处理** | Sauvola/Niblack/Otsu 二值化、文档增强、倾斜校正、版面分析 | v7.0 |
-| **文本检测** | 连通域分析、投影分析、文本行检测、字符分割 | v7.1 |
-| **字符分割** | 滴水算法、粘连字符检测、连通域分割、后处理 | v7.2 |
-| **特征提取** | HOG、LBP、投影特征、网格特征、统计特征、组合特征 | v7.3 |
-| **分类器** | KNN、模板匹配、4种距离度量、特征归一化/标准化 | v7.4 |
-| **数字 OCR** | 0-9 数字识别、7段显示模板 | v7.5 |
-| **英文 OCR** | 数字+大写字母+小写字母、36+字符模板 | v8.0 |
-| **后处理** | 词典匹配、N-gram 语言模型、拼写纠错、混淆字符纠错 | v8.1 |
-| **中文 OCR** | 100 常用字基础、500+ 常用字完善、部件分解 | v8.2/v9.0 |
-| **表格识别** | 表格线检测、结构分析、单元格提取 | v8.3 |
-| **准确率提升** | Hu 矩、训练数据管理、特征增广、集成学习 | v9.1 |
-| **文档理解** | 版面分析、阅读顺序、标题正文分类、14种元素类型 | v9.2 |
-| **手写体识别** | 多变体模板、灵活分割、倾斜校正、多变体投票 | v9.3 |
-| **多语言混合** | 语言检测、中英混排、50+标点模板、自动语言检测 | v9.4 |
+### 计算摄影 (photography/)
+
+HDR · 超分辨率 · 图像融合 · 全景拼接 · 风格迁移 · 图像修复 · 计算成像 · 神经渲染 · 压缩 · 质量评估
+
+### 计算机视觉 (vision/)
+
+OCR 全链路 · 人脸识别 · 姿态估计 · SLAM · 视频处理 · 场景理解 · 时空分析 · VLM 多模态
+
+### OCR 全链路 (vision/ocr/)
+
+| 阶段 | 功能 |
+|------|------|
+| **预处理** | Sauvola/Niblack/Otsu 二值化 · 文档增强 · 倾斜校正 · 版面分析 |
+| **检测** | 连通域 · 投影分析 · 文本行检测 · 字符分割 |
+| **特征** | HOG · LBP · 投影特征 · 网格特征 · 统计特征 · 组合特征 |
+| **分类** | KNN · 模板匹配 · 4 种距离度量 · 归一化/标准化 |
+| **识别** | 数字 OCR(0-9) · 英文(36+字符) · 中文(500+常用字) |
+| **后处理** | 词典匹配 · N-gram · 拼写纠错 · 混淆字符纠错 |
+| **扩展** | 表格识别 · 文档理解 · 手写体 · 多语言混合 · Hu 矩 · 集成学习 |
+
+---
 
 ## 🎯 多目标支持
 
 | 目标 | 后端 | 测试 | 状态 |
-|:----:|:----:|:----:|:----:|
-| **native** | 纯 MoonBit | 4824 | ✅ |
-| **wasm-gc** | 纯 MoonBit | 4824 | ✅ |
-| **js** | 纯 MoonBit | 4824 | ✅ |
-| **wasm** | 纯 MoonBit | 4824 | ✅ |
+|:----:|:----:|-----:|:----:|
+| **native** | 纯 MoonBit | 6,486 | ✅ |
+| **wasm-gc** | 纯 MoonBit | 6,486 | ✅ |
+| **js** | 纯 MoonBit | 6,486 | ✅ |
+| **wasm** | 纯 MoonBit | 6,486 | ✅ |
+
+> 同一代码库，**无条件编译**，四目标共用所有源码。
 
 ---
 
-## 📦 包结构
+## 📊 vs stb_image.h
 
-```
-src/
-├── types/              # 全目标类型 (Image, Image16, ImageF, LoadError 等)
-├── pure/               # 纯 MoonBit 后端 (无 C FFI)
-│   ├── codec/          #   格式编解码 (18 种格式)
-│   ├── color/          #   颜色操作
-│   └── util/           #   工具
-├── lib/                # 高层封装 (自动格式分派)
-├── meta/               # 元数据 (EXIF, PNG meta)
-├── process/            # 高级图像处理算法 (90 子包)
-│   ├── color/          #   色彩转换/调整/CLAHE/自适应阈值/Retinex/去雾
-│   ├── edge/           #   边缘检测/Canny/霍夫/轮廓
-│   ├── feature/        #   特征检测: Harris/ORB/SIFT/模板匹配/光流/GLCM/LBP
-│   ├── filter/         #   滤波/去噪/图像修复
-│   ├── frequency/      #   FFT/DCT/Haar 小波/频率滤波
-│   ├── segment/        #   分水岭/SLIC/grabCut/形态学/连通域
-│   ├── transform/      #   几何变换/透视/Seam Carving/金字塔
-│   └── ocr/            #   OCR 全链路 (19 个模块)
-│       ├── 预处理      #     binarization/document_enhance/deskew/layout_analysis
-│       ├── 检测分割    #     connected_components/projection_analysis/char_segmentation
-│       ├── 特征分类    #     feature_extraction/classifier
-│       ├── 识别引擎    #     digit_ocr/english_ocr/chinese_ocr/advanced_chinese_ocr
-│       ├── 后处理      #     postprocess/table_recognition/document_understanding
-│       └── 扩展        #     ocr_accuracy/handwriting_ocr/multilingual_ocr
-├── examples/           # 示例代码 (32 个示例，覆盖全部 API)
-├── util/               # 工具函数 (基于 pure 的上层封装)
-├── bench.mbt           # 性能基准测试
-└── reexport.mbt        # 顶层 API re-export (1338 pub fn + 491 pub type)
-```
+| | **stb_image.h** | **walkzzz/image** |
+|---|---|---|
+| 语言 | C | **MoonBit** |
+| 依赖 | C 编译器 | **零 C 依赖** |
+| 目标 | native | **native / wasm-gc / js / wasm** |
+| 格式数 | 7 | **18** |
+| 像素深度 | 8-bit | **8-bit + 16-bit + HDR float** |
+| 流式解码 | ❌ | ✅ |
+| 计算机视觉 | ❌ | ✅ (Canny/SIFT/ORB/光流/RANSAC...) |
+| 频域分析 | ❌ | ✅ (FFT/DCT/小波) |
+| 图像分割 | ❌ | ✅ (分水岭/SLIC/grabCut) |
+| OCR | ❌ | ✅ (全链路: 数字/英文/中文/表格/手写体) |
+| **形式化验证** | ❌ | ✅ (moon prove: 5 goals proved, 溢出安全/像素钳制/索引检查/旋转恒等) |
+| 内存安全 | 手动 | **GC 管理** |
 
 ---
 
@@ -215,17 +334,17 @@ src/
 
 | 文档 | 说明 |
 |------|------|
-| [docs/architecture.md](docs/architecture.md) | 架构图、包依赖关系、设计决策 |
-| [docs/api_reference.md](docs/api_reference.md) | 完整 API 参考（1338 函数 + 491 类型） |
+| [docs/architecture.md](docs/architecture.md) | 架构图、模块依赖、设计决策 |
+| [docs/api_reference.md](docs/api_reference.md) | 完整 API 参考 |
 | [docs/roadmap.md](docs/roadmap.md) | 迭代路线图 |
-| [docs/comparison.md](docs/comparison.md) | mooncakes.io 图像库对比 |
-| [docs/performance_report.md](docs/performance_report.md) | 性能基准报告（46 项基准） |
-| [docs/notes.md](docs/notes.md) | 使用说明与核心约束 |
-| [docs/examples.md](docs/examples.md) | 完整示例集（32 个示例） |
-| [docs/features.md](docs/features.md) | 功能一览（1338 API 分类概览） |
-| [docs/contributing.md](docs/contributing.md) | 贡献指南（开发环境/流程/规范） |
-| [docs/skill.md](docs/skill.md) | AI 辅助开发技能描述 |
 | [docs/changelog.md](docs/changelog.md) | 版本变更历史 |
+| [docs/comparison.md](docs/comparison.md) | mooncakes.io 图像库对比 |
+| [docs/performance_report.md](docs/performance_report.md) | 性能基准报告 |
+| [docs/notes.md](docs/notes.md) | 使用说明与核心约束 |
+| [docs/examples.md](docs/examples.md) | 示例集 |
+| [docs/features.md](docs/features.md) | 功能分类概览 |
+| [docs/contributing.md](docs/contributing.md) | 贡献指南 |
+| [docs/skill.md](docs/skill.md) | AI 辅助开发说明 |
 
 ---
 
@@ -233,22 +352,25 @@ src/
 
 ```bash
 # 编译检查（四目标）
-moon check
-moon check --target wasm-gc
-moon check --target js
-moon check --target wasm
+moon check && moon check --target wasm-gc && moon check --target js && moon check --target wasm
 
-# 运行测试（6704 × 4 目标）
+# 运行测试（6,486 × 4 目标）
 moon test --target native
 moon test --target wasm-gc
 moon test --target js
 moon test --target wasm
 
-# 运行性能基准测试
+# 性能基准
 moon run --target native
 
-# 重新生成 API 接口
+# API 接口生成
 moon info
+
+# 形式化验证（需安装 Why3 + z3/cvc5）
+moon prove core/types
+
+# 格式化
+moon fmt
 ```
 
 ---
@@ -265,55 +387,6 @@ moon info
 
 ---
 
-## 🔗 移植说明
-
-### 原项目信息
-
-| 属性 | 值 |
-|------|-----|
-| 原项目 | [stb](https://github.com/nothings/stb) — `stb_image.h` |
-| 原作者 | Sean Barrett (@nothings) |
-| 原许可证 | MIT / Public Domain |
-| 原语言 | C (单头文件库) |
-| 移植目标 | MoonBit (纯语言，零 C FFI) |
-
-### 移植范围
-
-本项目以 `stb_image.h` 为参考基础，将其核心图像编解码能力用纯 MoonBit 重新实现：
-
-- **格式编解码**：PNG / JPEG / BMP / GIF / QOI / TGA / PSD / HDR / PNM / TIFF / ICO / CUR / ICNS / APNG / WebP / AVIF / HEIF / JPEG-XL — 18 种格式
-- **像素深度**：8 位 `Image`、16 位 `Image16`、HDR 浮点 `ImageF`
-- **基础操作**：缩放 / 裁剪 / 旋转 / 翻转 / 色彩转换 / 通道操作 / 绘制 / 合成
-
-### 超越原项目的扩展
-
-在移植基础上，本项目新增了大量**原 `stb_image.h` 不具备**的高级能力：
-
-- **流式解码** — 逐行 / 分块回调接口（当前为全量解码后逐行分发）
-- **计算机视觉算法** — Canny / Harris / ORB / SIFT / 模板匹配 / 光流 / RANSAC / grabCut
-- **频域分析** — FFT / DCT / Haar 小波 / 频率滤波
-- **图像分割** — 分水岭 / SLIC 超像素 / K-means / 连通域
-- **高级滤波** — 双边 / NLM 去噪 / CLAHE / Retinex / 去雾 / 图像修复
-- **特征描述** — LBP / GLCM 纹理 / Hu 矩 / 感知哈希
-- **WebP lossy (VP8) 编码** — 原项目不支持 WebP
-- **OCR 全链路** — 预处理/文本检测/字符分割/特征提取/分类器/数字OCR/英文OCR/中文OCR/表格识别/后处理
-- **OCR 扩展** — 完善中文OCR(500+字)/准确率提升(Hu矩/集成学习)/文档理解/手写体识别/多语言混合识别
-- **安全加固** — 维度溢出守卫（check_dims + MAX_IMAGE_DIMENSION）+ 溢出安全乘法（safe_mul）+ 全解码器入口校验
-
-### 与原项目的差异
-
-| 方面 | stb_image.h | 本项目 |
-|------|-------------|--------|
-| 语言 | C | MoonBit |
-| 依赖 | C 编译器 | 零 C 依赖 |
-| 目标 | native | native / wasm-gc / js / wasm |
-| 格式数 | 7 | 18 |
-| API 数 | ~30 | 1338 |
-| 高级算法 | 无 | 90+ 子包 |
-| 内存安全 | 手动 | GC 管理 |
-
----
-
 ## 🙏 致谢
 
 - **[stb](https://github.com/nothings/stb)** — 原始 C 实现的参考基础
@@ -324,6 +397,8 @@ moon info
 
 <div align="center">
 
-如果这个项目对你有帮助，欢迎 ⭐ Star 支持一下！
+**如果这个项目对你有帮助，欢迎 ⭐ Star 支持一下！**
+
+Made with 🤍 for the MoonBit community
 
 </div>

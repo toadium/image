@@ -11,11 +11,11 @@ You can browse and install extra skills here:
 
 | 属性 | 值 |
 |------|-----|
-| 版本 | 0.5.0 (mooncakes) / v237.0.0 (功能迭代) |
-| 测试 | 5995 × 4 目标 (native/wasm-gc/js/wasm) |
-| API | 1338 公开函数 + 491 类型 |
+| 版本 | 0.5.0 |
+| 测试 | 6486 (native) × 4 目标 |
+| 架构 | 6 子模块工作空间 (core/codec/process/photography/vision/domain) |
 | 格式 | 18 种编解码 (PNG/JPEG/BMP/GIF/QOI/TGA/PSD/HDR/PNM/TIFF/ICO/CUR/ICNS/APNG/WebP/AVIF/HEIF/JPEG-XL) |
-| 覆盖率 | 90.4% |
+| 形式化验证 | core/safe_math 包已启用 proof_enabled，5 goals proved（safe_mul/clamp_pixel_value/is_valid_index/is_valid_2d_index/rotate90_power_is_identity） |
 
 ## Project Structure
 
@@ -27,32 +27,35 @@ You can browse and install extra skills here:
 - In the toplevel directory, there is a `moon.mod` file listing module
   metadata.
 
-### 多子包架构
+### 多子模块架构
 
 ```
-src/
-├── types/              # 全目标类型 (Image, Image16, ImageF, LoadError 等)
-├── pure/               # 纯 MoonBit 后端 (无 C FFI)
-│   ├── codec/          #   格式编解码 (15 种格式)
-│   ├── color/          #   颜色操作
-│   └── util/           #   工具
-├── lib/                # 高层封装 (自动格式分派) + 流式解码
-├── meta/               # 元数据 (EXIF, PNG meta)
-├── process/            # 高级图像处理算法 (90 子包)
-│   ├── color/          #   色彩转换/调整/CLAHE/自适应阈值/Retinex/去雾
-│   ├── edge/           #   边缘检测/Canny/霍夫/轮廓
-│   ├── feature/        #   特征检测: Harris/ORB/SIFT/模板匹配/光流/GLCM/LBP
-│   ├── filter/         #   滤波/去噪/图像修复
-│   ├── frequency/      #   FFT/DCT/Haar 小波/频率滤波
-│   ├── segment/        #   分水岭/SLIC/grabCut/形态学/连通域
-│   ├── transform/      #   几何变换/透视/Seam Carving/金字塔
-│   ├── ocr/            #   OCR全流程: 版面/二值化/倾斜/分割/识别/后处理
-│   ├── medical/        #   医学图像: DICOM/CT/MRI/超声/病理
-│   ├── encryption/     #   图像加密/解密/水印
-│   └── ...             #   其余 80 子包 (检测/融合/超分/3D/视频等)
-├── util/               # 工具函数 (基于 pure 的上层封装)
-├── bench.mbt           # 性能基准测试
-└── reexport.mbt        # 顶层 API re-export (1338 pub fn + 491 pub type)
+src/  (已迁移为根目录 6 子模块工作空间)
+├── core/                    # L0: 核心类型 (Image, Image16, ImageF, LoadError 等)
+│   └── types/
+├── codec/                   # L1: 编解码 + 元数据 + 色彩 + 条码
+│   ├── codec/               #   18 格式编解码
+│   ├── lib/                 #   高层封装 (自动格式分派 + 流式解码)
+│   ├── color/               #   色彩空间转换
+│   ├── meta/                #   EXIF/XMP/IPTC/PNG text
+│   ├── barcode/             #   QR/条码
+│   └── util/                #   resize/zlib/配置
+├── process/                 # L2: 图像处理算法
+│   ├── color/               #   色彩转换/调整/CLAHE/Retinex/去雾
+│   ├── edge/                #   边缘检测/Canny/霍夫/轮廓
+│   ├── feature/             #   Harris/ORB/SIFT/模板匹配/光流/GLCM/LBP
+│   ├── filter/              #   滤波/去噪/图像修复
+│   ├── frequency/           #   FFT/DCT/Haar 小波
+│   ├── segment/             #   分水岭/SLIC/grabCut/形态学/连通域
+│   ├── transform/           #   几何变换/透视/Seam Carving/金字塔
+│   ├── enhance/             #   图像修复/去雾/降噪
+│   ├── detection/           #   目标检测/跟踪
+│   └── stereo3d/            #   立体视觉
+├── photography/             # L3a: 计算摄影 (photo_enhance/superres/fusion/stitch/style_transfer/inpainting/computational_imaging/neural_rendering/advanced_imaging/compression/quality)
+├── vision/                  # L3b: 计算机视觉 (ocr/face_recognition/pose_estimation/slam/video/scene_understanding/spatiotemporal/vlm_multimodal/intelligent_vision/fieldimg/imgir/aoci)
+├── domain/                  # L4: 领域应用 (medical/remote_sensing/encryption/watermark/forensics/registration/retrieval/pipeline/performance/production_utils/texture/mesh/point_cloud/agent_kit/self_evolve/util)
+├── image.mbt                # 根模块门面 (仅 version + 文档)
+└── (无 reexport.mbt)        #   用户直接 import 子模块包
 ```
 
 ## Core Constraints
@@ -62,14 +65,14 @@ src/
 
 - **禁止引入 C FFI 依赖** — 所有代码必须纯 MoonBit 实现，确保四目标可用
 - **禁止目标条件编译** — 不使用 `target == "native"` 等条件分支，四目标共用代码
-- **新增 `pub` 函数须在 `reexport.mbt` 注册** — 保持顶层 API 完整性
+- **用户直接 import 子模块包** — 根模块仅含 version + 文档，不做 reexport
 
 ## Development Rules（开发规则全集）
 
 > **来源**：`rules.md`，适配 stb-image 项目。优先级：防跑偏规则 > 项目规则 > 个人偏好。
 
 ### R1 — 源码目录
-全部源代码放在 `src/` 目录下。
+源代码放在 6 个根目录子模块中：core/ codec/ process/ photography/ vision/ domain/
 
 ### R2 — 多手段测试
 MoonBit 形式化证明 + AI/FAKE/MOCK/E2E 多手段测试，确保无 bug。每个 Sprint 交付前 `moon check` 0 error、`moon test` 全通过。
@@ -95,8 +98,8 @@ README 中英文，美化，默认中文；每个子包也要 README.md。
 ### R9 — 经验沉淀
 开发经验教训沉淀复用：更新 memory（`C:\Users\Administrator\.codeartsdoer\memory\...`）。
 
-### R10 — 一级子包重导出
-一级子包（如 `src/kernel`、`src/fieldimg`）也要 README.md 并重导出子包 API。
+### R10 — 一级子包文档
+一级子包（如 `process/filter`、`vision/ocr`）也要 README.md。
 
 ### R11 — 防跑偏规则（记/锁/回）
 每一步做三件事：
@@ -105,8 +108,8 @@ README 中英文，美化，默认中文；每个子包也要 README.md。
 3. **回**：每完成一环，回写一句"已交付 x，下环依赖 Y"。
 禁止在没确认的情况下，把群聊里的某句话当成最终决定。
 
-### R12 — 根包重导出
-项目根包（`walkzzz/image`，根目录 `moon.pkg` + `reexport.mbt`）重导出所有一级子包公共 API，对外提供统一入口 `@image`。
+### R12 — 根包门面
+项目根包（`walkzzz/image`，根目录 `moon.pkg` + `image.mbt`）仅含 version + 文档，不做 reexport。用户直接 import 子模块包（如 `import "walkzzz/process/filter"`）。
 
 ### R13 — Warning 治理
 每次迭代完成后都要进行 **warning 治理**：运行 `moon check` / `moon test`，对所有 warning 逐一处理（修复根因，禁止注释/ignore 压制），目标 0 warning。
@@ -131,7 +134,7 @@ README 中英文，美化，默认中文；每个子包也要 README.md。
 2. **实现**：写源码 + 白盒测试（`_wbtest.mbt`）。
 3. **验证**：`moon check` 0 error + `moon test` 全通过。
 4. **Warning 治理**（R13）：逐一处理 warning，目标 0 warning。
-5. **重导出**（R10/R12）：一级子包聚合 + 根包重导出。
+5. **重导出**（R10/R12）：确认子包 API 可直接 import，根包无 reexport。
 6. **文档治理**（R8）：更新 README / roadmap / CHANGELOG / 子包 README。
 7. **经验沉淀**（R9）：更新 memory。
 8. **占位检查**（R14）：检查占位 todo 是否可推进。
@@ -148,7 +151,7 @@ README 中英文，美化，默认中文；每个子包也要 README.md。
 - Try to keep deprecated blocks in file called `deprecated.mbt` in each
   directory.
 
-- New `pub fn`/`pub let`/`pub type` must be re-exported in `src/reexport.mbt`
+- New `pub fn`/`pub let`/`pub type` is directly available in its sub-module package — no reexport needed
   to keep the top-level API complete. Ordinary functions use `pub let` alias,
   functions with labeled parameters use `pub fn` wrapper to preserve defaults.
   After adding re-exports, run `moon info` to regenerate `.mbti` and verify the
