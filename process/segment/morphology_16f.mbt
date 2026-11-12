@@ -67,8 +67,8 @@ pub fn erode_16(img : @types.Image16) -> @types.Image16 {
         let mut min_v = 65535
         for dy in -1..<=1 {
           for dx in -1..<=1 {
-            let sx = clamp_morph(x + dx, 0, w - 1)
-            let sy = clamp_morph(y + dy, 0, h - 1)
+            let sx = @types.clamp_int(x + dx, 0, w - 1)
+            let sy = @types.clamp_int(y + dy, 0, h - 1)
             let v = src[(sy * w + sx) * ch + c]
             if v < min_v {
               min_v = v
@@ -145,8 +145,8 @@ pub fn erode_f(img : @types.ImageF) -> @types.ImageF {
         let mut min_v = 1.0F
         for dy in -1..<=1 {
           for dx in -1..<=1 {
-            let sx = clamp_morph(x + dx, 0, w - 1)
-            let sy = clamp_morph(y + dy, 0, h - 1)
+            let sx = @types.clamp_int(x + dx, 0, w - 1)
+            let sy = @types.clamp_int(y + dy, 0, h - 1)
             let v = src[(sy * w + sx) * ch + c]
             if v < min_v {
               min_v = v
@@ -223,8 +223,8 @@ pub fn dilate_16(img : @types.Image16) -> @types.Image16 {
         let mut max_v = 0
         for dy in -1..<=1 {
           for dx in -1..<=1 {
-            let sx = clamp_morph(x + dx, 0, w - 1)
-            let sy = clamp_morph(y + dy, 0, h - 1)
+            let sx = @types.clamp_int(x + dx, 0, w - 1)
+            let sy = @types.clamp_int(y + dy, 0, h - 1)
             let v = src[(sy * w + sx) * ch + c]
             if v > max_v {
               max_v = v
@@ -301,8 +301,8 @@ pub fn dilate_f(img : @types.ImageF) -> @types.ImageF {
         let mut max_v = 0.0F
         for dy in -1..<=1 {
           for dx in -1..<=1 {
-            let sx = clamp_morph(x + dx, 0, w - 1)
-            let sy = clamp_morph(y + dy, 0, h - 1)
+            let sx = @types.clamp_int(x + dx, 0, w - 1)
+            let sy = @types.clamp_int(y + dy, 0, h - 1)
             let v = src[(sy * w + sx) * ch + c]
             if v > max_v {
               max_v = v
@@ -512,8 +512,8 @@ pub fn erode_custom_16(
         for sy in 0..<se.height {
           for sx in 0..<se.width {
             if se.data[sy * se.width + sx] {
-              let nx = clamp_morph(x + sx - cx, 0, w - 1)
-              let ny = clamp_morph(y + sy - cy, 0, h - 1)
+              let nx = @types.clamp_int(x + sx - cx, 0, w - 1)
+              let ny = @types.clamp_int(y + sy - cy, 0, h - 1)
               let v = src[(ny * w + nx) * ch + c]
               if v < min_v {
                 min_v = v
@@ -558,8 +558,8 @@ pub fn erode_custom_f(
         for sy in 0..<se.height {
           for sx in 0..<se.width {
             if se.data[sy * se.width + sx] {
-              let nx = clamp_morph(x + sx - cx, 0, w - 1)
-              let ny = clamp_morph(y + sy - cy, 0, h - 1)
+              let nx = @types.clamp_int(x + sx - cx, 0, w - 1)
+              let ny = @types.clamp_int(y + sy - cy, 0, h - 1)
               let v = src[(ny * w + nx) * ch + c]
               if v < min_v {
                 min_v = v
@@ -604,8 +604,8 @@ pub fn dilate_custom_16(
         for sy in 0..<se.height {
           for sx in 0..<se.width {
             if se.data[sy * se.width + sx] {
-              let nx = clamp_morph(x + sx - cx, 0, w - 1)
-              let ny = clamp_morph(y + sy - cy, 0, h - 1)
+              let nx = @types.clamp_int(x + sx - cx, 0, w - 1)
+              let ny = @types.clamp_int(y + sy - cy, 0, h - 1)
               let v = src[(ny * w + nx) * ch + c]
               if v > max_v {
                 max_v = v
@@ -650,8 +650,8 @@ pub fn dilate_custom_f(
         for sy in 0..<se.height {
           for sx in 0..<se.width {
             if se.data[sy * se.width + sx] {
-              let nx = clamp_morph(x + sx - cx, 0, w - 1)
-              let ny = clamp_morph(y + sy - cy, 0, h - 1)
+              let nx = @types.clamp_int(x + sx - cx, 0, w - 1)
+              let ny = @types.clamp_int(y + sy - cy, 0, h - 1)
               let v = src[(ny * w + nx) * ch + c]
               if v > max_v {
                 max_v = v
@@ -705,19 +705,6 @@ pub fn morph_close_custom_f(
   se : StructuringElement,
 ) -> @types.ImageF {
   erode_custom_f(dilate_custom_f(img, se), se)
-}
-
-// ========== 辅助函数 ==========
-
-///|
-fn clamp_morph(v : Int32, lo : Int32, hi : Int32) -> Int32 {
-  if v < lo {
-    lo
-  } else if v > hi {
-    hi
-  } else {
-    v
-  }
 }
 
 ///|

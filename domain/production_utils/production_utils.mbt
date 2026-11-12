@@ -202,45 +202,18 @@ pub fn validate_int_range_or_raise(
 }
 
 ///|
-/// 安全的像素值钳制
-pub fn clamp_pixel_value(value : Int32) -> Int32 {
-  if value < 0 {
-    0
-  } else if value > 255 {
-    255
-  } else {
-    value
-  }
-}
+pub let clamp_pixel_value : (Int32) -> Int32 = @safe_math.clamp_pixel_value
 
 ///|
-/// 安全的浮点像素值钳制
 pub fn clamp_pixel_value_double(value : Double) -> Double {
-  if value < 0.0 {
-    0.0
-  } else if value > 255.0 {
-    255.0
-  } else {
-    value
-  }
+  @safe_math.clamp_double(value, 0.0, 255.0)
 }
 
 ///|
-/// 安全的索引检查
-pub fn is_valid_index(index : Int32, length : Int32) -> Bool {
-  index >= 0 && index < length
-}
+pub let is_valid_index : (Int32, Int32) -> Bool = @safe_math.is_valid_index
 
 ///|
-/// 安全的2D索引检查
-pub fn is_valid_2d_index(
-  x : Int32,
-  y : Int32,
-  width : Int32,
-  height : Int32,
-) -> Bool {
-  x >= 0 && x < width && y >= 0 && y < height
-}
+pub let is_valid_2d_index : (Int32, Int32, Int32, Int32) -> Bool = @safe_math.is_valid_2d_index
 
 ///|
 /// 性能计时器

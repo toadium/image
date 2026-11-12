@@ -115,7 +115,7 @@ fn clahe_channel(
       for i in 0..<256 {
         cdf += hist[i]
         lut[i] = if tile_pixels > 0 {
-          clamp_i(cdf * 255 / tile_pixels, 0, 255)
+          @types.clamp_int(cdf * 255 / tile_pixels, 0, 255)
         } else {
           i
         }
@@ -162,7 +162,7 @@ fn clahe_channel(
       let wx_inv = 1.0F - wx
       let top = v00 * wx_inv + v01 * wx
       let bot = v10 * wx_inv + v11 * wx
-      let result = clamp_i((top * wy_inv + bot * wy).to_int(), 0, 255)
+      let result = @types.clamp_int((top * wy_inv + bot * wy).to_int(), 0, 255)
       out[(row_base + x) * ch + channel] = result.to_byte()
     }
   }

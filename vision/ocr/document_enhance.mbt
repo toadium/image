@@ -2,18 +2,6 @@
 // 文档增强、阴影去除、背景归一化
 
 ///|
-/// 辅助函数：限制字节范围
-fn clamp_byte_doc(v : Int32) -> Byte {
-  if v < 0 {
-    b'\x00'
-  } else if v > 255 {
-    b'\xFF'
-  } else {
-    v.to_byte()
-  }
-}
-
-///|
 /// 文档图像增强（去噪+对比度+锐化）
 /// 适用于扫描文档和照片文档的预处理
 pub fn document_enhance(
@@ -114,7 +102,7 @@ fn contrast_stretch_doc(img : @types.Image) -> @types.Image {
   for i in 0..<n {
     let v = data[i].to_int()
     let stretched = (v - min_val) * 255 / range
-    out[i] = clamp_byte_doc(stretched)
+    out[i] = @types.clamp_byte(stretched)
   }
   @types.Image::{
     width: img.width,
@@ -192,7 +180,7 @@ fn sharpen_doc(img : @types.Image, amount : Double) -> @types.Image {
       let mean = sum / count.to_double()
       // USM: result = center + amount * (center - mean)
       let sharpened = center + amount * (center - mean)
-      out[y * w + x] = clamp_byte_doc(sharpened.to_int())
+      out[y * w + x] = @types.clamp_byte(sharpened.to_int())
     }
   }
   @types.Image::{
@@ -264,7 +252,7 @@ pub fn shadow_removal(
     let orig = data[i].to_int()
     let bg = background[i]
     let result = if bg > 0 { orig * 255 / bg } else { 255 }
-    out[i] = clamp_byte_doc(result)
+    out[i] = @types.clamp_byte(result)
   }
   @types.Image::{
     width: w,
@@ -340,7 +328,7 @@ pub fn background_normalization(
     let orig = data[i].to_int()
     let bg = background[i]
     let result = if bg > 0 { orig * 255 / bg } else { 255 }
-    out[i] = clamp_byte_doc(result)
+    out[i] = @types.clamp_byte(result)
   }
   @types.Image::{
     width: w,

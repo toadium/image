@@ -498,8 +498,8 @@ fn extract_char_region_english(
   } else {
     target_size.to_double() / crop_h.to_double()
   }
-  let new_w = max_eng(1, (crop_w.to_double() * scale).to_int())
-  let new_h = max_eng(1, (crop_h.to_double() * scale).to_int())
+  let new_w = @types.int_max(1, (crop_w.to_double() * scale).to_int())
+  let new_h = @types.int_max(1, (crop_h.to_double() * scale).to_int())
   let offset_x = (target_size - new_w) / 2
   let offset_y = (target_size - new_h) / 2
   let out : Array[Byte] = Array::make(target_size * target_size, b'\x00')
@@ -626,15 +626,5 @@ fn cosine_distance_eng(a : Array[Double], b : Array[Double]) -> Double {
     1.0 - dot / denom
   } else {
     1.0
-  }
-}
-
-///|
-/// 辅助函数：最大值
-fn max_eng(a : Int32, b : Int32) -> Int32 {
-  if a > b {
-    a
-  } else {
-    b
   }
 }

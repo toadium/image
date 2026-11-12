@@ -32,17 +32,6 @@ fn write_f32_le_f(buf : Array[Byte], offset : Int32, val : Float) -> Unit {
 }
 
 ///|
-fn clamp_coord_f(v : Int32, max : Int32) -> Int32 {
-  if v < 0 {
-    0
-  } else if v >= max {
-    max - 1
-  } else {
-    v
-  }
-}
-
-///|
 /// 16-bit 盒模糊。radius 为模糊半径，窗口大小 = 2*radius+1。
 /// 使用可分离滑动窗口，O(n) 复杂度。仅模糊颜色通道，alpha 不变。
 pub fn box_blur_16(
@@ -88,13 +77,13 @@ pub fn box_blur_16(
     for c in 0..<color_ch {
       let mut sum = 0
       for dx in 0..<win_size {
-        let x = clamp_coord_f(dx - radius, w)
+        let x = @types.clamp_coord(dx - radius, w)
         sum += read_u16_le_f(img.data, (y * w + x) * bpp + c * 2)
       }
       for x in 0..<w {
         temp[(y * w + x) * color_ch + c] = sum / win_size
-        let x_out = clamp_coord_f(x - radius, w)
-        let x_in = clamp_coord_f(x + radius + 1, w)
+        let x_out = @types.clamp_coord(x - radius, w)
+        let x_in = @types.clamp_coord(x + radius + 1, w)
         sum = sum -
           read_u16_le_f(img.data, (y * w + x_out) * bpp + c * 2) +
           read_u16_le_f(img.data, (y * w + x_in) * bpp + c * 2)
@@ -107,13 +96,13 @@ pub fn box_blur_16(
     for c in 0..<color_ch {
       let mut sum = 0
       for dy in 0..<win_size {
-        let y = clamp_coord_f(dy - radius, h)
+        let y = @types.clamp_coord(dy - radius, h)
         sum += temp[(y * w + x) * color_ch + c]
       }
       for y in 0..<h {
         write_u16_le_f(out, (y * w + x) * bpp + c * 2, sum / win_size)
-        let y_out = clamp_coord_f(y - radius, h)
-        let y_in = clamp_coord_f(y + radius + 1, h)
+        let y_out = @types.clamp_coord(y - radius, h)
+        let y_in = @types.clamp_coord(y + radius + 1, h)
         sum = sum -
           temp[(y_out * w + x) * color_ch + c] +
           temp[(y_in * w + x) * color_ch + c]
@@ -183,13 +172,13 @@ pub fn box_blur_f(
     for c in 0..<color_ch {
       let mut sum = 0.0F
       for dx in 0..<win_size {
-        let x = clamp_coord_f(dx - radius, w)
+        let x = @types.clamp_coord(dx - radius, w)
         sum += read_f32_le_f(img.data, (y * w + x) * bpp + c * 4)
       }
       for x in 0..<w {
         temp[(y * w + x) * color_ch + c] = sum / win_size_f
-        let x_out = clamp_coord_f(x - radius, w)
-        let x_in = clamp_coord_f(x + radius + 1, w)
+        let x_out = @types.clamp_coord(x - radius, w)
+        let x_in = @types.clamp_coord(x + radius + 1, w)
         sum = sum -
           read_f32_le_f(img.data, (y * w + x_out) * bpp + c * 4) +
           read_f32_le_f(img.data, (y * w + x_in) * bpp + c * 4)
@@ -202,13 +191,13 @@ pub fn box_blur_f(
     for c in 0..<color_ch {
       let mut sum = 0.0F
       for dy in 0..<win_size {
-        let y = clamp_coord_f(dy - radius, h)
+        let y = @types.clamp_coord(dy - radius, h)
         sum += temp[(y * w + x) * color_ch + c]
       }
       for y in 0..<h {
         write_f32_le_f(out, (y * w + x) * bpp + c * 4, sum / win_size_f)
-        let y_out = clamp_coord_f(y - radius, h)
-        let y_in = clamp_coord_f(y + radius + 1, h)
+        let y_out = @types.clamp_coord(y - radius, h)
+        let y_in = @types.clamp_coord(y + radius + 1, h)
         sum = sum -
           temp[(y_out * w + x) * color_ch + c] +
           temp[(y_in * w + x) * color_ch + c]
@@ -316,7 +305,7 @@ pub fn gaussian_blur_16(
       for x in 0..<x_inner_start {
         let mut acc = 0.0F
         for k in 0..<win_size {
-          let sx = clamp_coord_f(x + k - radius, w)
+          let sx = @types.clamp_coord(x + k - radius, w)
           acc += kernel[k] * src[(row_base + sx) * color_ch + c]
         }
         temp[(row_base + x) * color_ch + c] = acc
@@ -324,7 +313,7 @@ pub fn gaussian_blur_16(
       for x in x_inner_end..<w {
         let mut acc = 0.0F
         for k in 0..<win_size {
-          let sx = clamp_coord_f(x + k - radius, w)
+          let sx = @types.clamp_coord(x + k - radius, w)
           acc += kernel[k] * src[(row_base + sx) * color_ch + c]
         }
         temp[(row_base + x) * color_ch + c] = acc
@@ -349,7 +338,7 @@ pub fn gaussian_blur_16(
       for y in 0..<y_inner_start {
         let mut acc = 0.0F
         for k in 0..<win_size {
-          let sy = clamp_coord_f(y + k - radius, h)
+          let sy = @types.clamp_coord(y + k - radius, h)
           acc += kernel[k] * temp[(sy * w + x) * color_ch + c]
         }
         let v = (acc + 0.5F).to_int().clamp(min=0, max=65535)
@@ -358,7 +347,7 @@ pub fn gaussian_blur_16(
       for y in y_inner_end..<h {
         let mut acc = 0.0F
         for k in 0..<win_size {
-          let sy = clamp_coord_f(y + k - radius, h)
+          let sy = @types.clamp_coord(y + k - radius, h)
           acc += kernel[k] * temp[(sy * w + x) * color_ch + c]
         }
         let v = (acc + 0.5F).to_int().clamp(min=0, max=65535)
@@ -464,7 +453,7 @@ pub fn gaussian_blur_f(
       for x in 0..<x_inner_start {
         let mut acc = 0.0F
         for k in 0..<win_size {
-          let sx = clamp_coord_f(x + k - radius, w)
+          let sx = @types.clamp_coord(x + k - radius, w)
           acc += kernel[k] * src[(row_base + sx) * color_ch + c]
         }
         temp[(row_base + x) * color_ch + c] = acc
@@ -472,7 +461,7 @@ pub fn gaussian_blur_f(
       for x in x_inner_end..<w {
         let mut acc = 0.0F
         for k in 0..<win_size {
-          let sx = clamp_coord_f(x + k - radius, w)
+          let sx = @types.clamp_coord(x + k - radius, w)
           acc += kernel[k] * src[(row_base + sx) * color_ch + c]
         }
         temp[(row_base + x) * color_ch + c] = acc
@@ -496,7 +485,7 @@ pub fn gaussian_blur_f(
       for y in 0..<y_inner_start {
         let mut acc = 0.0F
         for k in 0..<win_size {
-          let sy = clamp_coord_f(y + k - radius, h)
+          let sy = @types.clamp_coord(y + k - radius, h)
           acc += kernel[k] * temp[(sy * w + x) * color_ch + c]
         }
         write_f32_le_f(out, (y * w + x) * bpp + c * 4, acc)
@@ -504,7 +493,7 @@ pub fn gaussian_blur_f(
       for y in y_inner_end..<h {
         let mut acc = 0.0F
         for k in 0..<win_size {
-          let sy = clamp_coord_f(y + k - radius, h)
+          let sy = @types.clamp_coord(y + k - radius, h)
           acc += kernel[k] * temp[(sy * w + x) * color_ch + c]
         }
         write_f32_le_f(out, (y * w + x) * bpp + c * 4, acc)
@@ -579,8 +568,8 @@ pub fn median_blur_16(
         let mut idx = 0
         for dy in -radius..<=radius {
           for dx in -radius..<=radius {
-            let sx = clamp_coord_f(x + dx, w)
-            let sy = clamp_coord_f(y + dy, h)
+            let sx = @types.clamp_coord(x + dx, w)
+            let sy = @types.clamp_coord(y + dy, h)
             buf[idx] = read_u16_le_f(img.data, (sy * w + sx) * bpp + c * 2)
             idx += 1
           }
@@ -687,8 +676,8 @@ pub fn median_blur_f(
         let mut idx = 0
         for dy in -radius..<=radius {
           for dx in -radius..<=radius {
-            let sx = clamp_coord_f(x + dx, w)
-            let sy = clamp_coord_f(y + dy, h)
+            let sx = @types.clamp_coord(x + dx, w)
+            let sy = @types.clamp_coord(y + dy, h)
             buf[idx] = read_f32_le_f(img.data, (sy * w + sx) * bpp + c * 4)
             idx += 1
           }
@@ -798,10 +787,10 @@ pub fn sharpen_16(
         continue
       }
       let idx = y * w + x
-      let x_l = clamp_coord_f(x - 1, w)
-      let x_r = clamp_coord_f(x + 1, w)
-      let y_t = clamp_coord_f(y - 1, h)
-      let y_b = clamp_coord_f(y + 1, h)
+      let x_l = @types.clamp_coord(x - 1, w)
+      let x_r = @types.clamp_coord(x + 1, w)
+      let y_t = @types.clamp_coord(y - 1, h)
+      let y_b = @types.clamp_coord(y + 1, h)
       for c in 0..<color_ch {
         let cx = px[idx * ch + c]
         let left = px[(y * w + x_l) * ch + c]
@@ -899,10 +888,10 @@ pub fn sharpen_f(
         continue
       }
       let idx = y * w + x
-      let x_l = clamp_coord_f(x - 1, w)
-      let x_r = clamp_coord_f(x + 1, w)
-      let y_t = clamp_coord_f(y - 1, h)
-      let y_b = clamp_coord_f(y + 1, h)
+      let x_l = @types.clamp_coord(x - 1, w)
+      let x_r = @types.clamp_coord(x + 1, w)
+      let y_t = @types.clamp_coord(y - 1, h)
+      let y_b = @types.clamp_coord(y + 1, h)
       for c in 0..<color_ch {
         let cx = px[idx * ch + c]
         let left = px[(y * w + x_l) * ch + c]

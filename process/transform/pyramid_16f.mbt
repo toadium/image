@@ -2,17 +2,6 @@
 // pyr_down / pyr_up
 
 ///|
-fn clamp_i_p(v : Int32, lo : Int32, hi : Int32) -> Int32 {
-  if v < lo {
-    lo
-  } else if v > hi {
-    hi
-  } else {
-    v
-  }
-}
-
-///|
 fn read_u16_p(data : Bytes, offset : Int32) -> Int32 {
   data[offset].to_int() | (data[offset + 1].to_int() << 8)
 }
@@ -166,9 +155,9 @@ pub fn pyr_up_16(img : @types.Image16) -> @types.Image16 raise @types.LoadError 
   let wx_arr : Array[Float] = Array::make(new_w, 0.0F)
   for x in 0..<new_w {
     let fx = (Float::from_int(x) - 0.5F) / 2.0F
-    let x0 = clamp_i_p(fx.to_int(), 0, w - 1)
+    let x0 = @types.clamp_int(fx.to_int(), 0, w - 1)
     x0_arr[x] = x0
-    x1_arr[x] = clamp_i_p(x0 + 1, 0, w - 1)
+    x1_arr[x] = @types.clamp_int(x0 + 1, 0, w - 1)
     wx_arr[x] = fx - Float::from_int(x0)
   }
   let y0_arr : Array[Int32] = Array::make(new_h, 0)
@@ -176,9 +165,9 @@ pub fn pyr_up_16(img : @types.Image16) -> @types.Image16 raise @types.LoadError 
   let wy_arr : Array[Float] = Array::make(new_h, 0.0F)
   for y in 0..<new_h {
     let fy = (Float::from_int(y) - 0.5F) / 2.0F
-    let y0 = clamp_i_p(fy.to_int(), 0, h - 1)
+    let y0 = @types.clamp_int(fy.to_int(), 0, h - 1)
     y0_arr[y] = y0
-    y1_arr[y] = clamp_i_p(y0 + 1, 0, h - 1)
+    y1_arr[y] = @types.clamp_int(y0 + 1, 0, h - 1)
     wy_arr[y] = fy - Float::from_int(y0)
   }
   let out : Array[Byte] = Array::make(new_w * new_h * ch * 2, b'\x00')
@@ -243,9 +232,9 @@ pub fn pyr_up_f(img : @types.ImageF) -> @types.ImageF raise @types.LoadError {
   let wx_arr : Array[Float] = Array::make(new_w, 0.0F)
   for x in 0..<new_w {
     let fx = (Float::from_int(x) - 0.5F) / 2.0F
-    let x0 = clamp_i_p(fx.to_int(), 0, w - 1)
+    let x0 = @types.clamp_int(fx.to_int(), 0, w - 1)
     x0_arr[x] = x0
-    x1_arr[x] = clamp_i_p(x0 + 1, 0, w - 1)
+    x1_arr[x] = @types.clamp_int(x0 + 1, 0, w - 1)
     wx_arr[x] = fx - Float::from_int(x0)
   }
   let y0_arr : Array[Int32] = Array::make(new_h, 0)
@@ -253,9 +242,9 @@ pub fn pyr_up_f(img : @types.ImageF) -> @types.ImageF raise @types.LoadError {
   let wy_arr : Array[Float] = Array::make(new_h, 0.0F)
   for y in 0..<new_h {
     let fy = (Float::from_int(y) - 0.5F) / 2.0F
-    let y0 = clamp_i_p(fy.to_int(), 0, h - 1)
+    let y0 = @types.clamp_int(fy.to_int(), 0, h - 1)
     y0_arr[y] = y0
-    y1_arr[y] = clamp_i_p(y0 + 1, 0, h - 1)
+    y1_arr[y] = @types.clamp_int(y0 + 1, 0, h - 1)
     wy_arr[y] = fy - Float::from_int(y0)
   }
   let out : Array[Byte] = Array::make(new_w * new_h * ch * 4, b'\x00')

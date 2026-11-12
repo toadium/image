@@ -61,8 +61,8 @@ pub fn erode(img : @types.Image) -> @types.Image {
         let mut min_v = 255
         for dy in -1..<=1 {
           for dx in -1..<=1 {
-            let sx = clamp_i(x + dx, 0, w - 1)
-            let sy = clamp_i(y + dy, 0, h - 1)
+            let sx = @types.clamp_int(x + dx, 0, w - 1)
+            let sy = @types.clamp_int(y + dy, 0, h - 1)
             let v = src[(sy * w + sx) * ch + c]
             if v < min_v {
               min_v = v
@@ -141,8 +141,8 @@ pub fn dilate(img : @types.Image) -> @types.Image {
         let mut max_v = 0
         for dy in -1..<=1 {
           for dx in -1..<=1 {
-            let sx = clamp_i(x + dx, 0, w - 1)
-            let sy = clamp_i(y + dy, 0, h - 1)
+            let sx = @types.clamp_int(x + dx, 0, w - 1)
+            let sy = @types.clamp_int(y + dy, 0, h - 1)
             let v = src[(sy * w + sx) * ch + c]
             if v > max_v {
               max_v = v
@@ -232,17 +232,6 @@ pub fn morph_blackhat(img : @types.Image) -> @types.Image {
 }
 
 ///|
-fn clamp_i(v : Int32, lo : Int32, hi : Int32) -> Int32 {
-  if v < lo {
-    lo
-  } else if v > hi {
-    hi
-  } else {
-    v
-  }
-}
-
-///|
 /// 结构元素（核）。二维布尔数组，true 表示该位置属于结构元素。
 pub(all) struct StructuringElement {
   width : Int32
@@ -317,8 +306,8 @@ pub fn erode_custom(
         for sy in 0..<se.height {
           for sx in 0..<se.width {
             if se.data[sy * se.width + sx] {
-              let nx = clamp_i(x + sx - cx, 0, w - 1)
-              let ny = clamp_i(y + sy - cy, 0, h - 1)
+              let nx = @types.clamp_int(x + sx - cx, 0, w - 1)
+              let ny = @types.clamp_int(y + sy - cy, 0, h - 1)
               let v = src[(ny * w + nx) * ch + c]
               if v < min_v {
                 min_v = v
@@ -362,8 +351,8 @@ pub fn dilate_custom(
         for sy in 0..<se.height {
           for sx in 0..<se.width {
             if se.data[sy * se.width + sx] {
-              let nx = clamp_i(x + sx - cx, 0, w - 1)
-              let ny = clamp_i(y + sy - cy, 0, h - 1)
+              let nx = @types.clamp_int(x + sx - cx, 0, w - 1)
+              let ny = @types.clamp_int(y + sy - cy, 0, h - 1)
               let v = src[(ny * w + nx) * ch + c]
               if v > max_v {
                 max_v = v

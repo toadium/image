@@ -1,17 +1,6 @@
 // 像素操作（纯 MoonBit）：threshold / posterize / extract_channel / blend 模式
 
 ///|
-fn clamp_byte_v(v : Int32) -> Byte {
-  if v < 0 {
-    b'\x00'
-  } else if v > 255 {
-    b'\xFF'
-  } else {
-    v.to_byte()
-  }
-}
-
-///|
 /// 二值化。像素值 >= threshold 设为 255，否则设为 0。
 /// 仅影响颜色通道，alpha 通道不变。
 pub fn threshold(img : @types.Image, thresh : Int32) -> @types.Image {
@@ -60,7 +49,7 @@ pub fn posterize(
     for c in 0..<color_ch {
       let v = img.data[i * ch + c].to_int()
       let quantized = (Float::from_int(v) / step).to_int() * step.to_int()
-      out[i * ch + c] = clamp_byte_v(quantized)
+      out[i * ch + c] = @types.clamp_byte(quantized)
     }
     if ch == 4 {
       out[i * ch + 3] = img.data[i * ch + 3]
@@ -176,7 +165,7 @@ pub fn blend_overlay(
     out[i] = if b < 128 {
       (2 * b * l / 255).to_byte()
     } else {
-      clamp_byte_v(255 - 2 * (255 - b) * (255 - l) / 255)
+      @types.clamp_byte(255 - 2 * (255 - b) * (255 - l) / 255)
     }
   }
   @types.Image::{
@@ -289,7 +278,7 @@ pub fn blend_exclusion(
   for i in 0..<n {
     let b = base.data[i].to_int()
     let l = blend.data[i].to_int()
-    out[i] = clamp_byte_v(b + l - 2 * b * l / 255)
+    out[i] = @types.clamp_byte(b + l - 2 * b * l / 255)
   }
   @types.Image::{
     width: base.width,
@@ -317,7 +306,11 @@ pub fn blend_color_dodge(
   for i in 0..<n {
     let b = base.data[i].to_int()
     let l = blend.data[i].to_int()
-    out[i] = if l == 255 { b'\xFF' } else { clamp_byte_v(b * 255 / (255 - l)) }
+    out[i] = if l == 255 {
+      b'\xFF'
+    } else {
+      @types.clamp_byte(b * 255 / (255 - l))
+    }
   }
   @types.Image::{
     width: base.width,
@@ -348,7 +341,7 @@ pub fn blend_color_burn(
     out[i] = if l == 0 {
       b'\x00'
     } else {
-      clamp_byte_v(255 - (255 - b) * 255 / l)
+      @types.clamp_byte(255 - (255 - b) * 255 / l)
     }
   }
   @types.Image::{
@@ -378,9 +371,9 @@ pub fn blend_hard_light(
     let b = base.data[i].to_int()
     let l = blend.data[i].to_int()
     out[i] = if l < 128 {
-      clamp_byte_v(2 * b * l / 255)
+      @types.clamp_byte(2 * b * l / 255)
     } else {
-      clamp_byte_v(255 - 2 * (255 - b) * (255 - l) / 255)
+      @types.clamp_byte(255 - 2 * (255 - b) * (255 - l) / 255)
     }
   }
   @types.Image::{
@@ -411,7 +404,7 @@ pub fn blend_soft_light(
     let b = base.data[i].to_int()
     let l = blend.data[i].to_int()
     let w = 2 * l
-    out[i] = clamp_byte_v((255 - w) * b * b / (255 * 255) + w * b / 255)
+    out[i] = @types.clamp_byte((255 - w) * b * b / (255 * 255) + w * b / 255)
   }
   @types.Image::{
     width: base.width,
@@ -439,7 +432,7 @@ pub fn blend_linear_dodge(
   for i in 0..<n {
     let b = base.data[i].to_int()
     let l = blend.data[i].to_int()
-    out[i] = clamp_byte_v(b + l)
+    out[i] = @types.clamp_byte(b + l)
   }
   @types.Image::{
     width: base.width,
@@ -467,7 +460,7 @@ pub fn blend_linear_burn(
   for i in 0..<n {
     let b = base.data[i].to_int()
     let l = blend.data[i].to_int()
-    out[i] = clamp_byte_v(b + l - 255)
+    out[i] = @types.clamp_byte(b + l - 255)
   }
   @types.Image::{
     width: base.width,

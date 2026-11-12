@@ -33,28 +33,6 @@ fn write_f32_le_h(buf : Array[Byte], offset : Int32, val : Float) -> Unit {
   buf[offset + 3] = ((bits >> 24) & 0xFF).to_byte()
 }
 
-///|
-fn clamp_int_h(v : Int32, lo : Int32, hi : Int32) -> Int32 {
-  if v < lo {
-    lo
-  } else if v > hi {
-    hi
-  } else {
-    v
-  }
-}
-
-///|
-fn clamp_float_h(v : Float, lo : Float, hi : Float) -> Float {
-  if v < lo {
-    lo
-  } else if v > hi {
-    hi
-  } else {
-    v
-  }
-}
-
 // ========== histogram ==========
 
 ///|
@@ -181,7 +159,7 @@ pub fn histogram_equalize_16(
   let lut : Array[Int32] = Array::make(65536, 0)
   for i in 0..<65536 {
     let mapped = (cdf[i] - cdf_min) * 65535 / denom
-    lut[i] = clamp_int_h(mapped, 0, 65535)
+    lut[i] = @types.clamp_int(mapped, 0, 65535)
   }
   // 应用 LUT
   let color_ch = if ch >= 3 { 3 } else { ch }
@@ -238,7 +216,7 @@ pub fn histogram_equalize_f(
   let lut : Array[Float] = Array::make(256, 0.0F)
   for i in 0..<256 {
     let mapped = Float::from_int(cdf[i] - cdf_min) / Float::from_int(denom)
-    lut[i] = clamp_float_h(mapped, 0.0F, 1.0F)
+    lut[i] = @types.clamp_float(mapped, 0.0F, 1.0F)
   }
   let color_ch = if ch >= 3 { 3 } else { ch }
   let n_total = n * ch
@@ -333,7 +311,7 @@ pub fn histogram_normalize_16(
     for c in 0..<color_ch {
       let v = src[i * ch + c]
       let scaled = (v - min_val) * 65535 / range
-      write_u16_le_h(out, i * bpp + c * 2, clamp_int_h(scaled, 0, 65535))
+      write_u16_le_h(out, i * bpp + c * 2, @types.clamp_int(scaled, 0, 65535))
     }
     if ch == 4 {
       let alpha_off = i * bpp + 6
@@ -406,7 +384,11 @@ pub fn histogram_normalize_f(
     for c in 0..<color_ch {
       let v = src[i * ch + c]
       let scaled = (v - min_val) / range
-      write_f32_le_h(out, i * bpp + c * 4, clamp_float_h(scaled, 0.0F, 1.0F))
+      write_f32_le_h(
+        out,
+        i * bpp + c * 4,
+        @types.clamp_float(scaled, 0.0F, 1.0F),
+      )
     }
     if ch == 4 {
       let alpha_off = i * bpp + 12
@@ -655,7 +637,11 @@ pub fn histogram_matching_f(
         (v * 255.0F + 0.5F).to_int()
       }
       let mapped = Float::from_int(lut[bin]) / 255.0F
-      write_f32_le_h(out, i * bpp + c * 4, clamp_float_h(mapped, 0.0F, 1.0F))
+      write_f32_le_h(
+        out,
+        i * bpp + c * 4,
+        @types.clamp_float(mapped, 0.0F, 1.0F),
+      )
     }
   }
   if ch == 4 {

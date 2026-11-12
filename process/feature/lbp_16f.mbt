@@ -34,17 +34,6 @@ fn write_f32_le_l(buf : Array[Byte], offset : Int32, val : Float) -> Unit {
 }
 
 ///|
-fn clamp_int_l(v : Int32, lo : Int32, hi : Int32) -> Int32 {
-  if v < lo {
-    lo
-  } else if v > hi {
-    hi
-  } else {
-    v
-  }
-}
-
-///|
 fn get_pixel_safe_16(
   src : Array[Int32],
   x : Int32,
@@ -54,8 +43,8 @@ fn get_pixel_safe_16(
   w : Int32,
   h : Int32,
 ) -> Int32 {
-  let sx = clamp_int_l(x, 0, w - 1)
-  let sy = clamp_int_l(y, 0, h - 1)
+  let sx = @types.clamp_int(x, 0, w - 1)
+  let sy = @types.clamp_int(y, 0, h - 1)
   src[(sy * w + sx) * ch + c]
 }
 
@@ -69,8 +58,8 @@ fn get_pixel_safe_f(
   w : Int32,
   h : Int32,
 ) -> Float {
-  let sx = clamp_int_l(x, 0, w - 1)
-  let sy = clamp_int_l(y, 0, h - 1)
+  let sx = @types.clamp_int(x, 0, w - 1)
+  let sy = @types.clamp_int(y, 0, h - 1)
   src[(sy * w + sx) * ch + c]
 }
 

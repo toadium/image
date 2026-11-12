@@ -2,18 +2,6 @@
 // 基于霍夫变换的倾斜检测与校正
 
 ///|
-/// 辅助函数：限制字节范围
-fn clamp_byte_deskew(v : Int32) -> Byte {
-  if v < 0 {
-    b'\x00'
-  } else if v > 255 {
-    b'\xFF'
-  } else {
-    v.to_byte()
-  }
-}
-
-///|
 /// 检测图像倾斜角度（基于水平投影的方差最大化）
 /// 返回角度（度），正值表示顺时针倾斜
 pub fn detect_skew_angle(img : @types.Image) -> Double raise @types.LoadError {
@@ -196,7 +184,7 @@ pub fn rotate_document(
           let v0 = v00 * (1.0 - fx) + v01 * fx
           let v1 = v10 * (1.0 - fx) + v11 * fx
           let v = v0 * (1.0 - fy) + v1 * fy
-          out[(y * new_w + x) * ch + c] = clamp_byte_deskew(v.to_int())
+          out[(y * new_w + x) * ch + c] = @types.clamp_byte(v.to_int())
         }
       }
     }

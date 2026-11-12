@@ -108,10 +108,10 @@ pub fn edge_detect_sobel_16(
       if x >= 1 && x < w - 1 && y >= 1 && y < h - 1 {
         continue
       }
-      let x_l = clamp_i(x - 1, 0, w - 1)
-      let x_r = clamp_i(x + 1, 0, w - 1)
-      let y_t = clamp_i(y - 1, 0, h - 1)
-      let y_b = clamp_i(y + 1, 0, h - 1)
+      let x_l = @types.clamp_int(x - 1, 0, w - 1)
+      let x_r = @types.clamp_int(x + 1, 0, w - 1)
+      let y_t = @types.clamp_int(y - 1, 0, h - 1)
+      let y_b = @types.clamp_int(y + 1, 0, h - 1)
       let gx = -gray[y_t * w + x_l] +
         gray[y_t * w + x_r] -
         2 * gray[y * w + x_l] +
@@ -213,10 +213,10 @@ pub fn edge_detect_sobel_f(
       if x >= 1 && x < w - 1 && y >= 1 && y < h - 1 {
         continue
       }
-      let x_l = clamp_i(x - 1, 0, w - 1)
-      let x_r = clamp_i(x + 1, 0, w - 1)
-      let y_t = clamp_i(y - 1, 0, h - 1)
-      let y_b = clamp_i(y + 1, 0, h - 1)
+      let x_l = @types.clamp_int(x - 1, 0, w - 1)
+      let x_r = @types.clamp_int(x + 1, 0, w - 1)
+      let y_t = @types.clamp_int(y - 1, 0, h - 1)
+      let y_b = @types.clamp_int(y + 1, 0, h - 1)
       let gx = -gray[y_t * w + x_l] +
         gray[y_t * w + x_r] -
         2.0F * gray[y * w + x_l] +
@@ -308,12 +308,12 @@ pub fn edge_detect_laplacian_16(
       if x >= 1 && x < w - 1 && y >= 1 && y < h - 1 {
         continue
       }
-      let cx = clamp_i(x, 0, w - 1)
-      let cy = clamp_i(y, 0, h - 1)
-      let up = clamp_i(y - 1, 0, h - 1)
-      let down = clamp_i(y + 1, 0, h - 1)
-      let left = clamp_i(x - 1, 0, w - 1)
-      let right = clamp_i(x + 1, 0, w - 1)
+      let cx = @types.clamp_int(x, 0, w - 1)
+      let cy = @types.clamp_int(y, 0, h - 1)
+      let up = @types.clamp_int(y - 1, 0, h - 1)
+      let down = @types.clamp_int(y + 1, 0, h - 1)
+      let left = @types.clamp_int(x - 1, 0, w - 1)
+      let right = @types.clamp_int(x + 1, 0, w - 1)
       let center = gray[cy * w + cx]
       let u = gray[up * w + cx]
       let d = gray[down * w + cx]
@@ -398,12 +398,12 @@ pub fn edge_detect_laplacian_f(
       if x >= 1 && x < w - 1 && y >= 1 && y < h - 1 {
         continue
       }
-      let cx = clamp_i(x, 0, w - 1)
-      let cy = clamp_i(y, 0, h - 1)
-      let up = clamp_i(y - 1, 0, h - 1)
-      let down = clamp_i(y + 1, 0, h - 1)
-      let left = clamp_i(x - 1, 0, w - 1)
-      let right = clamp_i(x + 1, 0, w - 1)
+      let cx = @types.clamp_int(x, 0, w - 1)
+      let cy = @types.clamp_int(y, 0, h - 1)
+      let up = @types.clamp_int(y - 1, 0, h - 1)
+      let down = @types.clamp_int(y + 1, 0, h - 1)
+      let left = @types.clamp_int(x - 1, 0, w - 1)
+      let right = @types.clamp_int(x + 1, 0, w - 1)
       let center = gray[cy * w + cx]
       let u = gray[up * w + cx]
       let d = gray[down * w + cx]
@@ -493,10 +493,10 @@ pub fn edge_detect_prewitt_16(
       if x >= 1 && x < w - 1 && y >= 1 && y < h - 1 {
         continue
       }
-      let up = clamp_i(y - 1, 0, h - 1)
-      let down = clamp_i(y + 1, 0, h - 1)
-      let left = clamp_i(x - 1, 0, w - 1)
-      let right = clamp_i(x + 1, 0, w - 1)
+      let up = @types.clamp_int(y - 1, 0, h - 1)
+      let down = @types.clamp_int(y + 1, 0, h - 1)
+      let left = @types.clamp_int(x - 1, 0, w - 1)
+      let right = @types.clamp_int(x + 1, 0, w - 1)
       let ul = gray[up * w + left]
       let ur = gray[up * w + right]
       let ll = gray[down * w + left]
@@ -589,10 +589,10 @@ pub fn edge_detect_prewitt_f(
       if x >= 1 && x < w - 1 && y >= 1 && y < h - 1 {
         continue
       }
-      let up = clamp_i(y - 1, 0, h - 1)
-      let down = clamp_i(y + 1, 0, h - 1)
-      let left = clamp_i(x - 1, 0, w - 1)
-      let right = clamp_i(x + 1, 0, w - 1)
+      let up = @types.clamp_int(y - 1, 0, h - 1)
+      let down = @types.clamp_int(y + 1, 0, h - 1)
+      let left = @types.clamp_int(x - 1, 0, w - 1)
+      let right = @types.clamp_int(x + 1, 0, w - 1)
       let ul = gray[up * w + left]
       let ur = gray[up * w + right]
       let ll = gray[down * w + left]

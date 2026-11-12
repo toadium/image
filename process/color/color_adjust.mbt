@@ -2,17 +2,6 @@
 // 亮度/对比度/gamma/反色 + HSV/HSL 色彩空间转换
 
 ///|
-fn clamp_byte(v : Int32) -> Byte {
-  if v < 0 {
-    b'\x00'
-  } else if v > 255 {
-    b'\xFF'
-  } else {
-    v.to_byte()
-  }
-}
-
-///|
 /// 亮度调整。delta ∈ [-255, 255]，正值变亮，负值变暗。
 /// 仅影响颜色通道（前 min(channels,3) 个），alpha 通道不变。
 pub fn adjust_brightness(
@@ -44,7 +33,7 @@ pub fn adjust_brightness(
   let color_ch = if ch >= 3 { 3 } else { ch }
   let lut : Array[Byte] = Array::make(256, b'\x00')
   for i in 0..<256 {
-    lut[i] = clamp_byte(i + delta)
+    lut[i] = @types.clamp_byte(i + delta)
   }
   let out : Array[Byte] = Array::make(n * ch, b'\x00')
   for i in 0..<n {
@@ -102,7 +91,7 @@ pub fn adjust_contrast(
   let lut : Array[Byte] = Array::make(256, b'\x00')
   for i in 0..<256 {
     let adjusted = (Float::from_int(i - 128) * factor + 128.0F).to_int()
-    lut[i] = clamp_byte(adjusted)
+    lut[i] = @types.clamp_byte(adjusted)
   }
   let total = n * ch
   let out : Array[Byte] = Array::make(total, b'\x00')
@@ -174,7 +163,7 @@ pub fn adjust_gamma(
     let normalized = Float::from_int(i) / 255.0F
     let corrected = @math.powf(normalized, gamma)
     let val = (corrected * 255.0F + 0.5F).to_int()
-    lut[i] = clamp_byte(val)
+    lut[i] = @types.clamp_byte(val)
   }
   let n = img.width * img.height
   let ch = img.channels

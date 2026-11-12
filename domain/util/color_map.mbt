@@ -103,7 +103,7 @@ fn interp_gradient(
       let r = r0.to_int() + (r1.to_int() - r0.to_int()) * t / range
       let g = g0.to_int() + (g1.to_int() - g0.to_int()) * t / range
       let b = b0.to_int() + (b1.to_int() - b0.to_int()) * t / range
-      return (clamp_b(r), clamp_b(g), clamp_b(b))
+      return (@types.clamp_byte(r), @types.clamp_byte(g), @types.clamp_byte(b))
     }
   }
   (b'\x00', b'\x00', b'\x00')

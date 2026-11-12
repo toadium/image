@@ -219,14 +219,14 @@ fn merge_horizontal_lines(
     let next = lines[i]
     // 检查是否是同一条线（y坐标接近，x范围重叠）
     let y_diff = (next.y1 - current.y1).abs()
-    let x_overlap = min_table(current.x2, next.x2) -
-      max_table(current.x1, next.x1)
+    let x_overlap = @types.int_min(current.x2, next.x2) -
+      @types.int_max(current.x1, next.x1)
     if y_diff <= max_y_diff && x_overlap > 0 {
       // 合并
       current = TableLine::{
-        x1: min_table(current.x1, next.x1),
+        x1: @types.int_min(current.x1, next.x1),
         y1: (current.y1 + next.y1) / 2,
-        x2: max_table(current.x2, next.x2),
+        x2: @types.int_max(current.x2, next.x2),
         y2: (current.y2 + next.y2) / 2,
         line_type: TableLineType::Horizontal,
         thickness: current.thickness + 1,
@@ -254,14 +254,14 @@ fn merge_vertical_lines(
   for i in 1..<lines.length() {
     let next = lines[i]
     let x_diff = (next.x1 - current.x1).abs()
-    let y_overlap = min_table(current.y2, next.y2) -
-      max_table(current.y1, next.y1)
+    let y_overlap = @types.int_min(current.y2, next.y2) -
+      @types.int_max(current.y1, next.y1)
     if x_diff <= max_x_diff && y_overlap > 0 {
       current = TableLine::{
         x1: (current.x1 + next.x1) / 2,
-        y1: min_table(current.y1, next.y1),
+        y1: @types.int_min(current.y1, next.y1),
         x2: (current.x2 + next.x2) / 2,
-        y2: max_table(current.y2, next.y2),
+        y2: @types.int_max(current.y2, next.y2),
         line_type: TableLineType::Vertical,
         thickness: current.thickness + 1,
       }
@@ -450,10 +450,10 @@ pub fn extract_cell_image(
   let w = img.width
   let h = img.height
   let ch = img.channels
-  let x = max_table(0, cell.x - padding)
-  let y = max_table(0, cell.y - padding)
-  let width = min_table(w - x, cell.width + padding * 2)
-  let height = min_table(h - y, cell.height + padding * 2)
+  let x = @types.int_max(0, cell.x - padding)
+  let y = @types.int_max(0, cell.y - padding)
+  let width = @types.int_min(w - x, cell.width + padding * 2)
+  let height = @types.int_min(h - y, cell.height + padding * 2)
   if width <= 0 || height <= 0 {
     let empty : Array[Byte] = Array::make(1 * 1 * ch, b'\x00')
     return @types.Image::{
@@ -539,25 +539,5 @@ fn to_grayscale_table(img : @types.Image) -> @types.Image {
     height: img.height,
     channels: 1,
     data: Bytes::from_array(out),
-  }
-}
-
-///|
-/// 辅助函数：最小值
-fn min_table(a : Int32, b : Int32) -> Int32 {
-  if a < b {
-    a
-  } else {
-    b
-  }
-}
-
-///|
-/// 辅助函数：最大值
-fn max_table(a : Int32, b : Int32) -> Int32 {
-  if a > b {
-    a
-  } else {
-    b
   }
 }

@@ -211,8 +211,7 @@ pub fn check_dims(
 /// 判断维度是否在安全范围内（纯函数，可用于证明前提）。
 /// 返回 true 当且仅当 width/height/channels 均为正、
 /// 不超过 MAX_IMAGE_DIMENSION、且乘积不溢出 Int32。
-pub let dims_valid_check : (Int32, Int32, Int32) -> Bool =
-  @safe_math.dims_valid_check
+pub let dims_valid_check : (Int32, Int32, Int32) -> Bool = @safe_math.dims_valid_check
 
 ///|
 /// 安全乘法：返回 a * b，溢出时返回 None。
@@ -225,3 +224,43 @@ pub let safe_mul : (Int32, Int32) -> Int32? = @safe_math.safe_mul
 /// 常用于计算 w * h * channels 的数组大小。
 /// 实际实现和形式化证明在 core/safe_math 包中。
 pub let safe_mul3 : (Int32, Int32, Int32) -> Int32? = @safe_math.safe_mul3
+
+///|
+/// 通用整数钳制：将 v 限制在 [lo, hi] 范围内。
+/// 实际实现在 core/safe_math 包中。
+pub let clamp_int : (Int32, Int32, Int32) -> Int32 = @safe_math.clamp_int
+
+///|
+/// 像素值钳制：将 value 限制在 [0, 255] 范围内。
+/// 实际实现和形式化证明在 core/safe_math 包中。
+pub let clamp_pixel_value : (Int32) -> Int32 = @safe_math.clamp_pixel_value
+
+///|
+/// 字节钳制：将 Int32 值限制在 [0, 255] 并转为 Byte。
+/// 实际实现在 core/safe_math 包中。
+pub let clamp_byte : (Int32) -> Byte = @safe_math.clamp_byte
+
+///|
+/// 坐标钳制：将坐标 v 限制在 [0, max_val-1] 范围内。
+/// 实际实现在 core/safe_math 包中。
+pub let clamp_coord : (Int32, Int32) -> Int32 = @safe_math.clamp_coord
+
+///|
+/// 浮点钳制：将 Float 值 v 限制在 [lo, hi] 范围内。
+/// 实际实现在 core/safe_math 包中。
+pub let clamp_float : (Float, Float, Float) -> Float = @safe_math.clamp_float
+
+///|
+/// 双精度浮点钳制：将 Double 值 v 限制在 [lo, hi] 范围内。
+/// 实际实现在 core/safe_math 包中。
+pub let clamp_double : (Double, Double, Double) -> Double = @safe_math.clamp_double
+
+///|
+/// 整数最大值：返回 a 和 b 中较大的那个。
+/// 实际实现在 core/safe_math 包中。
+pub let int_max : (Int32, Int32) -> Int32 = @safe_math.int_max
+
+///|
+/// 整数最小值：返回 a 和 b 中较小的那个。
+/// 实际实现在 core/safe_math 包中。
+pub let int_min : (Int32, Int32) -> Int32 = @safe_math.int_min

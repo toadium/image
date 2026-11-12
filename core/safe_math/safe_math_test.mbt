@@ -236,6 +236,65 @@ test "hamming_distance: basic" {
   assert_eq(@safe_math.hamming_distance(0b1111, 0b0000), 4)
 }
 
+// === clamp_byte ===
+
+///|
+test "clamp_byte: within [0,255]" {
+  assert_eq(@safe_math.clamp_byte(128), (128 : Int32).to_byte())
+  assert_eq(@safe_math.clamp_byte(0), (0 : Int32).to_byte())
+  assert_eq(@safe_math.clamp_byte(255), (255 : Int32).to_byte())
+}
+
+///|
+test "clamp_byte: negative clamped to 0" {
+  assert_eq(@safe_math.clamp_byte(-1), (0 : Int32).to_byte())
+  assert_eq(@safe_math.clamp_byte(-100), (0 : Int32).to_byte())
+}
+
+///|
+test "clamp_byte: above 255 clamped to 255" {
+  assert_eq(@safe_math.clamp_byte(256), (255 : Int32).to_byte())
+  assert_eq(@safe_math.clamp_byte(1000), (255 : Int32).to_byte())
+}
+
+// === clamp_float ===
+
+///|
+test "clamp_float: within range" {
+  assert_eq(@safe_math.clamp_float(0.5F, 0.0F, 1.0F), 0.5F)
+  assert_eq(@safe_math.clamp_float(0.0F, 0.0F, 1.0F), 0.0F)
+  assert_eq(@safe_math.clamp_float(1.0F, 0.0F, 1.0F), 1.0F)
+}
+
+///|
+test "clamp_float: below range" {
+  assert_eq(@safe_math.clamp_float(-0.5F, 0.0F, 1.0F), 0.0F)
+}
+
+///|
+test "clamp_float: above range" {
+  assert_eq(@safe_math.clamp_float(1.5F, 0.0F, 1.0F), 1.0F)
+}
+
+// === clamp_double ===
+
+///|
+test "clamp_double: within range" {
+  assert_eq(@safe_math.clamp_double(0.5, 0.0, 1.0), 0.5)
+  assert_eq(@safe_math.clamp_double(0.0, 0.0, 1.0), 0.0)
+  assert_eq(@safe_math.clamp_double(1.0, 0.0, 1.0), 1.0)
+}
+
+///|
+test "clamp_double: below range" {
+  assert_eq(@safe_math.clamp_double(-0.5, 0.0, 1.0), 0.0)
+}
+
+///|
+test "clamp_double: above range" {
+  assert_eq(@safe_math.clamp_double(1.5, 0.0, 1.0), 1.0)
+}
+
 // === MAX_IMAGE_DIMENSION ===
 
 ///|

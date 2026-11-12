@@ -33,17 +33,6 @@ fn write_f32_le_freq(buf : Array[Byte], offset : Int32, val : Float) -> Unit {
   buf[offset + 3] = ((bits >> 24) & 0xFF).to_byte()
 }
 
-///|
-fn clamp_int_freq(v : Int32, lo : Int32, hi : Int32) -> Int32 {
-  if v < lo {
-    lo
-  } else if v > hi {
-    hi
-  } else {
-    v
-  }
-}
-
 // ========== FFT 16-bit ==========
 
 ///|
@@ -134,7 +123,7 @@ pub fn fft_2d_f(img : @types.ImageF) -> Array[FFTResult] raise @types.LoadError 
   for i in 0..<(w * h) {
     for c in 0..<color_ch {
       let vf = read_float_le_freq(img.data, i * bpp + c * 4)
-      let v8 = clamp_int_freq((vf * 255.0F).to_int(), 0, 255)
+      let v8 = @types.clamp_int((vf * 255.0F).to_int(), 0, 255)
       data8[i * color_ch + c] = v8.to_byte()
     }
   }
@@ -241,7 +230,7 @@ pub fn dct_2d_f(img : @types.ImageF) -> Array[Array[Double]] {
   let data8 : Array[Byte] = Array::make(w * h * ch, b'\x00')
   for i in 0..<(w * h * ch) {
     let vf = read_float_le_freq(img.data, i * 4)
-    let v8 = clamp_int_freq((vf * 255.0F).to_int(), 0, 255)
+    let v8 = @types.clamp_int((vf * 255.0F).to_int(), 0, 255)
     data8[i] = v8.to_byte()
   }
   let img8 = @types.Image::{
@@ -370,7 +359,7 @@ pub fn haar_transform_2d_f(
   let data8 : Array[Byte] = Array::make(w * h * ch, b'\x00')
   for i in 0..<(w * h * ch) {
     let vf = read_float_le_freq(img.data, i * 4)
-    let v8 = clamp_int_freq((vf * 255.0F).to_int(), 0, 255)
+    let v8 = @types.clamp_int((vf * 255.0F).to_int(), 0, 255)
     data8[i] = v8.to_byte()
   }
   let img8 = @types.Image::{
@@ -416,7 +405,7 @@ pub fn haar_denoise_f(
   let data8 : Array[Byte] = Array::make(w * h * ch, b'\x00')
   for i in 0..<(w * h * ch) {
     let vf = read_float_le_freq(img.data, i * 4)
-    let v8 = clamp_int_freq((vf * 255.0F).to_int(), 0, 255)
+    let v8 = @types.clamp_int((vf * 255.0F).to_int(), 0, 255)
     data8[i] = v8.to_byte()
   }
   let img8 = @types.Image::{

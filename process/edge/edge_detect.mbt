@@ -1,5 +1,5 @@
 // 边缘检测扩展（纯 MoonBit）：edge_detect_laplacian / edge_detect_prewitt / edge_detect_sobel
-// clamp_b 来自 pixel_advanced.mbt，clamp_i 来自 morphology.mbt
+// @types.clamp_byte / @types.clamp_int 来自 walkzzz/core/types
 
 ///|
 /// Sobel 边缘检测。先转灰度，然后计算梯度幅值。
@@ -78,10 +78,10 @@ pub fn edge_detect_sobel(
       if x >= 1 && x < w - 1 && y >= 1 && y < h - 1 {
         continue
       }
-      let x_l = clamp_i(x - 1, 0, w - 1)
-      let x_r = clamp_i(x + 1, 0, w - 1)
-      let y_t = clamp_i(y - 1, 0, h - 1)
-      let y_b = clamp_i(y + 1, 0, h - 1)
+      let x_l = @types.clamp_int(x - 1, 0, w - 1)
+      let x_r = @types.clamp_int(x + 1, 0, w - 1)
+      let y_t = @types.clamp_int(y - 1, 0, h - 1)
+      let y_b = @types.clamp_int(y + 1, 0, h - 1)
       let gx = -gray[y_t * w + x_l] +
         gray[y_t * w + x_r] -
         2 * gray[y * w + x_l] +
@@ -161,7 +161,7 @@ pub fn edge_detect_laplacian(
       let l = gray[idx - 1]
       let r = gray[idx + 1]
       let lap = u + d + l + r - 4 * center
-      out[idx] = clamp_b(lap.abs())
+      out[idx] = @types.clamp_byte(lap.abs())
     }
   }
   // 边界区域
@@ -171,19 +171,19 @@ pub fn edge_detect_laplacian(
       if y_inner && x >= 1 && x < w - 1 {
         continue
       }
-      let cx = clamp_i(x, 0, w - 1)
-      let cy = clamp_i(y, 0, h - 1)
-      let up = clamp_i(y - 1, 0, h - 1)
-      let down = clamp_i(y + 1, 0, h - 1)
-      let left = clamp_i(x - 1, 0, w - 1)
-      let right = clamp_i(x + 1, 0, w - 1)
+      let cx = @types.clamp_int(x, 0, w - 1)
+      let cy = @types.clamp_int(y, 0, h - 1)
+      let up = @types.clamp_int(y - 1, 0, h - 1)
+      let down = @types.clamp_int(y + 1, 0, h - 1)
+      let left = @types.clamp_int(x - 1, 0, w - 1)
+      let right = @types.clamp_int(x + 1, 0, w - 1)
       let center = gray[cy * w + cx]
       let u = gray[up * w + cx]
       let d = gray[down * w + cx]
       let l = gray[cy * w + left]
       let r = gray[cy * w + right]
       let lap = u + d + l + r - 4 * center
-      out[y * w + x] = clamp_b(lap.abs())
+      out[y * w + x] = @types.clamp_byte(lap.abs())
     }
   }
   @types.Image::{
@@ -255,7 +255,7 @@ pub fn edge_detect_prewitt(
       let gx = ur + r + lr - ul - l - ll
       let gy = ll + d + lr - ul - u - ur
       let mag = Float::from_int(gx * gx + gy * gy).sqrt()
-      out[idx] = clamp_b(mag.to_int())
+      out[idx] = @types.clamp_byte(mag.to_int())
     }
   }
   // 边界区域
@@ -265,10 +265,10 @@ pub fn edge_detect_prewitt(
       if y_inner && x >= 1 && x < w - 1 {
         continue
       }
-      let up = clamp_i(y - 1, 0, h - 1)
-      let down = clamp_i(y + 1, 0, h - 1)
-      let left = clamp_i(x - 1, 0, w - 1)
-      let right = clamp_i(x + 1, 0, w - 1)
+      let up = @types.clamp_int(y - 1, 0, h - 1)
+      let down = @types.clamp_int(y + 1, 0, h - 1)
+      let left = @types.clamp_int(x - 1, 0, w - 1)
+      let right = @types.clamp_int(x + 1, 0, w - 1)
       let ul = gray[up * w + left]
       let ur = gray[up * w + right]
       let ll = gray[down * w + left]
@@ -280,7 +280,7 @@ pub fn edge_detect_prewitt(
       let gx = ur + r + lr - ul - l - ll
       let gy = ll + d + lr - ul - u - ur
       let mag = Float::from_int(gx * gx + gy * gy).sqrt()
-      out[y * w + x] = clamp_b(mag.to_int())
+      out[y * w + x] = @types.clamp_byte(mag.to_int())
     }
   }
   @types.Image::{

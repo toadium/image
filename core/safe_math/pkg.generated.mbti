@@ -4,7 +4,13 @@ package "walkzzz/core/safe_math"
 // Values
 pub const MAX_IMAGE_DIMENSION : Int32 = 65535
 
+pub fn clamp_byte(Int32) -> Byte
+
 pub fn clamp_coord(Int32, Int32) -> Int32
+
+pub fn clamp_double(Double, Double, Double) -> Double
+
+pub fn clamp_float(Float, Float, Float) -> Float
 
 pub fn clamp_int(Int32, Int32, Int32) -> Int32
 
@@ -13,6 +19,10 @@ pub fn clamp_pixel_value(Int32) -> Int32
 pub fn dims_valid_check(Int32, Int32, Int32) -> Bool
 
 pub fn hamming_distance(Int32, Int32) -> Int32
+
+pub fn int_max(Int32, Int32) -> Int32
+
+pub fn int_min(Int32, Int32) -> Int32
 
 pub fn is_valid_2d_index(Int32, Int32, Int32, Int32) -> Bool
 

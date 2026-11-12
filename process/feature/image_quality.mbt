@@ -294,8 +294,8 @@ pub fn ssim(
       let mut nn = 0
       for dy in 0..<win {
         for dx in 0..<win {
-          let sx = clamp_i(x + dx - half, 0, w - 1)
-          let sy = clamp_i(y + dy - half, 0, h - 1)
+          let sx = @types.clamp_int(x + dx - half, 0, w - 1)
+          let sy = @types.clamp_int(y + dy - half, 0, h - 1)
           for c in 0..<ch {
             mu1 += src1[(sy * w + sx) * ch + c]
             mu2 += src2[(sy * w + sx) * ch + c]
@@ -310,8 +310,8 @@ pub fn ssim(
       let mut cov : Double = 0.0
       for dy in 0..<win {
         for dx in 0..<win {
-          let sx = clamp_i(x + dx - half, 0, w - 1)
-          let sy = clamp_i(y + dy - half, 0, h - 1)
+          let sx = @types.clamp_int(x + dx - half, 0, w - 1)
+          let sy = @types.clamp_int(y + dy - half, 0, h - 1)
           for c in 0..<ch {
             let v1 = src1[(sy * w + sx) * ch + c] - mu1
             let v2 = src2[(sy * w + sx) * ch + c] - mu2

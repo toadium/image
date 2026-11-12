@@ -34,15 +34,6 @@ fn write_f32_le_c(buf : Array[Byte], offset : Int32, val : Float) -> Unit {
 }
 
 ///|
-fn clamp_int_c(v : Int32, lo : Int32, hi : Int32) -> Int32 {
-  if v < lo {
-    lo
-  } else if v > hi {
-    hi
-  } else {
-    v
-  }
-}
 
 // 5x5 高斯模糊 (sigma=1.0)
 
@@ -82,8 +73,8 @@ fn canny_gaussian_blur_16(
       let mut sum = 0
       for ky in 0..<5 {
         for kx in 0..<5 {
-          let px = clamp_int_c(x + kx - 2, 0, w - 1)
-          let py = clamp_int_c(y + ky - 2, 0, h - 1)
+          let px = @types.clamp_int(x + kx - 2, 0, w - 1)
+          let py = @types.clamp_int(y + ky - 2, 0, h - 1)
           sum += gray[py * w + px] * kernel[ky * 5 + kx]
         }
       }
@@ -353,8 +344,8 @@ pub fn canny_edge_f(
       let mut sum = 0.0F
       for ky in 0..<5 {
         for kx in 0..<5 {
-          let px = clamp_int_c(x + kx - 2, 0, w - 1)
-          let py = clamp_int_c(y + ky - 2, 0, h - 1)
+          let px = @types.clamp_int(x + kx - 2, 0, w - 1)
+          let py = @types.clamp_int(y + ky - 2, 0, h - 1)
           sum += gray[py * w + px] * kernel[ky * 5 + kx]
         }
       }

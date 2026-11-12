@@ -50,7 +50,7 @@ pub fn add_noise_gaussian(
     for c in 0..<color_ch {
       let noise = lcg_gaussian(rng) * sigma
       let v = img.data[i * ch + c].to_int() + noise.to_int()
-      out[i * ch + c] = clamp_b(v)
+      out[i * ch + c] = @types.clamp_byte(v)
     }
     if ch == 4 {
       out[i * ch + 3] = img.data[i * ch + 3]

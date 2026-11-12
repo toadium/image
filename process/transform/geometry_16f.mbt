@@ -34,17 +34,6 @@ fn write_f32_le_geo(buf : Array[Byte], offset : Int32, val : Float) -> Unit {
 }
 
 ///|
-fn clamp_int_geo(v : Int32, lo : Int32, hi : Int32) -> Int32 {
-  if v < lo {
-    lo
-  } else if v > hi {
-    hi
-  } else {
-    v
-  }
-}
-
-///|
 fn sample_bilinear_16(
   data : Array[Int32],
   w : Int32,
@@ -58,10 +47,10 @@ fn sample_bilinear_16(
   let y0 = y.to_int()
   let w_minus_1 = w - 1
   let h_minus_1 = h - 1
-  let x0c = clamp_int_geo(x0, 0, w_minus_1)
-  let y0c = clamp_int_geo(y0, 0, h_minus_1)
-  let x1 = clamp_int_geo(x0 + 1, 0, w_minus_1)
-  let y1 = clamp_int_geo(y0 + 1, 0, h_minus_1)
+  let x0c = @types.clamp_int(x0, 0, w_minus_1)
+  let y0c = @types.clamp_int(y0, 0, h_minus_1)
+  let x1 = @types.clamp_int(x0 + 1, 0, w_minus_1)
+  let y1 = @types.clamp_int(y0 + 1, 0, h_minus_1)
   let fx = x - Float::from_int(x0)
   let fy = y - Float::from_int(y0)
   let p00 = data[(y0c * w + x0c) * ch + c]
@@ -87,10 +76,10 @@ fn sample_bilinear_f(
   let y0 = y.to_int()
   let w_minus_1 = w - 1
   let h_minus_1 = h - 1
-  let x0c = clamp_int_geo(x0, 0, w_minus_1)
-  let y0c = clamp_int_geo(y0, 0, h_minus_1)
-  let x1 = clamp_int_geo(x0 + 1, 0, w_minus_1)
-  let y1 = clamp_int_geo(y0 + 1, 0, h_minus_1)
+  let x0c = @types.clamp_int(x0, 0, w_minus_1)
+  let y0c = @types.clamp_int(y0, 0, h_minus_1)
+  let x1 = @types.clamp_int(x0 + 1, 0, w_minus_1)
+  let y1 = @types.clamp_int(y0 + 1, 0, h_minus_1)
   let fx = x - Float::from_int(x0)
   let fy = y - Float::from_int(y0)
   let p00 = data[(y0c * w + x0c) * ch + c]
@@ -131,7 +120,7 @@ pub fn warp_affine_16(
         write_u16_le_geo(
           out,
           (dy * new_w + dx) * ch * 2 + ci * 2,
-          clamp_int_geo(val, 0, 65535),
+          @types.clamp_int(val, 0, 65535),
         )
       }
     }
@@ -212,7 +201,7 @@ pub fn warp_perspective_16(
         write_u16_le_geo(
           out,
           (dy * new_w + dx) * ch * 2 + ci * 2,
-          clamp_int_geo(val, 0, 65535),
+          @types.clamp_int(val, 0, 65535),
         )
       }
     }
@@ -292,7 +281,7 @@ pub fn resize_16(
         write_u16_le_geo(
           out,
           (dy * new_w + dx) * ch * 2 + ci * 2,
-          clamp_int_geo(val, 0, 65535),
+          @types.clamp_int(val, 0, 65535),
         )
       }
     }

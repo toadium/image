@@ -19,17 +19,6 @@ fn write_f32_le_draw(buf : Array[Byte], offset : Int32, val : Float) -> Unit {
 }
 
 ///|
-fn clamp_int_draw(v : Int32, lo : Int32, hi : Int32) -> Int32 {
-  if v < lo {
-    lo
-  } else if v > hi {
-    hi
-  } else {
-    v
-  }
-}
-
-///|
 fn set_pixel_16(
   buf : Array[Byte],
   x : Int32,
@@ -44,7 +33,7 @@ fn set_pixel_16(
   let idx = (y * w + x) * ch * 2
   for c in 0..<ch {
     if c < color.length() {
-      write_u16_le_draw(buf, idx + c * 2, clamp_int_draw(color[c], 0, 65535))
+      write_u16_le_draw(buf, idx + c * 2, @types.clamp_int(color[c], 0, 65535))
     }
   }
 }

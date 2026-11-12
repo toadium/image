@@ -1,5 +1,6 @@
 import {
   "walkzzz/core/types",
+  "walkzzz/core/safe_math",
 }
 
 import {

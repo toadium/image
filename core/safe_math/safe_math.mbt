@@ -12,6 +12,7 @@
 /// - 谓词中不支持：>>、&、=>（用 !P || Q 替代）、match Bool
 /// - 含复杂类型（Bytes/Array）的包导致 Why3 翻译失败
 
+///|
 /// 65535 覆盖常见图像格式最大尺寸（PNG/TIFF 32-bit、JPEG 65500、BMP 32-bit）。
 pub const MAX_IMAGE_DIMENSION : Int32 = 65535
 
@@ -24,7 +25,10 @@ pub const MAX_IMAGE_DIMENSION : Int32 = 65535
 /// 用于在分配大数组前检查是否会溢出。
 ///
 /// ✅ 形式化验证：证明后置条件 safe_mul_ok 成立。
-pub fn safe_mul(a : Int32, b : Int32) -> Int32? where {
+pub fn safe_mul(
+  a : Int32,
+  b : Int32,
+) -> Int32? where {
   proof_ensure: result => safe_mul_ok(a, b, result),
 } {
   if a <= 0 || b <= 0 {
@@ -44,12 +48,11 @@ pub fn safe_mul(a : Int32, b : Int32) -> Int32? where {
 /// 常用于计算 w * h * channels 的数组大小。
 pub fn safe_mul3(a : Int32, b : Int32, c : Int32) -> Int32? {
   match safe_mul(a, b) {
-    Some(ab) => {
+    Some(ab) =>
       match safe_mul(ab, c) {
         Some(abc) => Some(abc)
         None => None
       }
-    }
     None => None
   }
 }
@@ -59,11 +62,13 @@ pub fn safe_mul3(a : Int32, b : Int32, c : Int32) -> Int32? {
 /// 返回 true 当且仅当 width/height/channels 均为正、
 /// 不超过 MAX_IMAGE_DIMENSION、且乘积不溢出 Int32。
 pub fn dims_valid_check(w : Int32, h : Int32, c : Int32) -> Bool {
-  (1 <= w) && (w <= 65535) &&
-  (1 <= h) && (h <= 65535) &&
-  (1 <= c) &&
-  (w <= 2147483647 / h) &&
-  (w * h <= 2147483647 / c)
+  1 <= w &&
+  w <= 65535 &&
+  1 <= h &&
+  h <= 65535 &&
+  1 <= c &&
+  w <= 2147483647 / h &&
+  w * h <= 2147483647 / c
 }
 
 // ============================================================================
@@ -88,7 +93,9 @@ pub fn clamp_int(v : Int32, lo : Int32, hi : Int32) -> Int32 {
 /// 像素值钳制：将 value 限制在 [0, 255] 范围内。
 ///
 /// ✅ 形式化验证：证明结果在 [0, 255] 范围内。
-pub fn clamp_pixel_value(value : Int32) -> Int32 where {
+pub fn clamp_pixel_value(
+  value : Int32,
+) -> Int32 where {
   proof_ensure: result => clamp_pixel_ok(value, result),
 } {
   if value < 0 {
@@ -115,6 +122,63 @@ pub fn clamp_coord(v : Int32, max_val : Int32) -> Int32 {
   }
 }
 
+///|
+/// 字节钳制：将 Int32 值限制在 [0, 255] 并转为 Byte。
+/// 等价于 clamp_pixel_value(v).to_byte()，用于像素赋值。
+pub fn clamp_byte(v : Int32) -> Byte {
+  clamp_pixel_value(v).to_byte()
+}
+
+///|
+/// 浮点钳制：将 Float 值 v 限制在 [lo, hi] 范围内。
+/// 用于 16-bit/float 图像处理的范围约束。
+pub fn clamp_float(v : Float, lo : Float, hi : Float) -> Float {
+  if v < lo {
+    lo
+  } else if v > hi {
+    hi
+  } else {
+    v
+  }
+}
+
+///|
+/// 双精度浮点钳制：将 Double 值 v 限制在 [lo, hi] 范围内。
+/// 用于高精度图像处理（HDR/频域）的范围约束。
+pub fn clamp_double(v : Double, lo : Double, hi : Double) -> Double {
+  if v < lo {
+    lo
+  } else if v > hi {
+    hi
+  } else {
+    v
+  }
+}
+
+// ============================================================================
+// Section: 整数 min/max（替代散布全项目的私有 min_/max_ 函数）
+// ============================================================================
+
+///|
+/// 整数最大值：返回 a 和 b 中较大的那个。
+pub fn int_max(a : Int32, b : Int32) -> Int32 {
+  if a > b {
+    a
+  } else {
+    b
+  }
+}
+
+///|
+/// 整数最小值：返回 a 和 b 中较小的那个。
+pub fn int_min(a : Int32, b : Int32) -> Int32 {
+  if a < b {
+    a
+  } else {
+    b
+  }
+}
+
 // ============================================================================
 // Section: 索引合法性检查
 // ============================================================================
@@ -123,7 +187,10 @@ pub fn clamp_coord(v : Int32, max_val : Int32) -> Int32 {
 /// 安全的一维索引检查：0 <= index < length。
 ///
 /// ✅ 形式化验证：证明结果正确判定索引合法性。
-pub fn is_valid_index(index : Int32, length : Int32) -> Bool where {
+pub fn is_valid_index(
+  index : Int32,
+  length : Int32,
+) -> Bool where {
   proof_ensure: result => valid_index(index, length, result),
 } {
   index >= 0 && index < length
@@ -153,7 +220,9 @@ pub fn is_valid_2d_index(
 /// 当 n 是 4 的倍数时，连续旋转 n 次 90° 回到原始状态。
 ///
 /// ✅ 形式化验证：证明结果等价于 n % 4 == 0。
-pub fn rotate90_power_is_identity(n : Int32) -> Bool where {
+pub fn rotate90_power_is_identity(
+  n : Int32,
+) -> Bool where {
   proof_ensure: result => rotate90_identity(n, result),
 } {
   n % 4 == 0

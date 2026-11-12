@@ -5,17 +5,6 @@
 // 复用 tonemap.mbt 中的 read_float_le
 
 ///|
-fn clamp_float(v : Float) -> Float {
-  if v < 0.0F {
-    0.0F
-  } else if v > 1.0F {
-    1.0F
-  } else {
-    v
-  }
-}
-
-///|
 /// 16-bit 去除 alpha 通道（RGBA → RGB，channels=3）
 pub fn to_rgb_16(img : @types.Image16) -> @types.Image16 raise @types.LoadError {
   // 输入验证
@@ -454,7 +443,11 @@ pub fn rgb_to_ycbcr_f(
   let y = 0.299F * r + 0.587F * g + 0.114F * b
   let cb = -0.169F * r - 0.331F * g + 0.5F * b + 0.5F
   let cr = 0.5F * r - 0.419F * g - 0.081F * b + 0.5F
-  (clamp_float(y), clamp_float(cb), clamp_float(cr))
+  (
+    @types.clamp_float(y, 0.0F, 1.0F),
+    @types.clamp_float(cb, 0.0F, 1.0F),
+    @types.clamp_float(cr, 0.0F, 1.0F),
+  )
 }
 
 ///|
@@ -500,7 +493,11 @@ pub fn ycbcr_to_rgb_f(
   let r = y + 1.402F * cr0
   let g = y - 0.344F * cb0 - 0.714F * cr0
   let b = y + 1.772F * cb0
-  (clamp_float(r), clamp_float(g), clamp_float(b))
+  (
+    @types.clamp_float(r, 0.0F, 1.0F),
+    @types.clamp_float(g, 0.0F, 1.0F),
+    @types.clamp_float(b, 0.0F, 1.0F),
+  )
 }
 
 ///|
@@ -613,5 +610,9 @@ pub fn cmyk_to_rgb_f(
   let r = 1.0F - (c * (1.0F - k) + k)
   let g = 1.0F - (m * (1.0F - k) + k)
   let b = 1.0F - (y * (1.0F - k) + k)
-  (clamp_float(r), clamp_float(g), clamp_float(b))
+  (
+    @types.clamp_float(r, 0.0F, 1.0F),
+    @types.clamp_float(g, 0.0F, 1.0F),
+    @types.clamp_float(b, 0.0F, 1.0F),
+  )
 }

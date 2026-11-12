@@ -4,26 +4,6 @@
 // ========== 辅助函数 ==========
 
 ///|
-fn clamp_float_cs(v : Float, lo : Float, hi : Float) -> Float {
-  if v < lo {
-    lo
-  } else if v > hi {
-    hi
-  } else {
-    v
-  }
-}
-
-///|
-fn clamp_int_cs(v : Int32, lo : Int32, hi : Int32) -> Int32 {
-  if v < lo {
-    lo
-  } else if v > hi {
-    hi
-  } else {
-    v
-  }
-}
 
 // ========== HSL 16-bit ==========
 
@@ -101,9 +81,9 @@ pub fn hsl_to_rgb_16(
   } else {
     (c, 0.0F, x)
   }
-  let r = clamp_int_cs(((r1 + m) * 65535.0F + 0.5F).to_int(), 0, 65535)
-  let g = clamp_int_cs(((g1 + m) * 65535.0F + 0.5F).to_int(), 0, 65535)
-  let b = clamp_int_cs(((b1 + m) * 65535.0F + 0.5F).to_int(), 0, 65535)
+  let r = @types.clamp_int(((r1 + m) * 65535.0F + 0.5F).to_int(), 0, 65535)
+  let g = @types.clamp_int(((g1 + m) * 65535.0F + 0.5F).to_int(), 0, 65535)
+  let b = @types.clamp_int(((b1 + m) * 65535.0F + 0.5F).to_int(), 0, 65535)
   (r, g, b)
 }
 
@@ -122,9 +102,9 @@ pub fn rgb_to_hsl_f(
       "rgb_to_hsl_f: r,g,b必须在[0,1]范围内",
     )
   }
-  let rf = clamp_float_cs(r, 0.0F, 1.0F)
-  let gf = clamp_float_cs(g, 0.0F, 1.0F)
-  let bf = clamp_float_cs(b, 0.0F, 1.0F)
+  let rf = @types.clamp_float(r, 0.0F, 1.0F)
+  let gf = @types.clamp_float(g, 0.0F, 1.0F)
+  let bf = @types.clamp_float(b, 0.0F, 1.0F)
   let mx = rf.max(gf).max(bf)
   let mn = rf.min(gf).min(bf)
   let delta = mx - mn
@@ -184,9 +164,9 @@ pub fn hsl_to_rgb_f(
     (c, 0.0F, x)
   }
   (
-    clamp_float_cs(r1 + m, 0.0F, 1.0F),
-    clamp_float_cs(g1 + m, 0.0F, 1.0F),
-    clamp_float_cs(b1 + m, 0.0F, 1.0F),
+    @types.clamp_float(r1 + m, 0.0F, 1.0F),
+    @types.clamp_float(g1 + m, 0.0F, 1.0F),
+    @types.clamp_float(b1 + m, 0.0F, 1.0F),
   )
 }
 
@@ -262,9 +242,9 @@ pub fn hsv_to_rgb_16(
   } else {
     (c, 0.0F, x)
   }
-  let r = clamp_int_cs(((r1 + m) * 65535.0F + 0.5F).to_int(), 0, 65535)
-  let g = clamp_int_cs(((g1 + m) * 65535.0F + 0.5F).to_int(), 0, 65535)
-  let b = clamp_int_cs(((b1 + m) * 65535.0F + 0.5F).to_int(), 0, 65535)
+  let r = @types.clamp_int(((r1 + m) * 65535.0F + 0.5F).to_int(), 0, 65535)
+  let g = @types.clamp_int(((g1 + m) * 65535.0F + 0.5F).to_int(), 0, 65535)
+  let b = @types.clamp_int(((b1 + m) * 65535.0F + 0.5F).to_int(), 0, 65535)
   (r, g, b)
 }
 
@@ -283,9 +263,9 @@ pub fn rgb_to_hsv_f(
       "rgb_to_hsv_f: r,g,b必须在[0,1]范围内",
     )
   }
-  let rf = clamp_float_cs(r, 0.0F, 1.0F)
-  let gf = clamp_float_cs(g, 0.0F, 1.0F)
-  let bf = clamp_float_cs(b, 0.0F, 1.0F)
+  let rf = @types.clamp_float(r, 0.0F, 1.0F)
+  let gf = @types.clamp_float(g, 0.0F, 1.0F)
+  let bf = @types.clamp_float(b, 0.0F, 1.0F)
   let mx = rf.max(gf).max(bf)
   let mn = rf.min(gf).min(bf)
   let delta = mx - mn
@@ -341,9 +321,9 @@ pub fn hsv_to_rgb_f(
     (c, 0.0F, x)
   }
   (
-    clamp_float_cs(r1 + m, 0.0F, 1.0F),
-    clamp_float_cs(g1 + m, 0.0F, 1.0F),
-    clamp_float_cs(b1 + m, 0.0F, 1.0F),
+    @types.clamp_float(r1 + m, 0.0F, 1.0F),
+    @types.clamp_float(g1 + m, 0.0F, 1.0F),
+    @types.clamp_float(b1 + m, 0.0F, 1.0F),
   )
 }
 
@@ -399,7 +379,7 @@ pub fn xyz_to_rgb_16(
     } else {
       1.055F * @math.powf(c, 1.0F / 2.4F) - 0.055F
     }
-    clamp_int_cs((v * 65535.0F + 0.5F).to_int(), 0, 65535)
+    @types.clamp_int((v * 65535.0F + 0.5F).to_int(), 0, 65535)
   }
   (srgb(rl), srgb(gl), srgb(bl))
 }
@@ -420,7 +400,7 @@ pub fn rgb_to_xyz_f(
     )
   }
   fn linearize(c : Float) -> Float {
-    let cf = clamp_float_cs(c, 0.0F, 1.0F)
+    let cf = @types.clamp_float(c, 0.0F, 1.0F)
     if cf <= 0.04045F {
       cf / 12.92F
     } else {
@@ -456,7 +436,7 @@ pub fn xyz_to_rgb_f(
     } else {
       1.055F * @math.powf(c, 1.0F / 2.4F) - 0.055F
     }
-    clamp_float_cs(v, 0.0F, 1.0F)
+    @types.clamp_float(v, 0.0F, 1.0F)
   }
   (srgb(rl), srgb(gl), srgb(bl))
 }

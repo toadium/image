@@ -1,17 +1,6 @@
 // 高级像素操作（纯 MoonBit）：pixelate / replace_color / swap_channels
 
 ///|
-fn clamp_b(v : Int32) -> Byte {
-  if v < 0 {
-    b'\x00'
-  } else if v > 255 {
-    b'\xFF'
-  } else {
-    v.to_byte()
-  }
-}
-
-///|
 /// 马赛克/像素化效果。将图像分成 block_size × block_size 的块，每块取左上角像素值。
 pub fn pixelate(
   img : @types.Image,

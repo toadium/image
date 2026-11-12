@@ -2,39 +2,6 @@
 // box_blur / gaussian_blur / sharpen / convolve
 
 ///|
-fn clamp_coord(v : Int32, max : Int32) -> Int32 {
-  if v < 0 {
-    0
-  } else if v >= max {
-    max - 1
-  } else {
-    v
-  }
-}
-
-///|
-fn clamp_b(v : Int32) -> Byte {
-  if v < 0 {
-    b'\x00'
-  } else if v > 255 {
-    b'\xFF'
-  } else {
-    v.to_byte()
-  }
-}
-
-///|
-fn clamp_int(v : Int32, lo : Int32, hi : Int32) -> Int32 {
-  if v < lo {
-    lo
-  } else if v > hi {
-    hi
-  } else {
-    v
-  }
-}
-
-///|
 /// 盒模糊（均值滤波）。radius 为模糊半径，窗口大小 = 2*radius+1。
 /// 使用可分离滑动窗口，O(n) 复杂度。仅模糊颜色通道，alpha 不变。
 pub fn box_blur(
@@ -77,13 +44,13 @@ pub fn box_blur(
     for c in 0..<color_ch {
       let mut sum = 0
       for dx in 0..<win_size {
-        let x = clamp_coord(dx - radius, w)
+        let x = @types.clamp_coord(dx - radius, w)
         sum += img.data[(y * w + x) * ch + c].to_int()
       }
       for x in 0..<w {
         temp[(y * w + x) * color_ch + c] = sum / win_size
-        let x_out = clamp_coord(x - radius, w)
-        let x_in = clamp_coord(x + radius + 1, w)
+        let x_out = @types.clamp_coord(x - radius, w)
+        let x_in = @types.clamp_coord(x + radius + 1, w)
         sum = sum -
           img.data[(y * w + x_out) * ch + c].to_int() +
           img.data[(y * w + x_in) * ch + c].to_int()
@@ -96,13 +63,13 @@ pub fn box_blur(
     for c in 0..<color_ch {
       let mut sum = 0
       for dy in 0..<win_size {
-        let y = clamp_coord(dy - radius, h)
+        let y = @types.clamp_coord(dy - radius, h)
         sum += temp[(y * w + x) * color_ch + c]
       }
       for y in 0..<h {
         out[(y * w + x) * ch + c] = (sum / win_size).to_byte()
-        let y_out = clamp_coord(y - radius, h)
-        let y_in = clamp_coord(y + radius + 1, h)
+        let y_out = @types.clamp_coord(y - radius, h)
+        let y_in = @types.clamp_coord(y + radius + 1, h)
         sum = sum -
           temp[(y_out * w + x) * color_ch + c] +
           temp[(y_in * w + x) * color_ch + c]
@@ -194,7 +161,7 @@ pub fn gaussian_blur(
   for y in 0..<h {
     let row_base = y * w
     for c in 0..<color_ch {
-      // 内部区域：x >= radius && x < w - radius，无需 clamp_coord
+      // 内部区域：x >= radius && x < w - radius，无需 @types.clamp_coord
       for x in x_inner_start..<x_inner_end {
         let mut acc = 0.0F
         let base = (row_base + x - radius) * color_ch + c
@@ -207,7 +174,7 @@ pub fn gaussian_blur(
       for x in 0..<x_inner_start {
         let mut acc = 0.0F
         for k in 0..<win_size {
-          let sx = clamp_coord(x + k - radius, w)
+          let sx = @types.clamp_coord(x + k - radius, w)
           acc += kernel[k] * src[(row_base + sx) * color_ch + c]
         }
         temp[(row_base + x) * color_ch + c] = acc
@@ -216,7 +183,7 @@ pub fn gaussian_blur(
       for x in x_inner_end..<w {
         let mut acc = 0.0F
         for k in 0..<win_size {
-          let sx = clamp_coord(x + k - radius, w)
+          let sx = @types.clamp_coord(x + k - radius, w)
           acc += kernel[k] * src[(row_base + sx) * color_ch + c]
         }
         temp[(row_base + x) * color_ch + c] = acc
@@ -245,7 +212,7 @@ pub fn gaussian_blur(
       for y in 0..<y_inner_start {
         let mut acc = 0.0F
         for k in 0..<win_size {
-          let sy = clamp_coord(y + k - radius, h)
+          let sy = @types.clamp_coord(y + k - radius, h)
           acc += kernel[k] * temp[(sy * w + x) * color_ch + c]
         }
         out[(y * w + x) * ch + c] = (acc + 0.5F)
@@ -257,7 +224,7 @@ pub fn gaussian_blur(
       for y in y_inner_end..<h {
         let mut acc = 0.0F
         for k in 0..<win_size {
-          let sy = clamp_coord(y + k - radius, h)
+          let sy = @types.clamp_coord(y + k - radius, h)
           acc += kernel[k] * temp[(sy * w + x) * color_ch + c]
         }
         out[(y * w + x) * ch + c] = (acc + 0.5F)
@@ -320,7 +287,7 @@ pub fn sharpen(
   for i in 0..<(n * ch) {
     px[i] = img.data[i].to_int()
   }
-  // 内部区域：1 <= x < w-1 && 1 <= y < h-1，无需 clamp_coord
+  // 内部区域：1 <= x < w-1 && 1 <= y < h-1，无需 @types.clamp_coord
   for y in 1..<(h - 1) {
     for x in 1..<(w - 1) {
       let base = (y * w + x) * ch
@@ -349,10 +316,10 @@ pub fn sharpen(
       let base = (y * w + x) * ch
       for c in 0..<color_ch {
         let cx = px[base + c]
-        let x_l = clamp_coord(x - 1, w)
-        let x_r = clamp_coord(x + 1, w)
-        let y_t = clamp_coord(y - 1, h)
-        let y_b = clamp_coord(y + 1, h)
+        let x_l = @types.clamp_coord(x - 1, w)
+        let x_r = @types.clamp_coord(x + 1, w)
+        let y_t = @types.clamp_coord(y - 1, h)
+        let y_b = @types.clamp_coord(y + 1, h)
         let left = px[(y * w + x_l) * ch + c]
         let right = px[(y * w + x_r) * ch + c]
         let top = px[(y_t * w + x) * ch + c]
@@ -427,8 +394,8 @@ pub fn median_blur(
         let mut idx = 0
         for dy in -radius..<=radius {
           for dx in -radius..<=radius {
-            let sx = clamp_coord(x + dx, w)
-            let sy = clamp_coord(y + dy, h)
+            let sx = @types.clamp_coord(x + dx, w)
+            let sy = @types.clamp_coord(y + dy, h)
             buf[idx] = img.data[(sy * w + sx) * ch + c].to_int()
             idx += 1
           }
@@ -529,14 +496,14 @@ pub fn convolve(
         let mut acc = 0.0F
         for ky in 0..<3 {
           for kx in 0..<3 {
-            let sx = clamp_int(x + kx - 1, 0, w - 1)
-            let sy = clamp_int(y + ky - 1, 0, h - 1)
+            let sx = @types.clamp_int(x + kx - 1, 0, w - 1)
+            let sy = @types.clamp_int(y + ky - 1, 0, h - 1)
             let v = Float::from_int(img.data[(sy * w + sx) * ch + c].to_int())
             acc += kernel[ky * 3 + kx] * v
           }
         }
         let result = (acc * scale + bias).to_int()
-        out[(y * w + x) * ch + c] = clamp_b(result)
+        out[(y * w + x) * ch + c] = @types.clamp_byte(result)
       }
       if ch == 4 {
         out[(y * w + x) * ch + 3] = img.data[(y * w + x) * ch + 3]

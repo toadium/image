@@ -18,17 +18,6 @@ fn read_float_le_iq(data : Bytes, offset : Int32) -> Float {
 }
 
 ///|
-fn clamp_int_iq(v : Int32, lo : Int32, hi : Int32) -> Int32 {
-  if v < lo {
-    lo
-  } else if v > hi {
-    hi
-  } else {
-    v
-  }
-}
-
-///|
 fn img16_to_img8_iq(img : @types.Image16) -> @types.Image {
   let w = img.width
   let h = img.height
@@ -54,7 +43,7 @@ fn imgf_to_img8_iq(img : @types.ImageF) -> @types.Image {
   let data8 : Array[Byte] = Array::make(w * h * ch, b'\x00')
   for i in 0..<(w * h * ch) {
     let vf = read_float_le_iq(img.data, i * 4)
-    let v8 = clamp_int_iq((vf * 255.0F).to_int(), 0, 255)
+    let v8 = @types.clamp_int((vf * 255.0F).to_int(), 0, 255)
     data8[i] = v8.to_byte()
   }
   @types.Image::{
