@@ -11,6 +11,7 @@
 ///|
 /// 测试优先级。
 /// Test priority level.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum TestPriority {

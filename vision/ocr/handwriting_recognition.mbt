@@ -8,6 +8,7 @@
 
 ///|
 /// 手写体类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum HandwritingStyle {
@@ -26,6 +27,7 @@ pub extend HandwritingStyle with Eq::{not_equal, equal}
 
 ///|
 /// 笔画类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum StrokeType {

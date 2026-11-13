@@ -11,6 +11,7 @@
 ///|
 /// 视频超分方法。
 /// Video super-resolution method.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum VideoSRMethod {

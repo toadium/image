@@ -8,6 +8,7 @@
 
 ///|
 /// 神经渲染算法类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum NeuralRenderingAlgorithm {
@@ -30,6 +31,7 @@ pub extend NeuralRenderingAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 3D 重建算法类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum ReconstructionAlgorithm {

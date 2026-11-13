@@ -8,6 +8,7 @@
 
 ///|
 /// 场景分类算法类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum SceneClassificationAlgorithm {
@@ -31,6 +32,7 @@ pub extend SceneClassificationAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 图像描述算法类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum ImageCaptioningAlgorithm {
@@ -53,6 +55,7 @@ pub extend ImageCaptioningAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 视觉问答算法类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum VisualQuestionAnsweringAlgorithm {

@@ -86,6 +86,7 @@ pub extend TrackingResult with @debug.Debug::{to_repr}
 
 ///|
 /// 动作类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum ActionType {
@@ -149,6 +150,7 @@ pub extend VideoStabilizationConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 关键帧类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum KeyframeType {

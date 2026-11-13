@@ -8,6 +8,7 @@
 
 ///|
 /// HDR 曝光类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum ExposureType {
@@ -43,6 +44,7 @@ pub extend HdrImage with @debug.Debug::{to_repr}
 
 ///|
 /// 色调映射算法类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum ToneMappingType {

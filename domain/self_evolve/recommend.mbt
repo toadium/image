@@ -11,6 +11,7 @@
 ///|
 /// 推荐动作类型。
 /// Recommendation action type.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum RecommendAction {

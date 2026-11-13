@@ -11,6 +11,7 @@
 ///|
 /// 可视化格式。
 /// Visualization format.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum VizFormat {

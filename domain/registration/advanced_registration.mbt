@@ -8,6 +8,7 @@
 
 ///|
 /// 配准算法类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq)
 #non_exhaustive
 pub(all) enum RegistrationAlgorithm {
@@ -28,6 +29,7 @@ pub extend RegistrationAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 变换类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq)
 #non_exhaustive
 pub(all) enum TransformType {

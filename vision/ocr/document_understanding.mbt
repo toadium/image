@@ -8,6 +8,7 @@
 
 ///|
 /// 文档元素类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum DocumentElementType {
@@ -375,6 +376,7 @@ pub fn detect_document_columns(
 
 ///|
 /// 完整文档理解流水线
+/// @deprecated 已废弃，请使用 understand_document_enhanced 代替
 #deprecated("Use understand_document_enhanced instead", skip_current_package=true)
 pub fn understand_document(
   img : @types.Image,

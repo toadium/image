@@ -11,6 +11,7 @@
 ///|
 /// 视频插帧方法。
 /// Video frame interpolation method.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum FrameInterpMethod {

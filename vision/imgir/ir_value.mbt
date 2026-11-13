@@ -13,6 +13,7 @@
 ///|
 /// IR 值类型：统一中间表示，可持有 Image / ScalarField / VectorField / TImage / Float / Int。
 /// IR value type: unified representation holding Image / ScalarField / VectorField / TImage / Float / Int.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum IRValue {

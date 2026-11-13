@@ -8,6 +8,7 @@
 
 ///|
 /// 融合算法类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum FusionAlgorithm {
@@ -65,6 +66,7 @@ pub extend FusionEnhancedConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 配准算法类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum RegistrationAlgorithm {

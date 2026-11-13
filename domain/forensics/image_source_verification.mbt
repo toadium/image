@@ -8,6 +8,7 @@
 
 ///|
 /// 图像来源类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq)
 #non_exhaustive
 pub(all) enum ImageSourceType {
@@ -739,6 +740,7 @@ pub fn analyze_details(
 
 ///|
 /// 综合来源鉴定
+/// @deprecated 已废弃，请使用 verify_image_source_enhanced 代替
 #deprecated("Use verify_image_source_enhanced instead", skip_current_package=true)
 pub fn verify_image_source(
   img : @types.Image,

@@ -11,6 +11,7 @@
 ///|
 /// 视频修复方法。
 /// Video inpainting method.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum VideoInpaintMethod {
@@ -28,6 +29,7 @@ pub extend VideoInpaintMethod with Eq::{not_equal, equal}
 ///|
 /// 去闪烁方法。
 /// De-flicker method.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum FlickerMethod {

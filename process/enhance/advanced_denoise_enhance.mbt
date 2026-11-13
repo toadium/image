@@ -9,6 +9,7 @@
 
 ///|
 /// 降噪算法类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq)
 #non_exhaustive
 pub(all) enum DenoiseAlgorithm {
@@ -56,6 +57,7 @@ pub(all) struct DenoiseConfig {
 
 ///|
 /// 增强算法类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq)
 #non_exhaustive
 pub(all) enum EnhancementAlgorithm {
@@ -91,6 +93,7 @@ pub(all) struct EnhancementResult {
 
 ///|
 /// 噪声类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq)
 #non_exhaustive
 pub(all) enum NoiseType {

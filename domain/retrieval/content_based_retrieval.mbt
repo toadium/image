@@ -8,6 +8,7 @@
 
 ///|
 /// 图像特征类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq)
 #non_exhaustive
 pub(all) enum FeatureType {
@@ -96,6 +97,7 @@ pub(all) struct CBIRImageIndex {
 
 ///|
 /// 相似度度量类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq)
 #non_exhaustive
 pub(all) enum SimilarityMetric {

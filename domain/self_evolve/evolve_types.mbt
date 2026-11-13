@@ -9,6 +9,7 @@
 ///|
 /// 测试用例类别。
 /// Test case category.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum TestCategory {
@@ -27,6 +28,7 @@ pub extend TestCategory with Eq::{not_equal, equal}
 ///|
 /// 退化类型（对应 4.7.4 领域规则）。
 /// Degradation kind (corresponds to 4.7.4 domain rules).
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum DegradationKind {
@@ -47,6 +49,7 @@ pub extend DegradationKind with Eq::{not_equal, equal}
 ///|
 /// 严重程度。
 /// Severity level.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum Severity {

@@ -11,6 +11,7 @@
 ///|
 /// 修复策略。
 /// Repair strategy.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum RepairStrategy {

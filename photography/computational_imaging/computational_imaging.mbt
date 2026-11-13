@@ -8,6 +8,7 @@
 
 ///|
 /// 计算成像算法类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum ComputationalImagingAlgorithm {
@@ -30,6 +31,7 @@ pub extend ComputationalImagingAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 光场表示类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum LightFieldRepresentation {
@@ -48,6 +50,7 @@ pub extend LightFieldRepresentation with Eq::{not_equal, equal}
 
 ///|
 /// 全息图类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum HologramType {

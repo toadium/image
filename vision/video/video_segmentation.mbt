@@ -11,6 +11,7 @@
 ///|
 /// 视频分割方法。
 /// Video segmentation method.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum VideoSegmentationMethod {

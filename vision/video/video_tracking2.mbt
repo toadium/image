@@ -11,6 +11,7 @@
 ///|
 /// 跟踪方法。
 /// Tracking method.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum MultiTrackingMethod {
@@ -28,6 +29,7 @@ pub extend MultiTrackingMethod with Eq::{not_equal, equal}
 ///|
 /// 跟踪对象状态。
 /// Tracked object state.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum MultiTrackState {

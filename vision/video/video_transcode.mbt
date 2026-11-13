@@ -11,6 +11,7 @@
 ///|
 /// 视频格式。
 /// Video format.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum VideoFormat {
@@ -30,6 +31,7 @@ pub extend VideoFormat with Eq::{not_equal, equal}
 ///|
 /// 分辨率调整模式。
 /// Resolution adjustment mode.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum ResolutionMode {
@@ -47,6 +49,7 @@ pub extend ResolutionMode with Eq::{not_equal, equal}
 ///|
 /// 码率控制模式。
 /// Bitrate control mode.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum BitrateMode {

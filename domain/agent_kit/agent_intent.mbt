@@ -7,6 +7,7 @@
 // Intent: 从自然语言查询中提取的操作意图
 
 ///|
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum Intent {

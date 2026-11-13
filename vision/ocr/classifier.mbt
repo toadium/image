@@ -66,6 +66,7 @@ pub extend TemplateMatcher with @debug.Debug::{to_repr}
 
 ///|
 /// 距离度量类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum DistanceMetric {

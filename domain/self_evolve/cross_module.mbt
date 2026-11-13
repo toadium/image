@@ -11,6 +11,7 @@
 ///|
 /// 模块依赖类型。
 /// Module dependency kind.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum ModuleDepKind {
@@ -44,6 +45,7 @@ pub extend ModuleDep with Eq::{not_equal, equal}
 ///|
 /// 协同演化动作类型。
 /// Co-evolution action kind.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum CoEvolveActionKind {

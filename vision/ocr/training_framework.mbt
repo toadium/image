@@ -8,6 +8,7 @@
 
 ///|
 /// 优化器类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum OptimizerType {
@@ -46,6 +47,7 @@ pub extend OptimizerConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 学习率调度器类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum LRSchedulerType {
@@ -85,6 +87,7 @@ pub extend LRSchedulerConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 数据增强类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum AugmentationType {

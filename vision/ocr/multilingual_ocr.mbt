@@ -8,6 +8,7 @@
 
 ///|
 /// 语言类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum LanguageType {
@@ -275,6 +276,7 @@ pub fn detect_document_language(
 
 ///|
 /// 多语言混合识别（完整流水线）
+/// @deprecated 已废弃，请使用 recognize_multilingual_enhanced 代替
 #deprecated("Use recognize_multilingual_enhanced instead", skip_current_package=true)
 pub fn recognize_multilingual(
   img : @types.Image,

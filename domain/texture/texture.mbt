@@ -11,6 +11,7 @@
 ///|
 /// 纹理过滤模式。
 /// Texture filter mode.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum TextureFilterMode {
@@ -28,6 +29,7 @@ pub extend TextureFilterMode with Eq::{not_equal, equal}
 ///|
 /// 纹理映射方法。
 /// Texture mapping method.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum TextureMappingMethod {

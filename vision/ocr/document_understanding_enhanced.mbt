@@ -8,6 +8,7 @@
 
 ///|
 /// 文档块类型（增强版）
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum DocumentBlockType {

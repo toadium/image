@@ -8,6 +8,7 @@
 
 ///|
 /// 人脸检测算法类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum FaceDetectionAlgorithm {
@@ -29,6 +30,7 @@ pub extend FaceDetectionAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 人脸识别算法类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum FaceRecognitionAlgorithm {
@@ -50,6 +52,7 @@ pub extend FaceRecognitionAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 表情类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum ExpressionType {

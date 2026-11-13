@@ -9,6 +9,7 @@
 ///|
 /// 优化类型。
 /// Optimization kind.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum OptimizationKind {

@@ -8,6 +8,7 @@
 
 ///|
 /// 布局类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum LayoutType {
@@ -26,6 +27,7 @@ pub extend LayoutType with Eq::{not_equal, equal}
 
 ///|
 /// 页面区域类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum PageRegionType {
@@ -86,6 +88,7 @@ pub extend TextLineAttributes with @debug.Debug::{to_repr}
 
 ///|
 /// 列表项类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum ListItemType {

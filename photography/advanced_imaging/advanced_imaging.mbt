@@ -8,6 +8,7 @@
 
 ///|
 /// 成像模态类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum ImagingModality {
@@ -33,6 +34,7 @@ pub extend ImagingModality with Eq::{not_equal, equal}
 
 ///|
 /// 量子成像算法类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum QuantumImagingAlgorithm {
@@ -52,6 +54,7 @@ pub extend QuantumImagingAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 红外成像类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum InfraredImagingType {

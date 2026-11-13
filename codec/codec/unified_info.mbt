@@ -8,6 +8,7 @@
 /// 统一图像扩展信息（自动格式检测后的联合类型）
 ///
 /// 通过 `get_image_info_extended` 自动检测格式并返回对应类型的扩展信息
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #non_exhaustive
 pub enum ImageInfoExtended {
   Avif(AvifInfoExtended)

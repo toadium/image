@@ -269,6 +269,7 @@ fn segment_handwriting_chars(
 
 ///|
 /// 手写体识别（完整流水线）
+/// @deprecated 已废弃，请使用 recognize_handwriting_enhanced 代替
 #deprecated("Use recognize_handwriting_enhanced instead", skip_current_package=true)
 pub fn recognize_handwriting(
   img : @types.Image,

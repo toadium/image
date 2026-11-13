@@ -16,6 +16,7 @@
 ///|
 /// 拷问规则（对应 4.7.4 五条领域规则）。
 /// Grill rule (corresponds to 4.7.4 domain rules).
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum GrillRule {

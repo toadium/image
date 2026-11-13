@@ -8,6 +8,7 @@
 
 ///|
 /// 风格迁移算法类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum StyleTransferAlgorithm {
@@ -115,6 +116,7 @@ pub extend StyleTransferTextureFeatures with @debug.Debug::{to_repr}
 
 ///|
 /// 艺术风格类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum ArtStyle {

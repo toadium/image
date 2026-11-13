@@ -28,6 +28,7 @@ fn parse_int_str(s : String) -> Int32 {
 
 ///|
 /// 部署环境类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum DeploymentEnvironment {

@@ -52,6 +52,7 @@ pub(all) struct AnchorBox {
 
 ///|
 /// 检测目标类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq)
 #non_exhaustive
 pub(all) enum ObjectClass {

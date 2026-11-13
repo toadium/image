@@ -16,6 +16,7 @@
 ///|
 /// IR 操作：统一图像/场/时空操作枚举。
 /// IR operation: unified image/field/spatiotemporal operation enum.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum IROp {

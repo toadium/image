@@ -11,6 +11,7 @@
 ///|
 /// 点云采样方法。
 /// Point cloud sampling method.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum PointCloudSampleMethod {
@@ -28,6 +29,7 @@ pub extend PointCloudSampleMethod with Eq::{not_equal, equal}
 ///|
 /// 法向估计方法。
 /// Normal estimation method.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum NormalEstimationMethod {
@@ -44,6 +46,7 @@ pub extend NormalEstimationMethod with Eq::{not_equal, equal}
 ///|
 /// 点云分割方法。
 /// Point cloud segmentation method.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum PointCloudSegmentMethod {

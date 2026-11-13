@@ -8,6 +8,7 @@
 
 ///|
 /// 色彩映射预设
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #non_exhaustive
 pub(all) enum Colormap {
   JET // 蓝→青→绿→黄→红

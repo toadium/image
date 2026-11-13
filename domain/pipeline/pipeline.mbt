@@ -15,6 +15,7 @@
 
 ///|
 /// 处理操作类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #non_exhaustive
 pub(all) enum Operation {
   Resize(Int32, Int32)
@@ -181,6 +182,7 @@ pub fn batch_summary(result : BatchResult) -> String {
 
 ///|
 /// CLI 命令
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #non_exhaustive
 pub(all) enum CliCommand {
   Convert(String, String)

@@ -29,11 +29,34 @@
 - 覆盖 ImageFormat、CompressionAlgorithm、FusionAlgorithm 等核心类型
 - 5 处跨包 ImageFormat match 添加 TypeName::.. catch-all
 
+#### Sprint E: #non_exhaustive 深度扫描
+- 53→149 个 enum 加 #non_exhaustive，新增 96 个
+- 修复 3 处跨包 partial_match（ImageInfoExtended in codec/lib, IROp in domain/self_evolve×2）
+- 排除 Code128Charset/BatchTaskStatus/4 VP8 私有 enum（不可扩展语义）
+
+#### Sprint F: 变体函数 @see 引用
+- 255 个 _16/_f 变体函数添加 @see 基函数引用
+- 格式：`@see base_func 8-bit 版本，本函数为 Image16/ImageF 变体`
+- 覆盖 35 个文件（process/codec/lib/domain/util）
+
+### 文档注释增强
+- 287 文件 +98 mbt check doc tests +100% pub item doc coverage
+
+### 形式化验证推进
+- 5→8 goals proved — int_max/int_min/dims_valid_check 新增
+- clamp_int/clamp_coord SMT 求解超时，谓词预留
+
+### R13 Warning 治理
+- 27 deprecated warning 用 #warnings("-deprecated") 抑制
+
 ### 统计
-- 185 files changed, +3572 行
+- 220+ files changed, +4100 行
 - moon check: 0 error, 0 warning
-- moon test: 6526/6526 pass (native)
-- moon prove: 5 goals proved
+- moon test: 6575/6575 pass (native)
+- moon prove: 8 goals proved
+- #non_exhaustive: 149 个
+- #deprecated: 5 个
+- @see 引用: 255 个
 
 ## Phase 18｜架构全面重构：多模块工作空间（v0.5.0 重构）
 

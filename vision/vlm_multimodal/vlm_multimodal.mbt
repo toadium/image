@@ -8,6 +8,7 @@
 
 ///|
 /// 视觉语言模型类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum VisionLanguageModelType {
@@ -31,6 +32,7 @@ pub extend VisionLanguageModelType with Eq::{not_equal, equal}
 
 ///|
 /// 多模态融合策略
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum MultimodalFusionStrategy {
@@ -51,6 +53,7 @@ pub extend MultimodalFusionStrategy with Eq::{not_equal, equal}
 
 ///|
 /// 扩散模型类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum DiffusionModelType {
@@ -73,6 +76,7 @@ pub extend DiffusionModelType with Eq::{not_equal, equal}
 
 ///|
 /// 生成式AI任务类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum GenerativeAITaskType {

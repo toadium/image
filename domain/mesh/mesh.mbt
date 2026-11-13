@@ -11,6 +11,7 @@
 ///|
 /// 网格简化方法。
 /// Mesh simplification method.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum MeshSimplifyMethod {
@@ -28,6 +29,7 @@ pub extend MeshSimplifyMethod with Eq::{not_equal, equal}
 ///|
 /// 网格细分方法。
 /// Mesh subdivision method.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum MeshSubdivideMethod {

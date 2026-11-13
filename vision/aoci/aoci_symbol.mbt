@@ -7,6 +7,7 @@
 // SymbolCoord: 符号在代码库中的位置和元信息
 
 ///|
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum SymbolKind {

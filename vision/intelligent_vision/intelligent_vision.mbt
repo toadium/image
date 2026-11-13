@@ -8,6 +8,7 @@
 
 ///|
 /// 自动驾驶任务类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum AutonomousDrivingTask {
@@ -30,6 +31,7 @@ pub extend AutonomousDrivingTask with Eq::{not_equal, equal}
 
 ///|
 /// 机器人视觉任务类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum RobotVisionTask {
@@ -52,6 +54,7 @@ pub extend RobotVisionTask with Eq::{not_equal, equal}
 
 ///|
 /// 工业检测任务类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum IndustrialInspectionTask {
@@ -74,6 +77,7 @@ pub extend IndustrialInspectionTask with Eq::{not_equal, equal}
 
 ///|
 /// 安防监控任务类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum SecurityMonitoringTask {
@@ -96,6 +100,7 @@ pub extend SecurityMonitoringTask with Eq::{not_equal, equal}
 
 ///|
 /// 农业视觉任务类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum AgriculturalVisionTask {
@@ -118,6 +123,7 @@ pub extend AgriculturalVisionTask with Eq::{not_equal, equal}
 
 ///|
 /// 天文图像处理任务类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum AstronomicalImageTask {

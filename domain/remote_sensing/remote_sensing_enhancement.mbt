@@ -8,6 +8,7 @@
 
 ///|
 /// 遥感图像类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum RemoteSensingImageType {
@@ -42,6 +43,7 @@ pub(all) struct RemoteSensingImage {
 
 ///|
 /// 地物类别
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum LandCoverClass {

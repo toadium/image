@@ -8,6 +8,7 @@
 
 ///|
 /// 压缩算法类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum CompressionAlgorithm {
@@ -90,6 +91,7 @@ pub extend CompressionQualityMetrics with @debug.Debug::{to_repr}
 
 ///|
 /// 量化表类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum QuantizationTableType {

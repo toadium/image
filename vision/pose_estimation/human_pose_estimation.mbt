@@ -8,6 +8,7 @@
 
 ///|
 /// 姿态估计算法类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum PoseEstimationAlgorithm {
@@ -30,6 +31,7 @@ pub extend PoseEstimationAlgorithm with Eq::{not_equal, equal}
 
 ///|
 /// 动作识别算法类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum ActionRecognitionAlgorithm {
@@ -123,6 +125,7 @@ pub extend ActionRecognitionResult with @debug.Debug::{to_repr}
 
 ///|
 /// 手势类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum GestureType {

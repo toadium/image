@@ -8,6 +8,7 @@
 
 ///|
 /// 扫描质量等级
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum ScanQualityLevel {
@@ -47,6 +48,7 @@ pub extend AdaptivePreprocessConfig with @debug.Debug::{to_repr}
 
 ///|
 /// 畸变类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum DistortionType {
@@ -85,6 +87,7 @@ pub extend DistortionDetectionResult with @debug.Debug::{to_repr}
 
 ///|
 /// 复杂版面类型
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum ComplexLayoutType {

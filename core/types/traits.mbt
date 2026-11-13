@@ -174,6 +174,7 @@ pub extend ImageF with ImageLike::{
 /// 统一图像容器，包装三种像素精度的图像
 ///
 /// 用于需要统一处理不同精度图像的场景，如编解码器接口
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum AnyImage {

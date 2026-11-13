@@ -11,6 +11,7 @@
 ///|
 /// 知识节点类型。
 /// Knowledge node kind.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum KnowledgeNodeKind {
@@ -48,6 +49,7 @@ pub extend KnowledgeNode with Eq::{not_equal, equal}
 ///|
 /// 知识边类型。
 /// Knowledge edge kind.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum KnowledgeEdgeKind {

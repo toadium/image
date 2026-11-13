@@ -11,6 +11,7 @@
 ///|
 /// 质量维度。
 /// Quality dimension.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum QualityDimension {
@@ -46,6 +47,7 @@ pub extend QualityScore with Eq::{not_equal, equal}
 ///|
 /// 质量等级。
 /// Quality grade.
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
 pub(all) enum QualityGrade {

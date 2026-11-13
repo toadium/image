@@ -296,6 +296,7 @@ pub fn create_memory_stats() -> MemoryUsageStats {
 
 ///|
 /// 错误码枚举
+/// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq)
 #non_exhaustive
 pub(all) enum ProductionErrorCode {
