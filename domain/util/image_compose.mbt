@@ -1,8 +1,8 @@
 ///|
-/// # util/image_compose
+/// # 图像合成 util/image_compose
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 图像拼接与平铺（纯 MoonBit）：hstack / vstack / tile / transpose
 
 ///|

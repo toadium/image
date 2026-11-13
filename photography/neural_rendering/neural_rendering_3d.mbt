@@ -1,8 +1,8 @@
 ///|
-/// # neural_rendering/neural_rendering_3d
+/// # 神经渲染 neural_rendering/neural_rendering_3d
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 神经渲染与 3D 重建（v36.0.0）
 // NeRF、3D 高斯泼溅、可微渲染、多视图立体、3D 重建
 

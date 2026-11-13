@@ -1,14 +1,14 @@
 ///|
-/// # self_evolve/phase9_report
+/// # 阶段9报告 self_evolve/phase9_report
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // Phase 9 综合报告 — 汇总 v301-v304 全部能力
 // Phase 9 comprehensive report: aggregate v301-v304 capabilities
 
 ///|
 /// Phase 9 单项能力描述。
-/// Phase 9 single capability.
+/// 阶段 Phase 9 single capability.
 #derive(Eq, @debug.Debug)
 pub(all) struct Phase9Capability {
   version : String
@@ -27,7 +27,7 @@ pub extend Phase9Capability with Eq::{not_equal, equal}
 
 ///|
 /// Phase 9 综合报告。
-/// Phase 9 aggregate report.
+/// 阶段 Phase 9 aggregate report.
 #derive(Eq, @debug.Debug)
 pub(all) struct Phase9Report {
   capabilities : Array[Phase9Capability]
@@ -45,7 +45,7 @@ pub extend Phase9Report with Eq::{not_equal, equal}
 
 ///|
 /// Phase 9 全部能力清单（v301-v304）。
-/// Phase 9 capability list (v301-v304).
+/// 阶段 Phase 9 capability list (v301-v304).
 pub fn phase9_capabilities() -> Array[Phase9Capability] {
   [
     {

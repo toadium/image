@@ -1,14 +1,14 @@
 ///|
-/// # self_evolve/evolve
+/// # 进化 self_evolve/evolve
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // self_evolve 高层 API — 完整演化流程
 // High-level API: full evolution pipeline
 
 ///|
 /// 全部 19 种 IROp 的代表实例。
-/// Representative instances of all 19 IROp variants.
+/// 描述 Representative instances of all 19 IROp variants.
 pub fn all_ops() -> Array[@imgir.IROp] {
   [
     @imgir.Resize(8, 8),
@@ -35,7 +35,7 @@ pub fn all_ops() -> Array[@imgir.IROp] {
 
 ///|
 /// 完整演化：生成测试 + 扫描退化。
-/// Full evolution: generate tests + scan degradations.
+/// 描述 Full evolution: generate tests + scan degradations.
 pub fn evolve(ops : Array[@imgir.IROp]) -> EvolveReport {
   let tests = evolve_test_suite(ops)
   let degradations = scan_degradations(ops)
@@ -49,14 +49,14 @@ pub fn evolve(ops : Array[@imgir.IROp]) -> EvolveReport {
 
 ///|
 /// 对全部 19 种算子执行演化。
-/// Run evolution on all 19 op variants.
+/// 运行 Run evolution on all 19 op variants.
 pub fn evolve_all() -> EvolveReport {
   evolve(all_ops())
 }
 
 ///|
 /// 仅生成测试用例报告。
-/// Generate test-only report.
+/// 生成 Generate test-only report.
 pub fn evolve_tests_only(ops : Array[@imgir.IROp]) -> EvolveReport {
   let tests = evolve_test_suite(ops)
   let summary = "生成 " + tests.length().to_string() + " 个测试用例"
@@ -65,7 +65,7 @@ pub fn evolve_tests_only(ops : Array[@imgir.IROp]) -> EvolveReport {
 
 ///|
 /// 仅扫描退化场景报告。
-/// Generate degradation-only report.
+/// 生成 Generate degradation-only report.
 pub fn evolve_degradation_scan(ops : Array[@imgir.IROp]) -> EvolveReport {
   let degradations = scan_degradations(ops)
   let summary = "发现 " +
@@ -76,7 +76,7 @@ pub fn evolve_degradation_scan(ops : Array[@imgir.IROp]) -> EvolveReport {
 
 ///|
 /// 按类别统计测试用例。
-/// Count test cases by category.
+/// 计数 Count test cases by category.
 pub fn count_by_category(
   tests : Array[TestCase],
 ) -> Array[(TestCategory, Int32)] {

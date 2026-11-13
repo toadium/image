@@ -1,8 +1,8 @@
 ///|
-/// # ocr/table_image_extraction
+/// # 表格图像提取 ocr/table_image_extraction
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 表格识别增强与图片提取（v12.20.0）
 // 真正的表格线检测、单元格分割、表格结构分析、图片区域裁剪保存
 

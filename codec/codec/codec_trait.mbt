@@ -2,7 +2,7 @@
 /// # 编解码特征 Codec Trait
 ///
 /// 编解码统一接口定义
-/// Unified codec interface definitions
+/// 统一编解码接口定义 Unified codec interface definitions
 
 ///|
 /// 编解码器统一接口 trait

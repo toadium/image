@@ -1,8 +1,8 @@
 ///|
 /// # 边缘检测 16-bit/float 变体 Edge detection 16-bit/float variants
 ///
-/// edge_detect_sobel_16 / edge_detect_sobel_f
-/// 16-bit/float Sobel edge detection
+/// 16位/浮点 Sobel 边缘检测 edge_detect_sobel_16 / edge_detect_sobel_f
+/// 16位/浮点 Sobel 边缘检测 16-bit/float Sobel edge detection
 // 边缘检测 16-bit/float 变体：edge_detect_sobel
 // 支持 Image16 / ImageF 两种类型
 
@@ -250,7 +250,7 @@ pub fn edge_detect_sobel_f(
 
 ///|
 /// 16-bit Laplacian 边缘检测。使用 3x3 Laplacian 核：
-/// [0, 1, 0; 1, -4, 1; 0, 1, 0]
+/// 拉普拉斯核 [0, 1, 0; 1, -4, 1; 0, 1, 0]
 /// 输出单通道灰度图（channels=1）的 Image16，值为梯度绝对值。
 /// @see edge_detect_laplacian 8-bit 版本，本函数为 Image16 变体
 pub fn edge_detect_laplacian_16(
@@ -343,7 +343,7 @@ pub fn edge_detect_laplacian_16(
 
 ///|
 /// float Laplacian 边缘检测。使用 3x3 Laplacian 核：
-/// [0, 1, 0; 1, -4, 1; 0, 1, 0]
+/// 拉普拉斯核 [0, 1, 0; 1, -4, 1; 0, 1, 0]
 /// 输出单通道灰度图（channels=1）的 ImageF，值为梯度绝对值。
 /// @see edge_detect_laplacian 8-bit 版本，本函数为 ImageF 变体
 pub fn edge_detect_laplacian_f(
@@ -432,8 +432,8 @@ pub fn edge_detect_laplacian_f(
 
 ///|
 /// 16-bit Prewitt 边缘检测。使用两个 3x3 Prewitt 核计算梯度幅值。
-/// Gx = [-1, 0, 1; -1, 0, 1; -1, 0, 1]
-/// Gy = [-1, -1, -1; 0, 0, 0; 1, 1, 1]
+/// Prewitt 水平梯度 Gx = [-1, 0, 1; -1, 0, 1; -1, 0, 1]
+/// Prewitt 垂直梯度 Gy = [-1, -1, -1; 0, 0, 0; 1, 1, 1]
 /// 输出单通道灰度图（channels=1）的 Image16。
 /// @see edge_detect_prewitt 8-bit 版本，本函数为 Image16 变体
 pub fn edge_detect_prewitt_16(

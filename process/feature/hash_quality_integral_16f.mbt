@@ -1,8 +1,8 @@
 ///|
 /// # 图像哈希/质量/积分 16-bit/float 变体 Image hash/quality/integral 16-bit/float variants
 ///
-/// dhash_16 / ssim_16 / integral_image_16
-/// 16-bit/float hash/quality/integral
+/// 16位哈希/质量/积分 dhash_16 / ssim_16 / integral_image_16
+/// 16位/浮点哈希/质量/积分 16-bit/float hash/quality/integral
 // 图像哈希 + 图像质量 + 积分图像 16-bit/float 变体
 
 // ========== 辅助函数 ==========

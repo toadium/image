@@ -2,7 +2,7 @@
 /// # TGA 编码 TGA Encode
 ///
 /// TGA 图像格式编码
-/// TGA image format encoding
+/// TGA 图像格式编码 TGA image format encoding
 // 纯 MoonBit TGA 编码（全目标可用：native/wasm/js）
 // 24-bit uncompressed true-color TGA, top-down, BGR
 

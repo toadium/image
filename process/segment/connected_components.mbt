@@ -1,9 +1,8 @@
 ///|
-/// # connected components
-/// connected components
+/// # 连通域 connected components
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 连通域标记（纯 MoonBit，两遍扫描 + Union-Find）
 
 ///|

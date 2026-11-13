@@ -1,8 +1,8 @@
 ///|
-/// # remote_sensing/remote_sensing
+/// # 遥感 remote_sensing/remote_sensing
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 遥感图像处理（v12.11.0）
 // NDVI、假彩色合成、多光谱指数计算
 
@@ -37,7 +37,7 @@ pub fn multispectral_new(
 
 ///|
 /// 计算 NDVI（归一化植被指数）
-/// NDVI = (NIR - Red) / (NIR + Red)
+/// 描述 NDVI = (NIR - Red) / (NIR + Red)
 pub fn compute_ndvi(
   nir : @types.Image,
   red : @types.Image,
@@ -99,7 +99,7 @@ pub fn compute_ndvi(
 
 ///|
 /// 计算 NDWI（归一化水指数）
-/// NDWI = (Green - NIR) / (Green + NIR)
+/// 描述 NDWI = (Green - NIR) / (Green + NIR)
 pub fn compute_ndwi(
   green : @types.Image,
   nir : @types.Image,
@@ -160,7 +160,7 @@ pub fn compute_ndwi(
 
 ///|
 /// 计算 NDBI（归一化建筑指数）
-/// NDBI = (SWIR - NIR) / (SWIR + NIR)
+/// 描述 NDBI = (SWIR - NIR) / (SWIR + NIR)
 pub fn compute_ndbi(
   swir : @types.Image,
   nir : @types.Image,
@@ -221,7 +221,7 @@ pub fn compute_ndbi(
 
 ///|
 /// 计算 EVI（增强型植被指数）
-/// EVI = 2.5 * (NIR - Red) / (NIR + 6*Red - 7.5*Blue + 1)
+/// 描述 EVI = 2.5 * (NIR - Red) / (NIR + 6*Red - 7.5*Blue + 1)
 pub fn compute_evi(
   nir : @types.Image,
   red : @types.Image,

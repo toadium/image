@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/history
+/// # 历史 self_evolve/history
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 演化历史持久化 — 记录历次演化结果，支持回滚
 // Evolution history persistence: record evolution snapshots, support rollback
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 单次演化快照。
-/// Single evolution snapshot.
+/// 描述 Single evolution snapshot.
 #derive(Eq, @debug.Debug)
 pub(all) struct HistoryEntry {
   version : String
@@ -28,7 +28,7 @@ pub extend HistoryEntry with Eq::{not_equal, equal}
 
 ///|
 /// 演化历史日志。
-/// Evolution history log.
+/// 描述 Evolution history log.
 #derive(Eq, @debug.Debug)
 pub(all) struct HistoryLog {
   entries : Array[HistoryEntry]
@@ -45,7 +45,7 @@ pub extend HistoryLog with Eq::{not_equal, equal}
 
 ///|
 /// 记录管道当前状态快照。
-/// Record current pipeline state as a snapshot.
+/// 记录 Record current pipeline state as a snapshot.
 pub fn record_snapshot(
   pipeline : @imgir.IRPipeline,
   version : String,
@@ -74,7 +74,7 @@ pub fn record_snapshot(
 
 ///|
 /// 构建演化历史日志（模拟 v286-v292 的快照序列）。
-/// Build evolution history log (simulated v286-v292 snapshots).
+/// 构建 Build evolution history log (simulated v286-v292 snapshots).
 pub fn history_log() -> HistoryLog {
   let entries : Array[HistoryEntry] = [
     {
@@ -141,7 +141,7 @@ pub fn history_log() -> HistoryLog {
 
 ///|
 /// 回滚到指定版本（查找历史快照）。
-/// Rollback to a specific version (find historical snapshot).
+/// 描述 Rollback to a specific version (find historical snapshot).
 pub fn rollback_to(version : String) -> HistoryEntry? {
   let log = history_log()
   for e in log.entries {
@@ -154,7 +154,7 @@ pub fn rollback_to(version : String) -> HistoryEntry? {
 
 ///|
 /// 比较两个快照。
-/// Compare two snapshots.
+/// 比较 Compare two snapshots.
 pub fn compare_snapshots(e1 : HistoryEntry, e2 : HistoryEntry) -> String {
   let deg_diff = e2.degradation_count - e1.degradation_count
   let test_diff = e2.test_count - e1.test_count
@@ -177,7 +177,7 @@ pub fn compare_snapshots(e1 : HistoryEntry, e2 : HistoryEntry) -> String {
 
 ///|
 /// 历史日志是否为空。
-/// Whether history log is empty.
+/// 描述 Whether history log is empty.
 pub fn HistoryLog::is_empty(self : HistoryLog) -> Bool {
   self.total_snapshots == 0
 }

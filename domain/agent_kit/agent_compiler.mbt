@@ -2,7 +2,7 @@
 /// # Agent 编译器 Agent Compiler
 ///
 /// 意图 → 调用链编译
-/// Intent → call chain compilation
+/// 描述 Intent → call chain compilation
 // Agent-Kit 编译器 — 意图序列 → ImgIR 管道
 // compile: 将意图序列编译为 ImgIR IRPipeline
 

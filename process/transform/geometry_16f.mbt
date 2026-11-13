@@ -1,8 +1,8 @@
 ///|
 /// # 高级几何变换 16-bit/float 变体 Advanced geometry transforms 16-bit/float variants
 ///
-/// perspective_transform_16 / seam_carve_16
-/// 16-bit/float perspective/seam carving
+/// 16位透视/Seam Carving perspective_transform_16 / seam_carve_16
+/// 16位/浮点透视/Seam Carving 16-bit/float perspective/seam carving
 // 高级几何变换 16-bit/float 变体
 // warp_affine / warp_perspective / resize
 

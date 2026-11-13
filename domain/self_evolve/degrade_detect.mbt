@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/degrade_detect
+/// # 退化检测 self_evolve/degrade_detect
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 退化场景自动发现 — 基于 4.7.4 领域规则
 // Degradation detection: based on 4.7.4 domain rules
 //
@@ -15,7 +15,7 @@
 
 ///|
 /// 检测单个算子的退化场景。
-/// Detect degradation cases for a single op.
+/// 检测 Detect degradation cases for a single op.
 pub fn detect_degradation(op : @imgir.IROp) -> Array[DegradationCase] {
   let tag = op.tag()
   match op {
@@ -154,7 +154,7 @@ pub fn detect_degradation(op : @imgir.IROp) -> Array[DegradationCase] {
 
 ///|
 /// 批量扫描退化场景。
-/// Batch scan degradations for multiple ops.
+/// 描述 Batch scan degradations for multiple ops.
 pub fn scan_degradations(ops : Array[@imgir.IROp]) -> Array[DegradationCase] {
   let all : Array[DegradationCase] = []
   for op in ops {
@@ -167,7 +167,7 @@ pub fn scan_degradations(ops : Array[@imgir.IROp]) -> Array[DegradationCase] {
 
 ///|
 /// 按严重程度过滤退化场景。
-/// Filter degradations by severity.
+/// 滤波 Filter degradations by severity.
 pub fn filter_by_severity(
   cases : Array[DegradationCase],
   min_severity : Severity,
@@ -193,7 +193,7 @@ pub fn filter_by_severity(
 
 ///|
 /// 按退化类型分组计数。
-/// Count degradations by kind.
+/// 计数 Count degradations by kind.
 pub fn count_by_kind(
   cases : Array[DegradationCase],
 ) -> Array[(DegradationKind, Int32)] {

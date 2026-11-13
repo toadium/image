@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/combo_coverage
+/// # 组合覆盖 self_evolve/combo_coverage
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 组合测试覆盖 — 自动发现未覆盖算子组合，生成组合测试
 // Combo coverage: discover uncovered op combinations and generate combo tests
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 算子二元组合。
-/// Binary op combination.
+/// 二值 Binary op combination.
 #derive(Eq, @debug.Debug)
 pub(all) struct OpCombo {
   first_tag : String
@@ -26,7 +26,7 @@ pub extend OpCombo with Eq::{not_equal, equal}
 
 ///|
 /// 组合覆盖报告。
-/// Combo coverage report.
+/// 描述 Combo coverage report.
 #derive(Eq, @debug.Debug)
 pub(all) struct ComboCoverageReport {
   total_combos : Int32
@@ -43,7 +43,7 @@ pub extend ComboCoverageReport with Eq::{not_equal, equal}
 
 ///|
 /// 生成全部 19×19 二元组合。
-/// Generate all 19×19 binary combinations.
+/// 生成 Generate all 19×19 binary combinations.
 pub fn gen_all_combos() -> Array[OpCombo] {
   let ops = all_ops()
   let combos : Array[OpCombo] = []
@@ -61,7 +61,7 @@ pub fn gen_all_combos() -> Array[OpCombo] {
 
 ///|
 /// 对全部二元组合生成测试用例。
-/// Generate test cases for all binary combinations.
+/// 生成 Generate test cases for all binary combinations.
 pub fn gen_combo_tests() -> Array[TestCase] {
   let ops = all_ops()
   let tests : Array[TestCase] = []
@@ -82,7 +82,7 @@ pub fn gen_combo_tests() -> Array[TestCase] {
 
 ///|
 /// 生成组合覆盖报告。
-/// Generate combo coverage report.
+/// 生成 Generate combo coverage report.
 pub fn combo_coverage_report() -> ComboCoverageReport {
   let combos = gen_all_combos()
   let tests = gen_combo_tests()
@@ -106,7 +106,7 @@ pub fn combo_coverage_report() -> ComboCoverageReport {
 
 ///|
 /// 统计独特算子对（去重 first_tag+second_tag）。
-/// Count unique op pairs.
+/// 计数 Count unique op pairs.
 pub fn unique_combo_count() -> Int32 {
   let combos = gen_all_combos()
   let tags : Array[String] = []

@@ -1,8 +1,7 @@
 ///|
 /// # QOI 解码器 QOI Decoder
 ///
-/// 纯 MoonBit QOI 解码器，支持全部 QOI 标签（INDEX/DIFF/LUMA/RUN/RGB/RGBA）。
-/// Pure MoonBit QOI decoder, supporting all QOI tags (INDEX/DIFF/LUMA/RUN/RGB/RGBA).
+/// 纯 MoonBit QOI 解码器，支持全部 QOI 标签（INDEX/DIFF/LUMA/RUN/RGB/RGBA）。 Pure MoonBit QOI decoder, supporting all QOI tags (INDEX/DIFF/LUMA/RUN/RGB/RGBA).
 ///
 /// 核心函数 Core functions:
 /// - `decode_qoi_pure` - 解码 QOI 字节流为 Image Decode QOI byte stream to Image
@@ -20,10 +19,9 @@ fn qoi_hash(r : Int32, g : Int32, b : Int32, a : Int32) -> Int32 {
 }
 
 ///|
-/// 解码 QOI 字节流为 Image（channels=3 或 4）
-/// 支持 QOI_OP_INDEX / QOI_OP_DIFF / QOI_OP_LUMA / QOI_OP_RUN / QOI_OP_RGB / QOI_OP_RGBA 全部标签
-/// Supports all QOI operation tags
-///
+/// 解码 QOI 字节流为 Image（channels=3 或 4）支持全部 QOI 操作标签 Supports all QOI operation tags
+
+///|
 /// 参数 Parameters:
 /// - `data` - QOI 字节流 QOI byte stream
 ///
@@ -31,8 +29,7 @@ fn qoi_hash(r : Int32, g : Int32, b : Int32, a : Int32) -> Int32 {
 /// - 解码后的 8-bit Image Decoded 8-bit Image
 ///
 /// 错误 Errors:
-/// - `LoadError::DecodeFailed` - 数据过短、magic 不匹配、尺寸无效
-///   Data too short, magic mismatch, invalid dimensions
+/// - `LoadError::DecodeFailed` - 数据过短、magic 不匹配、尺寸无效 Data too short, magic mismatch, invalid dimensions
 ///
 /// ```mbt check
 /// test "doc_decode_qoi_pure" {

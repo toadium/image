@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/pipeline_optimize
+/// # 管线优化 self_evolve/pipeline_optimize
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 管道优化建议 — 基于等价性与退化分析推荐管道优化
 // Pipeline optimization suggestion: recommend optimizations based on equivalence and degradation
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 优化建议类型。
-/// Optimization suggestion kind.
+/// 描述 Optimization suggestion kind.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -30,7 +30,7 @@ pub extend SuggestionKind with Eq::{not_equal, equal}
 
 ///|
 /// 单条管道优化建议。
-/// Single pipeline optimization suggestion.
+/// 描述 Single pipeline optimization suggestion.
 #derive(Eq, @debug.Debug)
 pub(all) struct PipelineOptSuggestion {
   pipeline_desc : String
@@ -47,7 +47,7 @@ pub extend PipelineOptSuggestion with Eq::{not_equal, equal}
 
 ///|
 /// 管道优化报告。
-/// Pipeline optimization report.
+/// 管线 Pipeline optimization report.
 #derive(Eq, @debug.Debug)
 pub(all) struct PipelineOptReport {
   suggestions : Array[PipelineOptSuggestion]
@@ -64,7 +64,7 @@ pub extend PipelineOptReport with Eq::{not_equal, equal}
 
 ///|
 /// 找出管道中的冗余算子标签（连续相同标签）。
-/// Find redundant op tags in pipeline (consecutive same tags).
+/// 查找 Find redundant op tags in pipeline (consecutive same tags).
 pub fn find_redundant_ops(pipeline : @imgir.IRPipeline) -> Array[String] {
   let result : Array[String] = []
   let ops = pipeline.ops
@@ -81,7 +81,7 @@ pub fn find_redundant_ops(pipeline : @imgir.IRPipeline) -> Array[String] {
 
 ///|
 /// 估算管道优化收益（0-100）。
-/// Estimate pipeline optimization benefit (0-100).
+/// 描述 Estimate pipeline optimization benefit (0-100).
 pub fn estimate_benefit(pipeline : @imgir.IRPipeline) -> Int32 {
   let ops = pipeline.ops
   let n = ops.length()
@@ -101,7 +101,7 @@ pub fn estimate_benefit(pipeline : @imgir.IRPipeline) -> Int32 {
 
 ///|
 /// 为管道生成优化建议。
-/// Generate optimization suggestions for a pipeline.
+/// 生成 Generate optimization suggestions for a pipeline.
 pub fn suggest_optimization(pipeline : @imgir.IRPipeline) -> PipelineOptReport {
   let suggestions : Array[PipelineOptSuggestion] = []
   let desc = @imgir.ir_describe(pipeline)
@@ -197,7 +197,7 @@ pub fn suggest_optimization(pipeline : @imgir.IRPipeline) -> PipelineOptReport {
 
 ///|
 /// 优化报告是否有优化建议。
-/// Whether optimization report has suggestions.
+/// 描述 Whether optimization report has suggestions.
 pub fn PipelineOptReport::has_suggestions(self : PipelineOptReport) -> Bool {
   self.best_benefit > 0
 }

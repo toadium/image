@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/smart_priority
+/// # 智能优先 self_evolve/smart_priority
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 智能测试优先级 — 基于历史数据智能评分
 // Smart test priority: intelligently score test priorities based on historical data
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 评分因子类型。
-/// Score factor kind.
+/// 描述 Score factor kind.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -29,7 +29,7 @@ pub extend ScoreFactor with Eq::{not_equal, equal}
 
 ///|
 /// 单算子智能评分。
-/// Smart score for a single op.
+/// 智能 Smart score for a single op.
 #derive(Eq, @debug.Debug)
 pub(all) struct SmartScore {
   op_tag : String
@@ -46,7 +46,7 @@ pub extend SmartScore with Eq::{not_equal, equal}
 
 ///|
 /// 智能优先级报告。
-/// Smart priority report.
+/// 智能 Smart priority report.
 #derive(Eq, @debug.Debug)
 pub(all) struct SmartPriorityReport {
   scores : Array[SmartScore]
@@ -63,7 +63,7 @@ pub extend SmartPriorityReport with Eq::{not_equal, equal}
 
 ///|
 /// 为单个算子计算智能评分 (0-100)。
-/// Calculate smart score for a single op (0-100).
+/// 计算 Calculate smart score for a single op (0-100).
 pub fn score_op(op : @imgir.IROp) -> SmartScore {
   let tag = op.tag()
   let factors : Array[ScoreFactor] = []
@@ -111,7 +111,7 @@ pub fn score_op(op : @imgir.IROp) -> SmartScore {
 
 ///|
 /// 为所有算子计算智能评分。
-/// Calculate smart scores for all ops.
+/// 计算 Calculate smart scores for all ops.
 pub fn score_all_ops() -> SmartPriorityReport {
   let scores : Array[SmartScore] = []
   let mut high_count = 0
@@ -133,7 +133,7 @@ pub fn score_all_ops() -> SmartPriorityReport {
 
 ///|
 /// 获取前 N 个最高优先级算子。
-/// Get top N priority ops.
+/// 获取 Get top N priority ops.
 pub fn SmartPriorityReport::top_priority(
   self : SmartPriorityReport,
   n : Int32,

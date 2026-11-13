@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/knowledge_graph
+/// # 知识图谱 self_evolve/knowledge_graph
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 演化知识图谱 — 将演化经验构建为知识图谱
 // Evolution knowledge graph: build knowledge graph from evolution experience
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 知识节点类型。
-/// Knowledge node kind.
+/// 描述 Knowledge node kind.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -30,7 +30,7 @@ pub extend KnowledgeNodeKind with Eq::{not_equal, equal}
 
 ///|
 /// 知识节点。
-/// Knowledge node.
+/// 描述 Knowledge node.
 #derive(Eq, @debug.Debug)
 pub(all) struct KnowledgeNode {
   id : String
@@ -48,7 +48,7 @@ pub extend KnowledgeNode with Eq::{not_equal, equal}
 
 ///|
 /// 知识边类型。
-/// Knowledge edge kind.
+/// 描述 Knowledge edge kind.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -68,7 +68,7 @@ pub extend KnowledgeEdgeKind with Eq::{not_equal, equal}
 
 ///|
 /// 知识边。
-/// Knowledge edge.
+/// 描述 Knowledge edge.
 #derive(Eq, @debug.Debug)
 pub(all) struct KnowledgeEdge {
   source : String
@@ -85,7 +85,7 @@ pub extend KnowledgeEdge with Eq::{not_equal, equal}
 
 ///|
 /// 知识图谱。
-/// Knowledge graph.
+/// 描述 Knowledge graph.
 #derive(Eq, @debug.Debug)
 pub(all) struct KnowledgeGraph {
   nodes : Array[KnowledgeNode]
@@ -123,7 +123,7 @@ fn severity_to_confidence(sev : Severity) -> Int32 {
 
 ///|
 /// 为单个算子构建知识图谱。
-/// Build knowledge graph for a single op.
+/// 构建 Build knowledge graph for a single op.
 pub fn build_knowledge_graph_for_op(op : @imgir.IROp) -> KnowledgeGraph {
   let tag = op.tag()
   let nodes : Array[KnowledgeNode] = []
@@ -189,7 +189,7 @@ pub fn build_knowledge_graph_for_op(op : @imgir.IROp) -> KnowledgeGraph {
 
 ///|
 /// 为所有算子构建知识图谱。
-/// Build knowledge graph for all ops.
+/// 构建 Build knowledge graph for all ops.
 pub fn build_knowledge_graph() -> KnowledgeGraph {
   let all_nodes : Array[KnowledgeNode] = []
   let all_edges : Array[KnowledgeEdge] = []
@@ -207,7 +207,7 @@ pub fn build_knowledge_graph() -> KnowledgeGraph {
 
 ///|
 /// 按类型查找节点。
-/// Find nodes by kind.
+/// 查找 Find nodes by kind.
 pub fn KnowledgeGraph::find_nodes_by_kind(
   self : KnowledgeGraph,
   kind : KnowledgeNodeKind,
@@ -231,7 +231,7 @@ pub fn KnowledgeGraph::find_nodes_by_kind(
 
 ///|
 /// 查找算子的退化模式节点。
-/// Find degradation nodes for an op.
+/// 查找 Find degradation nodes for an op.
 pub fn KnowledgeGraph::find_degradations(
   self : KnowledgeGraph,
   op_tag : String,
@@ -259,7 +259,7 @@ pub fn KnowledgeGraph::find_degradations(
 
 ///|
 /// 查找退化模式的修复策略节点。
-/// Find fix nodes for a degradation.
+/// 查找 Find fix nodes for a degradation.
 pub fn KnowledgeGraph::find_fixes(
   self : KnowledgeGraph,
   degradation_label : String,
@@ -276,21 +276,21 @@ pub fn KnowledgeGraph::find_fixes(
 
 ///|
 /// 知识图谱节点数。
-/// Knowledge graph node count.
+/// 描述 Knowledge graph node count.
 pub fn KnowledgeGraph::node_count(self : KnowledgeGraph) -> Int32 {
   self.nodes.length()
 }
 
 ///|
 /// 知识图谱边数。
-/// Knowledge graph edge count.
+/// 描述 Knowledge graph edge count.
 pub fn KnowledgeGraph::edge_count(self : KnowledgeGraph) -> Int32 {
   self.edges.length()
 }
 
 ///|
 /// 知识图谱是否非空。
-/// Whether knowledge graph is non-empty.
+/// 描述 Whether knowledge graph is non-empty.
 pub fn KnowledgeGraph::is_non_empty(self : KnowledgeGraph) -> Bool {
   self.nodes.length() > 0
 }

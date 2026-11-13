@@ -1,8 +1,8 @@
 ///|
-/// # meta/iptc_meta
+/// # IPTC 元数据 meta/iptc_meta
 ///
 /// 编解码工具模块
-/// Codec utility module
+/// 编解码工具模块 Codec utility module
 // v250.0.0 IPTC IIM 元数据解析与写入
 // IPTC IIM (Information Interchange Model) 存储在 JPEG APP13 段中
 // 以 "Photoshop 3.0\0" + "8BIM\x04\x04" 开头，后跟记录序列
@@ -35,7 +35,7 @@ pub extend IptcInfo with Default::{default}
 pub extend IptcInfo with @debug.Debug::{to_repr}
 
 ///|
-/// Photoshop 3.0 header
+/// Photoshop 3.0 头部 Photoshop 3.0 header
 fn iptc_photoshop_header() -> String {
   "Photoshop 3.0"
 }

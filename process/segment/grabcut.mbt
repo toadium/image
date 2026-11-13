@@ -1,8 +1,8 @@
 ///|
 /// # grabCut 分割 grabCut segmentation
 ///
-/// grabcut
-/// Iterative graph-cut segmentation
+/// GrabCut 图割分割 grabcut
+/// 迭代图割分割 Iterative graph-cut segmentation
 // grabCut 分割（纯 MoonBit）
 // 交互式前景提取，基于 GMM + ICM 优化
 // Rother, Kolmogorov, Blake, "GrabCut" (2004)

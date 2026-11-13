@@ -1,14 +1,14 @@
 ///|
-/// # self_evolve/phase11_report
+/// # 阶段11报告 self_evolve/phase11_report
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // Phase 11 综合报告 — 汇总 v311-v314 全部能力
 // Phase 11 comprehensive report: aggregate v311-v314 capabilities
 
 ///|
 /// Phase 11 单项能力描述。
-/// Phase 11 single capability.
+/// 阶段 Phase 11 single capability.
 #derive(Eq, @debug.Debug)
 pub(all) struct Phase11Capability {
   version : String
@@ -27,7 +27,7 @@ pub extend Phase11Capability with Eq::{not_equal, equal}
 
 ///|
 /// Phase 11 综合报告。
-/// Phase 11 aggregate report.
+/// 阶段 Phase 11 aggregate report.
 #derive(Eq, @debug.Debug)
 pub(all) struct Phase11Report {
   capabilities : Array[Phase11Capability]
@@ -45,7 +45,7 @@ pub extend Phase11Report with Eq::{not_equal, equal}
 
 ///|
 /// Phase 11 全部能力清单（v311-v314）。
-/// Phase 11 capability list (v311-v314).
+/// 阶段 Phase 11 capability list (v311-v314).
 pub fn phase11_capabilities() -> Array[Phase11Capability] {
   [
     {

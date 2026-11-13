@@ -1,8 +1,8 @@
 ///|
-/// # fusion/image_fusion
+/// # 图像融合 fusion/image_fusion
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 图像融合（v12.6.0）
 // 多焦点融合、曝光融合、Alpha 融合、拉普拉斯金字塔融合
 
@@ -29,7 +29,7 @@ pub fn fusion_default_config() -> FusionConfig {
 
 ///|
 /// Alpha 融合
-/// out = img1 * alpha + img2 * (1 - alpha)
+/// 线性融合 out = img1 * alpha + img2 * (1 - alpha)
 pub fn fuse_alpha(
   img1 : @types.Image,
   img2 : @types.Image,

@@ -1,8 +1,8 @@
 ///|
-/// # ocr/handwriting_recognition
+/// # 手写识别 ocr/handwriting_recognition
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 手写体识别支持（v13.2.0）
 // 手写字符预处理、连笔分割、笔画特征提取、手写字体模板、手写识别引擎
 

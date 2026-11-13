@@ -1,14 +1,14 @@
 ///|
-/// # self_evolve/test_gen
+/// # 测试生成 self_evolve/test_gen
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 测试用例自动生成 — 基于算子签名 + 边界条件
 // Auto test case generation: based on op signature + boundary conditions
 
 ///|
 /// 为单个算子生成全部测试用例（边界 + 正常 + 边缘）。
-/// Generate all test cases for a single op (boundary + normal + edge).
+/// 生成 Generate all test cases for a single op (boundary + normal + edge).
 pub fn gen_test_for_op(op : @imgir.IROp) -> Array[TestCase] {
   let cases : Array[TestCase] = []
   for c in gen_boundary_tests(op) {
@@ -25,7 +25,7 @@ pub fn gen_test_for_op(op : @imgir.IROp) -> Array[TestCase] {
 
 ///|
 /// 生成边界条件测试用例。
-/// Generate boundary condition test cases.
+/// 生成 Generate boundary condition test cases.
 pub fn gen_boundary_tests(op : @imgir.IROp) -> Array[TestCase] {
   let tag = op.tag()
   match op {
@@ -286,7 +286,7 @@ pub fn gen_boundary_tests(op : @imgir.IROp) -> Array[TestCase] {
 
 ///|
 /// 生成正常用例。
-/// Generate normal test cases.
+/// 生成 Generate normal test cases.
 pub fn gen_normal_tests(op : @imgir.IROp) -> Array[TestCase] {
   let tag = op.tag()
   [
@@ -303,7 +303,7 @@ pub fn gen_normal_tests(op : @imgir.IROp) -> Array[TestCase] {
 
 ///|
 /// 生成边缘用例（极端参数）。
-/// Generate edge cases (extreme parameters).
+/// 生成 Generate edge cases (extreme parameters).
 pub fn gen_edge_tests(op : @imgir.IROp) -> Array[TestCase] {
   let tag = op.tag()
   match op {
@@ -401,7 +401,7 @@ pub fn gen_edge_tests(op : @imgir.IROp) -> Array[TestCase] {
 
 ///|
 /// 批量生成测试用例。
-/// Batch generate test cases for multiple ops.
+/// 描述 Batch generate test cases for multiple ops.
 pub fn evolve_test_suite(ops : Array[@imgir.IROp]) -> Array[TestCase] {
   let all : Array[TestCase] = []
   for op in ops {

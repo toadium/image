@@ -1,8 +1,7 @@
 ///|
 /// # ICNS 扩展 ICNS Extended
 ///
-/// ICNS 扩展功能
-/// ICNS extended features
+/// ICNS 扩展功能 ICNS extended features
 
 ///|
 /// ICNS 扩展信息（包含图标数量、各图标类型/尺寸等）

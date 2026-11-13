@@ -1,8 +1,8 @@
 ///|
-/// # retrieval/content_based_retrieval
+/// # 基于内容检索 retrieval/content_based_retrieval
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 图像检索增强（v22.0.0）
 // 基于内容的图像检索、特征提取、相似度计算、图像索引
 

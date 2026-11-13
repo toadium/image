@@ -1,8 +1,7 @@
 ///|
 /// # JPEG 解码 JPEG Decode
 ///
-/// JPEG baseline 解码实现
-/// JPEG baseline decoding implementation
+/// JPEG baseline 解码实现 JPEG baseline decoding implementation
 // 纯 MoonBit JPEG 解码（全目标可用：native/wasm/js）
 // 支持 baseline JPEG (SOF0), 8-bit, YCbCr 3 通道或灰度
 // 实现: Huffman 解码 + 反量化 + IDCT + YCbCr→RGB + 色度上采样
@@ -239,7 +238,7 @@ fn jpeg_decode_block(
 }
 
 ///|
-/// YCbCr → RGB
+/// YCbCr → RGB 色彩空间转换
 fn ycbcr_to_rgb(y : Int32, cb : Int32, cr : Int32) -> (Int32, Int32, Int32) {
   let cbf = Float::from_int(cb) - 128.0F
   let crf = Float::from_int(cr) - 128.0F
@@ -635,13 +634,9 @@ fn jpeg_decode_scan(
 }
 
 ///|
-/// JPEG 解码（纯 MoonBit，全目标可用）。
-/// 支持 baseline JPEG (SOF0), 8-bit, YCbCr 3 通道。
-/// 不支持 progressive (SOF2)、CMYK、arithmetic coding。
-/// JPEG decoding (pure MoonBit, all targets).
-/// Supports baseline JPEG (SOF0), 8-bit, YCbCr 3 channels.
-/// Does not support progressive (SOF2), CMYK, or arithmetic coding.
-///
+/// JPEG 解码（纯 MoonBit，全目标可用）。支持 baseline JPEG (SOF0), 8-bit, YCbCr 3 通道。不支持 progressive (SOF2)、CMYK、arithmetic coding。 JPEG decoding (pure MoonBit, all targets). Supports baseline JPEG (SOF0), 8-bit, YCbCr 3 channels. Does not support progressive (SOF2), CMYK, or arithmetic coding.
+
+///|
 /// 参数 Parameters:
 /// - `data` - JPEG 字节流 JPEG byte stream
 ///
@@ -649,8 +644,7 @@ fn jpeg_decode_scan(
 /// - 解码后的 8-bit Image Decoded 8-bit Image
 ///
 /// 错误 Errors:
-/// - `LoadError::DecodeFailed` - 数据过短、SOI 标记缺失、不支持的颜色空间、Huffman 解码失败
-///   Data too short, missing SOI marker, unsupported color space, Huffman decode failure
+/// - `LoadError::DecodeFailed` - 数据过短、SOI 标记缺失、不支持的颜色空间、Huffman 解码失败 Data too short, missing SOI marker, unsupported color space, Huffman decode failure
 pub fn decode_jpeg_pure(data : Bytes) -> @types.Image raise @types.LoadError {
   let header = jpeg_parse_header(data)
   if header.width <= 0 || header.height <= 0 {

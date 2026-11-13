@@ -1,8 +1,8 @@
 ///|
-/// # encryption/image_encryption
+/// # 图像加密 encryption/image_encryption
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 图像加密（v12.14.0）
 // 基于混沌的图像加密、Logistic 映射、加密质量评估
 

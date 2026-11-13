@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/recommend
+/// # 推荐 self_evolve/recommend
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 演化推荐引擎 — 根据当前状态推荐下一步演化
 // Evolution recommendation engine: recommend next evolution step based on current state
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 推荐动作类型。
-/// Recommendation action type.
+/// 描述 Recommendation action type.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -30,7 +30,7 @@ pub extend RecommendAction with Eq::{not_equal, equal}
 
 ///|
 /// 单条演化推荐。
-/// Single evolution recommendation.
+/// 描述 Single evolution recommendation.
 #derive(Eq, @debug.Debug)
 pub(all) struct Recommendation {
   action : RecommendAction
@@ -47,7 +47,7 @@ pub extend Recommendation with Eq::{not_equal, equal}
 
 ///|
 /// 推荐报告。
-/// Recommendation report.
+/// 描述 Recommendation report.
 #derive(Eq, @debug.Debug)
 pub(all) struct RecommendationReport {
   recommendations : Array[Recommendation]
@@ -64,7 +64,7 @@ pub extend RecommendationReport with Eq::{not_equal, equal}
 
 ///|
 /// 推荐单算子下一步演化。
-/// Recommend next evolution step for a single op.
+/// 描述 Recommend next evolution step for a single op.
 pub fn recommend_next(op : @imgir.IROp) -> Recommendation {
   let tag = op.tag()
   let degs = detect_degradation(op)
@@ -95,7 +95,7 @@ pub fn recommend_next(op : @imgir.IROp) -> Recommendation {
 
 ///|
 /// 推荐全算子演化。
-/// Recommend evolution for all ops.
+/// 描述 Recommend evolution for all ops.
 pub fn recommend_all() -> RecommendationReport {
   let recs : Array[Recommendation] = []
   let mut high_count = 0
@@ -117,7 +117,7 @@ pub fn recommend_all() -> RecommendationReport {
 
 ///|
 /// 推荐管道演化。
-/// Recommend evolution for a pipeline.
+/// 描述 Recommend evolution for a pipeline.
 pub fn recommend_for_pipeline(
   pipeline : @imgir.IRPipeline,
 ) -> RecommendationReport {
@@ -153,7 +153,7 @@ pub fn recommend_for_pipeline(
 
 ///|
 /// 推荐报告是否有紧急推荐。
-/// Whether recommendation report has urgent items.
+/// 描述 Whether recommendation report has urgent items.
 pub fn RecommendationReport::has_urgent(self : RecommendationReport) -> Bool {
   self.high_priority_count > 0
 }

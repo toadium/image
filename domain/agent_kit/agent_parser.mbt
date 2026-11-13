@@ -2,7 +2,7 @@
 /// # Agent 解析器 Agent Parser
 ///
 /// 指令解析与验证
-/// Instruction parsing and validation
+/// 描述 Instruction parsing and validation
 // Agent-Kit 解析器 — 自然语言 → 意图序列
 // nl_parse: 将自然语言查询解析为操作意图序列
 

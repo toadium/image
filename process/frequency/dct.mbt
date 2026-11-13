@@ -1,9 +1,8 @@
 ///|
-/// # dct
-/// dct
+/// # 离散余弦变换 dct
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // DCT (离散余弦变换) 公共 API：dct_2d + idct_2d
 // 2D DCT-II 和 IDCT-III，用于频域分析和图像压缩
 // 优化：预计算余弦表 + 可分离 1D DCT，O(N³) 而非 O(N⁴)
@@ -41,7 +40,7 @@ fn dct_coeffs(n : Int32) -> Array[Float] {
 ///|
 /// 1D DCT-II 正变换：对长度 n 的行向量执行 DCT
 /// 输入 src[0..n)，输出 dst[0..n)
-/// cos_table[k][n] = cos((2*k+1)*n*π/(2*N)), coeffs[n] = C(n)
+/// 余弦查找表与系数 cos_table[k][n] = cos((2*k+1)*n*π/(2*N)), coeffs[n] = C(n)
 fn dct_1d(
   src : ArrayView[Float],
   dst : Array[Float],

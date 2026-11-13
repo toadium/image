@@ -1,14 +1,14 @@
 ///|
-/// # self_evolve/phase8_report
+/// # 阶段8报告 self_evolve/phase8_report
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // Phase 8 综合报告 — 汇总 v296-v299 全部能力
 // Phase 8 comprehensive report: aggregate v296-v299 capabilities
 
 ///|
 /// Phase 8 单项能力描述。
-/// Phase 8 single capability.
+/// 阶段 Phase 8 single capability.
 #derive(Eq, @debug.Debug)
 pub(all) struct Phase8Capability {
   version : String
@@ -27,7 +27,7 @@ pub extend Phase8Capability with Eq::{not_equal, equal}
 
 ///|
 /// Phase 8 综合报告。
-/// Phase 8 aggregate report.
+/// 阶段 Phase 8 aggregate report.
 #derive(Eq, @debug.Debug)
 pub(all) struct Phase8Report {
   capabilities : Array[Phase8Capability]
@@ -45,7 +45,7 @@ pub extend Phase8Report with Eq::{not_equal, equal}
 
 ///|
 /// Phase 8 全部能力清单（v296-v299）。
-/// Phase 8 capability list (v296-v299).
+/// 阶段 Phase 8 capability list (v296-v299).
 pub fn phase8_capabilities() -> Array[Phase8Capability] {
   [
     {

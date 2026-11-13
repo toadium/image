@@ -1,9 +1,8 @@
 ///|
-/// # multi band blend
-/// multi band blend
+/// # 多频段融合 multi band blend
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 拉普拉斯金字塔融合（纯 MoonBit）：multi_band_blend
 // 多频带融合：对两幅图像和掩码构建拉普拉斯/高斯金字塔，逐层混合后重建
 

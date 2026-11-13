@@ -1,8 +1,8 @@
 ///|
 /// # 绘制函数 16-bit/float 变体 Drawing functions 16-bit/float variants
 ///
-/// draw_line_16 / draw_rect_16
-/// 16-bit/float drawing primitives
+/// 16位绘图基元 draw_line_16 / draw_rect_16
+/// 16位/浮点绘图基元 16-bit/float drawing primitives
 // 绘制函数 16-bit/float 变体
 // draw_line / draw_rectangle / draw_circle / draw_polygon
 

@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/schedule
+/// # 调度 self_evolve/schedule
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 演化调度引擎 — 调度并执行自动演化周期
 // Evolution schedule engine: schedule and execute automatic evolution cycles
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 调度状态。
-/// Schedule status.
+/// 调度 Schedule status.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -29,7 +29,7 @@ pub extend ScheduleStatus with Eq::{not_equal, equal}
 
 ///|
 /// 演化调度计划。
-/// Evolution schedule plan.
+/// 描述 Evolution schedule plan.
 #derive(Eq, @debug.Debug)
 pub(all) struct EvolutionSchedule {
   schedule_id : String
@@ -46,7 +46,7 @@ pub extend EvolutionSchedule with Eq::{not_equal, equal}
 
 ///|
 /// 调度执行结果。
-/// Schedule execution result.
+/// 调度 Schedule execution result.
 #derive(Eq, @debug.Debug)
 pub(all) struct ScheduleResult {
   schedule : EvolutionSchedule
@@ -64,7 +64,7 @@ pub extend ScheduleResult with Eq::{not_equal, equal}
 
 ///|
 /// 为给定算子列表创建演化调度。
-/// Create evolution schedule for given ops.
+/// 创建 Create evolution schedule for given ops.
 pub fn create_schedule(ops : Array[@imgir.IROp]) -> EvolutionSchedule {
   let count = ops.length()
   let id = "sched-" + count.to_string() + "-ops"
@@ -78,7 +78,7 @@ pub fn create_schedule(ops : Array[@imgir.IROp]) -> EvolutionSchedule {
 
 ///|
 /// 执行演化调度。
-/// Execute evolution schedule.
+/// 执行 Execute evolution schedule.
 pub fn run_schedule(schedule : EvolutionSchedule) -> ScheduleResult {
   let running_schedule = {
     schedule_id: schedule.schedule_id,
@@ -128,7 +128,7 @@ pub fn run_schedule(schedule : EvolutionSchedule) -> ScheduleResult {
 
 ///|
 /// 运行全量演化周期（所有算子）。
-/// Run full evolution cycle (all ops).
+/// 运行 Run full evolution cycle (all ops).
 pub fn run_full_evolution() -> ScheduleResult {
   let schedule = create_schedule(all_ops())
   run_schedule(schedule)
@@ -136,7 +136,7 @@ pub fn run_full_evolution() -> ScheduleResult {
 
 ///|
 /// 调度结果是否成功（无剩余退化）。
-/// Whether schedule result is successful (no remaining degradations).
+/// 描述 Whether schedule result is successful (no remaining degradations).
 pub fn ScheduleResult::is_successful(self : ScheduleResult) -> Bool {
   self.schedule.status is Completed && self.remaining_count == 0
 }

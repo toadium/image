@@ -2,7 +2,7 @@
 /// # ImgIR 序列化 ImgIR Serialization
 ///
 /// 管道 ↔ Bytes 双向转换
-/// Pipeline ↔ Bytes bidirectional conversion
+/// 管线↔Bytes 双向转换 Pipeline ↔ Bytes bidirectional conversion
 // ImgIR 序列化：管道 ↔ Bytes 双向转换。
 // IR serialization: pipeline ↔ Bytes bidirectional conversion.
 //
@@ -42,7 +42,7 @@ fn ir_read_float(data : Bytes, offset : Int32) -> Float {
 
 ///|
 /// 序列化单个操作到缓冲区。
-/// Serialize a single operation to buffer.
+/// 序列化单个操作到缓冲区 Serialize a single operation to buffer.
 pub fn ir_serialize_op(op : IROp, buf : Array[Byte]) -> Unit {
   match op {
     Resize(w, h) => {
@@ -105,7 +105,7 @@ pub fn ir_serialize_op(op : IROp, buf : Array[Byte]) -> Unit {
 
 ///|
 /// 反序列化单个操作。
-/// Deserialize a single operation.
+/// 反序列化单个操作 Deserialize a single operation.
 pub fn ir_deserialize_op(
   data : Bytes,
   offset : Int32,
@@ -177,7 +177,7 @@ pub fn ir_deserialize_op(
 
 ///|
 /// 序列化管道为 Bytes。
-/// Serialize pipeline to Bytes.
+/// 序列化管线 Serialize pipeline
 pub fn ir_serialize(pipeline : IRPipeline) -> Bytes {
   let buf : Array[Byte] = []
   ir_write_int(buf, pipeline.ops.length())
@@ -189,7 +189,7 @@ pub fn ir_serialize(pipeline : IRPipeline) -> Bytes {
 
 ///|
 /// 从 Bytes 反序列化管道。
-/// Deserialize pipeline from Bytes.
+/// 从 Bytes 反序列化管线 Deserialize pipeline from Bytes.
 pub fn ir_deserialize(data : Bytes) -> IRPipeline raise @types.LoadError {
   if data.length() < 4 {
     raise @types.LoadError::DecodeFailed(

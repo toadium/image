@@ -1,8 +1,7 @@
 ///|
 /// # 图像加载/保存统一入口 Image Load/Save Unified Entry
 ///
-/// 通过 magic bytes 自动检测图像格式，并委托 codec/color 包进行解码和通道转换。
-/// Automatically detects image format via magic bytes, and delegates to codec/color packages for decoding and channel conversion.
+/// 通过 magic bytes 自动检测图像格式，并委托 codec/color 包进行解码和通道转换。 Automatically detects image format via magic bytes, and delegates to codec/color packages for decoding and channel conversion.
 ///
 /// 核心函数 Core functions:
 /// - `detect_format` - 检测图像格式 Detect image format
@@ -11,10 +10,8 @@
 /// - `load_image_info` - 加载图像信息（不含像素数据）Load image info (no pixel data)
 ///
 /// 注意 Notes:
-/// - TGA 无固定 magic bytes，需显式调用 @codec.decode_tga_pure
-///   TGA has no fixed magic bytes, must explicitly call @codec.decode_tga_pure
-/// - HDR 返回 ImageF（浮点图像），需显式调用 @codec.decode_hdr_pure
-///   HDR returns ImageF (float image), must explicitly call @codec.decode_hdr_pure
+/// - TGA 无固定 magic bytes，需显式调用 @codec.decode_tga_pure TGA has no fixed magic bytes, must explicitly call @codec.decode_tga_pure
+/// - HDR 返回 ImageF（浮点图像），需显式调用 @codec.decode_hdr_pure HDR returns ImageF (float image), must explicitly call @codec.decode_hdr_pure
 
 // lib 包：统一分派入口（格式分派层）
 // 职责：通过 magic bytes 检测图像格式，并委托 pure/codec 进行解码、pure/color 进行通道转换
@@ -25,10 +22,11 @@
 pub type ImageFormat = @types.ImageFormat
 
 ///|
-/// 通过 magic bytes 检测图像格式
-/// - BMP "BM"、QOI "qoif"、PNM "P5"/"P6"、PSD "8BPS"、GIF "GIF87a"/"GIF89a"
-/// - PNG 8字节签名、JPEG SOI 0xFF 0xD8
-/// - WebP: RIFF....WEBP
+/// 通过 magic bytes 检测图像格式 - BMP "BM"、QOI "qoif"、PNM "P5"/"P6"、PSD "8BPS"、GIF "GIF87a"/"GIF89a"
+
+/// - PNG 8字节签名、JPEG SOI 0xFF 0xD8 - WebP: RIFF....WEBP
+
+///|
 /// - ICNS: 前4字节 "icns"
 /// - TIFF: 字节序标记 + magic 0x002A
 /// - ICO/CUR: 前4字节 00 00 01 00
@@ -186,19 +184,13 @@ pub fn detect_format(data : Bytes) -> @types.ImageFormat {
 }
 
 ///|
-/// 自动格式分派解码（pure 侧统一入口）
-/// 根据 magic bytes 检测格式并委托对应 pure 解码器
+/// 自动格式分派解码（pure 侧统一入口），根据 magic bytes 检测格式并委托对应 pure 解码器
 /// - 不支持 TGA 自动分派（无固定 magic bytes），需显式调用 @codec.decode_tga_pure
 /// - HDR 返回 ImageF，需显式调用 @codec.decode_hdr_pure
 /// - APNG 与 PNG 共享签名，需显式调用 decode_apng_pure
-/// - 未识别格式 raise LoadError::DecodeFailed
-/// Auto-format dispatch decoding (pure side unified entry)
-/// Detects format from magic bytes and delegates to corresponding pure decoder
-/// - TGA not supported for auto-dispatch (no fixed magic bytes), call @codec.decode_tga_pure explicitly
-/// - HDR returns ImageF, call @codec.decode_hdr_pure explicitly
-/// - APNG shares signature with PNG, call decode_apng_pure explicitly
-/// - Unrecognized format raises LoadError::DecodeFailed
-///
+/// - 未识别格式 raise LoadError::DecodeFailed Auto-format dispatch decoding (pure side unified entry), Detects format from magic bytes and delegates to corresponding pure decoder
+
+///|
 /// ```mbt check
 /// test "doc_load_from_bytes_auto_bmp" {
 ///   try {
@@ -278,7 +270,7 @@ pub fn load_16_from_bytes_auto(
 
 ///|
 /// QOI 编码委托
-/// QOI encoding delegation
+/// QOI 编码委托 QOI encoding delegation
 ///
 /// 错误 Errors:
 /// - `LoadError::EncodeFailed` - channels 不为 3 或 4 Channels not 3 or 4
@@ -306,7 +298,7 @@ pub fn encode_pgm_auto(img : @types.Image) -> Bytes {
 
 ///|
 /// GIF 编码委托
-/// GIF encoding delegation
+/// GIF 编码委托 GIF encoding delegation
 ///
 /// 错误 Errors:
 /// - `LoadError::EncodeFailed` - channels 不为 3 或 4 Channels not 3 or 4
@@ -322,7 +314,7 @@ pub fn encode_png(img : @types.Image) -> Bytes {
 
 ///|
 /// JPEG 编码委托
-/// JPEG encoding delegation
+/// JPEG 编码委托 JPEG encoding delegation
 ///
 /// 错误 Errors:
 /// - `LoadError::EncodeFailed` - 尺寸无效、channels 不支持 Invalid dimensions, unsupported channels
@@ -332,7 +324,7 @@ pub fn encode_jpeg(img : @types.Image) -> Bytes raise @types.LoadError {
 
 ///|
 /// HDR 编码委托
-/// HDR encoding delegation
+/// HDR 编码委托 HDR encoding delegation
 ///
 /// 错误 Errors:
 /// - `LoadError::EncodeFailed` - channels 不为 3 Channels not 3
@@ -408,13 +400,9 @@ pub fn save_image_with_quality(
 }
 
 ///|
-/// Float 自动格式分派加载
-/// - HDR → decode_hdr_pure 返回 ImageF
-/// - 其他格式不支持 Float 加载，raise
-/// Float auto-format dispatch loading
-/// - HDR → decode_hdr_pure returns ImageF
-/// - Other formats do not support Float loading, raises
-///
+/// Float 自动格式分派加载，HDR → decode_hdr_pure 返回 ImageF，其他格式不支持 Float 加载 raise Float auto-format dispatch loading, HDR → decode_hdr_pure returns ImageF, Other formats do not support Float loading, raises
+
+///|
 /// 参数 Parameters:
 /// - `data` - 字节流 Byte stream
 ///
@@ -422,8 +410,7 @@ pub fn save_image_with_quality(
 /// - ImageF（HDR 解码结果）ImageF (HDR decode result)
 ///
 /// 错误 Errors:
-/// - `LoadError::DecodeFailed` - 非 HDR 格式、HDR 头无效
-///   Non-HDR format, invalid HDR header
+/// - `LoadError::DecodeFailed` - 非 HDR 格式、HDR 头无效 Non-HDR format, invalid HDR header
 /// @see load_any 基础版本，本函数为 ImageF 变体
 pub fn load_any_f(data : Bytes) -> @types.ImageF raise @types.LoadError {
   match detect_format(data) {
@@ -436,9 +423,7 @@ pub fn load_any_f(data : Bytes) -> @types.ImageF raise @types.LoadError {
 }
 
 ///|
-/// Float 自动格式分派保存
-/// - HDR → encode_hdr_pure
-/// - 其他格式不支持 Float 保存，raise
+/// Float 自动格式分派保存，HDR → encode_hdr_pure，其他格式不支持 Float 保存 raise
 /// @see save_any 基础版本，本函数为 ImageF 变体
 pub fn save_any_f(
   img : @types.ImageF,
@@ -454,9 +439,7 @@ pub fn save_any_f(
 }
 
 ///|
-/// 查询格式是否支持 16-bit 加载
-/// - PNG/PNM → true
-/// - 其他 → false
+/// 查询格式是否支持 16-bit 加载，PNG/PNM → true，其他 → false
 pub fn format_supports_16bit(format : @types.ImageFormat) -> Bool {
   match format {
     @types.ImageFormat::Png => true
@@ -466,9 +449,7 @@ pub fn format_supports_16bit(format : @types.ImageFormat) -> Bool {
 }
 
 ///|
-/// 查询格式是否支持 Float 加载/保存
-/// - HDR → true
-/// - 其他 → false
+/// 查询格式是否支持 Float 加载/保存，HDR → true，其他 → false
 pub fn format_supports_float(format : @types.ImageFormat) -> Bool {
   match format {
     @types.ImageFormat::Hdr => true

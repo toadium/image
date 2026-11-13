@@ -1,8 +1,8 @@
 ///|
-/// # video/video_inpaint
+/// # 视频修复 video/video_inpaint
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 视频修复 — 补全/去抖/去闪烁
 // Video inpainting: completion / de-flicker / de-shimmer
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 视频修复方法。
-/// Video inpainting method.
+/// 视频修复方法 Video inpainting method.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -28,7 +28,7 @@ pub extend VideoInpaintMethod with Eq::{not_equal, equal}
 
 ///|
 /// 去闪烁方法。
-/// De-flicker method.
+/// 去闪烁方法 De-flicker method.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -46,7 +46,7 @@ pub extend FlickerMethod with Eq::{not_equal, equal}
 
 ///|
 /// 视频修复配置。
-/// Video inpainting configuration.
+/// 视频修复配置 Video inpainting configuration.
 #derive(Eq, @debug.Debug)
 pub(all) struct VideoInpaintConfig {
   inpaint_method : VideoInpaintMethod
@@ -63,7 +63,7 @@ pub extend VideoInpaintConfig with Eq::{not_equal, equal}
 
 ///|
 /// 去闪烁配置。
-/// De-flicker configuration.
+/// 去闪烁配置 De-flicker configuration.
 #derive(Eq, @debug.Debug)
 pub(all) struct FlickerConfig {
   flicker_method : FlickerMethod
@@ -79,7 +79,7 @@ pub extend FlickerConfig with Eq::{not_equal, equal}
 
 ///|
 /// 闪烁检测结果。
-/// Flicker detection result.
+/// 闪烁检测结果 Flicker detection result.
 #derive(Eq, @debug.Debug)
 pub(all) struct FlickerDetection {
   has_flicker : Bool // 是否检测到闪烁
@@ -95,7 +95,7 @@ pub extend FlickerDetection with Eq::{not_equal, equal}
 
 ///|
 /// 默认修复配置。
-/// Default inpainting configuration.
+/// 默认修复配置 Default inpainting configuration.
 pub fn default_inpaint_config() -> VideoInpaintConfig {
   {
     inpaint_method: Temporal,
@@ -107,14 +107,14 @@ pub fn default_inpaint_config() -> VideoInpaintConfig {
 
 ///|
 /// 默认去闪烁配置。
-/// Default de-flicker configuration.
+/// 默认去闪烁配置 Default de-flicker configuration.
 pub fn default_flicker_config() -> FlickerConfig {
   { flicker_method: TemporalFlicker, temporal_window: 5, strength: 0.8, }
 }
 
 ///|
 /// 计算图像平均亮度。
-/// Compute mean luminance of an image.
+/// 计算图像平均亮度 Compute mean luminance of an image.
 fn compute_mean_luminance(img : @types.Image) -> Double {
   let n = img.width * img.height * img.channels
   if n == 0 {
@@ -129,7 +129,7 @@ fn compute_mean_luminance(img : @types.Image) -> Double {
 
 ///|
 /// 时域修复：用前后帧填补掩码区域。
-/// Temporal inpainting: fill masked region using adjacent frames.
+/// 时间修复：用相邻帧填充掩膜区域 Temporal inpainting: fill masked region using adjacent frames.
 pub fn temporal_inpaint(
   current : @types.Image,
   prev_frame : @types.Image,
@@ -157,7 +157,7 @@ pub fn temporal_inpaint(
 
 ///|
 /// 空域修复：用周围像素填补掩码区域。
-/// Spatial inpainting: fill masked region using surrounding pixels.
+/// 空间修复：用周围像素填充掩膜区域 Spatial inpainting: fill masked region using surrounding pixels.
 pub fn spatial_inpaint(
   current : @types.Image,
   mask : Array[Bool],
@@ -218,7 +218,7 @@ pub fn spatial_inpaint(
 
 ///|
 /// 视频修复主流程。
-/// Video inpainting pipeline.
+/// 视频修复管线 Video inpainting pipeline.
 pub fn video_inpaint(
   frames : Array[@types.Image],
   mask : Array[Bool],
@@ -257,7 +257,7 @@ pub fn video_inpaint(
 
 ///|
 /// 检测闪烁：分析帧间亮度变化。
-/// Detect flicker: analyze inter-frame luminance changes.
+/// 检测闪烁：分析帧间亮度变化 Detect flicker: analyze inter-frame luminance changes.
 pub fn detect_flicker(
   frames : Array[@types.Image],
   threshold : Double,
@@ -292,7 +292,7 @@ pub fn detect_flicker(
 
 ///|
 /// 时域去闪烁：用时域窗口平滑亮度。
-/// Temporal de-flicker: smooth luminance using temporal window.
+/// 时间去闪烁：用时间窗口平滑亮度 Temporal de-flicker: smooth luminance using temporal window.
 pub fn deflicker_temporal(
   frames : Array[@types.Image],
   config : FlickerConfig,
@@ -341,7 +341,7 @@ pub fn deflicker_temporal(
 
 ///|
 /// 直方图去闪烁：稳定帧间直方图分布。
-/// Histogram de-flicker: stabilize inter-frame histogram distribution.
+/// 直方图去闪烁 Histogram de-flicker
 pub fn deflicker_histogram(
   frames : Array[@types.Image],
   config : FlickerConfig,
@@ -399,7 +399,7 @@ pub fn deflicker_histogram(
 
 ///|
 /// 亮度去闪烁：归一化帧间亮度。
-/// Luminance de-flicker: normalize inter-frame luminance.
+/// 亮度去闪烁：归一化帧间亮度 Luminance de-flicker: normalize inter-frame luminance.
 pub fn deflicker_luminance(
   frames : Array[@types.Image],
   config : FlickerConfig,
@@ -442,7 +442,7 @@ pub fn deflicker_luminance(
 
 ///|
 /// 视频去闪烁主流程。
-/// Video de-flicker pipeline.
+/// 视频去闪烁管线 Video de-flicker pipeline.
 pub fn video_deflicker(
   frames : Array[@types.Image],
   config : FlickerConfig,
@@ -456,7 +456,7 @@ pub fn video_deflicker(
 
 ///|
 /// 去抖动：减少帧间像素抖动。
-/// De-shimmer: reduce inter-frame pixel jitter.
+/// 去微颤：减少帧间像素抖动 De-shimmer: reduce inter-frame pixel jitter.
 pub fn deshimmer(
   frames : Array[@types.Image],
   strength : Double,
@@ -490,7 +490,7 @@ pub fn deshimmer(
 
 ///|
 /// 视频修复流水线：修复 + 去闪烁 + 去抖动。
-/// Video inpainting pipeline: inpaint + de-flicker + de-shimmer.
+/// 视频修复管线：修复 + 去闪烁 + 去微颤 Video inpainting pipeline: inpaint + de-flicker + de-shimmer.
 pub fn inpaint_pipeline(
   frames : Array[@types.Image],
   mask : Array[Bool],

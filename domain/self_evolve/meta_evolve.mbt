@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/meta_evolve
+/// # 元进化 self_evolve/meta_evolve
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 自演化 Meta — 元演化（演化演化本身）
 // Meta evolution: evolve the evolution process itself
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 元演化策略。
-/// Meta evolution strategy.
+/// 描述 Meta evolution strategy.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -30,7 +30,7 @@ pub extend MetaStrategy with Eq::{not_equal, equal}
 
 ///|
 /// 元演化动作。
-/// Meta evolution action.
+/// 描述 Meta evolution action.
 #derive(Eq, @debug.Debug)
 pub(all) struct MetaAction {
   strategy : MetaStrategy
@@ -48,7 +48,7 @@ pub extend MetaAction with Eq::{not_equal, equal}
 
 ///|
 /// 元演化报告。
-/// Meta evolution report.
+/// 描述 Meta evolution report.
 #derive(Eq, @debug.Debug)
 pub(all) struct MetaReport {
   actions : Array[MetaAction]
@@ -65,7 +65,7 @@ pub extend MetaReport with Eq::{not_equal, equal}
 
 ///|
 /// 对单个算子进行元演化。
-/// Perform meta evolution for a single op.
+/// 性能 Perform meta evolution for a single op.
 pub fn meta_evolve_op(op : @imgir.IROp) -> MetaReport {
   let tag = op.tag()
   let quality = eval_quality_op(op)
@@ -152,7 +152,7 @@ pub fn meta_evolve_op(op : @imgir.IROp) -> MetaReport {
 
 ///|
 /// 对所有算子进行元演化。
-/// Perform meta evolution for all ops.
+/// 性能 Perform meta evolution for all ops.
 pub fn meta_evolve_all() -> MetaReport {
   let all_actions : Array[MetaAction] = []
   let mut total_applied = 0
@@ -178,14 +178,14 @@ pub fn meta_evolve_all() -> MetaReport {
 
 ///|
 /// 元演化报告是否有变更。
-/// Whether meta report has changes.
+/// 描述 Whether meta report has changes.
 pub fn MetaReport::has_changes(self : MetaReport) -> Bool {
   self.applied_count > 0
 }
 
 ///|
 /// 元演化报告策略数。
-/// Strategy count.
+/// 描述 Strategy count.
 pub fn MetaReport::strategy_count(self : MetaReport) -> Int32 {
   self.total_strategies
 }

@@ -1,8 +1,8 @@
 ///|
 /// # 局部二值模式 16-bit/float 变体 Local Binary Pattern 16-bit/float variants
 ///
-/// lbp_16 / lbp_f
-/// 16-bit/float LBP
+/// 16位/浮点 LBP lbp_16 / lbp_f
+/// 16位/浮点 LBP 16-bit/float LBP
 // 局部二值模式（LBP）16-bit/float 变体
 // 支持 Image16 / ImageF 两种类型
 

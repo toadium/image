@@ -1,8 +1,7 @@
 ///|
 /// # PNG 扩展 PNG Extended
 ///
-/// PNG 扩展功能
-/// PNG extended features
+/// PNG 扩展功能 PNG extended features
 
 ///|
 /// PNG 扩展信息（包含位深、颜色类型、隔行扫描等）

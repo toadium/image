@@ -1,8 +1,8 @@
 ///|
-/// # meta/exif_read
+/// # EXIF 读取 meta/exif_read
 ///
 /// 编解码工具模块
-/// Codec utility module
+/// 编解码工具模块 Codec utility module
 // EXIF 元数据读取（纯 MoonBit）
 // 支持 JPEG EXIF：Make/Model/Orientation/DateTime
 

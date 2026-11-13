@@ -1,9 +1,8 @@
 ///|
-/// # colormap
-/// colormap
+/// # 色彩映射 colormap
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 伪彩色映射（纯 MoonBit）：apply_colormap + 预设色彩映射表
 
 ///|

@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/quality_eval
+/// # 质量评估 self_evolve/quality_eval
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 演化质量评估 — 评估演化质量
 // Evolution quality evaluation: assess evolution quality
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 质量维度。
-/// Quality dimension.
+/// 质量 Quality dimension.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -30,7 +30,7 @@ pub extend QualityDimension with Eq::{not_equal, equal}
 
 ///|
 /// 单维度质量评分。
-/// Single dimension quality score.
+/// 描述 Single dimension quality score.
 #derive(Eq, @debug.Debug)
 pub(all) struct QualityScore {
   dimension : QualityDimension
@@ -46,7 +46,7 @@ pub extend QualityScore with Eq::{not_equal, equal}
 
 ///|
 /// 质量等级。
-/// Quality grade.
+/// 质量 Quality grade.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -66,7 +66,7 @@ pub extend QualityGrade with Eq::{not_equal, equal}
 
 ///|
 /// 质量评估报告。
-/// Quality evaluation report.
+/// 质量 Quality evaluation report.
 #derive(Eq, @debug.Debug)
 pub(all) struct QualityReport {
   scores : Array[QualityScore]
@@ -99,7 +99,7 @@ fn score_to_grade(score : Int32) -> QualityGrade {
 
 ///|
 /// 评估单个算子的演化质量。
-/// Evaluate evolution quality for a single op.
+/// 评估 Evaluate evolution quality for a single op.
 pub fn eval_quality_op(op : @imgir.IROp) -> QualityReport {
   let tag = op.tag()
   let scores : Array[QualityScore] = []
@@ -172,7 +172,7 @@ pub fn eval_quality_op(op : @imgir.IROp) -> QualityReport {
 
 ///|
 /// 评估所有算子的演化质量。
-/// Evaluate evolution quality for all ops.
+/// 评估 Evaluate evolution quality for all ops.
 pub fn eval_quality_all() -> QualityReport {
   let all_scores : Array[QualityScore] = []
   let mut total_overall = 0
@@ -204,14 +204,14 @@ pub fn eval_quality_all() -> QualityReport {
 
 ///|
 /// 质量评估报告是否通过（>= 60）。
-/// Whether quality report is passing (>= 60).
+/// 描述 Whether quality report is passing (>= 60).
 pub fn QualityReport::is_passing(self : QualityReport) -> Bool {
   self.overall_score >= 60
 }
 
 ///|
 /// 质量评估报告维度数。
-/// Dimension count.
+/// 描述 Dimension count.
 pub fn QualityReport::dimension_count(self : QualityReport) -> Int32 {
   self.scores.length()
 }

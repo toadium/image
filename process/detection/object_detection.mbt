@@ -1,9 +1,8 @@
 ///|
-/// # object detection
-/// object detection
+/// # 目标检测 object detection
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 目标检测基础（v12.4.0）
 // 检测框 + IoU + NMS 非极大值抑制 + 检测框绘制
 

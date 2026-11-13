@@ -1,8 +1,8 @@
 ///|
-/// # production_utils/production_utils
+/// # 生产工具 production_utils/production_utils
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // production_utils.mbt：生产级工具函数
 // 提供统一的输入验证、错误处理、性能监控、内存安全等功能
 

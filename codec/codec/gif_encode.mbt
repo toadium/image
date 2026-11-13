@@ -1,8 +1,7 @@
 ///|
 /// # GIF 编码器 GIF Encoder
 ///
-/// 纯 MoonBit GIF89a 编码器，使用 3-3-2 均匀量化（256 色调色板）+ LZW 压缩。
-/// Pure MoonBit GIF89a encoder using 3-3-2 uniform quantization (256-color palette) + LZW compression.
+/// 纯 MoonBit GIF89a 编码器，使用 3-3-2 均匀量化（256 色调色板）+ LZW 压缩。 Pure MoonBit GIF89a encoder using 3-3-2 uniform quantization (256-color palette) + LZW compression.
 ///
 /// 核心函数 Core functions:
 /// - `encode_gif_pure` - 编码单帧 GIF Encode single-frame GIF
@@ -125,13 +124,9 @@ fn lzw_compress(indices : Array[Int32], min_code_size : Int32) -> Bytes {
 }
 
 ///|
-/// 将 Image 编码为单帧 GIF89a 字节流
-/// 使用 3-3-2 均匀量化（256 色调色板）+ LZW 压缩
-/// 输入 channels 应为 3 (RGB) 或 4 (RGBA，alpha 忽略)
-/// Encode Image to single-frame GIF89a byte stream
-/// Uses 3-3-2 uniform quantization (256-color palette) + LZW compression
-/// Input channels should be 3 (RGB) or 4 (RGBA, alpha ignored)
-///
+/// 将 Image 编码为单帧 GIF89a 字节流，使用 3-3-2 均匀量化（256 色调色板）+ LZW 压缩，输入 channels 应为 3 (RGB) 或 4 (RGBA，alpha 忽略) Encode Image to single-frame GIF89a byte stream, Uses 3-3-2 uniform quantization (256-color palette) + LZW compression, Input channels should be 3 (RGB) or 4 (RGBA, alpha ignored)
+
+///|
 /// 参数 Parameters:
 /// - `img` - 输入图像 Input image
 ///
@@ -139,8 +134,7 @@ fn lzw_compress(indices : Array[Int32], min_code_size : Int32) -> Bytes {
 /// - GIF89a 字节流 GIF89a byte stream
 ///
 /// 错误 Errors:
-/// - `LoadError::EncodeFailed` - channels 不为 3 或 4
-///   Channels not 3 or 4
+/// - `LoadError::EncodeFailed` - channels 不为 3 或 4 Channels not 3 or 4
 ///
 /// ```mbt check
 /// test "doc_encode_gif_pure" {

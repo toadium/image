@@ -1,8 +1,8 @@
 ///|
-/// # pipeline/pipeline
+/// # 管线 pipeline/pipeline
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 
 ///|
 /// 批处理流水线 + 插件系统 + CLI 工具
@@ -198,15 +198,16 @@ pub(all) enum CliCommand {
 ///
 /// 解析命令行参数，返回对应的命令。
 /// 支持的命令格式：
-/// - convert <input> <output>
-/// - resize <input> <output> <width> <height>
-/// - rotate <input> <output> <angle>
-/// - batch <input_dir> <output_dir> <pipeline_config>
-/// - info <input>
-/// - help
-/// Parse command-line arguments, return corresponding command.
-/// Supported command formats:
-/// - convert / resize / rotate / batch / info / help
+/// CLI 命令：convert / resize / rotate / batch / info / help
+/// - convert <input> <output> 转换格式
+/// - resize <input> <output> <width> <height> 缩放
+/// - rotate <input> <output> <angle> 旋转
+/// - batch <input_dir> <output_dir> <pipeline_config> 批处理
+/// - info <input> 信息
+/// - help 帮助
+/// 解析 Parse command-line arguments, return corresponding command.
+/// 描述 Supported command formats:
+/// 支持命令：convert / resize / rotate / batch / info / help
 pub fn cli_parse(args : Array[String]) -> CliCommand {
   if args.length() == 0 {
     return CliCommand::Help

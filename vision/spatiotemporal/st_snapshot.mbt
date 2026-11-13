@@ -1,14 +1,14 @@
 ///|
-/// # spatiotemporal/st_snapshot
+/// # 时空快照 spatiotemporal/st_snapshot
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 时序快照：取指定时间帧、截取子片段、帧抽取。
 // Temporal snapshot: frame at time, subclip, frame extraction.
 
 ///|
 /// 取指定时间的最近帧（不插值）。
-/// Get the nearest frame at the given time (no interpolation).
+/// 获取给定时间的最近帧（无插值） Get the nearest frame at the given time (no interpolation).
 pub fn st_snapshot(timage : TImage, time : Float) -> @types.Image {
   if timage.frames.length() == 1 {
     return timage.frames[0].image
@@ -27,7 +27,7 @@ pub fn st_snapshot(timage : TImage, time : Float) -> @types.Image {
 
 ///|
 /// 截取子片段：从 start 到 end 时间区间的帧组成新 TImage。
-/// Extract a subclip from start to end time.
+/// 从起始到结束时间提取子片段 Extract a subclip from start to end time.
 pub fn st_subclip(
   timage : TImage,
   start : Float,
@@ -60,7 +60,7 @@ pub fn st_subclip(
 
 ///|
 /// 抽取指定索引的帧。
-/// Extract a specific frame by index.
+/// 按索引提取特定帧 Extract a specific frame by index.
 pub fn st_extract_frame(
   timage : TImage,
   index : Int32,
@@ -73,7 +73,7 @@ pub fn st_extract_frame(
 
 ///|
 /// 从 GIF 动画创建时变图像。
-/// Create a time-varying image from a GIF animation.
+/// 从 GIF 动画创建时变图像 Create a time-varying image from a GIF
 pub fn st_from_gif_animation(
   gif : @types.GifAnimation,
 ) -> TImage raise @types.LoadError {

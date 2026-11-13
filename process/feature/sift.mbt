@@ -1,9 +1,8 @@
 ///|
-/// # sift
-/// sift
+/// # SIFT 特征 sift
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // SIFT 特征检测（纯 MoonBit）
 // Scale-Invariant Feature Transform
 // Lowe, "Distinctive Image Features from Scale-Invariant Keypoints" (2004)

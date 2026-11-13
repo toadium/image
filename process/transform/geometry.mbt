@@ -1,9 +1,8 @@
 ///|
-/// # geometry
-/// geometry
+/// # 几何变换 geometry
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 几何变换（纯 MoonBit）：仿射变换 + 任意角度旋转
 // 使用双线性插值，边界 clamp 到边缘像素
 
@@ -39,8 +38,8 @@ fn sample_bilinear(
 
 ///|
 /// 仿射变换。matrix = (a, b, c, d, e, f) 映射 dst→src：
-///   src_x = a * dst_x + b * dst_y + c
-///   src_y = d * dst_x + e * dst_y + f
+///   仿射逆映射 src_x = a * dst_x + b * dst_y + c
+///   仿射逆映射 src_y = d * dst_x + e * dst_y + f
 /// 使用双线性插值，超出边界的像素 clamp 到边缘。
 /// 输出尺寸为 new_w × new_h，通道数与输入相同。
 pub fn warp_affine(
@@ -133,8 +132,8 @@ pub fn rotate(img : @types.Image, angle_degrees : Float) -> @types.Image {
 
 ///|
 /// 2×3 仿射变换矩阵 (a, b, c, d, e, f)
-/// x' = a*x + b*y + c
-/// y' = d*x + e*y + f
+/// 正向仿射变换 x' = a*x + b*y + c
+/// 正向仿射变换 y' = d*x + e*y + f
 pub(all) struct AffineMatrix {
   a : Float
   b : Float

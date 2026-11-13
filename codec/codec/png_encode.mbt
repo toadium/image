@@ -2,7 +2,7 @@
 /// # PNG 编码 PNG Encode
 ///
 /// PNG 图像格式编码
-/// PNG image format encoding
+/// PNG 图像格式编码 PNG image format encoding
 // 纯 MoonBit PNG 编码（全目标可用：native/wasm/js）
 // 使用 filter type 0 (None) + zlib stored blocks（无压缩但有效）
 

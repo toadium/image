@@ -1,8 +1,8 @@
 ///|
-/// # point_cloud/point_cloud
+/// # 点云 point_cloud/point_cloud
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 点云处理 — 采样/法向/分割
 // Point cloud processing: sampling / normal estimation / segmentation
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 点云采样方法。
-/// Point cloud sampling method.
+/// 点 Point cloud sampling method.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -28,7 +28,7 @@ pub extend PointCloudSampleMethod with Eq::{not_equal, equal}
 
 ///|
 /// 法向估计方法。
-/// Normal estimation method.
+/// 描述 Normal estimation method.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -45,7 +45,7 @@ pub extend NormalEstimationMethod with Eq::{not_equal, equal}
 
 ///|
 /// 点云分割方法。
-/// Point cloud segmentation method.
+/// 点 Point cloud segmentation method.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -63,7 +63,7 @@ pub extend PointCloudSegmentMethod with Eq::{not_equal, equal}
 
 ///|
 /// 三维点（轻量级）。
-/// 3D point (lightweight).
+/// 三维点（轻量） 3D point (lightweight).
 #derive(Eq, @debug.Debug)
 pub(all) struct Point3DLight {
   x : Double
@@ -79,7 +79,7 @@ pub extend Point3DLight with Eq::{not_equal, equal}
 
 ///|
 /// 点云（轻量级）。
-/// Point cloud (lightweight).
+/// 点 Point cloud (lightweight).
 #derive(Eq, @debug.Debug)
 pub(all) struct PointCloud3D {
   points : Array[Point3DLight]
@@ -94,7 +94,7 @@ pub extend PointCloud3D with Eq::{not_equal, equal}
 
 ///|
 /// 点云配置。
-/// Point cloud configuration.
+/// 点 Point cloud configuration.
 #derive(Eq, @debug.Debug)
 pub(all) struct PointCloudConfig {
   sample_method : PointCloudSampleMethod
@@ -114,7 +114,7 @@ pub extend PointCloudConfig with Eq::{not_equal, equal}
 
 ///|
 /// 聚类结果。
-/// Cluster result.
+/// 聚类 Cluster result.
 #derive(Eq, @debug.Debug)
 pub(all) struct ClusterResult {
   clusters : Array[Array[Int32]] // 每个聚类的点索引
@@ -129,7 +129,7 @@ pub extend ClusterResult with Eq::{not_equal, equal}
 
 ///|
 /// 默认点云配置。
-/// Default point cloud configuration.
+/// 描述 Default point cloud configuration.
 pub fn default_pointcloud_config() -> PointCloudConfig {
   {
     sample_method: VoxelGridSampling,
@@ -144,14 +144,14 @@ pub fn default_pointcloud_config() -> PointCloudConfig {
 
 ///|
 /// 创建空点云。
-/// Create empty point cloud.
+/// 创建 Create empty point cloud.
 pub fn create_empty_cloud() -> PointCloud3D {
   { points: [], normals: [], }
 }
 
 ///|
 /// 从点数组创建点云。
-/// Create point cloud from point array.
+/// 创建 Create point cloud from point array.
 pub fn create_cloud(points : Array[Point3DLight]) -> PointCloud3D {
   let normals : Array[Point3DLight] = []
   for _ in points {
@@ -162,7 +162,7 @@ pub fn create_cloud(points : Array[Point3DLight]) -> PointCloud3D {
 
 ///|
 /// 计算两点距离。
-/// Compute distance between two points.
+/// 计算 Compute distance between two points.
 fn point_distance(p1 : Point3DLight, p2 : Point3DLight) -> Double {
   let dx = p1.x - p2.x
   let dy = p1.y - p2.y
@@ -172,7 +172,7 @@ fn point_distance(p1 : Point3DLight, p2 : Point3DLight) -> Double {
 
 ///|
 /// 计算点云质心。
-/// Compute point cloud centroid.
+/// 计算 Compute point cloud centroid.
 pub fn compute_centroid(cloud : PointCloud3D) -> Point3DLight {
   let n = cloud.points.length()
   if n == 0 {
@@ -195,7 +195,7 @@ pub fn compute_centroid(cloud : PointCloud3D) -> Point3DLight {
 
 ///|
 /// 随机采样：按比例随机选取点。
-/// Random sampling: select points by ratio.
+/// 描述 Random sampling: select points by ratio.
 pub fn random_sampling(cloud : PointCloud3D, ratio : Double) -> PointCloud3D {
   let n = cloud.points.length()
   let target_count = (n.to_double() * ratio).to_int()
@@ -218,7 +218,7 @@ pub fn random_sampling(cloud : PointCloud3D, ratio : Double) -> PointCloud3D {
 
 ///|
 /// 均匀采样：按固定间隔选取点。
-/// Uniform sampling: select points at fixed interval.
+/// 描述 Uniform sampling: select points at fixed interval.
 pub fn uniform_sampling(cloud : PointCloud3D, step : Int32) -> PointCloud3D {
   if step <= 1 {
     return cloud
@@ -239,7 +239,7 @@ pub fn uniform_sampling(cloud : PointCloud3D, step : Int32) -> PointCloud3D {
 
 ///|
 /// 体素网格下采样：将空间划分为体素，每个体素保留一个代表点。
-/// Voxel grid downsampling: divide space into voxels, keep one representative per voxel.
+/// 描述 Voxel grid downsampling: divide space into voxels, keep one representative per voxel.
 pub fn voxel_grid_sampling(
   cloud : PointCloud3D,
   voxel_size : Double,
@@ -294,7 +294,7 @@ pub fn voxel_grid_sampling(
 
 ///|
 /// 点云采样主流程。
-/// Point cloud sampling pipeline.
+/// 点 Point cloud sampling pipeline.
 pub fn sample_pointcloud(
   cloud : PointCloud3D,
   config : PointCloudConfig,
@@ -308,7 +308,7 @@ pub fn sample_pointcloud(
 
 ///|
 /// K近邻搜索：找到距目标点最近的K个点。
-/// K-nearest neighbor search: find K closest points to target.
+/// 描述 K-nearest neighbor search: find K closest points to target.
 pub fn knn_search(
   cloud : PointCloud3D,
   target : Point3DLight,
@@ -334,7 +334,7 @@ pub fn knn_search(
 
 ///|
 /// 按距离排序。
-/// Sort by distance.
+/// 排序 Sort by distance.
 fn sort_by_distance(arr : Array[(Int32, Double)]) -> Array[(Int32, Double)] {
   let result = arr.copy()
   let n = result.length()
@@ -358,7 +358,7 @@ fn sort_by_distance(arr : Array[(Int32, Double)]) -> Array[(Int32, Double)] {
 
 ///|
 /// 估计法向量：使用K近邻的协方差矩阵特征向量。
-/// Estimate normal vectors: use eigenvector of KNN covariance matrix.
+/// 描述 Estimate normal vectors: use eigenvector of KNN covariance matrix.
 pub fn estimate_normals(
   cloud : PointCloud3D,
   config : PointCloudConfig,
@@ -412,7 +412,7 @@ pub fn estimate_normals(
 
 ///|
 /// 欧式聚类分割：基于距离的聚类。
-/// Euclidean clustering: distance-based clustering.
+/// 描述 Euclidean clustering: distance-based clustering.
 pub fn euclidean_clustering(
   cloud : PointCloud3D,
   tolerance : Double,
@@ -468,7 +468,7 @@ pub fn euclidean_clustering(
 
 ///|
 /// 平面分割：RANSAC平面拟合。
-/// Plane segmentation: RANSAC plane fitting.
+/// 描述 Plane segmentation: RANSAC plane fitting.
 pub fn plane_segmentation(
   cloud : PointCloud3D,
   threshold : Double,
@@ -526,7 +526,7 @@ pub fn plane_segmentation(
 
 ///|
 /// 点云分割主流程。
-/// Point cloud segmentation pipeline.
+/// 点 Point cloud segmentation pipeline.
 pub fn segment_pointcloud(
   cloud : PointCloud3D,
   config : PointCloudConfig,
@@ -562,7 +562,7 @@ pub fn segment_pointcloud(
 
 ///|
 /// 点云处理流水线：采样 → 法向估计 → 分割。
-/// Point cloud processing pipeline: sample → normal estimation → segmentation.
+/// 点 Point cloud processing pipeline: sample → normal estimation → segmentation.
 pub fn pointcloud_pipeline(
   cloud : PointCloud3D,
   config : PointCloudConfig,

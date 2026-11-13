@@ -1,8 +1,8 @@
 ///|
-/// # imgir/ir_executor
+/// # IR 执行器 imgir/ir_executor
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // ImgIR 执行器：在 IR 值上按顺序执行管道操作。
 // IR executor: executes pipeline operations on IR values in order.
 //
@@ -14,7 +14,7 @@
 
 ///|
 /// 执行单个操作：根据操作类型变换 IR 值。
-/// Execute a single operation: transform IR value according to operation type.
+/// 执行单个操作：按操作类型变换 IR 值 Execute a single operation: transform IR value according to operation type.
 pub fn ir_execute_op(
   op : IROp,
   input : IRValue,
@@ -106,7 +106,7 @@ pub fn ir_execute_op(
 
 ///|
 /// 执行管道：按顺序在输入值上执行所有操作。
-/// Execute pipeline: run all operations in order on the input value.
+/// 执行管线 Execute pipeline
 pub fn ir_execute(
   pipeline : IRPipeline,
   input : IRValue,
@@ -120,7 +120,7 @@ pub fn ir_execute(
 
 ///|
 /// 类型检查：验证管道在给定输入类型下是否类型安全。
-/// Type check: verify pipeline is type-safe for the given input type.
+/// 类型检查：验证管线对给定输入类型安全 Type check: verify pipeline is type-safe for the given input type.
 /// 返回最终输出类型标签，或在不匹配处抛异常。
 pub fn ir_type_check(
   pipeline : IRPipeline,
@@ -147,7 +147,7 @@ pub fn ir_type_check(
 
 ///|
 /// 管道描述：生成人类可读的操作序列描述。
-/// Pipeline description: generate human-readable operation sequence.
+/// 管线描述：生成可读操作序列 Pipeline description: generate human-readable operation sequence.
 pub fn ir_describe(pipeline : IRPipeline) -> String {
   if pipeline.ops.length() == 0 {
     return "empty pipeline"

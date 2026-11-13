@@ -1,8 +1,8 @@
 ///|
 /// # 图像统计 16-bit/float 变体 Image Statistics 16-bit/float Variants
 ///
-/// compute_stats_16 / mean_value_16
-/// 16-bit/float image statistics computation
+/// 计算 compute_stats_16 / mean_value_16
+/// 16位/浮点图像统计计算 16-bit/float image statistics computation
 // 图像统计信息 16-bit/float 变体：compute_stats / mean_value
 // 支持 Image16 / ImageF 两种类型
 

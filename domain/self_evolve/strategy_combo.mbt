@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/strategy_combo
+/// # 策略组合 self_evolve/strategy_combo
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 演化策略组合 — 组合多种演化策略
 // Evolution strategy combination: combine multiple evolution strategies
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 策略类型。
-/// Strategy kind.
+/// 描述 Strategy kind.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -30,7 +30,7 @@ pub extend StrategyKind with Eq::{not_equal, equal}
 
 ///|
 /// 策略组合。
-/// Strategy combination.
+/// 描述 Strategy combination.
 #derive(Eq, @debug.Debug)
 pub(all) struct StrategyCombo {
   strategies : Array[StrategyKind]
@@ -47,7 +47,7 @@ pub extend StrategyCombo with Eq::{not_equal, equal}
 
 ///|
 /// 策略组合报告。
-/// Strategy combination report.
+/// 描述 Strategy combination report.
 #derive(Eq, @debug.Debug)
 pub(all) struct ComboReport {
   combos : Array[StrategyCombo]
@@ -64,7 +64,7 @@ pub extend ComboReport with Eq::{not_equal, equal}
 
 ///|
 /// 为单个算子组合演化策略。
-/// Combine evolution strategies for a single op.
+/// 合并 Combine evolution strategies for a single op.
 pub fn combine_strategies(op : @imgir.IROp) -> StrategyCombo {
   let tag = op.tag()
   let degs = detect_degradation(op)
@@ -106,7 +106,7 @@ pub fn combine_strategies(op : @imgir.IROp) -> StrategyCombo {
 
 ///|
 /// 为所有算子组合演化策略。
-/// Combine evolution strategies for all ops.
+/// 合并 Combine evolution strategies for all ops.
 pub fn combine_all_strategies() -> ComboReport {
   let combos : Array[StrategyCombo] = []
   let mut parallel_count = 0
@@ -130,7 +130,7 @@ pub fn combine_all_strategies() -> ComboReport {
 
 ///|
 /// 策略组合报告是否有可并行策略。
-/// Whether combo report has parallel strategies.
+/// 描述 Whether combo report has parallel strategies.
 pub fn ComboReport::has_parallel(self : ComboReport) -> Bool {
   self.parallel_count > 0
 }

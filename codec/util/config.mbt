@@ -4,8 +4,8 @@
 /// 纯 MoonBit 全局配置状态（全目标可用：native/wasm/js）。
 /// 用 Ref[Bool]/Ref[Float] 替代 C 端全局状态。
 ///
-/// Pure MoonBit global configuration state (all targets: native/wasm/js).
-/// Uses Ref[Bool]/Ref[Float] to replace C-side global state.
+/// 纯 MoonBit 全局配置状态（全目标）。使用 Ref[Bool]/Ref[Float] 替代 C 端全局状态。 Pure MoonBit global configuration state (all targets: native/wasm/js).
+/// 使用 Ref[Bool]/Ref[Float] 替代 C 端全局状态。 Uses Ref[Bool]/Ref[Float] to replace C-side global state.
 ///
 /// 核心配置 Core configs:
 /// - `flip_vertically_on_load_flag` - 加载时垂直翻转 Flip vertically on load

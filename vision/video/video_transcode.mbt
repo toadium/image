@@ -1,8 +1,8 @@
 ///|
-/// # video/video_transcode
+/// # 视频转码 video/video_transcode
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 视频转码 — 格式/分辨率/码率
 // Video transcoding: format / resolution / bitrate
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 视频格式。
-/// Video format.
+/// 视频格式 Video format.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -30,7 +30,7 @@ pub extend VideoFormat with Eq::{not_equal, equal}
 
 ///|
 /// 分辨率调整模式。
-/// Resolution adjustment mode.
+/// 分辨率调整 Resolution adjustment
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -48,7 +48,7 @@ pub extend ResolutionMode with Eq::{not_equal, equal}
 
 ///|
 /// 码率控制模式。
-/// Bitrate control mode.
+/// 码率控制模式 Bitrate control mode.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -66,7 +66,7 @@ pub extend BitrateMode with Eq::{not_equal, equal}
 
 ///|
 /// 转码参数。
-/// Transcode parameters.
+/// 转码参数 Transcode parameters.
 #derive(Eq, @debug.Debug)
 pub(all) struct TranscodeParams {
   target_format : VideoFormat
@@ -87,7 +87,7 @@ pub extend TranscodeParams with Eq::{not_equal, equal}
 
 ///|
 /// 转码结果。
-/// Transcode result.
+/// 转码结果 Transcode result.
 #derive(Eq, @debug.Debug)
 pub(all) struct TranscodeResult {
   frames : Array[@types.Image]
@@ -107,7 +107,7 @@ pub extend TranscodeResult with Eq::{not_equal, equal}
 
 ///|
 /// 默认转码参数。
-/// Default transcode parameters.
+/// 默认转码参数 Default transcode parameters.
 pub fn default_transcode_params() -> TranscodeParams {
   {
     target_format: H264,
@@ -123,7 +123,7 @@ pub fn default_transcode_params() -> TranscodeParams {
 
 ///|
 /// 缩放图像。
-/// Scale image to target size.
+/// 缩放图像到目标尺寸 Scale image to target size.
 pub fn scale_image(
   img : @types.Image,
   target_width : Int32,
@@ -155,7 +155,7 @@ pub fn scale_image(
 
 ///|
 /// 裁剪图像。
-/// Crop image to target size.
+/// 裁剪图像到目标尺寸 Crop image to target size.
 pub fn crop_image(
   img : @types.Image,
   target_width : Int32,
@@ -187,7 +187,7 @@ pub fn crop_image(
 
 ///|
 /// 填充图像到目标尺寸。
-/// Pad image to target size.
+/// 填充图像到目标尺寸 Pad image to target size.
 pub fn pad_image(
   img : @types.Image,
   target_width : Int32,
@@ -224,7 +224,7 @@ pub fn pad_image(
 
 ///|
 /// 调整分辨率。
-/// Adjust resolution.
+/// 调整分辨率 Adjust resolution.
 pub fn resize_image(
   img : @types.Image,
   target_width : Int32,
@@ -240,7 +240,7 @@ pub fn resize_image(
 
 ///|
 /// 计算估计码率。
-/// Compute estimated bitrate.
+/// 计算估计码率 Compute estimated bitrate.
 pub fn compute_bitrate(
   width : Int32,
   height : Int32,
@@ -256,7 +256,7 @@ pub fn compute_bitrate(
 
 ///|
 /// 估计质量分数。
-/// Estimate quality score (0-100).
+/// 估计质量分(0-100) Estimate quality score (0-100).
 pub fn estimate_quality(crf : Int32, bitrate : Int32) -> Double {
   let crf_score = (51 - crf).to_double() / 51.0 * 50.0
   let bitrate_score = (bitrate.to_double() / 5000.0).clamp(min=0.0, max=1.0) *
@@ -266,7 +266,7 @@ pub fn estimate_quality(crf : Int32, bitrate : Int32) -> Double {
 
 ///|
 /// 转码视频。
-/// Transcode video.
+/// 转码视频 Transcode video.
 pub fn transcode_video(
   frames : Array[@types.Image],
   params : TranscodeParams,
@@ -330,7 +330,7 @@ pub fn transcode_video(
 
 ///|
 /// 调整视频帧率。
-/// Adjust video framerate.
+/// 调整视频帧率 Adjust video framerate.
 pub fn adjust_framerate(
   frames : Array[@types.Image],
   source_fps : Int32,
@@ -368,7 +368,7 @@ pub fn adjust_framerate(
 
 ///|
 /// 计算视频时长（秒）。
-/// Compute video duration in seconds.
+/// 计算视频时长（秒） Compute video duration in seconds.
 pub fn compute_duration(frame_count : Int32, fps : Int32) -> Double {
   if fps <= 0 {
     return 0.0
@@ -378,7 +378,7 @@ pub fn compute_duration(frame_count : Int32, fps : Int32) -> Double {
 
 ///|
 /// 计算压缩比。
-/// Compute compression ratio.
+/// 计算压缩比 Compute compression ratio.
 pub fn transcode_compression_ratio(
   original_size : Int32,
   transcoded_size : Int32,

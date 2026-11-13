@@ -1,9 +1,8 @@
 ///|
-/// # image hash
-/// image hash
+/// # 图像哈希 image hash
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 感知哈希（纯 MoonBit）：ahash / dhash / phash / hamming_distance
 
 ///|

@@ -2,7 +2,7 @@
 /// # PNM 16-bit 解码 PNM 16-bit Decode
 ///
 /// PNM 16-bit 高精度解码
-/// PNM 16-bit high-precision decoding
+/// PNM 16-bit 高精度解码 PNM 16-bit high-precision decoding
 // 纯 MoonBit PNM 16-bit 解码器
 // 支持 P5（PGM 16-bit 灰度）和 P6（PPM 16-bit RGB）
 // maxval ≥ 256 时为 16-bit（big-endian uint16 per sample）

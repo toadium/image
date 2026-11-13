@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/param_tune
+/// # 参数调优 self_evolve/param_tune
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 自适应参数调优 — 根据历史自动调优参数
 // Adaptive parameter tuning: auto-tune parameters based on history
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 参数类型。
-/// Parameter kind.
+/// 描述 Parameter kind.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -29,7 +29,7 @@ pub extend ParamKind with Eq::{not_equal, equal}
 
 ///|
 /// 单个调优参数。
-/// Single tuned parameter.
+/// 描述 Single tuned parameter.
 #derive(Eq, @debug.Debug)
 pub(all) struct TunedParam {
   param_kind : ParamKind
@@ -47,7 +47,7 @@ pub extend TunedParam with Eq::{not_equal, equal}
 
 ///|
 /// 参数调优报告。
-/// Parameter tuning report.
+/// 描述 Parameter tuning report.
 #derive(Eq, @debug.Debug)
 pub(all) struct TuneReport {
   params : Array[TunedParam]
@@ -64,7 +64,7 @@ pub extend TuneReport with Eq::{not_equal, equal}
 
 ///|
 /// 为单个算子调优参数。
-/// Tune parameters for a single op.
+/// 调优 Tune parameters for a single op.
 pub fn tune_params(op : @imgir.IROp) -> Array[TunedParam] {
   let tag = op.tag()
   let params : Array[TunedParam] = []
@@ -133,7 +133,7 @@ pub fn tune_params(op : @imgir.IROp) -> Array[TunedParam] {
 
 ///|
 /// 为所有算子调优参数。
-/// Tune parameters for all ops.
+/// 调优 Tune parameters for all ops.
 pub fn tune_all_params() -> TuneReport {
   let params : Array[TunedParam] = []
   for op in all_ops() {
@@ -158,7 +158,7 @@ pub fn tune_all_params() -> TuneReport {
 
 ///|
 /// 调优报告是否有参数调整。
-/// Whether tune report has adjustments.
+/// 描述 Whether tune report has adjustments.
 pub fn TuneReport::has_adjustments(self : TuneReport) -> Bool {
   self.adjusted_count > 0
 }

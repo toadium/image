@@ -1,8 +1,7 @@
 ///|
 /// # APNG 扩展 APNG Extended
 ///
-/// APNG 扩展功能
-/// APNG extended features
+/// APNG 扩展功能 APNG extended features
 
 ///|
 /// APNG 扩展信息（包含帧数、播放次数、动画标志等）

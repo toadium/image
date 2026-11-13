@@ -1,14 +1,14 @@
 ///|
-/// # self_evolve/evolve_loop
+/// # 进化 self_evolve/evolve_loop
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 自演化闭环 — 串联 test_gen + degrade + optimize + perf
 // Evolution loop: full cycle connecting all self_evolve capabilities
 
 ///|
 /// 自演化闭环报告。
-/// Evolution cycle report.
+/// 描述 Evolution cycle report.
 #derive(Eq, @debug.Debug)
 pub(all) struct EvolveCycleReport {
   pipeline_desc : String
@@ -29,7 +29,7 @@ pub extend EvolveCycleReport with Eq::{not_equal, equal}
 
 ///|
 /// 完整自演化闭环：退化发现 → 测试生成 → 管道优化 → 性能回归 → 综合报告。
-/// Full evolution cycle: degradation → test gen → optimize → perf → report.
+/// 描述 Full evolution cycle: degradation → test gen → optimize → perf → report.
 pub fn evolve_full_cycle(pipeline : @imgir.IRPipeline) -> EvolveCycleReport {
   let ops = pipeline.ops
   // 1. 退化发现
@@ -67,7 +67,7 @@ pub fn evolve_full_cycle(pipeline : @imgir.IRPipeline) -> EvolveCycleReport {
 
 ///|
 /// 对全部 19 种算子执行自演化闭环。
-/// Run evolution cycle on all 19 op variants.
+/// 运行 Run evolution cycle on all 19 op variants.
 pub fn evolve_cycle_all() -> Array[EvolveCycleReport] {
   let reports : Array[EvolveCycleReport] = []
   for op in all_ops() {
@@ -79,7 +79,7 @@ pub fn evolve_cycle_all() -> Array[EvolveCycleReport] {
 
 ///|
 /// 闭环是否改善了管道（算子减少且成本降低）。
-/// Whether cycle improved the pipeline (fewer ops and lower cost).
+/// 描述 Whether cycle improved the pipeline (fewer ops and lower cost).
 pub fn EvolveCycleReport::is_improved(self : EvolveCycleReport) -> Bool {
   self.optimized_op_count < self.original_op_count &&
   self.perf_regression.is_improvement()
@@ -87,7 +87,7 @@ pub fn EvolveCycleReport::is_improved(self : EvolveCycleReport) -> Bool {
 
 ///|
 /// 闭环是否有退化风险。
-/// Whether cycle has degradation risk.
+/// 描述 Whether cycle has degradation risk.
 pub fn EvolveCycleReport::has_degradation_risk(
   self : EvolveCycleReport,
 ) -> Bool {
@@ -96,7 +96,7 @@ pub fn EvolveCycleReport::has_degradation_risk(
 
 ///|
 /// 闭环安全度（0-100，越高越安全）。
-/// Cycle safety score (0-100, higher is safer).
+/// 描述 Cycle safety score (0-100, higher is safer).
 pub fn EvolveCycleReport::safety_score(self : EvolveCycleReport) -> Int32 {
   let deg_penalty = self.found_degradations.length() * 10
 

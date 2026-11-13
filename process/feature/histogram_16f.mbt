@@ -1,8 +1,8 @@
 ///|
 /// # 直方图操作 16-bit/float 变体 Histogram operations 16-bit/float variants
 ///
-/// histogram_16 / histogram_equalize_16
-/// 16-bit/float histogram operations
+/// 16位直方图操作 histogram_16 / histogram_equalize_16
+/// 16位/浮点直方图操作 16-bit/float histogram operations
 // 直方图操作 16-bit/float 变体
 // 支持 Image16 / ImageF 两种类型
 

@@ -1,8 +1,8 @@
 ///|
-/// # compression/image_compression
+/// # 图像压缩 compression/image_compression
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 图像压缩与编码优化（v28.0.0）
 // 图像压缩、量化、熵编码、压缩质量评估
 

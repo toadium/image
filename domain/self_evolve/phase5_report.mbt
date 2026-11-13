@@ -1,14 +1,14 @@
 ///|
-/// # self_evolve/phase5_report
+/// # 阶段5报告 self_evolve/phase5_report
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // Phase 5 综合报告 — 汇总 v281-v284 全部能力
 // Phase 5 comprehensive report: aggregate v281-v284 capabilities
 
 ///|
 /// Phase 5 单项能力描述。
-/// Phase 5 single capability.
+/// 阶段 Phase 5 single capability.
 #derive(Eq, @debug.Debug)
 pub(all) struct Phase5Capability {
   version : String
@@ -27,7 +27,7 @@ pub extend Phase5Capability with Eq::{not_equal, equal}
 
 ///|
 /// Phase 5 综合报告。
-/// Phase 5 aggregate report.
+/// 阶段 Phase 5 aggregate report.
 #derive(Eq, @debug.Debug)
 pub(all) struct Phase5Report {
   capabilities : Array[Phase5Capability]
@@ -45,7 +45,7 @@ pub extend Phase5Report with Eq::{not_equal, equal}
 
 ///|
 /// Phase 5 全部能力清单（v281-v284）。
-/// Phase 5 capability list (v281-v284).
+/// 阶段 Phase 5 capability list (v281-v284).
 pub fn phase5_capabilities() -> Array[Phase5Capability] {
   [
     {

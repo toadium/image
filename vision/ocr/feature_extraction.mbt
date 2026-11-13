@@ -1,8 +1,8 @@
 ///|
-/// # ocr/feature_extraction
+/// # 特征提取 ocr/feature_extraction
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 特征提取
 // HOG、LBP、投影特征、网格特征、统计特征
 

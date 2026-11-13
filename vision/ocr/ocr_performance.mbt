@@ -1,8 +1,8 @@
 ///|
-/// # ocr/ocr_performance
+/// # OCR 性能 ocr/ocr_performance
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // v13.5.0 OCR 性能优化（纯 MoonBit 算法层面）
 // 查找表预计算 + 循环展开 + 缓存友好访问 + 内联展开
 

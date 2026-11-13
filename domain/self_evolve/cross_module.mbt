@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/cross_module
+/// # 跨模块 self_evolve/cross_module
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 跨模块演化协同 — 跨模块协同演化
 // Cross-module evolution coordination: coordinate evolution across modules
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 模块依赖类型。
-/// Module dependency kind.
+/// 描述 Module dependency kind.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -28,7 +28,7 @@ pub extend ModuleDepKind with Eq::{not_equal, equal}
 
 ///|
 /// 模块依赖关系。
-/// Module dependency.
+/// 描述 Module dependency.
 #derive(Eq, @debug.Debug)
 pub(all) struct ModuleDep {
   source : String
@@ -44,7 +44,7 @@ pub extend ModuleDep with Eq::{not_equal, equal}
 
 ///|
 /// 协同演化动作类型。
-/// Co-evolution action kind.
+/// 描述 Co-evolution action kind.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -62,7 +62,7 @@ pub extend CoEvolveActionKind with Eq::{not_equal, equal}
 
 ///|
 /// 协同演化动作。
-/// Co-evolution action.
+/// 描述 Co-evolution action.
 #derive(Eq, @debug.Debug)
 pub(all) struct CoEvolveAction {
   action_kind : CoEvolveActionKind
@@ -79,7 +79,7 @@ pub extend CoEvolveAction with Eq::{not_equal, equal}
 
 ///|
 /// 协同演化报告。
-/// Co-evolution report.
+/// 描述 Co-evolution report.
 #derive(Eq, @debug.Debug)
 pub(all) struct CoEvolveReport {
   actions : Array[CoEvolveAction]
@@ -97,7 +97,7 @@ pub extend CoEvolveReport with Eq::{not_equal, equal}
 
 ///|
 /// 构建 self_evolve 内部模块依赖图。
-/// Build module dependency graph for self_evolve internal modules.
+/// 构建 Build module dependency graph for self_evolve internal modules.
 pub fn build_module_deps() -> Array[ModuleDep] {
   [
     { source: "degrade_detect", target: "evolve_types", kind: Uses, },
@@ -122,7 +122,7 @@ pub fn build_module_deps() -> Array[ModuleDep] {
 
 ///|
 /// 为单个算子分析跨模块协同演化。
-/// Analyze cross-module co-evolution for a single op.
+/// 描述 Analyze cross-module co-evolution for a single op.
 pub fn co_evolve_op(op : @imgir.IROp) -> CoEvolveReport {
   let tag = op.tag()
   let actions : Array[CoEvolveAction] = []
@@ -194,7 +194,7 @@ pub fn co_evolve_op(op : @imgir.IROp) -> CoEvolveReport {
 
 ///|
 /// 为所有算子分析跨模块协同演化。
-/// Analyze cross-module co-evolution for all ops.
+/// 描述 Analyze cross-module co-evolution for all ops.
 pub fn co_evolve_all() -> CoEvolveReport {
   let all_actions : Array[CoEvolveAction] = []
   let mut total_sync = 0
@@ -227,14 +227,14 @@ pub fn co_evolve_all() -> CoEvolveReport {
 
 ///|
 /// 协同演化报告是否有级联演化。
-/// Whether co-evolution report has cascade actions.
+/// 描述 Whether co-evolution report has cascade actions.
 pub fn CoEvolveReport::has_cascade(self : CoEvolveReport) -> Bool {
   self.cascade_count > 0
 }
 
 ///|
 /// 协同演化报告总动作数。
-/// Total action count.
+/// 描述 Total action count.
 pub fn CoEvolveReport::total_actions(self : CoEvolveReport) -> Int32 {
   self.actions.length()
 }

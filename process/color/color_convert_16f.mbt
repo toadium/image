@@ -1,9 +1,8 @@
 ///|
-/// # color convert 16f
-/// color convert 16f
+/// # 色彩转换 16f color convert 16f
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 颜色空间转换 16-bit/float 变体
 // 支持 Image16 / ImageF 两种类型
 

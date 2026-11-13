@@ -1,8 +1,8 @@
 ///|
 /// # Canny 边缘检测 16-bit/float 变体 Canny edge detection 16-bit/float variants
 ///
-/// canny_16 / canny_f
-/// 16-bit/float Canny edge detection
+/// 16位/浮点 Canny 边缘检测 canny_16 / canny_f
+/// 16位/浮点 Canny 边缘检测 16-bit/float Canny edge detection
 // Canny 边缘检测 16-bit/float 变体
 // 支持 Image16 / ImageF 两种类型
 

@@ -1,14 +1,14 @@
 ///|
-/// # self_evolve/phase6_report
+/// # 阶段6报告 self_evolve/phase6_report
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // Phase 6 综合报告 — 汇总 v286-v289 全部能力
 // Phase 6 comprehensive report: aggregate v286-v289 capabilities
 
 ///|
 /// Phase 6 单项能力描述。
-/// Phase 6 single capability.
+/// 阶段 Phase 6 single capability.
 #derive(Eq, @debug.Debug)
 pub(all) struct Phase6Capability {
   version : String
@@ -27,7 +27,7 @@ pub extend Phase6Capability with Eq::{not_equal, equal}
 
 ///|
 /// Phase 6 综合报告。
-/// Phase 6 aggregate report.
+/// 阶段 Phase 6 aggregate report.
 #derive(Eq, @debug.Debug)
 pub(all) struct Phase6Report {
   capabilities : Array[Phase6Capability]
@@ -45,7 +45,7 @@ pub extend Phase6Report with Eq::{not_equal, equal}
 
 ///|
 /// Phase 6 全部能力清单（v286-v289）。
-/// Phase 6 capability list (v286-v289).
+/// 阶段 Phase 6 capability list (v286-v289).
 pub fn phase6_capabilities() -> Array[Phase6Capability] {
   [
     {

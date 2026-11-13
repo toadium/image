@@ -1,8 +1,8 @@
 ///|
-/// # photo_enhance/hdr
+/// # HDR 高动态范围 photo_enhance/hdr
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // HDR 高动态范围（v11.7.0）
 // 多曝光融合 + 色调映射（Reinhard / Gamma / Sigmoid）
 
@@ -270,7 +270,7 @@ pub fn tone_mapping_reinhard(
 
 ///|
 /// Gamma 校正色调映射
-/// out = in ^ gamma
+/// 伽马校正 out = in ^ gamma
 pub fn tone_mapping_gamma(
   img : @types.Image,
   gamma~ : Double = 1.0 / 2.2,
@@ -329,7 +329,7 @@ pub fn tone_mapping_gamma(
 
 ///|
 /// Sigmoid 色调映射
-/// out = 1 / (1 + exp(-strength * (in - 0.5)))
+/// Sigmoid 调整 out = 1 / (1 + exp(-strength * (in - 0.5)))
 pub fn tone_mapping_sigmoid(
   img : @types.Image,
   strength~ : Double = 5.0,

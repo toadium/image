@@ -1,8 +1,8 @@
 ///|
-/// # imgir/ir_value
+/// # IR 值 imgir/ir_value
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // ImgIR 统一中间表示：IR 值类型。
 // Unified IR value type: represents any intermediate value in the IR pipeline.
 //
@@ -12,7 +12,7 @@
 
 ///|
 /// IR 值类型：统一中间表示，可持有 Image / ScalarField / VectorField / TImage / Float / Int。
-/// IR value type: unified representation holding Image / ScalarField / VectorField / TImage / Float / Int.
+/// IR 值类型：统一表示 IR value type: unified representation holding Image / ScalarField / VectorField / TImage / Float / Int.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -34,7 +34,7 @@ pub extend IRValue with Eq::{not_equal, equal}
 
 ///|
 /// IR 值类型标签：用于类型检查和序列化。
-/// IR value type tag: for type checking and serialization.
+/// IR 值类型：统一表示 IR value type tag: for type checking and serialization.
 pub fn IRValue::type_tag(self : IRValue) -> String {
   match self {
     VImage(_) => "Image"
@@ -49,7 +49,7 @@ pub fn IRValue::type_tag(self : IRValue) -> String {
 
 ///|
 /// 判断 IR 值是否为 Image。
-/// Check if IR value is an Image.
+/// 检查 IR 值是否为 Image Check if IR value is an Image.
 pub fn IRValue::is_image(self : IRValue) -> Bool {
   match self {
     VImage(_) => true
@@ -59,7 +59,7 @@ pub fn IRValue::is_image(self : IRValue) -> Bool {
 
 ///|
 /// 判断 IR 值是否为 ScalarField。
-/// Check if IR value is a ScalarField.
+/// 检查 IR 值是否为 ScalarField Check if IR value is a ScalarField.
 pub fn IRValue::is_scalar_field(self : IRValue) -> Bool {
   match self {
     VScalarField(_) => true
@@ -69,7 +69,7 @@ pub fn IRValue::is_scalar_field(self : IRValue) -> Bool {
 
 ///|
 /// 判断 IR 值是否为 VectorField。
-/// Check if IR value is a VectorField.
+/// 检查 IR 值是否为 VectorField Check if IR value is a VectorField.
 pub fn IRValue::is_vector_field(self : IRValue) -> Bool {
   match self {
     VVectorField(_) => true
@@ -79,7 +79,7 @@ pub fn IRValue::is_vector_field(self : IRValue) -> Bool {
 
 ///|
 /// 判断 IR 值是否为 TImage。
-/// Check if IR value is a TImage.
+/// 检查 IR 值是否为 TImage Check if IR value is a TImage.
 pub fn IRValue::is_timage(self : IRValue) -> Bool {
   match self {
     VTImage(_) => true
@@ -89,7 +89,7 @@ pub fn IRValue::is_timage(self : IRValue) -> Bool {
 
 ///|
 /// 提取 Image 值，类型不匹配则抛异常。
-/// Extract Image value; raises on type mismatch.
+/// 提取 Image 值；类型不匹配时 raise Extract Image value; raises on type mismatch.
 pub fn IRValue::as_image(self : IRValue) -> @types.Image raise @types.LoadError {
   match self {
     VImage(img) => img
@@ -103,7 +103,7 @@ pub fn IRValue::as_image(self : IRValue) -> @types.Image raise @types.LoadError 
 
 ///|
 /// 提取 ScalarField 值，类型不匹配则抛异常。
-/// Extract ScalarField value; raises on type mismatch.
+/// 提取 ScalarField 值；类型不匹配时 raise Extract ScalarField value; raises on type mismatch.
 pub fn IRValue::as_scalar_field(
   self : IRValue,
 ) -> @fieldimg.ScalarField raise @types.LoadError {
@@ -119,7 +119,7 @@ pub fn IRValue::as_scalar_field(
 
 ///|
 /// 提取 VectorField 值，类型不匹配则抛异常。
-/// Extract VectorField value; raises on type mismatch.
+/// 提取 VectorField 值；类型不匹配时 raise Extract VectorField value; raises on type mismatch.
 pub fn IRValue::as_vector_field(
   self : IRValue,
 ) -> @fieldimg.VectorField raise @types.LoadError {
@@ -135,7 +135,7 @@ pub fn IRValue::as_vector_field(
 
 ///|
 /// 提取 TImage 值，类型不匹配则抛异常。
-/// Extract TImage value; raises on type mismatch.
+/// 提取 TImage 值；类型不匹配时 raise Extract TImage value; raises on type mismatch.
 pub fn IRValue::as_timage(
   self : IRValue,
 ) -> @spatiotemporal.TImage raise @types.LoadError {
@@ -151,7 +151,7 @@ pub fn IRValue::as_timage(
 
 ///|
 /// 提取 Float 值，类型不匹配则抛异常。
-/// Extract Float value; raises on type mismatch.
+/// 提取 Float 值；类型不匹配时 raise Extract Float value; raises on type mismatch.
 pub fn IRValue::as_float(self : IRValue) -> Float raise @types.LoadError {
   match self {
     VFloat(v) => v

@@ -1,8 +1,8 @@
 ///|
-/// # video/motion_estimation
+/// # 运动估计 video/motion_estimation
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 运动估计 — 块匹配/亚像素/分数像素
 // Motion estimation: block matching / subpixel / fractional
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 运动估计方法。
-/// Motion estimation method.
+/// 运动估计方法 Motion estimation method.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -29,7 +29,7 @@ pub extend MotionEstimationMethod with Eq::{not_equal, equal}
 
 ///|
 /// 运动矢量。
-/// Motion vector.
+/// 运动向量 Motion vector.
 #derive(Eq, @debug.Debug)
 pub(all) struct MotionVector {
   dx : Int32
@@ -45,7 +45,7 @@ pub extend MotionVector with Eq::{not_equal, equal}
 
 ///|
 /// 亚像素运动矢量。
-/// Subpixel motion vector.
+/// 亚像素运动向量 Subpixel motion vector.
 #derive(Eq, @debug.Debug)
 pub(all) struct SubpixelMotionVector {
   dx : Double
@@ -61,7 +61,7 @@ pub extend SubpixelMotionVector with Eq::{not_equal, equal}
 
 ///|
 /// 搜索配置。
-/// Search configuration.
+/// 搜索配置 Search configuration.
 #derive(Eq, @debug.Debug)
 pub(all) struct SearchConfig {
   me_method : MotionEstimationMethod
@@ -78,7 +78,7 @@ pub extend SearchConfig with Eq::{not_equal, equal}
 
 ///|
 /// 默认搜索配置。
-/// Default search configuration.
+/// 默认搜索配置 Default search configuration.
 pub fn default_search_config() -> SearchConfig {
   {
     me_method: DiamondSearch,
@@ -90,7 +90,7 @@ pub fn default_search_config() -> SearchConfig {
 
 ///|
 /// 计算块的 SAD（绝对误差和）。
-/// Compute SAD (Sum of Absolute Differences) for a block.
+/// 计算块 SAD（绝对差值和） Compute SAD (Sum of Absolute Differences) for a block.
 fn compute_sad(
   current : @types.Image,
   reference : @types.Image,
@@ -127,7 +127,7 @@ fn compute_sad(
 
 ///|
 /// 全搜索运动估计。
-/// Full search motion estimation.
+/// 全搜索运动估计 Full search motion estimation.
 pub fn estimate_motion_full_search(
   current : @types.Image,
   reference : @types.Image,
@@ -150,7 +150,7 @@ pub fn estimate_motion_full_search(
 
 ///|
 /// 菱形搜索运动估计。
-/// Diamond search motion estimation.
+/// 菱形搜索运动估计 Diamond search motion estimation.
 pub fn estimate_motion_diamond(
   current : @types.Image,
   reference : @types.Image,
@@ -193,7 +193,7 @@ pub fn estimate_motion_diamond(
 
 ///|
 /// 六边形搜索运动估计。
-/// Hexagonal search motion estimation.
+/// 六角搜索运动估计 Hexagonal search motion estimation.
 pub fn estimate_motion_hex(
   current : @types.Image,
   reference : @types.Image,
@@ -228,7 +228,7 @@ pub fn estimate_motion_hex(
 
 ///|
 /// 三步搜索运动估计。
-/// Three-step search motion estimation.
+/// 三步搜索 Three-step search
 pub fn estimate_motion_three_step(
   current : @types.Image,
   reference : @types.Image,
@@ -272,7 +272,7 @@ pub fn estimate_motion_three_step(
 
 ///|
 /// 亚像素精化（半像素）。
-/// Subpixel refinement (half-pixel).
+/// 亚像素精化（半像素） Subpixel refinement (half-pixel).
 pub fn refine_subpixel(
   current : @types.Image,
   reference : @types.Image,
@@ -324,7 +324,7 @@ pub fn refine_subpixel(
 
 ///|
 /// 计算运动场。
-/// Compute motion field for entire image.
+/// 计算整图运动场 Compute motion field for entire image.
 pub fn compute_motion_field(
   current : @types.Image,
   reference : @types.Image,
@@ -384,7 +384,7 @@ pub fn compute_motion_field(
 
 ///|
 /// 运动补偿。
-/// Motion compensation.
+/// 运动补偿 Motion compensation.
 pub fn motion_compensation(
   reference : @types.Image,
   motion_field : Array[MotionVector],
@@ -431,7 +431,7 @@ pub fn motion_compensation(
 
 ///|
 /// 估计运动并补偿。
-/// Estimate motion and compensate.
+/// 估计运动并补偿 Estimate motion and compensate.
 pub fn motion_estimate_and_compensate(
   current : @types.Image,
   reference : @types.Image,
@@ -443,7 +443,7 @@ pub fn motion_estimate_and_compensate(
 
 ///|
 /// 计算运动场平均 SAD。
-/// Compute average SAD of motion field.
+/// 计算运动场平均 SAD Compute average SAD of motion field.
 pub fn average_motion_sad(motion_field : Array[MotionVector]) -> Double {
   if motion_field.length() == 0 {
     return 0.0
@@ -457,7 +457,7 @@ pub fn average_motion_sad(motion_field : Array[MotionVector]) -> Double {
 
 ///|
 /// 计算运动矢量零率。
-/// Compute fraction of zero motion vectors.
+/// 计算零运动向量占比 Compute fraction of zero motion vectors.
 pub fn zero_motion_ratio(motion_field : Array[MotionVector]) -> Double {
   if motion_field.length() == 0 {
     return 0.0

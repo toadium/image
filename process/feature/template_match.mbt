@@ -1,9 +1,8 @@
 ///|
-/// # template match
-/// template match
+/// # 模板匹配 template match
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 模板匹配（纯 MoonBit）
 // 在图像中滑动模板，计算每个位置的匹配分数
 // 参考: https://docs.opencv.org/4.x/df/dfb/group__imgproc__object.html

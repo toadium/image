@@ -1,8 +1,7 @@
 ///|
 /// # WebP Lossless 解码器 WebP Lossless Decoder
 ///
-/// 纯 MoonBit WebP lossless (VP8L) 解码器，支持 RGBA 解码，不支持 lossy (VP8)。
-/// Pure MoonBit WebP lossless (VP8L) decoder, supports RGBA decoding, does not support lossy (VP8).
+/// 纯 MoonBit WebP lossless (VP8L) 解码器，支持 RGBA 解码，不支持 lossy (VP8)。 Pure MoonBit WebP lossless (VP8L) decoder, supports RGBA decoding, does not support lossy (VP8).
 ///
 /// 核心函数 Core functions:
 /// - `decode_webp_pure` - 解码 WebP 字节流为 Image Decode WebP byte stream to Image
@@ -305,11 +304,9 @@ fn apply_subtract_green_inverse(pixels : Array[Int32], n : Int32) -> Unit {
 // ==================== VP8L Decoder ====================
 
 ///|
-/// 解码 WebP 字节流为 Image（channels=3 或 4）
-/// 支持 VP8L (lossless) 和 VP8 (lossy) 格式
-/// Decode WebP byte stream to Image (channels=3 or 4)
-/// Supports VP8L (lossless) and VP8 (lossy) formats
-///
+/// 解码 WebP 字节流为 Image（channels=3 或 4），支持 VP8L (lossless) 和 VP8 (lossy) 格式 Decode WebP byte stream to Image (channels=3 or 4), Supports VP8L (lossless) and VP8 (lossy) formats
+
+///|
 /// 参数 Parameters:
 /// - `data` - WebP 字节流 WebP byte stream
 ///
@@ -317,8 +314,7 @@ fn apply_subtract_green_inverse(pixels : Array[Int32], n : Int32) -> Unit {
 /// - 解码后的 8-bit Image Decoded 8-bit Image
 ///
 /// 错误 Errors:
-/// - `LoadError::DecodeFailed` - 数据过短、RIFF/WEBP 头不匹配、VP8L/VP8 签名无效、尺寸无效
-///   Data too short, RIFF/WEBP header mismatch, invalid VP8L/VP8 signature, invalid dimensions
+/// - `LoadError::DecodeFailed` - 数据过短、RIFF/WEBP 头不匹配、VP8L/VP8 签名无效、尺寸无效 Data too short, RIFF/WEBP header mismatch, invalid VP8L/VP8 signature, invalid dimensions
 pub fn decode_webp_pure(data : Bytes) -> @types.Image raise @types.LoadError {
   let len = data.length()
   if len < 12 {

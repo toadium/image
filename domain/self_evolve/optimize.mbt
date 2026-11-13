@@ -1,14 +1,14 @@
 ///|
-/// # self_evolve/optimize
+/// # 优化 self_evolve/optimize
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 管道优化 — 消除冗余 + 合并相邻
 // Pipeline optimization: remove redundant + merge adjacent
 
 ///|
 /// 优化管道：消除恒等算子 + 互逆算子对 + 合并相邻同类算子。
-/// Optimize pipeline: remove identity + inverse pairs + merge adjacent.
+/// 描述 Optimize pipeline: remove identity + inverse pairs + merge adjacent.
 pub fn optimize_pipeline(pipeline : @imgir.IRPipeline) -> @imgir.IRPipeline {
   let ops = pipeline.ops
   let result : Array[@imgir.IROp] = []
@@ -35,7 +35,7 @@ pub fn optimize_pipeline(pipeline : @imgir.IRPipeline) -> @imgir.IRPipeline {
 
 ///|
 /// 生成优化建议（不实际优化，仅报告可优化点）。
-/// Generate optimization suggestions (report only, no actual optimization).
+/// 生成 Generate optimization suggestions (report only, no actual optimization).
 pub fn suggest_optimizations(
   pipeline : @imgir.IRPipeline,
 ) -> Array[OptimizationSuggestion] {
@@ -90,7 +90,7 @@ pub fn suggest_optimizations(
 
 ///|
 /// 完整优化：返回优化报告。
-/// Full optimization: return optimization report.
+/// 描述 Full optimization: return optimization report.
 pub fn optimize_all(pipeline : @imgir.IRPipeline) -> OptimizationReport {
   let optimized = optimize_pipeline(pipeline)
   let suggestions = suggest_optimizations(pipeline)
@@ -104,7 +104,7 @@ pub fn optimize_all(pipeline : @imgir.IRPipeline) -> OptimizationReport {
 
 ///|
 /// 计算优化后的算子数（不实际构建管道）。
-/// Count ops after optimization (without building pipeline).
+/// 计数 Count ops after optimization (without building pipeline).
 pub fn optimized_op_count(pipeline : @imgir.IRPipeline) -> Int32 {
   optimize_pipeline(pipeline).length()
 }

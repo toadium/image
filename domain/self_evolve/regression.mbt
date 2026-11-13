@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/regression
+/// # 回归 self_evolve/regression
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 跨版本回归检测 — 检测版本间退化回归
 // Cross-version regression detection: detect degradation regressions across versions
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 回归类型。
-/// Regression kind.
+/// 描述 Regression kind.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -29,7 +29,7 @@ pub extend RegressionKind with Eq::{not_equal, equal}
 
 ///|
 /// 单个回归案例。
-/// Single regression case.
+/// 描述 Single regression case.
 #derive(Eq, @debug.Debug)
 pub(all) struct RegressionCase {
   from_version : String
@@ -47,7 +47,7 @@ pub extend RegressionCase with Eq::{not_equal, equal}
 
 ///|
 /// 回归检测报告。
-/// Regression detection report.
+/// 描述 Regression detection report.
 #derive(Eq, @debug.Debug)
 pub(all) struct RegressionReport {
   cases : Array[RegressionCase]
@@ -64,7 +64,7 @@ pub extend RegressionReport with Eq::{not_equal, equal}
 
 ///|
 /// 检测历史快照间的回归。
-/// Detect regressions across history snapshots.
+/// 检测 Detect regressions across history snapshots.
 pub fn detect_regressions() -> RegressionReport {
   let log = history_log()
   let entries = log.entries
@@ -149,7 +149,7 @@ pub fn detect_regressions() -> RegressionReport {
 
 ///|
 /// 检查指定版本是否有回归（退化数 > 0）。
-/// Whether a specific version has regressions (degradation count > 0).
+/// 描述 Whether a specific version has regressions (degradation count > 0).
 pub fn has_regression(version : String) -> Bool {
   let log = history_log()
   for e in log.entries {
@@ -162,7 +162,7 @@ pub fn has_regression(version : String) -> Bool {
 
 ///|
 /// 回归报告是否无回归。
-/// Whether regression report is clean (no regressions).
+/// 描述 Whether regression report is clean (no regressions).
 pub fn RegressionReport::is_clean(self : RegressionReport) -> Bool {
   self.total_regressions == 0
 }

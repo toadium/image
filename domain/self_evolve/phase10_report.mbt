@@ -1,14 +1,14 @@
 ///|
-/// # self_evolve/phase10_report
+/// # 阶段10报告 self_evolve/phase10_report
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // Phase 10 综合报告 — 汇总 v306-v309 全部能力
 // Phase 10 comprehensive report: aggregate v306-v309 capabilities
 
 ///|
 /// Phase 10 单项能力描述。
-/// Phase 10 single capability.
+/// 阶段 Phase 10 single capability.
 #derive(Eq, @debug.Debug)
 pub(all) struct Phase10Capability {
   version : String
@@ -27,7 +27,7 @@ pub extend Phase10Capability with Eq::{not_equal, equal}
 
 ///|
 /// Phase 10 综合报告。
-/// Phase 10 aggregate report.
+/// 阶段 Phase 10 aggregate report.
 #derive(Eq, @debug.Debug)
 pub(all) struct Phase10Report {
   capabilities : Array[Phase10Capability]
@@ -45,7 +45,7 @@ pub extend Phase10Report with Eq::{not_equal, equal}
 
 ///|
 /// Phase 10 全部能力清单（v306-v309）。
-/// Phase 10 capability list (v306-v309).
+/// 阶段 Phase 10 capability list (v306-v309).
 pub fn phase10_capabilities() -> Array[Phase10Capability] {
   [
     {

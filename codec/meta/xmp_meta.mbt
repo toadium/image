@@ -1,8 +1,8 @@
 ///|
-/// # meta/xmp_meta
+/// # XMP 元数据 meta/xmp_meta
 ///
 /// 编解码工具模块
-/// Codec utility module
+/// 编解码工具模块 Codec utility module
 // v249.0.0 XMP 元数据解析与写入
 // XMP 基于 XML，嵌入在 JPEG APP1 段中（以 "http://ns.adobe.com/xap/1.0/\0" 开头）
 // 纯 MoonBit 实现，无外部 XML 库依赖
@@ -34,7 +34,7 @@ pub extend XmpInfo with Default::{default}
 pub extend XmpInfo with @debug.Debug::{to_repr}
 
 ///|
-/// XMP namespace URI
+/// XMP 命名空间 URI XMP namespace URI
 fn xmp_namespace_uri() -> String {
   "http://ns.adobe.com/xap/1.0/"
 }

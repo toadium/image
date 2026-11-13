@@ -1,8 +1,8 @@
 ///|
-/// # ocr/projection_analysis
+/// # 投影分析 ocr/projection_analysis
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 投影分析与文本行分割
 // 水平/垂直投影、文本行检测、字符分割
 

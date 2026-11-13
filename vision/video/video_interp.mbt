@@ -1,8 +1,8 @@
 ///|
-/// # video/video_interp
+/// # 视频插帧 video/video_interp
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 视频插帧 — 光流/相位/深度
 // Video frame interpolation: optical flow / phase / depth
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 视频插帧方法。
-/// Video frame interpolation method.
+/// 视频帧插值方法 Video frame interpolation method.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -28,7 +28,7 @@ pub extend FrameInterpMethod with Eq::{not_equal, equal}
 
 ///|
 /// 视频插帧配置。
-/// Video frame interpolation configuration.
+/// 视频帧插值配置 Video frame interpolation configuration.
 #derive(Eq, @debug.Debug)
 pub(all) struct FrameInterpConfig {
   interp_method : FrameInterpMethod
@@ -45,7 +45,7 @@ pub extend FrameInterpConfig with Eq::{not_equal, equal}
 
 ///|
 /// 帧间运动估计结果。
-/// Inter-frame motion estimation result.
+/// 帧间运动估计结果 Inter-frame motion estimation result.
 #derive(Eq, @debug.Debug)
 pub(all) struct MotionEstimateResult {
   motion_score : Double // 运动分数 (0.0-1.0)
@@ -61,7 +61,7 @@ pub extend MotionEstimateResult with Eq::{not_equal, equal}
 
 ///|
 /// 默认插帧配置。
-/// Default interpolation configuration.
+/// 默认插值配置 Default interpolation configuration.
 pub fn default_interp_config() -> FrameInterpConfig {
   {
     interp_method: LinearInterp,
@@ -73,7 +73,7 @@ pub fn default_interp_config() -> FrameInterpConfig {
 
 ///|
 /// 线性插值两帧之间。
-/// Linear interpolation between two frames.
+/// 两帧间线性插值 Linear interpolation between two frames.
 pub fn linear_interpolate_frames(
   frame1 : @types.Image,
   frame2 : @types.Image,
@@ -104,7 +104,7 @@ pub fn linear_interpolate_frames(
 
 ///|
 /// 计算帧间运动估计。
-/// Compute motion estimation between frames.
+/// 计算帧间运动估计 Compute motion estimation between frames.
 pub fn compute_motion_between_frames(
   frame1 : @types.Image,
   frame2 : @types.Image,
@@ -178,7 +178,7 @@ pub fn compute_motion_between_frames(
 
 ///|
 /// 光流插值两帧之间。
-/// Optical flow interpolation between two frames.
+/// 光流插值 Optical flow interpolation
 pub fn optical_flow_interpolate(
   frame1 : @types.Image,
   frame2 : @types.Image,
@@ -253,7 +253,7 @@ pub fn optical_flow_interpolate(
 
 ///|
 /// 相位插值两帧之间。
-/// Phase interpolation between two frames.
+/// 两帧间相位插值 Phase interpolation between two frames.
 pub fn phase_interpolate(
   frame1 : @types.Image,
   frame2 : @types.Image,
@@ -294,7 +294,7 @@ pub fn phase_interpolate(
 
 ///|
 /// 插帧主流程：在每对帧间插入新帧。
-/// Frame interpolation pipeline: insert new frames between each pair.
+/// 帧插值管线：在每对帧间插入新帧 Frame interpolation pipeline: insert new frames between each pair.
 pub fn video_interpolate_frames(
   frames : Array[@types.Image],
   config : FrameInterpConfig,
@@ -338,7 +338,7 @@ pub fn video_interpolate_frames(
 
 ///|
 /// 帧率转换：从原帧率转换到目标帧率。
-/// Frame rate conversion: from original to target frame rate.
+/// 帧率转换：从原始到目标帧率 Frame rate conversion: from original to target frame rate.
 pub fn frame_rate_conversion(
   frames : Array[@types.Image],
   original_fps : Double,
@@ -370,7 +370,7 @@ pub fn frame_rate_conversion(
 
 ///|
 /// 插帧流水线：插帧 + 运动分析。
-/// Interpolation pipeline: interpolate + motion analysis.
+/// 插值管线：插值 + 运动分析 Interpolation pipeline: interpolate + motion analysis.
 pub fn interp_pipeline(
   frames : Array[@types.Image],
   config : FrameInterpConfig,

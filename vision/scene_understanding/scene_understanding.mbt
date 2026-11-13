@@ -1,8 +1,8 @@
 ///|
-/// # scene_understanding/scene_understanding
+/// # 场景理解 scene_understanding/scene_understanding
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 场景理解与图像描述（v35.0.0）
 // 场景分类、图像描述、视觉问答、图像翻译、场景图生成、目标关系推理
 

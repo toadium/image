@@ -1,8 +1,7 @@
 ///|
 /// # TIFF 扩展 TIFF Extended
 ///
-/// TIFF 扩展功能
-/// TIFF extended features
+/// TIFF 扩展功能 TIFF extended features
 
 ///|
 /// TIFF 扩展信息（包含压缩方式、光度解释、方向、分辨率等）

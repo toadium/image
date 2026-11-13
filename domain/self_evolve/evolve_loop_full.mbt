@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/evolve_loop_full
+/// # 进化 self_evolve/evolve_loop_full
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 自演化闭环 — 完整的自主演化闭环
 // Evolution loop: complete autonomous evolution loop
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 闭环阶段。
-/// Loop phase.
+/// 描述 Loop phase.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -32,7 +32,7 @@ pub extend LoopPhase with Eq::{not_equal, equal}
 
 ///|
 /// 单个闭环步骤。
-/// Single loop step.
+/// 描述 Single loop step.
 #derive(Eq, @debug.Debug)
 pub(all) struct LoopStep {
   phase : LoopPhase
@@ -47,7 +47,7 @@ pub extend LoopStep with Eq::{not_equal, equal}
 
 ///|
 /// 闭环执行结果。
-/// Loop execution result.
+/// 描述 Loop execution result.
 #derive(Eq, @debug.Debug)
 pub(all) struct LoopResult {
   steps : Array[LoopStep]
@@ -64,7 +64,7 @@ pub extend LoopResult with Eq::{not_equal, equal}
 
 ///|
 /// 为单个算子运行完整演化闭环。
-/// Run complete evolution loop for a single op.
+/// 运行 Run complete evolution loop for a single op.
 pub fn run_evolve_loop(op : @imgir.IROp) -> LoopResult {
   let tag = op.tag()
   let steps : Array[LoopStep] = []
@@ -115,7 +115,7 @@ pub fn run_evolve_loop(op : @imgir.IROp) -> LoopResult {
 
 ///|
 /// 为所有算子运行完整演化闭环。
-/// Run complete evolution loop for all ops.
+/// 运行 Run complete evolution loop for all ops.
 pub fn run_evolve_loop_all() -> LoopResult {
   let all_steps : Array[LoopStep] = []
   let mut all_success = true
@@ -142,7 +142,7 @@ pub fn run_evolve_loop_all() -> LoopResult {
 
 ///|
 /// 闭环结果是否完整完成。
-/// Whether loop result is complete.
+/// 描述 Whether loop result is complete.
 pub fn LoopResult::is_complete(self : LoopResult) -> Bool {
   self.total_phases > 0
 }

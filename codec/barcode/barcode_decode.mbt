@@ -1,8 +1,8 @@
 ///|
-/// # barcode/barcode_decode
+/// # 条码解码 barcode/barcode_decode
 ///
 /// 编解码工具模块
-/// Codec utility module
+/// 编解码工具模块 Codec utility module
 // 条形码/二维码识别（v11.0.0）
 // EAN-13 一维条码识别 + QR Code 基础定位与解码
 

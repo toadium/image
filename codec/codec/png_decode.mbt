@@ -1,8 +1,7 @@
 ///|
 /// # PNG 解码 PNG Decode
 ///
-/// PNG 图像格式解码
-/// PNG image format decoding
+/// PNG 图像格式解码 PNG image format decoding
 // 纯 MoonBit PNG 解码（全目标可用：native/wasm/js）
 // 依赖 @pure/zlib 进行 IDAT 解压缩
 // 支持 color type 0/2/3/4/6, bit depth 8/16
@@ -37,15 +36,9 @@ fn paeth_predict(a : Int32, b : Int32, c : Int32) -> Int32 {
 }
 
 ///|
-/// PNG 解码（纯 MoonBit，全目标可用）。
-/// 支持 8-bit gray/RGB/RGBA/gray+alpha/palette。
-/// 不支持 interlace。
-/// req_channels: None=原色（保留 alpha）, 1=灰度, 2=灰度+alpha, 3=RGB, 4=RGBA
-/// PNG decoding (pure MoonBit, all targets).
-/// Supports 8-bit gray/RGB/RGBA/gray+alpha/palette.
-/// Does not support interlace.
-/// req_channels: None=original (preserve alpha), 1=gray, 2=gray+alpha, 3=RGB, 4=RGBA
-///
+/// PNG 解码（纯 MoonBit，全目标可用）。支持 8-bit gray/RGB/RGBA/gray+alpha/palette。不支持 interlace。req_channels: None=原色（保留 alpha）, 1=灰度, 2=灰度+alpha, 3=RGB, 4=RGBA PNG decoding (pure MoonBit, all targets). Supports 8-bit gray/RGB/RGBA/gray+alpha/palette. Does not support interlace. req_channels: None=original (preserve alpha), 1=gray, 2=gray+alpha, 3=RGB, 4=RGBA
+
+///|
 /// ```mbt check
 /// test "doc_decode_png_pure" {
 ///   try {

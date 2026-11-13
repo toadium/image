@@ -1,8 +1,8 @@
 ///|
-/// # quality/image_quality
+/// # 图像质量 quality/image_quality
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 图像质量评估（v12.5.0）
 // PSNR、SSIM、MSE、MAE
 

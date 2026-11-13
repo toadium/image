@@ -1,8 +1,7 @@
 ///|
 /// # WebP Lossy VP8 解码器 WebP Lossy VP8 Decoder
 ///
-/// 纯 MoonBit WebP lossy VP8 解码器，基于 RFC 6386 规范实现。
-/// Pure MoonBit WebP lossy VP8 decoder, implemented per RFC 6386.
+/// 纯 MoonBit WebP lossy VP8 解码器，基于 RFC 6386 规范实现。 Pure MoonBit WebP lossy VP8 decoder, implemented per RFC 6386.
 ///
 /// 核心函数 Core functions:
 /// - `decode_webp_vp8_pure` - 解码 VP8 lossy 字节流为 Image Decode VP8 lossy byte stream to Image
@@ -876,7 +875,10 @@ fn vp8_intra_predict_16x16(
 
 ///|
 /// I4x4 帧内预测（完整实现 10 种模式）
-/// 参考像素布局：
+/// 参考像素布局： above_left  above[0]  above[1]  above[2]  above[3]  above[4..7]
+
+///|
+///   参考像素/预测块参考像素网格：
 ///   above_left  above[0]  above[1]  above[2]  above[3]  above[4..7]
 ///   left[0]     P[0][0]   P[0][1]   P[0][2]   P[0][3]
 ///   left[1]     P[1][0]   P[1][1]   P[1][2]   P[1][3]

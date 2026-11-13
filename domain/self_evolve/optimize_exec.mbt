@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/optimize_exec
+/// # 优化执行 self_evolve/optimize_exec
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 管道优化执行 — 应用 OptimizationSuggestion 到实际 IRPipeline
 // Optimize execution: apply suggestions to actual pipeline and verify
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 优化执行结果。
-/// Optimization execution result.
+/// 描述 Optimization execution result.
 #derive(Eq, @debug.Debug)
 pub(all) struct OptimizeExecResult {
   original_length : Int32
@@ -31,7 +31,7 @@ pub extend OptimizeExecResult with Eq::{not_equal, equal}
 
 ///|
 /// 执行管道优化并返回结果（含成本变化）。
-/// Execute pipeline optimization and return result with cost delta.
+/// 执行 Execute pipeline optimization and return result with cost delta.
 pub fn exec_optimize(pipeline : @imgir.IRPipeline) -> OptimizeExecResult {
   let report = optimize_all(pipeline)
   let original_baseline = estimate_pipeline_cost(pipeline)
@@ -54,7 +54,7 @@ pub fn exec_optimize(pipeline : @imgir.IRPipeline) -> OptimizeExecResult {
 
 ///|
 /// 对全部 19 种算子执行优化。
-/// Execute optimization on all 19 op variants.
+/// 执行 Execute optimization on all 19 op variants.
 pub fn exec_optimize_all() -> Array[OptimizeExecResult] {
   let results : Array[OptimizeExecResult] = []
   for op in all_ops() {
@@ -66,7 +66,7 @@ pub fn exec_optimize_all() -> Array[OptimizeExecResult] {
 
 ///|
 /// 验证优化后管道不劣化（算子数不增加且成本不增加）。
-/// Verify optimization does not degrade (ops and cost non-increasing).
+/// 校验 Verify optimization does not degrade (ops and cost non-increasing).
 pub fn optimize_verified(pipeline : @imgir.IRPipeline) -> Bool {
   let result = exec_optimize(pipeline)
   result.optimized_length <= result.original_length &&
@@ -75,14 +75,14 @@ pub fn optimize_verified(pipeline : @imgir.IRPipeline) -> Bool {
 
 ///|
 /// 优化是否显著（算子减少或成本降低）。
-/// Whether optimization is significant.
+/// 描述 Whether optimization is significant.
 pub fn OptimizeExecResult::is_significant(self : OptimizeExecResult) -> Bool {
   self.ops_reduced > 0 || self.cost_reduced > 0
 }
 
 ///|
 /// 优化效率（成本降低百分比，0-100）。
-/// Optimization efficiency (cost reduction percentage, 0-100).
+/// 描述 Optimization efficiency (cost reduction percentage, 0-100).
 pub fn OptimizeExecResult::efficiency_pct(self : OptimizeExecResult) -> Int32 {
   if self.original_cost == 0 {
     0

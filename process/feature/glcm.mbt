@@ -1,9 +1,8 @@
 ///|
-/// # glcm
-/// glcm
+/// # 灰度共生矩阵 glcm
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // GLCM 灰度共生矩阵纹理分析（纯 MoonBit）
 
 ///|

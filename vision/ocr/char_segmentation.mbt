@@ -1,8 +1,8 @@
 ///|
-/// # ocr/char_segmentation
+/// # 字符分割 ocr/char_segmentation
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 字符分割完善
 // 滴水算法、连通域分割、粘连字符处理、分割后处理
 

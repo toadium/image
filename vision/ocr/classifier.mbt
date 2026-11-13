@@ -1,8 +1,8 @@
 ///|
-/// # ocr/classifier
+/// # 分类器 ocr/classifier
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 简单分类器
 // KNN、模板匹配、距离度量、分类结果
 

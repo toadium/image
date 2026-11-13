@@ -1,8 +1,8 @@
 ///|
-/// # registration/image_registration
+/// # 图像配准 registration/image_registration
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 图像配准（v12.7.0）
 // 基于相位相关的平移估计 + 仿射变换 + 图像对齐
 

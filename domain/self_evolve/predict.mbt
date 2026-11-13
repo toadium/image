@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/predict
+/// # 预测 self_evolve/predict
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 演化预测模型 — 基于历史预测演化结果
 // Evolution prediction model: predict evolution outcomes based on history
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 预测类型。
-/// Prediction kind.
+/// 预测 Prediction kind.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -29,7 +29,7 @@ pub extend PredictionKind with Eq::{not_equal, equal}
 
 ///|
 /// 单算子演化预测。
-/// Evolution prediction for a single op.
+/// 描述 Evolution prediction for a single op.
 #derive(Eq, @debug.Debug)
 pub(all) struct EvolutionPrediction {
   op_tag : String
@@ -47,7 +47,7 @@ pub extend EvolutionPrediction with Eq::{not_equal, equal}
 
 ///|
 /// 预测报告。
-/// Prediction report.
+/// 预测 Prediction report.
 #derive(Eq, @debug.Debug)
 pub(all) struct PredictionReport {
   predictions : Array[EvolutionPrediction]
@@ -64,7 +64,7 @@ pub extend PredictionReport with Eq::{not_equal, equal}
 
 ///|
 /// 预测单个算子的演化结果。
-/// Predict evolution outcome for a single op.
+/// 预测 Predict evolution outcome for a single op.
 pub fn predict_op(op : @imgir.IROp) -> EvolutionPrediction {
   let tag = op.tag()
   let degs = detect_degradation(op)
@@ -125,7 +125,7 @@ pub fn predict_op(op : @imgir.IROp) -> EvolutionPrediction {
 
 ///|
 /// 预测所有算子的演化结果。
-/// Predict evolution outcomes for all ops.
+/// 预测 Predict evolution outcomes for all ops.
 pub fn predict_all() -> PredictionReport {
   let predictions : Array[EvolutionPrediction] = []
   let mut high_risk = 0
@@ -147,7 +147,7 @@ pub fn predict_all() -> PredictionReport {
 
 ///|
 /// 预测报告是否有高风险。
-/// Whether prediction report has high-risk items.
+/// 描述 Whether prediction report has high-risk items.
 pub fn PredictionReport::has_high_risk(self : PredictionReport) -> Bool {
   self.high_risk_count > 0
 }

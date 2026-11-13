@@ -1,8 +1,8 @@
 ///|
-/// # inpainting/inpainting_enhancement
+/// # 修复增强 inpainting/inpainting_enhancement
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 图像修复增强（v25.0.0）
 // 图像修复、图像去雾、图像去雨、图像去噪
 

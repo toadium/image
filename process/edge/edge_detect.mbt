@@ -1,9 +1,8 @@
 ///|
-/// # edge detect
-/// edge detect
+/// # 边缘检测 edge detect
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 边缘检测扩展（纯 MoonBit）：edge_detect_laplacian / edge_detect_prewitt / edge_detect_sobel
 // @types.clamp_byte / @types.clamp_int 来自 walkzzz/core/types
 
@@ -114,7 +113,7 @@ pub fn edge_detect_sobel(
 
 ///|
 /// Laplacian 边缘检测。使用 3x3 Laplacian 核：
-/// [0, 1, 0; 1, -4, 1; 0, 1, 0]
+/// 拉普拉斯核 [0, 1, 0; 1, -4, 1; 0, 1, 0]
 /// 返回灰度图（channels=1）。
 pub fn edge_detect_laplacian(
   img : @types.Image,
@@ -202,8 +201,8 @@ pub fn edge_detect_laplacian(
 
 ///|
 /// Prewitt 边缘检测。使用两个 3x3 Prewitt 核计算梯度幅值。
-/// Gx = [-1, 0, 1; -1, 0, 1; -1, 0, 1]
-/// Gy = [-1, -1, -1; 0, 0, 0; 1, 1, 1]
+/// Prewitt 水平梯度 Gx = [-1, 0, 1; -1, 0, 1; -1, 0, 1]
+/// Prewitt 垂直梯度 Gy = [-1, -1, -1; 0, 0, 0; 1, 1, 1]
 /// 返回灰度图（channels=1）。
 pub fn edge_detect_prewitt(
   img : @types.Image,

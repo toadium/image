@@ -1,8 +1,8 @@
 ///|
-/// # ocr/scan_document_ocr
+/// # 扫描文档 OCR ocr/scan_document_ocr
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 扫描版文档 OCR 增强（v12.16.0）
 // 扫描文档预处理、版面分析、质量评估、批量处理、多格式输出
 

@@ -1,15 +1,15 @@
 ///|
-/// # spatiotemporal/st_interpolate
+/// # 时空插值 spatiotemporal/st_interpolate
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 帧间插值：线性插值 + 指定时间取帧。
 // Frame interpolation: linear blend + frame at specific time.
 
 ///|
 /// 线性插值两帧图像：(1 - alpha) * frame1 + alpha * frame2。
 /// 两帧尺寸和通道数必须一致，alpha 通常在 [0, 1]。
-/// Linear interpolation between two frames: (1 - alpha) * f1 + alpha * f2.
+/// 两帧间线性插值 Linear interpolation between two frames
 pub fn st_interpolate_linear(
   frame1 : @types.Image,
   frame2 : @types.Image,
@@ -40,7 +40,7 @@ pub fn st_interpolate_linear(
 ///|
 /// 在指定时间取帧：找到时间所在的帧区间，线性插值。
 /// 若时间超出范围且非循环，返回最近边界帧。
-/// Get interpolated frame at the given time.
+/// 获取给定时间的插值帧 Get interpolated frame at the given time.
 pub fn st_interpolate_at(
   timage : TImage,
   time : Float,

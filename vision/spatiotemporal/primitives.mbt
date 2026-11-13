@@ -1,8 +1,8 @@
 ///|
-/// # spatiotemporal/primitives
+/// # 时空基元 spatiotemporal/primitives
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 时空原语：TInterval / TFrame / TImage / TVideo。
 // Spatiotemporal primitives: time interval, temporal frame, time-varying image, video.
 //
@@ -11,7 +11,7 @@
 
 ///|
 /// 时间区间 [start, end)，单位秒。
-/// Time interval [start, end), in seconds.
+/// 时间区间 [start Time interval [start
 #derive(Eq, @debug.Debug)
 pub(all) struct TInterval {
   start : Float
@@ -26,7 +26,7 @@ pub extend TInterval with Eq::{not_equal, equal}
 
 ///|
 /// 创建时间区间，要求 end >= start。
-/// Create a time interval; requires end >= start.
+/// 创建时间区间；要求 end >= start Create a time interval; requires end >= start.
 pub fn TInterval::make(
   start : Float,
   end : Float,
@@ -41,14 +41,14 @@ pub fn TInterval::make(
 
 ///|
 /// 时间区间长度。
-/// Duration of the time interval.
+/// 时间区间时长 Duration of the time interval.
 pub fn TInterval::duration(self : TInterval) -> Float {
   self.end - self.start
 }
 
 ///|
 /// 时空帧：单帧图像 + 时间戳 + 持续时间。
-/// Temporal frame: a single image with timestamp and duration.
+/// 时间帧：带时间戳和时长的单帧图像 Temporal frame: a single image with timestamp and duration.
 #derive(Eq, @debug.Debug)
 pub(all) struct TFrame {
   image : @types.Image
@@ -64,7 +64,7 @@ pub extend TFrame with Eq::{not_equal, equal}
 
 ///|
 /// 创建时空帧。
-/// Create a temporal frame.
+/// 创建时间帧 Create a temporal frame.
 pub fn TFrame::make(
   image : @types.Image,
   timestamp : Float,
@@ -78,7 +78,7 @@ pub fn TFrame::make(
 
 ///|
 /// 时变图像：多帧序列 + 维度 + 帧率。
-/// Time-varying image: multi-frame sequence with dimensions and fps.
+/// 时变图像：带尺寸和 fps 的多帧序列 Time-varying image: multi-frame sequence with dimensions and fps.
 #derive(Eq, @debug.Debug)
 pub(all) struct TImage {
   frames : Array[TFrame]
@@ -96,7 +96,7 @@ pub extend TImage with Eq::{not_equal, equal}
 
 ///|
 /// 创建时变图像，所有帧尺寸必须一致。
-/// Create a time-varying image; all frames must have the same dimensions.
+/// 创建时变图像；所有帧须有相同尺寸 Create a time-varying image; all frames must have the same dimensions.
 pub fn TImage::make(
   frames : Array[TFrame],
   fps : Float,
@@ -124,14 +124,14 @@ pub fn TImage::make(
 
 ///|
 /// 时变图像的帧数。
-/// Number of frames in the time-varying image.
+/// 时变图像帧数 Number of frames in the time-varying image.
 pub fn TImage::frame_count(self : TImage) -> Int32 {
   self.frames.length()
 }
 
 ///|
 /// 时变图像总时长（秒）。
-/// Total duration of the time-varying image (seconds).
+/// 时变图像总时长（秒） Total duration of the time-varying image (seconds).
 pub fn TImage::total_duration(self : TImage) -> Float {
   let mut sum = 0.0F
   for i in 0..<self.frames.length() {
@@ -142,7 +142,7 @@ pub fn TImage::total_duration(self : TImage) -> Float {
 
 ///|
 /// 从单帧静态图像创建时变图像。
-/// Create a time-varying image from a single static image frame.
+/// 创建时变图像；所有帧须有相同尺寸 Create a time-varying image from a single static image frame.
 pub fn TImage::from_static(
   image : @types.Image,
 ) -> TImage raise @types.LoadError {
@@ -152,7 +152,7 @@ pub fn TImage::from_static(
 
 ///|
 /// 时空视频：时变图像 + 元数据。
-/// Spatiotemporal video: time-varying image with metadata.
+/// 时空视频：带元数据的时变图像 Spatiotemporal video: time-varying image with metadata.
 #derive(Eq, @debug.Debug)
 pub(all) struct TVideo {
   timage : TImage
@@ -168,7 +168,7 @@ pub extend TVideo with Eq::{not_equal, equal}
 
 ///|
 /// 从时变图像创建视频。
-/// Create a video from a time-varying image.
+/// 从时变图像创建视频 Create a video from a time-varying image.
 pub fn TVideo::from_timage(timage : TImage, codec_name : String) -> TVideo {
   { timage, codec_name, total_duration: timage.total_duration(), }
 }

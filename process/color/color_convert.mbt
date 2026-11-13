@@ -1,9 +1,8 @@
 ///|
-/// # color convert
-/// color convert
+/// # 色彩转换 color convert
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // color_convert.mbt：色彩空间与通道操作
 // 本文件包含两类操作：
 //   1. 色彩空间转换：rgb_to_hsv/hsv_to_rgb、rgb_to_xyz/xyz_to_rgb、rgb_to_lab/lab_to_rgb、

@@ -1,8 +1,8 @@
 ///|
-/// # util/image_stats
+/// # 图像统计 util/image_stats
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 图像统计信息（纯 MoonBit）：mean / stddev / min_max
 
 ///|

@@ -1,9 +1,8 @@
 ///|
-/// # quantize
-/// quantize
+/// # 量化 quantize
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 色彩量化（纯 MoonBit）：Floyd-Steinberg 抖动 + Median Cut + K-means 量化
 
 ///|

@@ -1,14 +1,14 @@
 ///|
-/// # self_evolve/phase7_report
+/// # 阶段7报告 self_evolve/phase7_report
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // Phase 7 综合报告 — 汇总 v291-v294 全部能力
 // Phase 7 comprehensive report: aggregate v291-v294 capabilities
 
 ///|
 /// Phase 7 单项能力描述。
-/// Phase 7 single capability.
+/// 阶段 Phase 7 single capability.
 #derive(Eq, @debug.Debug)
 pub(all) struct Phase7Capability {
   version : String
@@ -27,7 +27,7 @@ pub extend Phase7Capability with Eq::{not_equal, equal}
 
 ///|
 /// Phase 7 综合报告。
-/// Phase 7 aggregate report.
+/// 阶段 Phase 7 aggregate report.
 #derive(Eq, @debug.Debug)
 pub(all) struct Phase7Report {
   capabilities : Array[Phase7Capability]
@@ -45,7 +45,7 @@ pub extend Phase7Report with Eq::{not_equal, equal}
 
 ///|
 /// Phase 7 全部能力清单（v291-v294）。
-/// Phase 7 capability list (v291-v294).
+/// 阶段 Phase 7 capability list (v291-v294).
 pub fn phase7_capabilities() -> Array[Phase7Capability] {
   [
     {

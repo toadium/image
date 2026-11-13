@@ -1,14 +1,13 @@
 ///|
-/// # gabor
-/// gabor
+/// # Gabor 滤波 gabor
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // Gabor 滤波（纯 MoonBit）
 
 ///|
 /// Gabor 滤波器。
-/// g(x,y) = exp(-(x'²+γ²y'²)/(2σ²)) * cos(2πx'/λ + φ)
+/// Gabor 核函数 g(x,y) = exp(-(x'²+γ²y'²)/(2σ²)) * cos(2πx'/λ + φ)
 /// 其中 x' = x*cos(θ) + y*sin(θ), y' = -x*sin(θ) + y*cos(θ)
 /// 适用于灰度图（channels=1）或 RGB/RGBA 图（channels=3/4）。
 /// ksize 为核大小（奇数），sigma 为标准差，theta 为方向（弧度），

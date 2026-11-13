@@ -1,8 +1,8 @@
 ///|
-/// # video/video_superres
+/// # 视频超分辨率 video/video_superres
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 视频超分 — 时空/递归/深度
 // Video super-resolution: spatio-temporal / recursive / depth
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 视频超分方法。
-/// Video super-resolution method.
+/// 视频超分辨率方法 Video super-resolution method.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -28,7 +28,7 @@ pub extend VideoSRMethod with Eq::{not_equal, equal}
 
 ///|
 /// 视频超分配置。
-/// Video super-resolution configuration.
+/// 视频超分辨率配置 Video super-resolution configuration.
 #derive(Eq, @debug.Debug)
 pub(all) struct VideoSRConfig {
   sr_method : VideoSRMethod
@@ -45,7 +45,7 @@ pub extend VideoSRConfig with Eq::{not_equal, equal}
 
 ///|
 /// 视频超分结果。
-/// Video super-resolution result.
+/// 视频超分辨率结果 Video super-resolution result.
 #derive(Eq, @debug.Debug)
 pub(all) struct VideoSRResult {
   frames : Array[@types.Image] // 超分后帧序列
@@ -61,7 +61,7 @@ pub extend VideoSRResult with Eq::{not_equal, equal}
 
 ///|
 /// 默认超分配置。
-/// Default super-resolution configuration.
+/// 默认超分辨率配置 Default super-resolution configuration.
 pub fn default_sr_config() -> VideoSRConfig {
   {
     sr_method: BicubicSR,
@@ -73,7 +73,7 @@ pub fn default_sr_config() -> VideoSRConfig {
 
 ///|
 /// 双线性上采样。
-/// Bilinear upscaling.
+/// 双线性上采样 Bilinear upscaling.
 pub fn bilinear_upscale(img : @types.Image, scale : Int32) -> @types.Image {
   let w = img.width
   let h = img.height
@@ -109,7 +109,7 @@ pub fn bilinear_upscale(img : @types.Image, scale : Int32) -> @types.Image {
 
 ///|
 /// 双三次上采样（简化版）。
-/// Bicubic upscaling (simplified).
+/// 双三次上采样（简化） Bicubic upscaling (simplified).
 fn bicubic_upscale(img : @types.Image, scale : Int32) -> @types.Image {
   let w = img.width
   let h = img.height
@@ -149,7 +149,7 @@ fn bicubic_upscale(img : @types.Image, scale : Int32) -> @types.Image {
 
 ///|
 /// 三次样条权重函数。
-/// Cubic spline weight function.
+/// 三次样条权重函数 Cubic spline weight function.
 fn cubic_weight(t : Double) -> Double {
   let t = t.abs()
   if t < 1.0 {
@@ -163,7 +163,7 @@ fn cubic_weight(t : Double) -> Double {
 
 ///|
 /// 双三次超分。
-/// Bicubic super-resolution.
+/// 双三次超分辨率 Bicubic super-resolution.
 pub fn bicubic_super_resolve(
   frames : Array[@types.Image],
   config : VideoSRConfig,
@@ -177,7 +177,7 @@ pub fn bicubic_super_resolve(
 
 ///|
 /// 时空超分：利用时域信息增强空间分辨率。
-/// Spatio-temporal super-resolution: use temporal info to enhance spatial resolution.
+/// 时空超分辨率 Spatio-temporal super-resolution
 pub fn spatio_temporal_sr(
   frames : Array[@types.Image],
   config : VideoSRConfig,
@@ -221,7 +221,7 @@ pub fn spatio_temporal_sr(
 
 ///|
 /// 递归超分：多次小倍数超分级联。
-/// Recursive super-resolution: cascade multiple small-scale super-resolution.
+/// 递归超分辨率：级联多小尺度超分 Recursive super-resolution: cascade multiple small-scale super-resolution.
 pub fn recursive_sr(
   frames : Array[@types.Image],
   config : VideoSRConfig,
@@ -246,7 +246,7 @@ pub fn recursive_sr(
 
 ///|
 /// 视频超分主流程。
-/// Video super-resolution pipeline.
+/// 视频超分辨率管线 Video super-resolution pipeline.
 pub fn video_super_resolve(
   frames : Array[@types.Image],
   config : VideoSRConfig,
@@ -262,7 +262,7 @@ pub fn video_super_resolve(
 
 ///|
 /// 计算超分质量分数（基于下采样一致性）。
-/// Compute super-resolution quality score (based on downsample consistency).
+/// 计算超分质量分（基于下采样一致性） Compute super-resolution quality score (based on downsample consistency).
 pub fn compute_sr_quality(
   original : Array[@types.Image],
   super_resolved : Array[@types.Image],
@@ -308,7 +308,7 @@ pub fn compute_sr_quality(
 
 ///|
 /// 超分流水线：超分 + 质量评估。
-/// Super-resolution pipeline: super-resolve + quality evaluation.
+/// 超分辨率管线：超分 + 质量评估 Super-resolution pipeline: super-resolve + quality evaluation.
 pub fn sr_pipeline(
   frames : Array[@types.Image],
   config : VideoSRConfig,

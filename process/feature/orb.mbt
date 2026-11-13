@@ -1,9 +1,8 @@
 ///|
-/// # orb
-/// orb
+/// # ORB 特征 orb
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // ORB 特征检测与描述（纯 MoonBit）
 // Oriented FAST and Rotated BRIEF
 // 参考: https://docs.opencv.org/4.x/d5/d3c/classcv_1_1Feature2D.html
@@ -125,7 +124,7 @@ fn check_fast9(vals : Array[Int32], high : Int32, low : Int32) -> Bool {
 
 ///|
 /// 计算关键点方向（图像矩质心法）
-/// θ = atan2(m01, m10), m_pq = Σ x^p * y^q * I(x,y)
+/// 方向角与矩 θ = atan2(m01, m10), m_pq = Σ x^p * y^q * I(x,y)
 fn compute_orientation(
   gray : Array[Int32],
   w : Int32,

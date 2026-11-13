@@ -1,8 +1,8 @@
 ///|
-/// # video/video_effects
+/// # 视频特效 video/video_effects
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 视频特效 — 滤镜/转场/字幕
 // Video effects: filters / transitions / text overlay
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 视频滤镜类型。
-/// Video filter type.
+/// 视频滤镜类型 Video filter type.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -31,7 +31,7 @@ pub extend VideoFilterType with Eq::{not_equal, equal}
 
 ///|
 /// 转场类型。
-/// Transition type.
+/// 过渡类型 Transition type.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -51,7 +51,7 @@ pub extend TransitionType with Eq::{not_equal, equal}
 
 ///|
 /// 视频滤镜参数。
-/// Video filter parameters.
+/// 视频滤镜参数 Video filter parameters.
 #derive(Eq, @debug.Debug)
 pub(all) struct VideoFilterParams {
   filter_type : VideoFilterType
@@ -66,7 +66,7 @@ pub extend VideoFilterParams with Eq::{not_equal, equal}
 
 ///|
 /// 转场参数。
-/// Transition parameters.
+/// 过渡参数 Transition parameters.
 #derive(Eq, @debug.Debug)
 pub(all) struct TransitionParams {
   transition_type : TransitionType
@@ -82,7 +82,7 @@ pub extend TransitionParams with Eq::{not_equal, equal}
 
 ///|
 /// 默认滤镜参数。
-/// Default filter parameters.
+/// 默认滤镜参数 Default filter parameters.
 pub fn default_video_filter_params(
   filter_type : VideoFilterType,
 ) -> VideoFilterParams {
@@ -91,7 +91,7 @@ pub fn default_video_filter_params(
 
 ///|
 /// 默认转场参数。
-/// Default transition parameters.
+/// 默认过渡参数 Default transition parameters.
 pub fn default_transition_params(
   transition_type : TransitionType,
 ) -> TransitionParams {
@@ -100,7 +100,7 @@ pub fn default_transition_params(
 
 ///|
 /// 应用视频滤镜。
-/// Apply video filter.
+/// 应用视频滤镜 Apply video filter.
 pub fn apply_video_filter(
   img : @types.Image,
   params : VideoFilterParams,
@@ -285,7 +285,7 @@ fn apply_sepia_filter(img : @types.Image, intensity : Double) -> @types.Image {
 
 ///|
 /// 创建转场帧。
-/// Create transition frame between two images.
+/// 在两图像间创建过渡帧 Create transition frame between two images.
 pub fn create_transition_frame(
   from : @types.Image,
   to_ : @types.Image,
@@ -487,7 +487,7 @@ fn transition_push(
 
 ///|
 /// 生成转场序列。
-/// Generate transition sequence.
+/// 生成过渡序列 Generate transition sequence.
 pub fn generate_transition(
   from : @types.Image,
   to_ : @types.Image,
@@ -503,7 +503,7 @@ pub fn generate_transition(
 
 ///|
 /// 添加文本叠加（简化：用矩形区域标记）。
-/// Add text overlay (simplified: rectangular region).
+/// 添加文字叠加（简化：矩形区域） Add text overlay (simplified: rectangular region).
 pub fn add_text_overlay(
   img : @types.Image,
   x : Int32,
@@ -532,7 +532,7 @@ pub fn add_text_overlay(
 
 ///|
 /// 添加时间戳标记。
-/// Add timestamp marker.
+/// 添加时间戳标记 Add timestamp marker.
 pub fn add_timestamp(
   img : @types.Image,
   frame_index : Int32,
@@ -580,7 +580,7 @@ fn total_duration(total_frames : Int32) -> Double {
 
 ///|
 /// 添加水印。
-/// Add watermark.
+/// 添加水印 Add watermark.
 pub fn add_watermark(
   img : @types.Image,
   watermark : @types.Image,
@@ -618,7 +618,7 @@ pub fn add_watermark(
 
 ///|
 /// 视频特效流水线。
-/// Video effects pipeline.
+/// 视频特效管线 Video effects pipeline.
 pub fn video_effects_pipeline(
   frames : Array[@types.Image],
   filter_params : VideoFilterParams?,

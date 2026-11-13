@@ -1,9 +1,8 @@
 ///|
-/// # segmentation
-/// segmentation
+/// # 图像分割 segmentation
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 图像分割（v12.2.0）
 // 分水岭算法 + 区域生长 + 阈值分割
 

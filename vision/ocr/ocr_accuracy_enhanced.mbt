@@ -1,8 +1,8 @@
 ///|
-/// # ocr/ocr_accuracy_enhanced
+/// # 增强 OCR 精度 ocr/ocr_accuracy_enhanced
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // OCR 准确率提升增强版（v10.1.0）
 // Zernike矩、Gabor特征、加权KNN、置信度校准、多尺度融合
 

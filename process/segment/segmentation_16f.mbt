@@ -1,8 +1,8 @@
 ///|
 /// # 图像分割 16-bit/float 变体 Image segmentation 16-bit/float variants
 ///
-/// watershed_16 / slic_16
-/// 16-bit/float watershed/SLIC segmentation
+/// 16位分水岭/SLIC watershed_16 / slic_16
+/// 16位/浮点分水岭/SLIC 分割 16-bit/float watershed/SLIC segmentation
 // 图像分割 16-bit/float 变体
 // watershed / kmeans / SLIC 支持 Image16 / ImageF
 

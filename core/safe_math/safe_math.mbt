@@ -1,16 +1,11 @@
 ///|
 /// # 安全算术与核心证明模块 Safe Arithmetic & Core Proof Module
 ///
-/// 提供溢出安全的整数运算、钳制函数、索引检查、编解码核心算法。
-/// 带 `proof_ensure` 的函数附带形式化验证契约（moon prove），
-/// 确保 SMT 可机检的数学正确性。
+/// 提供溢出安全的整数运算、钳制函数、索引检查、编解码核心算法。 Provides overflow-safe integer arithmetic, clamp functions, index checks, and codec core algorithms.
+/// 带 `proof_ensure` 的函数附带形式化验证契约（moon prove）， Functions with `proof_ensure` carry formal verification contracts (moon prove),
+/// 确保 SMT 可机检的数学正确性。 ensuring SMT-machine-checkable mathematical correctness.
 ///
-/// Provides overflow-safe integer arithmetic, clamp functions, index checks, and codec core algorithms.
-/// Functions with `proof_ensure` carry formal verification contracts (moon prove),
-/// ensuring SMT-machine-checkable mathematical correctness.
-///
-/// 证明谓词定义在 `safe_math.mbtp` 中。
-/// Proof predicates are defined in `safe_math.mbtp`.
+/// 证明谓词定义在 `safe_math.mbtp` 中。 Proof predicates are defined in `safe_math.mbtp`.
 ///
 /// 核心函数 Core functions:
 /// - `safe_mul` / `safe_mul3` - 溢出安全乘法 Overflow-safe multiplication
@@ -22,27 +17,15 @@
 /// - `rotate90_power_is_identity` - 旋转恒等性 Rotation identity
 /// - `paeth_predict` / `qoi_hash` / `quantize_332` / `hamming_distance` - 编解码核心 Codec core
 ///
-/// MoonBit 证明系统限制（实验性）：
-/// - 契约函数体中不支持：raise、return、let mut、while、.abs()、>>、&
-/// - 谓词中不支持：>>、&、=>（用 !P || Q 替代）、match Bool
-/// - 含复杂类型（Bytes/Array）的包导致 Why3 翻译失败
-///
-/// MoonBit 证明系统限制（实验性）：
-/// - 契约函数体不支持：raise, return, let mut, while, .abs(), >>, &
-/// - 谓词不支持：>>、&、=>（用 !P || Q 代替）、match Bool
-/// - 含复杂类型（Bytes/Array）的包导致 Why3 翻译失败
-///
-/// MoonBit proof system limitations (experimental):
-/// - Contract function bodies do not support: raise, return, let mut, while, .abs(), >>, &
-/// - Predicates do not support: >>, &, => (use !P || Q instead), match Bool
-/// - Packages with complex types (Bytes/Array) cause Why3 translation failure
+/// MoonBit 证明系统限制（实验性）： MoonBit proof system limitations (experimental):
+/// - 契约函数体中不支持：raise、return、let mut、while、.abs()、>>、& Contract function bodies do not support: raise, return, let mut, while, .abs(), >>, &
+/// - 谓词中不支持：>>、&、=>（用 !P || Q 替代）、match Bool Predicates do not support: >>, &, => (use !P || Q instead), match Bool
+/// - 含复杂类型（Bytes/Array）的包导致 Why3 翻译失败 Packages with complex types (Bytes/Array) cause Why3 translation failure
 
 ///|
-/// 图像维度上限（单边最大像素数）。
-/// Maximum image dimension limit (max pixels per side).
+/// 图像维度上限（单边最大像素数）。 Maximum image dimension limit (max pixels per side).
 ///
-/// 65535 覆盖常见图像格式最大尺寸（PNG/TIFF 32-bit、JPEG 65500、BMP 32-bit）。
-/// 65535 covers max sizes of common formats (PNG/TIFF 32-bit, JPEG 65500, BMP 32-bit).
+/// 65535 覆盖常见图像格式最大尺寸（PNG/TIFF 32-bit、JPEG 65500、BMP 32-bit）。 65535 covers max sizes of common formats (PNG/TIFF 32-bit, JPEG 65500, BMP 32-bit).
 pub const MAX_IMAGE_DIMENSION : Int32 = 65535
 
 // ============================================================================
@@ -51,13 +34,12 @@ pub const MAX_IMAGE_DIMENSION : Int32 = 65535
 
 ///|
 /// 安全乘法：返回 a * b，溢出时返回 None。
-/// Safe multiplication: returns a * b, or None on overflow.
+/// 安全乘法：返回 a * b，溢出时返回 None。 Safe multiplication: returns a * b, or None on overflow.
 ///
 /// 用于在分配大数组前检查是否会溢出。
-/// Used to check for overflow before allocating large arrays.
+/// 用于在分配大数组前检查是否会溢出。 Used to check for overflow before allocating large arrays.
 ///
-/// ✅ 形式化验证：证明后置条件 safe_mul_ok 成立。
-/// ✅ Formal verification: proves postcondition safe_mul_ok holds.
+/// ✅ 形式化验证：证明后置条件 safe_mul_ok 成立。 ✅ Formal verification: proves postcondition safe_mul_ok holds.
 ///
 /// 参数 Parameters:
 /// - `a` - 乘数 Multiplicand
@@ -104,11 +86,9 @@ pub fn safe_mul(
 }
 
 ///|
-/// 安全三参数乘法：返回 a * b * c，溢出时返回 None。
-/// Safe three-argument multiplication: returns a * b * c, or None on overflow.
+/// 安全三参数乘法：返回 a * b * c，溢出时返回 None。 Safe three-argument multiplication: returns a * b * c, or None on overflow.
 ///
-/// 常用于计算 w * h * channels 的数组大小。
-/// Commonly used to compute array size as w * h * channels.
+/// 常用于计算 w * h * channels 的数组大小。 Commonly used to compute array size as w * h * channels.
 ///
 /// 参数 Parameters:
 /// - `a` - 第一乘数 First multiplicand
@@ -143,17 +123,12 @@ pub fn safe_mul3(a : Int32, b : Int32, c : Int32) -> Int32? {
 }
 
 ///|
-/// 判断维度是否在安全范围内（纯函数）。
-/// Check if dimensions are within safe bounds (pure function).
+/// 判断维度是否在安全范围内（纯函数）。 Check if dimensions are within safe bounds (pure function).
 ///
-/// 返回 true 当且仅当 width/height/channels 均为正、
-/// 不超过 MAX_IMAGE_DIMENSION、且乘积不溢出 Int32。
-///
-/// Returns true iff width/height/channels are all positive,
-/// do not exceed MAX_IMAGE_DIMENSION, and product does not overflow Int32.
-///
-/// ✅ 形式化验证：证明结果等价于维度合法性谓词。
-/// ✅ Formal verification: proves result is equivalent to dimension validity predicate.
+/// 返回 true 当且仅当 width/height/channels 均为正、不超过 MAX_IMAGE_DIMENSION、且乘积不溢出 Int32。 Returns true iff width/height/channels are all positive, do not exceed MAX_IMAGE_DIMENSION, and product does not overflow Int32.
+
+///|
+/// ✅ 形式化验证：证明结果等价于维度合法性谓词。 ✅ Formal verification: proves result is equivalent to dimension validity predicate.
 ///
 /// 参数 Parameters:
 /// - `w` - 宽度 Width
@@ -197,13 +172,10 @@ pub fn dims_valid_check(
 // ============================================================================
 
 ///|
-/// 通用整数钳制：将 v 限制在 [lo, hi] 范围内。
-/// General integer clamp: constrains v to [lo, hi] range.
+/// 通用整数钳制：将 v 限制在 [lo, hi] 范围内。 General integer clamp: constrains v to [lo, hi] range.
 ///
-/// 谓词 clamp_int_ok 保证结果在 [lo, hi] 范围内。
-/// Predicate clamp_int_ok guarantees the result is in [lo, hi] range.
-/// 注意：当前 moon prove 对此函数后置条件求解超时，待优化。
-/// Note: current moon prove solver times out on this postcondition, pending optimization.
+/// 谓词 clamp_int_ok 保证结果在 [lo, hi] 范围内。 Predicate clamp_int_ok guarantees the result is in [lo, hi] range.
+/// 注意：当前 moon prove 对此函数后置条件求解超时，待优化。 Note: current moon prove solver times out on this postcondition, pending optimization.
 ///
 /// 参数 Parameters:
 /// - `v` - 输入值 Input value
@@ -243,11 +215,9 @@ pub fn clamp_int(v : Int32, lo : Int32, hi : Int32) -> Int32 {
 }
 
 ///|
-/// 像素值钳制：将 value 限制在 [0, 255] 范围内。
-/// Pixel value clamp: constrains value to [0, 255] range.
+/// 像素值钳制：将 value 限制在 [0, 255] 范围内。 Pixel value clamp: constrains value to [0, 255] range.
 ///
-/// ✅ 形式化验证：证明结果在 [0, 255] 范围内。
-/// ✅ Formal verification: proves result is in [0, 255] range.
+/// ✅ 形式化验证：证明结果在 [0, 255] 范围内。 ✅ Formal verification: proves result is in [0, 255] range.
 ///
 /// 参数 Parameters:
 /// - `value` - 输入像素值 Input pixel value
@@ -288,15 +258,11 @@ pub fn clamp_pixel_value(
 }
 
 ///|
-/// 坐标钳制：将坐标 v 限制在 [0, max_val-1] 范围内。
-/// Coordinate clamp: constrains coordinate v to [0, max_val-1] range.
+/// 坐标钳制：将坐标 v 限制在 [0, max_val-1] 范围内。 Coordinate clamp: constrains coordinate v to [0, max_val-1] range.
 ///
-/// 用于图像像素坐标的边界检查。
-/// Used for boundary checking of image pixel coordinates.
-/// 谓词 clamp_coord_ok 保证结果在 [0, max_val-1] 范围内（当 max > 0）。
-/// Predicate clamp_coord_ok guarantees result is in [0, max_val-1] range (when max > 0).
-/// 注意：当前 moon prove 对此函数后置条件求解超时，待优化。
-/// Note: current moon prove solver times out on this postcondition, pending optimization.
+/// 用于图像像素坐标的边界检查。 Used for boundary checking of image pixel coordinates.
+/// 谓词 clamp_coord_ok 保证结果在 [0, max_val-1] 范围内（当 max > 0）。 Predicate clamp_coord_ok guarantees result is in [0, max_val-1] range (when max > 0).
+/// 注意：当前 moon prove 对此函数后置条件求解超时，待优化。 Note: current moon prove solver times out on this postcondition, pending optimization.
 ///
 /// 参数 Parameters:
 /// - `v` - 坐标值 Coordinate value
@@ -335,11 +301,9 @@ pub fn clamp_coord(v : Int32, max_val : Int32) -> Int32 {
 }
 
 ///|
-/// 字节钳制：将 Int32 值限制在 [0, 255] 并转为 Byte。
-/// Byte clamp: constrains Int32 value to [0, 255] and converts to Byte.
+/// 字节钳制：将 Int32 值限制在 [0, 255] 并转为 Byte。 Byte clamp: constrains Int32 value to [0, 255] and converts to Byte.
 ///
-/// 等价于 clamp_pixel_value(v).to_byte()，用于像素赋值。
-/// Equivalent to clamp_pixel_value(v).to_byte(), used for pixel assignment.
+/// 等价于 clamp_pixel_value(v).to_byte()，用于像素赋值。 Equivalent to clamp_pixel_value(v).to_byte(), used for pixel assignment.
 ///
 /// 参数 Parameters:
 /// - `v` - 输入值 Input value
@@ -365,11 +329,9 @@ pub fn clamp_byte(v : Int32) -> Byte {
 }
 
 ///|
-/// 浮点钳制：将 Float 值 v 限制在 [lo, hi] 范围内。
-/// Float clamp: constrains Float value v to [lo, hi] range.
+/// 浮点钳制：将 Float 值 v 限制在 [lo, hi] 范围内。 Float clamp: constrains Float value v to [lo, hi] range.
 ///
-/// 用于 16-bit/float 图像处理的范围约束。
-/// Used for range constraints in 16-bit/float image processing.
+/// 用于 16-bit/float 图像处理的范围约束。 Used for range constraints in 16-bit/float image processing.
 ///
 /// 参数 Parameters:
 /// - `v` - 输入值 Input value
@@ -403,11 +365,9 @@ pub fn clamp_float(v : Float, lo : Float, hi : Float) -> Float {
 }
 
 ///|
-/// 双精度浮点钳制：将 Double 值 v 限制在 [lo, hi] 范围内。
-/// Double clamp: constrains Double value v to [lo, hi] range.
+/// 双精度浮点钳制：将 Double 值 v 限制在 [lo, hi] 范围内。 Double clamp: constrains Double value v to [lo, hi] range.
 ///
-/// 用于高精度图像处理（HDR/频域）的范围约束。
-/// Used for range constraints in high-precision image processing (HDR/frequency domain).
+/// 用于高精度图像处理（HDR/频域）的范围约束。 Used for range constraints in high-precision image processing (HDR/frequency domain).
 ///
 /// 参数 Parameters:
 /// - `v` - 输入值 Input value
@@ -446,11 +406,9 @@ pub fn clamp_double(v : Double, lo : Double, hi : Double) -> Double {
 // ============================================================================
 
 ///|
-/// 整数最大值：返回 a 和 b 中较大的那个。
-/// Integer maximum: returns the larger of a and b.
+/// 整数最大值：返回 a 和 b 中较大的那个。 Integer maximum: returns the larger of a and b.
 ///
-/// ✅ 形式化验证：证明结果确实是 a 和 b 中的较大者。
-/// ✅ Formal verification: proves the result is indeed the larger of a and b.
+/// ✅ 形式化验证：证明结果确实是 a 和 b 中的较大者。 ✅ Formal verification: proves the result is indeed the larger of a and b.
 ///
 /// 参数 Parameters:
 /// - `a` - 第一个值 First value
@@ -486,11 +444,9 @@ pub fn int_max(
 }
 
 ///|
-/// 整数最小值：返回 a 和 b 中较小的那个。
-/// Integer minimum: returns the smaller of a and b.
+/// 整数最小值：返回 a 和 b 中较小的那个。 Integer minimum: returns the smaller of a and b.
 ///
-/// ✅ 形式化验证：证明结果确实是 a 和 b 中的较小者。
-/// ✅ Formal verification: proves the result is indeed the smaller of a and b.
+/// ✅ 形式化验证：证明结果确实是 a 和 b 中的较小者。 ✅ Formal verification: proves the result is indeed the smaller of a and b.
 ///
 /// 参数 Parameters:
 /// - `a` - 第一个值 First value
@@ -530,11 +486,9 @@ pub fn int_min(
 // ============================================================================
 
 ///|
-/// 安全的一维索引检查：0 <= index < length。
-/// Safe 1D index check: 0 <= index < length.
+/// 安全的一维索引检查：0 <= index < length。 Safe 1D index check: 0 <= index < length.
 ///
-/// ✅ 形式化验证：证明结果正确判定索引合法性。
-/// ✅ Formal verification: proves result correctly determines index validity.
+/// ✅ 形式化验证：证明结果正确判定索引合法性。 ✅ Formal verification: proves result correctly determines index validity.
 ///
 /// 参数 Parameters:
 /// - `index` - 索引值 Index value
@@ -566,11 +520,9 @@ pub fn is_valid_index(
 }
 
 ///|
-/// 安全的二维索引检查：0 <= x < width && 0 <= y < height。
-/// Safe 2D index check: 0 <= x < width && 0 <= y < height.
+/// 安全的二维索引检查：0 <= x < width && 0 <= y < height。 Safe 2D index check: 0 <= x < width && 0 <= y < height.
 ///
-/// ✅ 形式化验证：证明结果正确判定 2D 索引合法性。
-/// ✅ Formal verification: proves result correctly determines 2D index validity.
+/// ✅ 形式化验证：证明结果正确判定 2D 索引合法性。 ✅ Formal verification: proves result correctly determines 2D index validity.
 ///
 /// 参数 Parameters:
 /// - `x` - x 坐标 x coordinate
@@ -610,14 +562,11 @@ pub fn is_valid_2d_index(
 // ============================================================================
 
 ///|
-/// 判断 Rotate90 的连续次数是否为恒等变换。
-/// Determine whether n consecutive Rotate90 operations result in identity.
+/// 判断 Rotate90 的连续次数是否为恒等变换。 Determine whether n consecutive Rotate90 operations result in identity.
 ///
-/// 当 n 是 4 的倍数时，连续旋转 n 次 90° 回到原始状态。
-/// When n is a multiple of 4, rotating 90° n times returns to the original state.
+/// 当 n 是 4 的倍数时，连续旋转 n 次 90° 回到原始状态。 When n is a multiple of 4, rotating 90° n times returns to the original state.
 ///
-/// ✅ 形式化验证：证明结果等价于 n % 4 == 0。
-/// ✅ Formal verification: proves result is equivalent to n % 4 == 0.
+/// ✅ 形式化验证：证明结果等价于 n % 4 == 0。 ✅ Formal verification: proves result is equivalent to n % 4 == 0.
 ///
 /// 参数 Parameters:
 /// - `n` - 旋转次数 Number of rotations
@@ -657,10 +606,8 @@ pub fn rotate90_power_is_identity(
 ///|
 /// PNG Paeth 预测函数。PNG Paeth predictor function.
 ///
-/// 选择 a、b、c 中最接近预测值 p = a + b - c 的那个。
-/// Selects the one among a, b, c closest to the predicted value p = a + b - c.
-/// 结果必为 {a, b, c} 之一（PNG 规范保证）。
-/// The result is guaranteed to be one of {a, b, c} (PNG spec guarantee).
+/// 选择 a、b、c 中最接近预测值 p = a + b - c 的那个。 Selects the one among a, b, c closest to the predicted value p = a + b - c.
+/// 结果必为 {a, b, c} 之一（PNG 规范保证）。 The result is guaranteed to be one of {a, b, c} (PNG spec guarantee).
 ///
 /// 参数 Parameters:
 /// - `a` - 左方像素 Left pixel
@@ -673,8 +620,9 @@ pub fn rotate90_power_is_identity(
 /// 示例 Example:
 /// ```mbt check
 /// test "doc_paeth_predict_equal" {
-///   // 当 pa == pb == pc 时选 a
-///   assert_eq(@safe_math.paeth_predict(0, 0, 0), 0)
+/// // 当 pa == pb == pc 时选 a assert_eq(@safe_math.paeth_predict(0, 0, 0), 0)
+
+///|
 /// }
 /// ```
 #inline
@@ -693,11 +641,9 @@ pub fn paeth_predict(a : Int32, b : Int32, c : Int32) -> Int32 {
 }
 
 ///|
-/// QOI 哈希函数：将 RGBA 像素映射到 [0, 63] 的索引。
-/// QOI hash function: maps RGBA pixel to an index in [0, 63].
+/// QOI 哈希函数：将 RGBA 像素映射到 [0, 63] 的索引。 QOI hash function: maps RGBA pixel to an index in [0, 63].
 ///
-/// 结果在 [0, 63] 范围内（QOI 规范保证）。
-/// Result is guaranteed in [0, 63] range (QOI spec guarantee).
+/// 结果在 [0, 63] 范围内（QOI 规范保证）。 Result is guaranteed in [0, 63] range (QOI spec guarantee).
 ///
 /// 参数 Parameters:
 /// - `r` - 红色通道 Red channel
@@ -721,11 +667,9 @@ pub fn qoi_hash(r : Int32, g : Int32, b : Int32, a : Int32) -> Int32 {
 }
 
 ///|
-/// GIF 3-3-2 量化：将 RGB 像素映射到 256 色调色板索引。
-/// GIF 3-3-2 quantization: maps RGB pixel to 256-color palette index.
+/// GIF 3-3-2 量化：将 RGB 像素映射到 256 色调色板索引。 GIF 3-3-2 quantization: maps RGB pixel to 256-color palette index.
 ///
-/// 结果在 [0, 255] 范围内。
-/// Result is guaranteed in [0, 255] range.
+/// 结果在 [0, 255] 范围内。 Result is guaranteed in [0, 255] range.
 ///
 /// 参数 Parameters:
 /// - `r` - 红色通道（0-255）Red channel (0-255)
@@ -751,11 +695,9 @@ pub fn quantize_332(r : Int32, g : Int32, b : Int32) -> Int32 {
 }
 
 ///|
-/// 汉明距离：计算两个整数在二进制表示下不同位的数量。
-/// Hamming distance: counts the number of differing bits between two integers.
+/// 汉明距离：计算两个整数在二进制表示下不同位的数量。 Hamming distance: counts the number of differing bits between two integers.
 ///
-/// 结果 >= 0。
-/// Result >= 0.
+/// 结果 >= 0。 Result >= 0.
 ///
 /// 参数 Parameters:
 /// - `a` - 第一个整数 First integer

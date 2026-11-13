@@ -1,9 +1,8 @@
 ///|
-/// # transform
-/// transform
+/// # 变换 transform
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 图像变换操作（纯 MoonBit）：crop / rotate / flip
 // 支持 Image / Image16 / ImageF 三种类型
 

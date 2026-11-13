@@ -1,8 +1,8 @@
 ///|
-/// # ocr/advanced_chinese_ocr
+/// # 高级中文 OCR ocr/advanced_chinese_ocr
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 完善的中文 OCR
 // 3500常用字、真实字体模板、部件分解
 

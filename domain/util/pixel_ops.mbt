@@ -1,8 +1,8 @@
 ///|
-/// # util/pixel_ops
+/// # 像素操作 util/pixel_ops
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 像素操作（纯 MoonBit）：threshold / posterize / extract_channel / blend 模式
 
 ///|
@@ -70,7 +70,7 @@ pub fn posterize(
 
 ///|
 /// 提取单个通道。返回单通道 Image（channels=1）。
-/// channel: 0=R/Gray, 1=G, 2=B, 3=A
+/// 描述 channel: 0=R/Gray, 1=G, 2=B, 3=A
 pub fn extract_channel(
   img : @types.Image,
   channel : Int32,
@@ -150,7 +150,7 @@ pub fn blend_screen(
 
 ///|
 /// 叠加混合。暗部用乘法，亮部用滤色。
-/// result = if base < 128: 2*base*blend/255 else: 255 - 2*(255-base)*(255-blend)/255
+/// 描述 result = if base < 128: 2*base*blend/255 else: 255 - 2*(255-base)*(255-blend)/255
 pub fn blend_overlay(
   base : @types.Image,
   blend : @types.Image,
@@ -391,7 +391,7 @@ pub fn blend_hard_light(
 
 ///|
 /// 柔光。基于 blend 的亮度在乘法和滤色之间平滑过渡。
-/// result = (1 - 2*blend/255) * base^2/255 + (2*blend/255) * base
+/// 描述 result = (1 - 2*blend/255) * base^2/255 + (2*blend/255) * base
 pub fn blend_soft_light(
   base : @types.Image,
   blend : @types.Image,

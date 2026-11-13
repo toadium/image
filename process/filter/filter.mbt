@@ -1,9 +1,8 @@
 ///|
-/// # filter
-/// filter
+/// # 滤波 filter
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 图像滤波/卷积（纯 MoonBit）
 // box_blur / gaussian_blur / sharpen / convolve
 
@@ -99,8 +98,8 @@ pub fn box_blur(
 ///|
 /// 高斯模糊。radius 为核半径，sigma 为标准差。
 /// 使用可分离高斯核，O(n*radius) 复杂度。仅模糊颜色通道，alpha 不变。
-/// Gaussian blur. radius is kernel radius, sigma is standard deviation.
-/// Uses separable Gaussian kernel, O(n*radius) complexity. Only blurs color channels, alpha unchanged.
+/// 高斯模糊。radius 为核半径，sigma 为标准差。 Gaussian blur. radius is kernel radius, sigma is standard deviation.
+/// 使用可分离高斯核，O(n*radius) 复杂度。仅模糊颜色通道，alpha 不变。 Uses separable Gaussian kernel, O(n*radius) complexity. Only blurs color channels, alpha unchanged.
 ///
 /// ```mbt check
 /// test "doc_gaussian_blur" {

@@ -1,8 +1,8 @@
 ///|
-/// # ocr/binarization
+/// # 二值化 ocr/binarization
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // OCR 专用二值化算法
 // Sauvola 阈值、Niblack 阈值、OCR 自适应阈值
 
@@ -54,7 +54,7 @@ fn local_mean_std(
 
 ///|
 /// Niblack 局部阈值二值化
-/// T(x,y) = mean(x,y) + k * std(x,y)
+/// 自适应阈值 T(x,y) = mean(x,y) + k * std(x,y)
 /// k: 修正系数，通常 -0.2
 /// window_size: 局部窗口大小（奇数）
 pub fn niblack_threshold(
@@ -115,7 +115,7 @@ pub fn niblack_threshold(
 
 ///|
 /// Sauvola 局部阈值二值化（Niblack 的改进版，适合文档图像）
-/// T(x,y) = mean(x,y) * (1 + k * (std(x,y)/R - 1))
+/// 自适应阈值 T(x,y) = mean(x,y) * (1 + k * (std(x,y)/R - 1))
 /// k: 修正系数，通常 0.5
 /// R: 标准差的动态范围，通常 128
 /// window_size: 局部窗口大小（奇数）

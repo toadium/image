@@ -2,7 +2,7 @@
 /// # JPEG-XL 解码 JPEG-XL Decode
 ///
 /// JPEG-XL 图像格式解码
-/// JPEG-XL image format decoding
+/// JPEG-XL 图像格式解码 JPEG-XL image format decoding
 
 ///|
 /// JPEG-XL (JPEG XL) 解码器

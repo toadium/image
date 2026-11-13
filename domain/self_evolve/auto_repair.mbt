@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/auto_repair
+/// # 自动修复 self_evolve/auto_repair
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 退化自动修复 — 检测退化后自动修正参数
 // Auto repair: detect degradation and auto-fix parameters
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 单项修复动作。
-/// Single repair action.
+/// 描述 Single repair action.
 #derive(Eq, @debug.Debug)
 pub(all) struct RepairAction {
   op_tag : String
@@ -26,7 +26,7 @@ pub extend RepairAction with Eq::{not_equal, equal}
 
 ///|
 /// 修复报告。
-/// Repair report.
+/// 描述 Repair report.
 #derive(Eq, @debug.Debug)
 pub(all) struct RepairReport {
   original_op_count : Int32
@@ -44,7 +44,7 @@ pub extend RepairReport with Eq::{not_equal, equal}
 
 ///|
 /// 修复单个算子的退化参数。
-/// Repair a single op's degraded parameters.
+/// 描述 Repair a single op's degraded parameters.
 pub fn repair_op(op : @imgir.IROp) -> @imgir.IROp {
   match op {
     Resize(w, h) => {
@@ -98,7 +98,7 @@ pub fn repair_op(op : @imgir.IROp) -> @imgir.IROp {
 
 ///|
 /// 修复管道中所有算子的退化。
-/// Repair all ops in a pipeline.
+/// 描述 Repair all ops in a pipeline.
 pub fn repair_pipeline(pipeline : @imgir.IRPipeline) -> @imgir.IRPipeline {
   let mut pipe = @imgir.IRPipeline::new()
   for op in pipeline.ops {
@@ -109,7 +109,7 @@ pub fn repair_pipeline(pipeline : @imgir.IRPipeline) -> @imgir.IRPipeline {
 
 ///|
 /// 生成修复报告。
-/// Generate repair report for a pipeline.
+/// 生成 Generate repair report for a pipeline.
 pub fn repair_report(pipeline : @imgir.IRPipeline) -> RepairReport {
   let ops = pipeline.ops
   let original_degs = scan_degradations(ops)
@@ -144,7 +144,7 @@ pub fn repair_report(pipeline : @imgir.IRPipeline) -> RepairReport {
 
 ///|
 /// 对全部 19 种算子生成修复报告。
-/// Generate repair report for all 19 op variants.
+/// 生成 Generate repair report for all 19 op variants.
 pub fn repair_all() -> Array[RepairReport] {
   let reports : Array[RepairReport] = []
   for op in all_ops() {
@@ -156,14 +156,14 @@ pub fn repair_all() -> Array[RepairReport] {
 
 ///|
 /// 修复后退化是否清零。
-/// Whether all degradations are fixed.
+/// 描述 Whether all degradations are fixed.
 pub fn RepairReport::is_fully_repaired(self : RepairReport) -> Bool {
   self.remaining_degradations.length() == 0
 }
 
 ///|
 /// 修复动作数。
-/// Number of repair actions.
+/// 描述 Number of repair actions.
 pub fn RepairReport::repair_count(self : RepairReport) -> Int32 {
   self.repairs.length()
 }

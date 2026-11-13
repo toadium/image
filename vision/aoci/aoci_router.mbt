@@ -2,7 +2,7 @@
 /// # AOCI 路由器 AOCI Router
 ///
 /// 自然语言 → 模块定位 → 按需加载
-/// Natural language → module routing → on-demand loading
+/// 自然语言→模块路由→按需加载 Natural language → module routing → on-demand loading
 // AOCI-Router — 自然语言 → 模块定位 → 按需加载
 // 关键词匹配 + 排序 + Top-K 返回
 

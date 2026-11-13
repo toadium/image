@@ -1,8 +1,8 @@
 ///|
-/// # ocr/enhanced_layout_analysis
+/// # 增强版面分析 ocr/enhanced_layout_analysis
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 增强版 PDF 布局分析（v12.19.0）
 // 多栏检测、页眉页脚识别、标题层级精判、列表/引用/代码块识别、段落分割、智能阅读顺序
 

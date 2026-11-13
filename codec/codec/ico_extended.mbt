@@ -1,8 +1,7 @@
 ///|
 /// # ICO 扩展 ICO Extended
 ///
-/// ICO 扩展功能
-/// ICO extended features
+/// ICO 扩展功能 ICO extended features
 
 ///|
 /// ICO 扩展信息（包含图像数量、各子图像尺寸/位深等）

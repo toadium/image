@@ -1,8 +1,8 @@
 ///|
-/// # pose_estimation/human_pose_estimation
+/// # 人体姿态估计 pose_estimation/human_pose_estimation
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 人体姿态估计与动作识别（v32.0.0）
 // 关键点检测、骨架提取、姿态估计、动作识别、手势识别
 

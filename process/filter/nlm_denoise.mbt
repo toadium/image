@@ -1,9 +1,8 @@
 ///|
-/// # nlm denoise
-/// nlm denoise
+/// # 非局部均值降噪 nlm denoise
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 非局部均值去噪 NLM（纯 MoonBit）
 
 ///|

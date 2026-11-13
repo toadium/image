@@ -1,8 +1,8 @@
 ///|
-/// # encryption/encryption_watermark
+/// # 加密水印 encryption/encryption_watermark
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 图像加密与水印增强（v21.0.0）
 // 图像加密、数字水印、信息隐藏、置乱加密
 

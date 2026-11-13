@@ -1,15 +1,15 @@
 ///|
-/// # fieldimg/tensor_field
+/// # 张量场 fieldimg/tensor_field
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 张量场：2D 张量场，每个点 (x, y) 映射到 rows×cols 矩阵。
 // Tensor field: 2D tensor field, each point (x, y) maps to a rows×cols matrix.
 // 典型应用：结构张量（2×2 对称）用于角点检测，梯度张量用于边缘分析。
 
 ///|
 /// 张量场：2D 张量场，data 为行主序，长度 = width * height * rows * cols。
-/// Tensor field: 2D tensor field, row-major, length = width * height * rows * cols.
+/// 张量场：2D Tensor field: 2D
 #derive(Eq, @debug.Debug)
 pub(all) struct TensorField {
   width : Int32
@@ -27,7 +27,7 @@ pub extend TensorField with Eq::{not_equal, equal}
 
 ///|
 /// 创建张量场，数据长度必须等于 width * height * rows * cols。
-/// Create a tensor field; data length must equal width * height * rows * cols.
+/// 创建张量场；数据长度须等于 width * height * rows * cols Create a tensor field; data length must equal width * height * rows * cols.
 pub fn TensorField::make(
   width : Int32,
   height : Int32,
@@ -50,7 +50,7 @@ pub fn TensorField::make(
 
 ///|
 /// 创建全零张量场。
-/// Create an all-zero tensor field.
+/// 创建全零张量场 Create an all-zero tensor field.
 pub fn TensorField::zeros(
   width : Int32,
   height : Int32,
@@ -73,7 +73,7 @@ pub fn TensorField::zeros(
 
 ///|
 /// 求值单元素：获取点 (x, y) 处矩阵第 (r, c) 元素，边界外返回 0。
-/// Evaluate element (r, c) at (x, y); returns 0 for out-of-bounds.
+/// 求值元素 (r, c) 于 (x, y)；越界返回 0 Evaluate element (r, c) at (x, y); returns 0 for out-of-bounds.
 pub fn TensorField::evaluate(
   self : TensorField,
   x : Int32,
@@ -96,7 +96,7 @@ pub fn TensorField::evaluate(
 
 ///|
 /// 求值单元素（边界钳制）。
-/// Evaluate element with clamped boundary.
+/// 钳位边界求值元素 Evaluate element with clamped boundary.
 pub fn TensorField::evaluate_clamped(
   self : TensorField,
   x : Int32,
@@ -113,7 +113,7 @@ pub fn TensorField::evaluate_clamped(
 
 ///|
 /// 设值单元素：设置点 (x, y) 处矩阵第 (r, c) 元素，越界则忽略。
-/// Set element (r, c) at (x, y); out-of-bounds is ignored.
+/// 设置元素 (r, c) 于 (x, y)；越界忽略 Set element (r, c) at (x, y); out-of-bounds is ignored.
 pub fn TensorField::set(
   self : TensorField,
   x : Int32,
@@ -138,8 +138,8 @@ pub fn TensorField::set(
 ///|
 /// 由梯度矢量场构建结构张量场（2×2 对称）。
 /// 结构张量 J = [[Ix², Ix*Iy], [Ix*Iy, Iy²]]，用于角点检测。
-/// Build structure tensor field (2×2 symmetric) from a gradient vector field (dim=2).
-/// Structure tensor J = [[Ix², Ix*Iy], [Ix*Iy, Iy²]], used for corner detection.
+/// 从梯度向量场构建结构张量场 Build structure tensor field (2×2 symmetric) from a gradient vector field (dim=2).
+/// 结构张量 J，用于角点检测 Structure tensor J = [[Ix², Ix*Iy], [Ix*Iy, Iy²]], used for corner detection.
 pub fn TensorField::structure_tensor(
   gradient : VectorField,
 ) -> TensorField raise @types.LoadError {
@@ -166,7 +166,7 @@ pub fn TensorField::structure_tensor(
 ///|
 /// 计算结构张量的两个特征值，返回矢量场（dim=2，[λ1, λ2]，λ1 ≥ λ2）。
 /// 特征值用于 Harris 角点响应：R = det(J) - k * trace(J)² = λ1*λ2 - k*(λ1+λ2)²。
-/// Compute eigenvalues of 2×2 structure tensors, returns VectorField (dim=2, [λ1, λ2], λ1 ≥ λ2).
+/// 计算结构张量特征值 Compute eigenvalues of 2×2 structure tensors, returns VectorField (dim=2, [λ1, λ2], λ1 ≥ λ2).
 pub fn TensorField::eigenvalues_2x2(
   self : TensorField,
 ) -> VectorField raise @types.LoadError {

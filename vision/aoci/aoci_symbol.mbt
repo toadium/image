@@ -2,7 +2,7 @@
 /// # AOCI 符号坐标类型 AOCI Symbol Coordinate Types
 ///
 /// 符号在代码库中的位置和元信息
-/// Symbol position and metadata in codebase
+/// 符号位置与元数据 Symbol position
 // AOCI 符号语义索引 — 符号坐标类型
 // SymbolCoord: 符号在代码库中的位置和元信息
 

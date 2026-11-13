@@ -2,7 +2,7 @@
 /// # AOCI Token 配额管理 AOCI Token Budget Management
 ///
 /// Token 配额/分区/降级压缩
-/// Token quota/partitioning/degraded compression
+/// 令牌配额/分区/降级压缩 Token quota/partitioning/degraded compression
 // AOCI-ContextBudget — Token 配额/分区/降级压缩
 // 给定 Token 预算，按优先级分配符号加载，超预算时降级
 

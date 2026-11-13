@@ -1,9 +1,8 @@
 ///|
-/// # optical flow
-/// optical flow
+/// # 光流 optical flow
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // Lucas-Kanade 稀疏光流（纯 MoonBit）
 // 在两帧之间跟踪特征点的运动
 // 参考: Lucas & Kanade, "An Iterative Image Registration Technique"

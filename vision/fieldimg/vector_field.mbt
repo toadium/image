@@ -1,15 +1,15 @@
 ///|
-/// # fieldimg/vector_field
+/// # 向量场 fieldimg/vector_field
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 矢量场：2D 矢量场，每个点 (x, y) 映射到 dim 维 Float 矢量。
 // Vector field: 2D vector field, each point (x, y) maps to a dim-dimensional Float vector.
 // RGB 图可视为 2D 矢量场（dim=3）；梯度场 dim=2。
 
 ///|
 /// 矢量场：2D 矢量场，data 为行主序 Float 数组，长度 = width * height * dim。
-/// Vector field: 2D vector field, data is row-major, length = width * height * dim.
+/// 向量场：2D 向量场，行主序 Vector field: 2D vector field, data is row-major, length = width * height * dim.
 #derive(Eq, @debug.Debug)
 pub(all) struct VectorField {
   width : Int32
@@ -26,7 +26,7 @@ pub extend VectorField with Eq::{not_equal, equal}
 
 ///|
 /// 创建矢量场，数据长度必须等于 width * height * dim。
-/// Create a vector field; data length must equal width * height * dim.
+/// 创建向量场；数据 Create a vector field; data
 pub fn VectorField::make(
   width : Int32,
   height : Int32,
@@ -48,7 +48,7 @@ pub fn VectorField::make(
 
 ///|
 /// 创建全零矢量场。
-/// Create an all-zero vector field.
+/// 创建全零向量场 Create an all-zero vector field.
 pub fn VectorField::zeros(
   width : Int32,
   height : Int32,
@@ -64,7 +64,7 @@ pub fn VectorField::zeros(
 
 ///|
 /// 求值：获取点 (x, y) 处的矢量（返回 dim 维数组副本），边界外返回零矢量。
-/// Evaluate the vector at (x, y); returns zero vector for out-of-bounds.
+/// 求值向量于 (x, y)；越界返回零向量 Evaluate the vector at (x, y); returns zero vector for out-of-bounds.
 pub fn VectorField::evaluate(
   self : VectorField,
   x : Int32,
@@ -83,7 +83,7 @@ pub fn VectorField::evaluate(
 
 ///|
 /// 求值单分量：获取点 (x, y) 处矢量第 k 分量，边界外返回 0。
-/// Evaluate a single component k at (x, y); returns 0 for out-of-bounds.
+/// 求值分量 k 于 (x, y)；越界返回 0 Evaluate a single component k at (x, y); returns 0 for out-of-bounds.
 pub fn VectorField::evaluate_component(
   self : VectorField,
   x : Int32,
@@ -103,7 +103,7 @@ pub fn VectorField::evaluate_component(
 
 ///|
 /// 求值单分量（边界钳制）。
-/// Evaluate a single component with clamped boundary.
+/// 钳位边界求值单个分量 Evaluate a single component with clamped boundary.
 pub fn VectorField::evaluate_component_clamped(
   self : VectorField,
   x : Int32,
@@ -118,7 +118,7 @@ pub fn VectorField::evaluate_component_clamped(
 
 ///|
 /// 设值单分量：设置点 (x, y) 处矢量第 k 分量，越界则忽略。
-/// Set component k at (x, y); out-of-bounds is ignored.
+/// 设置分量 k 于 (x, y)；越界忽略 Set component k at (x, y); out-of-bounds is ignored.
 pub fn VectorField::set_component(
   self : VectorField,
   x : Int32,
@@ -139,7 +139,7 @@ pub fn VectorField::set_component(
 
 ///|
 /// 矢量场幅值：返回每个点的矢量模长，形成标量场。
-/// Vector magnitude: returns a scalar field of vector norms at each point.
+/// 向量幅值：返回各点向量范数的标量场 Vector magnitude: returns a scalar field of vector norms at each point.
 pub fn VectorField::magnitude(
   self : VectorField,
 ) -> ScalarField raise @types.LoadError {

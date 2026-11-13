@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/grill
+/// # 烧烤测试 self_evolve/grill
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // grill-me 拷问引擎 — 4.7.4 领域规则可执行化
 // Grill engine: executable 4.7.4 domain rules
 //
@@ -15,7 +15,7 @@
 
 ///|
 /// 拷问规则（对应 4.7.4 五条领域规则）。
-/// Grill rule (corresponds to 4.7.4 domain rules).
+/// 描述 Grill rule (corresponds to 4.7.4 domain rules).
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -35,7 +35,7 @@ pub extend GrillRule with Eq::{not_equal, equal}
 
 ///|
 /// 单条拷问结果。
-/// Single grill result.
+/// 描述 Single grill result.
 #derive(Eq, @debug.Debug)
 pub(all) struct GrillResult {
   rule : GrillRule
@@ -52,7 +52,7 @@ pub extend GrillResult with Eq::{not_equal, equal}
 
 ///|
 /// 拷问报告。
-/// Grill report.
+/// 描述 Grill report.
 #derive(Eq, @debug.Debug)
 pub(all) struct GrillReport {
   results : Array[GrillResult]
@@ -67,7 +67,7 @@ pub extend GrillReport with Eq::{not_equal, equal}
 
 ///|
 /// 全部 5 条拷问规则。
-/// All 5 grill rules.
+/// 描述 All 5 grill rules.
 pub fn grill_rules() -> Array[GrillRule] {
   [
     NumericRobustness,
@@ -80,7 +80,7 @@ pub fn grill_rules() -> Array[GrillRule] {
 
 ///|
 /// 规则描述。
-/// Rule description.
+/// 描述 Rule description.
 pub fn grill_rule_desc(rule : GrillRule) -> String {
   match rule {
     NumericRobustness => "数值鲁棒性：除零/奇异矩阵/NaN/Inf/溢出"
@@ -168,7 +168,7 @@ fn count_spatiotemporal_violation(ops : Array[@imgir.IROp]) -> Int32 {
 
 ///|
 /// 对管道执行 5 条拷问规则检查。
-/// Run 5 grill rules on a pipeline.
+/// 运行 Run 5 grill rules on a pipeline.
 pub fn run_grill_check(pipeline : @imgir.IRPipeline) -> GrillReport {
   let ops = pipeline.ops
   let degs = scan_degradations(ops)
@@ -242,7 +242,7 @@ pub fn run_grill_check(pipeline : @imgir.IRPipeline) -> GrillReport {
 
 ///|
 /// 对全部 19 种算子执行拷问。
-/// Run grill on all 19 op variants.
+/// 运行 Run grill on all 19 op variants.
 pub fn run_grill_all() -> GrillReport {
   let results : Array[GrillResult] = []
   for op in all_ops() {
@@ -257,7 +257,7 @@ pub fn run_grill_all() -> GrillReport {
 
 ///|
 /// 全部规则是否通过。
-/// Whether all rules passed.
+/// 描述 Whether all rules passed.
 pub fn GrillReport::all_passed(self : GrillReport) -> Bool {
   let mut ok = true
   for r in self.results {
@@ -270,7 +270,7 @@ pub fn GrillReport::all_passed(self : GrillReport) -> Bool {
 
 ///|
 /// 失败规则数。
-/// Number of failed rules.
+/// 描述 Number of failed rules.
 pub fn GrillReport::failed_count(self : GrillReport) -> Int32 {
   let mut count = 0
   for r in self.results {
@@ -283,7 +283,7 @@ pub fn GrillReport::failed_count(self : GrillReport) -> Int32 {
 
 ///|
 /// 通过规则数。
-/// Number of passed rules.
+/// 描述 Number of passed rules.
 pub fn GrillReport::passed_count(self : GrillReport) -> Int32 {
   self.results.length() - self.failed_count()
 }

@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/smart_repair
+/// # 智能修复 self_evolve/smart_repair
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 智能修复策略 — 多策略修复（保守/激进/最优）+ 质量评分
 // Smart repair: multi-strategy repair + quality scoring
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 修复策略。
-/// Repair strategy.
+/// 描述 Repair strategy.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -28,7 +28,7 @@ pub extend RepairStrategy with Eq::{not_equal, equal}
 
 ///|
 /// 单策略修复结果。
-/// Single strategy repair result.
+/// 描述 Single strategy repair result.
 #derive(Eq, @debug.Debug)
 pub(all) struct StrategyRepairResult {
   strategy : RepairStrategy
@@ -83,7 +83,7 @@ fn quality_score(op : @imgir.IROp) -> Int32 {
 
 ///|
 /// 按策略修复算子。
-/// Repair op with a given strategy.
+/// 描述 Repair op with a given strategy.
 pub fn repair_op_strategy(
   op : @imgir.IROp,
   strategy : RepairStrategy,
@@ -97,7 +97,7 @@ pub fn repair_op_strategy(
 
 ///|
 /// 三策略对比修复。
-/// Compare all three strategies.
+/// 比较 Compare all three strategies.
 pub fn repair_with_strategies(op : @imgir.IROp) -> Array[StrategyRepairResult] {
   let strategies = [Conservative, Aggressive, Optimal]
   let results : Array[StrategyRepairResult] = []
@@ -126,7 +126,7 @@ pub fn repair_with_strategies(op : @imgir.IROp) -> Array[StrategyRepairResult] {
 
 ///|
 /// 选择最优修复（质量分最高）。
-/// Select best repair (highest quality score).
+/// 选择 Select best repair (highest quality score).
 pub fn best_repair(op : @imgir.IROp) -> StrategyRepairResult {
   let results = repair_with_strategies(op)
   let mut best = results[0]
@@ -140,7 +140,7 @@ pub fn best_repair(op : @imgir.IROp) -> StrategyRepairResult {
 
 ///|
 /// 对全部 19 种算子选择最优修复。
-/// Best repair for all 19 op variants.
+/// 描述 Best repair for all 19 op variants.
 pub fn best_repair_all() -> Array[StrategyRepairResult] {
   let results : Array[StrategyRepairResult] = []
   for op in all_ops() {
@@ -151,14 +151,14 @@ pub fn best_repair_all() -> Array[StrategyRepairResult] {
 
 ///|
 /// 修复是否完全（退化清零）。
-/// Whether repair is complete (zero degradation).
+/// 描述 Whether repair is complete (zero degradation).
 pub fn StrategyRepairResult::is_complete(self : StrategyRepairResult) -> Bool {
   self.degs_after == 0
 }
 
 ///|
 /// 修复是否改善了质量。
-/// Whether repair improved quality.
+/// 描述 Whether repair improved quality.
 pub fn StrategyRepairResult::is_improvement(
   self : StrategyRepairResult,
 ) -> Bool {

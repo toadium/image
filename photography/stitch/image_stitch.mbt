@@ -1,8 +1,8 @@
 ///|
-/// # stitch/image_stitch
+/// # 图像拼接 stitch/image_stitch
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 图像拼接/全景图（v11.1.0）
 // 特征匹配 + RANSAC 单应性估计 + 多频段融合
 

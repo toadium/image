@@ -1,8 +1,8 @@
 ///|
 /// # Gabor 滤波 + 模板匹配 16-bit/float 变体 Gabor filter + template matching 16-bit/float variants
 ///
-/// gabor_filter_16 / template_match_16
-/// 16-bit/float Gabor/template matching
+/// 16位/浮点 Gabor/模板匹配 gabor_filter_16 / template_match_16
+/// 16位/浮点 Gabor/模板匹配 16-bit/float Gabor/template matching
 // Gabor 滤波 + 模板匹配 16-bit/float 变体
 
 // ========== 辅助函数 ==========

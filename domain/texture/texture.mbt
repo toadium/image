@@ -1,8 +1,8 @@
 ///|
-/// # texture/texture
+/// # 纹理 texture/texture
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 纹理映射 — UV/烘焙/采样
 // Texture mapping: UV / baking / sampling
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 纹理过滤模式。
-/// Texture filter mode.
+/// 描述 Texture filter mode.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -28,7 +28,7 @@ pub extend TextureFilterMode with Eq::{not_equal, equal}
 
 ///|
 /// 纹理映射方法。
-/// Texture mapping method.
+/// 描述 Texture mapping method.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -46,7 +46,7 @@ pub extend TextureMappingMethod with Eq::{not_equal, equal}
 
 ///|
 /// 纹理坐标。
-/// Texture coordinate.
+/// 描述 Texture coordinate.
 #derive(Eq, @debug.Debug)
 pub(all) struct TextureCoord {
   u : Double
@@ -61,7 +61,7 @@ pub extend TextureCoord with Eq::{not_equal, equal}
 
 ///|
 /// 2D纹理。
-/// 2D texture.
+/// 二维纹理 2D texture.
 #derive(Eq, @debug.Debug)
 pub(all) struct Texture2D {
   image : @types.Image
@@ -78,7 +78,7 @@ pub extend Texture2D with Eq::{not_equal, equal}
 
 ///|
 /// 纹理配置。
-/// Texture configuration.
+/// 描述 Texture configuration.
 #derive(Eq, @debug.Debug)
 pub(all) struct TextureConfig {
   mapping_method : TextureMappingMethod
@@ -95,7 +95,7 @@ pub extend TextureConfig with Eq::{not_equal, equal}
 
 ///|
 /// 默认纹理配置。
-/// Default texture configuration.
+/// 描述 Default texture configuration.
 pub fn default_texture_config() -> TextureConfig {
   {
     mapping_method: PlanarMapping,
@@ -107,7 +107,7 @@ pub fn default_texture_config() -> TextureConfig {
 
 ///|
 /// 从图像创建纹理。
-/// Create texture from image.
+/// 创建 Create texture from image.
 pub fn create_texture(img : @types.Image, config : TextureConfig) -> Texture2D {
   {
     image: img,
@@ -119,7 +119,7 @@ pub fn create_texture(img : @types.Image, config : TextureConfig) -> Texture2D {
 
 ///|
 /// 包装坐标：处理超出[0,1)范围的坐标。
-/// Wrap coordinate: handle coordinates outside [0,1).
+/// 环绕 Wrap coordinate: handle coordinates outside [0,1).
 fn wrap_coord(coord : Double, wrap : Bool) -> Double {
   if wrap {
     let c = coord % 1.0
@@ -135,7 +135,7 @@ fn wrap_coord(coord : Double, wrap : Bool) -> Double {
 
 ///|
 /// 最近邻采样。
-/// Nearest neighbor sampling.
+/// 描述 Nearest neighbor sampling.
 pub fn nearest_sample(
   tex : Texture2D,
   u : Double,
@@ -157,7 +157,7 @@ pub fn nearest_sample(
 
 ///|
 /// 双线性采样。
-/// Bilinear sampling.
+/// 描述 Bilinear sampling.
 pub fn bilinear_sample(
   tex : Texture2D,
   u : Double,
@@ -198,7 +198,7 @@ pub fn bilinear_sample(
 
 ///|
 /// 纹理采样主流程。
-/// Texture sampling pipeline.
+/// 描述 Texture sampling pipeline.
 pub fn sample_texture(
   tex : Texture2D,
   u : Double,
@@ -213,14 +213,14 @@ pub fn sample_texture(
 
 ///|
 /// 平面映射：将3D坐标映射到UV。
-/// Planar mapping: map 3D coordinates to UV.
+/// 描述 Planar mapping: map 3D coordinates to UV.
 pub fn planar_mapping(x : Double, y : Double, _z : Double) -> TextureCoord {
   { u: (x + 1.0) / 2.0, v: (y + 1.0) / 2.0, }
 }
 
 ///|
 /// 球面映射：将3D坐标映射到UV。
-/// Spherical mapping: map 3D coordinates to UV.
+/// 描述 Spherical mapping: map 3D coordinates to UV.
 pub fn spherical_mapping(x : Double, y : Double, z : Double) -> TextureCoord {
   let r = (x * x + y * y + z * z).sqrt()
   if r < 0.0001 {
@@ -233,7 +233,7 @@ pub fn spherical_mapping(x : Double, y : Double, z : Double) -> TextureCoord {
 
 ///|
 /// 柱面映射：将3D坐标映射到UV。
-/// Cylindrical mapping: map 3D coordinates to UV.
+/// 描述 Cylindrical mapping: map 3D coordinates to UV.
 pub fn cylindrical_mapping(x : Double, y : Double, z : Double) -> TextureCoord {
   let theta = @math.atan2(y, x)
   { u: (theta / 3.141592653589793 + 1.0) / 2.0, v: (z + 1.0) / 2.0, }
@@ -241,7 +241,7 @@ pub fn cylindrical_mapping(x : Double, y : Double, z : Double) -> TextureCoord {
 
 ///|
 /// 计算UV映射。
-/// Compute UV mapping.
+/// 计算 Compute UV mapping.
 pub fn compute_uv_mapping(
   vertices : Array[(Double, Double, Double)],
   map_method : TextureMappingMethod,
@@ -261,7 +261,7 @@ pub fn compute_uv_mapping(
 
 ///|
 /// 烘焙纹理：将顶点颜色烘焙到纹理。
-/// Bake texture: bake vertex colors to texture.
+/// 描述 Bake texture: bake vertex colors to texture.
 pub fn bake_texture(
   vertices : Array[(Double, Double, Double)],
   colors : Array[(Double, Double, Double)],
@@ -300,7 +300,7 @@ pub fn bake_texture(
 
 ///|
 /// 纹理映射流水线：UV映射 → 烘焙 → 采样。
-/// Texture mapping pipeline: UV mapping → bake → sample.
+/// 描述 Texture mapping pipeline: UV mapping → bake → sample.
 pub fn texture_pipeline(
   vertices : Array[(Double, Double, Double)],
   colors : Array[(Double, Double, Double)],

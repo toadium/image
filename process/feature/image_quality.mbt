@@ -1,9 +1,8 @@
 ///|
-/// # image quality
-/// image quality
+/// # 图像质量 image quality
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 图像质量评估（纯 MoonBit）：mse / psnr / ssim
 
 ///|

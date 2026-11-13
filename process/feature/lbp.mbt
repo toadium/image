@@ -1,9 +1,8 @@
 ///|
-/// # lbp
-/// lbp
+/// # LBP 局部二值模式 lbp
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 局部二值模式（LBP，纯 MoonBit）
 
 ///|

@@ -1,9 +1,8 @@
 ///|
-/// # pyramid
-/// pyramid
+/// # 图像金字塔 pyramid
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 图像金字塔（纯 MoonBit）
 
 ///|

@@ -1,8 +1,7 @@
 ///|
 /// # HEIF 解码 HEIF Decode
 ///
-/// HEIF 图像格式解码
-/// HEIF image format decoding
+/// HEIF 图像格式解码 HEIF image format decoding
 
 ///|
 /// HEIF (High Efficiency Image File Format) 解码器
@@ -10,8 +9,7 @@
 /// HEIF 基于 HEVC (H.265) 编码，使用 ISOBMFF 容器格式。
 /// 本模块提供格式检测和基本头部解析，完整解码需 HEVC 解码器支持。
 ///
-/// Magic bytes: 0x00 0x00 0x00 0x?? 0x66 0x74 0x79 0x70 0x68 0x65 0x69 0x63
-/// (ftyp box with brand "heic", "heix", "hevc", or "mif1")
+/// Magic bytes: 0x00 0x00 0x00 0x?? 0x66 0x74 0x79 0x70 0x68 0x65 0x69 0x63（ftyp box，brand 为 "heic"、"heix"、"hevc" 或 "mif1"）
 
 ///|
 /// HEIF 图像信息

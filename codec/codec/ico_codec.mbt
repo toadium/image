@@ -1,8 +1,7 @@
 ///|
 /// # ICO/CUR 编解码 ICO/CUR Codec
 ///
-/// Windows ICO/CUR 图标格式编解码
-/// Windows ICO/CUR icon format encoding/decoding
+/// Windows ICO/CUR 图标格式编解码 Windows ICO/CUR icon format encoding/decoding
 // 纯 MoonBit ICO/CUR 编解码（全目标可用：native/wasm/js）
 // ICO 规范: https://en.wikipedia.org/wiki/ICO_(file_format)
 // CUR 规范: 与 ICO 相同，但 type=2 且 ICONDIRENTRY 的 planes/bitcount 字段为热点坐标
@@ -162,11 +161,9 @@ fn decode_ico_bmp_subimage(
 }
 
 ///|
-/// 解码 ICO 字节流为 Image（选择面积最大的子图像）
-/// 支持 BMP 子图像（24/32-bit）和 PNG 子图像
-/// Decode ICO byte stream to Image (selects largest sub-image by area)
-/// Supports BMP sub-images (24/32-bit) and PNG sub-images
-///
+/// 解码 ICO 字节流为 Image（选择面积最大的子图像），支持 BMP 子图像（24/32-bit）和 PNG 子图像 Decode ICO byte stream to Image (selects largest sub-image by area), Supports BMP sub-images (24/32-bit) and PNG sub-images
+
+///|
 /// 参数 Parameters:
 /// - `data` - ICO 字节流 ICO byte stream
 ///
@@ -174,8 +171,7 @@ fn decode_ico_bmp_subimage(
 /// - 解码后的 8-bit Image Decoded 8-bit Image
 ///
 /// 错误 Errors:
-/// - `LoadError::DecodeFailed` - 数据过短、ICO 签名无效、无可用子图像
-///   Data too short, invalid ICO signature, no usable sub-image
+/// - `LoadError::DecodeFailed` - 数据过短、ICO 签名无效、无可用子图像 Data too short, invalid ICO signature, no usable sub-image
 pub fn decode_ico_pure(data : Bytes) -> @types.Image raise @types.LoadError {
   let (icon_type, entries) = parse_ico_header(data)
   if icon_type != 1 {
@@ -200,8 +196,7 @@ pub fn decode_ico_pure(data : Bytes) -> @types.Image raise @types.LoadError {
 }
 
 ///|
-/// 解码 CUR 字节流为 Image（选择面积最大的子图像）
-/// Decode CUR byte stream to Image (selects largest sub-image by area)
+/// 解码 CUR 字节流为 Image（选择面积最大的子图像） Decode CUR byte stream to Image (selects largest sub-image by area)
 ///
 /// 参数 Parameters:
 /// - `data` - CUR 字节流 CUR byte stream
@@ -210,8 +205,7 @@ pub fn decode_ico_pure(data : Bytes) -> @types.Image raise @types.LoadError {
 /// - 解码后的 8-bit Image Decoded 8-bit Image
 ///
 /// 错误 Errors:
-/// - `LoadError::DecodeFailed` - 数据过短、CUR 签名无效、无可用子图像
-///   Data too short, invalid CUR signature, no usable sub-image
+/// - `LoadError::DecodeFailed` - 数据过短、CUR 签名无效、无可用子图像 Data too short, invalid CUR signature, no usable sub-image
 pub fn decode_cur_pure(data : Bytes) -> @types.Image raise @types.LoadError {
   let (icon_type, entries) = parse_ico_header(data)
   if icon_type != 2 {

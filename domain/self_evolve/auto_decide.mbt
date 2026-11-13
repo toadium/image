@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/auto_decide
+/// # 自动决策 self_evolve/auto_decide
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 自主决策引擎 — 根据预测结果自主决策演化方向
 // Autonomous decision engine: decide evolution direction based on predictions
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 决策动作类型。
-/// Decision action type.
+/// 描述 Decision action type.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -29,7 +29,7 @@ pub extend DecisionAction with Eq::{not_equal, equal}
 
 ///|
 /// 单算子自主决策。
-/// Autonomous decision for a single op.
+/// 描述 Autonomous decision for a single op.
 #derive(Eq, @debug.Debug)
 pub(all) struct AutoDecision {
   op_tag : String
@@ -46,7 +46,7 @@ pub extend AutoDecision with Eq::{not_equal, equal}
 
 ///|
 /// 决策报告。
-/// Decision report.
+/// 描述 Decision report.
 #derive(Eq, @debug.Debug)
 pub(all) struct DecisionReport {
   decisions : Array[AutoDecision]
@@ -64,7 +64,7 @@ pub extend DecisionReport with Eq::{not_equal, equal}
 
 ///|
 /// 为单个算子做自主决策。
-/// Make autonomous decision for a single op.
+/// 描述 Make autonomous decision for a single op.
 pub fn decide_op(op : @imgir.IROp) -> AutoDecision {
   let tag = op.tag()
   let pred = predict_op(op)
@@ -96,7 +96,7 @@ pub fn decide_op(op : @imgir.IROp) -> AutoDecision {
 
 ///|
 /// 为所有算子做自主决策。
-/// Make autonomous decisions for all ops.
+/// 描述 Make autonomous decisions for all ops.
 pub fn decide_all() -> DecisionReport {
   let decisions : Array[AutoDecision] = []
   let mut auto_count = 0
@@ -123,7 +123,7 @@ pub fn decide_all() -> DecisionReport {
 
 ///|
 /// 决策报告是否可以全自主执行（无人工升级）。
-/// Whether decision report can be fully auto-run (no manual escalation).
+/// 描述 Whether decision report can be fully auto-run (no manual escalation).
 pub fn DecisionReport::can_auto_run(self : DecisionReport) -> Bool {
   for d in self.decisions {
     if d.action is EscalateToManual {

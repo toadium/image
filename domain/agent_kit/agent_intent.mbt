@@ -2,7 +2,7 @@
 /// # Agent 意图识别 Agent Intent Recognition
 ///
 /// 自然语言 → 结构化意图
-/// Natural language → structured intent
+/// 描述 Natural language → structured intent
 // Agent-Kit 意图类型 — 自然语言操作意图
 // Intent: 从自然语言查询中提取的操作意图
 

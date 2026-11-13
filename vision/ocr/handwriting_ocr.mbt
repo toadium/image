@@ -1,8 +1,8 @@
 ///|
-/// # ocr/handwriting_ocr
+/// # 手写 OCR ocr/handwriting_ocr
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 手写体识别
 // 手写体专用模板、灵活的字符分割、手写体识别流水线
 

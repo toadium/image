@@ -1,8 +1,8 @@
 ///|
-/// # barcode/linear_barcodes
+/// # 线性条码 barcode/linear_barcodes
 ///
 /// 编解码工具模块
-/// Codec utility module
+/// 编解码工具模块 Codec utility module
 // 更多一维码支持（v11.3.0）
 // Code128 / UPC-A / Code39 解码
 

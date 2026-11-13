@@ -1,8 +1,8 @@
 ///|
-/// # ocr/handwriting_ocr_enhanced
+/// # 增强手写 OCR ocr/handwriting_ocr_enhanced
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 手写体识别增强版（v10.3.0）
 // 更多变体、弹性匹配、连笔分割、手写体专用特征、手写体后处理
 

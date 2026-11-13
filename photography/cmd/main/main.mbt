@@ -1,8 +1,8 @@
 ///|
-/// # main/main
+/// # 主程序 main/main
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 
 ///|
 fn main {

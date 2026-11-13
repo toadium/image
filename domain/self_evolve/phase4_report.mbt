@@ -1,14 +1,14 @@
 ///|
-/// # self_evolve/phase4_report
+/// # 阶段4报告 self_evolve/phase4_report
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // Phase 4 综合报告 — 汇总 v274-v279 全部能力
 // Phase 4 comprehensive report: aggregate v274-v279 capabilities
 
 ///|
 /// Phase 4 单项能力描述。
-/// Phase 4 single capability.
+/// 阶段 Phase 4 single capability.
 #derive(Eq, @debug.Debug)
 pub(all) struct Phase4Capability {
   version : String
@@ -27,7 +27,7 @@ pub extend Phase4Capability with Eq::{not_equal, equal}
 
 ///|
 /// Phase 4 综合报告。
-/// Phase 4 aggregate report.
+/// 阶段 Phase 4 aggregate report.
 #derive(Eq, @debug.Debug)
 pub(all) struct Phase4Report {
   capabilities : Array[Phase4Capability]
@@ -45,7 +45,7 @@ pub extend Phase4Report with Eq::{not_equal, equal}
 
 ///|
 /// Phase 4 全部能力清单（v274-v279）。
-/// Phase 4 capability list (v274-v279).
+/// 阶段 Phase 4 capability list (v274-v279).
 pub fn phase4_capabilities() -> Array[Phase4Capability] {
   [
     {
@@ -101,7 +101,7 @@ pub fn phase4_capabilities() -> Array[Phase4Capability] {
 
 ///|
 /// Phase 4 总类型数。
-/// Phase 4 total types.
+/// 阶段 Phase 4 total types.
 pub fn phase4_total_types() -> Int32 {
   let mut sum = 0
   for c in phase4_capabilities() {
@@ -112,7 +112,7 @@ pub fn phase4_total_types() -> Int32 {
 
 ///|
 /// Phase 4 总函数数。
-/// Phase 4 total functions.
+/// 阶段 Phase 4 total functions.
 pub fn phase4_total_functions() -> Int32 {
   let mut sum = 0
   for c in phase4_capabilities() {
@@ -123,7 +123,7 @@ pub fn phase4_total_functions() -> Int32 {
 
 ///|
 /// Phase 4 总测试数。
-/// Phase 4 total tests.
+/// 阶段 Phase 4 total tests.
 pub fn phase4_total_tests() -> Int32 {
   let mut sum = 0
   for c in phase4_capabilities() {
@@ -134,7 +134,7 @@ pub fn phase4_total_tests() -> Int32 {
 
 ///|
 /// Phase 4 综合报告。
-/// Phase 4 aggregate report.
+/// 阶段 Phase 4 aggregate report.
 pub fn phase4_report() -> Phase4Report {
   let caps = phase4_capabilities()
   let total_types = phase4_total_types()
@@ -160,7 +160,7 @@ pub fn phase4_report() -> Phase4Report {
 
 ///|
 /// Phase 4 是否完成（6 个版本全部交付）。
-/// Whether Phase 4 is complete (6 versions delivered).
+/// 描述 Whether Phase 4 is complete (6 versions delivered).
 pub fn phase4_is_complete() -> Bool {
   phase4_capabilities().length() == 6
 }

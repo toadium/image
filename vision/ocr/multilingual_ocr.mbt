@@ -1,8 +1,8 @@
 ///|
-/// # ocr/multilingual_ocr
+/// # 多语言 OCR ocr/multilingual_ocr
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 多语言混合识别
 // 中英混排、标点符号优化、语言检测、多语言识别流水线
 

@@ -1,8 +1,7 @@
 ///|
 /// # JPEG-XL 扩展 JPEG-XL Extended
 ///
-/// JPEG-XL 扩展功能
-/// JPEG-XL extended features
+/// JPEG-XL 扩展功能 JPEG-XL extended features
 
 ///|
 /// JPEG-XL 扩展信息

@@ -2,7 +2,7 @@
 /// # PNM 编码 PNM Encode
 ///
 /// PNM 图像格式编码
-/// PNM image format encoding
+/// PNM 图像格式编码 PNM image format encoding
 // 纯 MoonBit PNM 格式编码器：PPM (P6) + PGM (P5)
 // 移植自 src/format/pnm_encode.mbt，仅替换类型引用：
 //   @core.Image -> @types.Image

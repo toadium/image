@@ -1,9 +1,8 @@
 ///|
-/// # seam carving
-/// seam carving
+/// # Seam Carving 接缝裁剪 seam carving
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 接缝裁剪（Seam Carving）— 内容感知缩放
 // 纯 MoonBit 实现，基于 Avidan & Shamir 2007
 

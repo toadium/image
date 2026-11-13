@@ -1,8 +1,8 @@
 ///|
-/// # ocr/chinese_ocr
+/// # 中文 OCR ocr/chinese_ocr
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 中文 OCR 基础
 // 常用汉字识别（基于点阵模板）
 

@@ -1,8 +1,8 @@
 ///|
-/// # photo_enhance/photo_enhancement
+/// # 照片增强 photo_enhance/photo_enhancement
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 计算摄影增强（v12.15.0）
 // 低光增强、去运动模糊、色彩增强、自适应直方图均衡化
 

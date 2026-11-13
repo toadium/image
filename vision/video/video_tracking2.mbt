@@ -1,8 +1,8 @@
 ///|
-/// # video/video_tracking2
+/// # 视频跟踪2 video/video_tracking2
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 视频跟踪 — 多目标/长程/关联
 // Video tracking: multi-object / long-term / association
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 跟踪方法。
-/// Tracking method.
+/// 跟踪方法 Tracking method.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -28,7 +28,7 @@ pub extend MultiTrackingMethod with Eq::{not_equal, equal}
 
 ///|
 /// 跟踪对象状态。
-/// Tracked object state.
+/// 跟踪目标状态 Tracked object state.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -46,7 +46,7 @@ pub extend MultiTrackState with Eq::{not_equal, equal}
 
 ///|
 /// 跟踪对象。
-/// Tracked object.
+/// 跟踪目标 Tracked object.
 #derive(Eq, @debug.Debug)
 pub(all) struct MultiTrackedObject {
   id : Int32
@@ -67,7 +67,7 @@ pub extend MultiTrackedObject with Eq::{not_equal, equal}
 
 ///|
 /// 检测对象。
-/// Detected object.
+/// 检测目标 Detected object.
 #derive(Eq, @debug.Debug)
 pub(all) struct MultiDetectedObject {
   x : Double
@@ -85,7 +85,7 @@ pub extend MultiDetectedObject with Eq::{not_equal, equal}
 
 ///|
 /// 跟踪配置。
-/// Tracking configuration.
+/// 跟踪配置 Tracking configuration.
 #derive(Eq, @debug.Debug)
 pub(all) struct MultiTrackingConfig {
   track_method : MultiTrackingMethod
@@ -102,7 +102,7 @@ pub extend MultiTrackingConfig with Eq::{not_equal, equal}
 
 ///|
 /// 默认跟踪配置。
-/// Default tracking configuration.
+/// 默认跟踪配置 Default tracking configuration.
 pub fn default_tracking_config() -> MultiTrackingConfig {
   {
     track_method: Centroid,
@@ -114,7 +114,7 @@ pub fn default_tracking_config() -> MultiTrackingConfig {
 
 ///|
 /// 计算两个对象间的中心距离。
-/// Compute centroid distance between two objects.
+/// 计算两目标质心距离 Compute centroid distance between two objects.
 fn centroid_distance(
   obj1 : MultiTrackedObject,
   obj2 : MultiDetectedObject,
@@ -126,7 +126,7 @@ fn centroid_distance(
 
 ///|
 /// 计算 IoU（交并比）。
-/// Compute IoU (Intersection over Union).
+/// 计算 IoU（交并比） Compute IoU (Intersection over Union).
 fn compute_iou(obj1 : MultiTrackedObject, obj2 : MultiDetectedObject) -> Double {
   let x1 = obj1.x - obj1.width / 2.0
   let y1 = obj1.y - obj1.height / 2.0
@@ -157,7 +157,7 @@ fn compute_iou(obj1 : MultiTrackedObject, obj2 : MultiDetectedObject) -> Double 
 
 ///|
 /// 关联检测对象与跟踪对象。
-/// Associate detected objects with tracked objects.
+/// 关联检测目标与跟踪目标 Associate detected objects with tracked objects.
 pub fn associate_objects(
   tracked : Array[MultiTrackedObject],
   detected : Array[MultiDetectedObject],
@@ -197,7 +197,7 @@ pub fn associate_objects(
 
 ///|
 /// 初始化跟踪器。
-/// Initialize tracker with detected objects.
+/// 初始化跟踪器 Initialize tracker
 pub fn init_tracker(
   detections : Array[MultiDetectedObject],
   config : MultiTrackingConfig,
@@ -225,7 +225,7 @@ pub fn init_tracker(
 
 ///|
 /// 更新跟踪器。
-/// Update tracker with new detections.
+/// 用新检测更新跟踪器 Update tracker with new detections.
 pub fn update_tracker(
   tracked : Array[MultiTrackedObject],
   detections : Array[MultiDetectedObject],
@@ -309,7 +309,7 @@ pub fn update_tracker(
 
 ///|
 /// 多目标跟踪。
-/// Multi-object tracking across frames.
+/// 跨帧多目标跟踪 Multi-object tracking across frames.
 pub fn multi_object_track(
   detections_per_frame : Array[Array[MultiDetectedObject]],
   config : MultiTrackingConfig,
@@ -330,7 +330,7 @@ pub fn multi_object_track(
 
 ///|
 /// 计算跟踪长度。
-/// Compute track length (age of longest track).
+/// 计算轨迹长度（最长轨迹年龄） Compute track length (age of longest track).
 pub fn compute_track_length(tracked : Array[MultiTrackedObject]) -> Int32 {
   let mut max_age = 0
   for t in tracked {
@@ -343,7 +343,7 @@ pub fn compute_track_length(tracked : Array[MultiTrackedObject]) -> Int32 {
 
 ///|
 /// 计算活跃跟踪数。
-/// Compute number of active tracks.
+/// 计算活跃轨迹数 Compute number of active tracks.
 pub fn count_active_tracks(tracked : Array[MultiTrackedObject]) -> Int32 {
   let mut count = 0
   for t in tracked {
@@ -356,7 +356,7 @@ pub fn count_active_tracks(tracked : Array[MultiTrackedObject]) -> Int32 {
 
 ///|
 /// 计算跟踪稳定性。
-/// Compute tracking stability score.
+/// 计算跟踪稳定性分 Compute tracking stability score.
 pub fn tracking_stability(tracked : Array[MultiTrackedObject]) -> Double {
   let n = tracked.length()
   if n == 0 {
@@ -373,7 +373,7 @@ pub fn tracking_stability(tracked : Array[MultiTrackedObject]) -> Double {
 
 ///|
 /// 过滤低置信度检测。
-/// Filter low confidence detections.
+/// 过滤低置信度检测 Filter low confidence detections.
 pub fn filter_detections(
   detections : Array[MultiDetectedObject],
   min_confidence : Double,

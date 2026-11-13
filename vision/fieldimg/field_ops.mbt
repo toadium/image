@@ -1,8 +1,8 @@
 ///|
-/// # fieldimg/field_ops
+/// # 场运算 fieldimg/field_ops
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 场通用算子：梯度、散度、旋度、拉普拉斯、积分、阈值、掩码、代数运算、等值提取。
 // Field operators: gradient, divergence, curl, laplacian, integrate, clamp, mask, algebra, isosurface.
 //
@@ -16,8 +16,8 @@
 ///|
 /// 梯度：中心差分计算标量场梯度，返回矢量场（dim=2，[gx, gy]）。
 /// 边界使用单侧差分。
-/// Gradient: central difference of a scalar field, returns VectorField (dim=2, [gx, gy]).
-/// Boundary uses one-sided difference.
+/// 梯度：标量场中心差分，返回 VectorField Gradient: central difference of a scalar field, returns VectorField (dim=2, [gx, gy]).
+/// 边界使用单侧差分 Boundary uses one-sided difference.
 pub fn field_gradient(
   field : ScalarField,
 ) -> VectorField raise @types.LoadError {
@@ -52,8 +52,8 @@ pub fn field_gradient(
 ///|
 /// 散度：计算 2D 矢量场（dim=2）的散度，返回标量场。
 /// div = du/dx + dv/dy。边界使用单侧差分。
-/// Divergence of a 2D vector field (dim=2), returns ScalarField.
-/// div = du/dx + dv/dy. Boundary uses one-sided difference.
+/// 二维向量场散度，返回 ScalarField Divergence of a 2D vector field (dim=2), returns ScalarField.
+/// 散度 div = du/dx + dv/dy. Boundary uses one-sided difference.
 pub fn field_divergence(
   field : VectorField,
 ) -> ScalarField raise @types.LoadError {
@@ -94,8 +94,8 @@ pub fn field_divergence(
 ///|
 /// 旋度：计算 2D 矢量场（dim=2）的标量旋度，返回标量场。
 /// curl = dv/dx - du/dy（2D 中的标量旋度）。边界使用单侧差分。
-/// Scalar curl of a 2D vector field (dim=2), returns ScalarField.
-/// curl = dv/dx - du/dy. Boundary uses one-sided difference.
+/// 二维向量场标量旋度，返回 ScalarField Scalar curl of a 2D vector field (dim=2), returns ScalarField.
+/// 旋度 curl = dv/dx - du/dy. Boundary uses one-sided difference.
 pub fn field_curl(field : VectorField) -> ScalarField raise @types.LoadError {
   if field.dim != 2 {
     raise @types.LoadError::DecodeFailed(
@@ -133,11 +133,11 @@ pub fn field_curl(field : VectorField) -> ScalarField raise @types.LoadError {
 
 ///|
 /// 拉普拉斯：计算标量场拉普拉斯，返回标量场。
-/// lap = f[x+1,y] + f[x-1,y] + f[x,y+1] + f[x,y-1] - 4*f[x,y]。
+/// 拉普拉斯 lap = f[x+1,y] + f[x-1,y] + f[x,y+1] + f[x,y-1] - 4*f[x,y]。
 /// 边界使用钳制（复制边界值）。
-/// Laplacian of a scalar field, returns ScalarField.
-/// lap = f[x+1,y] + f[x-1,y] + f[x,y+1] + f[x,y-1] - 4*f[x,y].
-/// Boundary uses clamped (replicate edge) values.
+/// 标量场拉普拉斯，返回 ScalarField Laplacian of a scalar field, returns ScalarField.
+/// 拉普拉斯 lap = f[x+1,y] + f[x-1,y] + f[x,y+1] + f[x,y-1] - 4*f[x,y].
+/// 边界使用钳位（复制边缘）值 Boundary uses clamped (replicate edge) values.
 pub fn field_laplacian(
   field : ScalarField,
 ) -> ScalarField raise @types.LoadError {
@@ -161,7 +161,7 @@ pub fn field_laplacian(
 
 ///|
 /// 积分：标量场全场求和（离散积分，相当于总量/面积积分）。
-/// Integrate: sum all values (discrete integral = total / area integral).
+/// 积分：求和所有值（离散积分 = 总和 / 面积积分） Integrate: sum all values (discrete integral = total / area integral).
 pub fn field_integrate(field : ScalarField) -> Float {
   let mut sum = 0.0F
   for i in 0..<field.data.length() {
@@ -172,7 +172,7 @@ pub fn field_integrate(field : ScalarField) -> Float {
 
 ///|
 /// 区域积分：对标量场在 [x0,x1)×[y0,y1) 区域求和。
-/// Regional integrate: sum values in the region [x0,x1)×[y0,y1).
+/// 区域积分 Regional integrate: sum values in the region [x0,x1)×[y0,y1).
 pub fn field_integrate_region(
   field : ScalarField,
   x0 : Int32,
@@ -197,7 +197,7 @@ pub fn field_integrate_region(
 
 ///|
 /// 阈值裁剪：将场值限制在 [lo, hi] 范围内。
-/// Clamp field values to [lo, hi].
+/// 将场值钳位到 [lo, hi] Clamp field values to [lo, hi].
 pub fn field_clamp(
   field : ScalarField,
   lo : Float,
@@ -213,7 +213,7 @@ pub fn field_clamp(
 
 ///|
 /// 掩码：按阈值生成二值掩码场（value >= threshold → 1.0，否则 0.0）。
-/// Mask: binary mask field (value >= threshold → 1.0, else 0.0).
+/// 掩膜：二值掩膜场 Mask: binary mask field (value >= threshold → 1.0, else 0.0).
 pub fn field_mask(
   field : ScalarField,
   threshold : Float,
@@ -227,7 +227,7 @@ pub fn field_mask(
 
 ///|
 /// 场加法：a + b（逐元素）。两场尺寸必须一致。
-/// Field addition: a + b (element-wise). Both fields must have the same size.
+/// 场加法：a + b（逐元素）。两场须同尺寸 Field addition: a + b (element-wise). Both fields must have the same size.
 pub fn field_add(
   a : ScalarField,
   b : ScalarField,
@@ -244,7 +244,7 @@ pub fn field_add(
 
 ///|
 /// 场减法：a - b（逐元素）。两场尺寸必须一致。
-/// Field subtraction: a - b (element-wise). Both fields must have the same size.
+/// 场减法：a - b（逐元素）。两场须同尺寸 Field subtraction: a - b (element-wise). Both fields must have the same size.
 pub fn field_sub(
   a : ScalarField,
   b : ScalarField,
@@ -261,7 +261,7 @@ pub fn field_sub(
 
 ///|
 /// 场标量乘法：field * scalar（逐元素）。
-/// Field scalar multiplication: field * scalar (element-wise).
+/// 场标量乘法：field * scalar（逐元素） Field scalar multiplication: field * scalar (element-wise).
 pub fn field_mul_scalar(
   field : ScalarField,
   scalar : Float,
@@ -275,7 +275,7 @@ pub fn field_mul_scalar(
 
 ///|
 /// 场逐元素乘法：a * b（逐元素）。两场尺寸必须一致。
-/// Field element-wise multiplication: a * b. Both fields must have the same size.
+/// 场逐元素乘法：a * b。两场须同尺寸 Field element-wise multiplication: a * b. Both fields must have the same size.
 pub fn field_mul(
   a : ScalarField,
   b : ScalarField,
@@ -292,7 +292,7 @@ pub fn field_mul(
 
 ///|
 /// 场混合：(1 - alpha) * a + alpha * b。两场尺寸必须一致，alpha 通常在 [0, 1]。
-/// Field blend: (1 - alpha) * a + alpha * b. Same size required; alpha typically in [0, 1].
+/// 场混合：(1 - alpha) * a + alpha * b。须同尺寸 Field blend: (1 - alpha) * a + alpha * b. Same size required; alpha typically in [0, 1].
 pub fn field_blend(
   a : ScalarField,
   b : ScalarField,
@@ -314,8 +314,8 @@ pub fn field_blend(
 ///|
 /// 等值面提取：标记 |value - level| < epsilon 的点为 1.0，否则 0.0。
 /// 在 2D 中即等值线提取，可用于分割。
-/// Isosurface: mark points where |value - level| < epsilon as 1.0, else 0.0.
-/// In 2D this is isoline extraction, usable for segmentation.
+/// 等值面 Isosurface: mark points where |value - level| < epsilon as 1.0, else 0.0.
+/// 2D 下为 In 2D this is
 pub fn field_isosurface(
   field : ScalarField,
   level : Float,
@@ -332,7 +332,7 @@ pub fn field_isosurface(
 
 ///|
 /// 直方图：统计标量场值落在 [min_val, max_val) 分成 bins 个桶的计数。
-/// Histogram: count values falling into bins buckets over [min_val, max_val).
+/// 直方图：统计落入 bins 桶的值 Histogram: count values falling into bins buckets over [min_val, max_val).
 pub fn field_histogram(
   field : ScalarField,
   min_val : Float,

@@ -1,8 +1,8 @@
 ///|
-/// # performance/performance_opt
+/// # 性能优化 performance/performance_opt
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 
 ///|
 /// 性能优化工具模块

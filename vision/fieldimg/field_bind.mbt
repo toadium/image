@@ -1,8 +1,8 @@
 ///|
-/// # fieldimg/field_bind
+/// # 场绑定 fieldimg/field_bind
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 场与 Image 双向转换：Image ↔ ScalarField / VectorField。
 // Field-Image bidirectional binding: Image ↔ ScalarField / VectorField.
 //
@@ -14,8 +14,8 @@
 ///|
 /// Image 转标量场：将灰度图（channels=1）转为标量场，像素值归一化到 [0, 1]。
 /// 若 channels > 1，先转灰度（加权平均：0.299R + 0.587G + 0.114B）。
-/// Convert Image to ScalarField; grayscale (channels=1) normalized to [0, 1].
-/// For channels > 1, convert to grayscale first (0.299R + 0.587G + 0.114B).
+/// Image 转 ScalarField；灰度归一化到 [0, 1] Convert Image to ScalarField; grayscale (channels=1) normalized to [0, 1].
+/// channels > 1 时 For channels > 1
 pub fn image_to_scalar_field(
   img : @types.Image,
 ) -> ScalarField raise @types.LoadError {
@@ -48,7 +48,7 @@ pub fn image_to_scalar_field(
 
 ///|
 /// 标量场转 Image：将标量场转为单通道灰度图，值钳制到 [0, 1] 后映射到 [0, 255]。
-/// Convert ScalarField to single-channel grayscale Image; values clamped to [0, 1] then mapped to [0, 255].
+/// ScalarField 转单通道灰度 Image；值钳位到 [0,1] 再映射到 [0,255] Convert ScalarField to single-channel grayscale Image; values clamped to [0, 1] then mapped to [0, 255].
 pub fn scalar_field_to_image(field : ScalarField) -> @types.Image {
   let n = field.width * field.height
   let buf : Array[Byte] = Array::make(n, b'0')
@@ -67,7 +67,7 @@ pub fn scalar_field_to_image(field : ScalarField) -> @types.Image {
 
 ///|
 /// Image 转矢量场：将 RGB/RGBA 图转为矢量场（dim=channels），像素值归一化到 [0, 1]。
-/// Convert Image to VectorField (dim=channels); pixel values normalized to [0, 1].
+/// Image 转 VectorField；像素值归一化到 [0, 1] Convert Image to VectorField (dim=channels); pixel values normalized to [0, 1].
 pub fn image_to_vector_field(
   img : @types.Image,
 ) -> VectorField raise @types.LoadError {
@@ -89,7 +89,7 @@ pub fn image_to_vector_field(
 
 ///|
 /// 矢量场转 Image：将矢量场转为多通道图，值钳制到 [0, 1] 后映射到 [0, 255]。
-/// Convert VectorField to multi-channel Image; values clamped to [0, 1] then mapped to [0, 255].
+/// VectorField 转多通道 Image；值钳位到 [0,1] 再映射到 [0,255] Convert VectorField to multi-channel Image; values clamped to [0, 1] then mapped to [0, 255].
 pub fn vector_field_to_image(field : VectorField) -> @types.Image {
   let n = field.width * field.height * field.dim
   let buf : Array[Byte] = Array::make(n, b'0')
@@ -108,7 +108,7 @@ pub fn vector_field_to_image(field : VectorField) -> @types.Image {
 
 ///|
 /// Image16 转标量场：16-bit 图转标量场，归一化到 [0, 1]（除以 65535）。
-/// Convert Image16 to ScalarField; normalized to [0, 1] (divided by 65535).
+/// Image16 转 ScalarField；归一化到 [0, 1]（除以 65535） Convert Image16 to ScalarField; normalized to [0, 1] (divided by 65535).
 pub fn image16_to_scalar_field(
   img : @types.Image16,
 ) -> ScalarField raise @types.LoadError {
@@ -135,7 +135,7 @@ pub fn image16_to_scalar_field(
 
 ///|
 /// ImageF 转标量场：HDR float 图转标量场，取第一通道，钳制到 [0, 1]。
-/// Convert ImageF to ScalarField; takes first channel, clamped to [0, 1].
+/// ImageF 转 ScalarField；取首通道，钳位到 [0, 1] Convert ImageF to ScalarField; takes first channel, clamped to [0, 1].
 pub fn imagef_to_scalar_field(
   img : @types.ImageF,
 ) -> ScalarField raise @types.LoadError {

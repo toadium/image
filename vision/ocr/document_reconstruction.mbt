@@ -1,8 +1,8 @@
 ///|
-/// # ocr/document_reconstruction
+/// # 文档重建 ocr/document_reconstruction
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 文档结构理解与 Markdown 还原（v12.18.0）
 // 表格转 Markdown、图片提取、符号识别、版面元素分类、阅读顺序、1:1 还原
 

@@ -1,8 +1,8 @@
 ///|
-/// # video/slow_motion
+/// # 慢动作 video/slow_motion
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 慢动作 — 光流插帧/运动模糊
 // Slow motion: optical flow interpolation / motion blur
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 慢动作方法。
-/// Slow motion method.
+/// 慢动作方法 Slow motion method.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -28,7 +28,7 @@ pub extend SlowMotionMethod with Eq::{not_equal, equal}
 
 ///|
 /// 慢动作配置。
-/// Slow motion configuration.
+/// 慢动作配置 Slow motion configuration.
 #derive(Eq, @debug.Debug)
 pub(all) struct SlowMotionConfig {
   sm_method : SlowMotionMethod
@@ -45,7 +45,7 @@ pub extend SlowMotionConfig with Eq::{not_equal, equal}
 
 ///|
 /// 默认慢动作配置。
-/// Default slow motion configuration.
+/// 默认慢动作配置 Default slow motion configuration.
 pub fn default_slow_motion_config() -> SlowMotionConfig {
   {
     sm_method: FrameBlending,
@@ -57,7 +57,7 @@ pub fn default_slow_motion_config() -> SlowMotionConfig {
 
 ///|
 /// 帧混合插帧。
-/// Frame blending interpolation.
+/// 帧混合插值 Frame blending interpolation.
 pub fn interpolate_frame_blend(
   from : @types.Image,
   to_ : @types.Image,
@@ -79,7 +79,7 @@ pub fn interpolate_frame_blend(
 
 ///|
 /// 光流插帧（简化：用帧差作为光流近似）。
-/// Optical flow interpolation (simplified: frame difference as flow approximation).
+/// 光流插值 Optical flow interpolation
 pub fn interpolate_frame_optical_flow(
   from : @types.Image,
   to_ : @types.Image,
@@ -108,7 +108,7 @@ pub fn interpolate_frame_optical_flow(
 
 ///|
 /// 运动补偿插帧。
-/// Motion compensation interpolation.
+/// 运动补偿插值 Motion compensation interpolation.
 pub fn interpolate_frame_motion_compensation(
   from : @types.Image,
   to_ : @types.Image,
@@ -120,7 +120,7 @@ pub fn interpolate_frame_motion_compensation(
 
 ///|
 /// 插帧分发。
-/// Interpolation dispatch.
+/// 插值分派 Interpolation dispatch.
 pub fn interpolate_frames_slow_motion(
   from : @types.Image,
   to_ : @types.Image,
@@ -137,7 +137,7 @@ pub fn interpolate_frames_slow_motion(
 
 ///|
 /// 生成慢动作序列。
-/// Generate slow motion sequence.
+/// 生成慢动作序列 Generate slow motion sequence.
 pub fn generate_slow_motion(
   frames : Array[@types.Image],
   config : SlowMotionConfig,
@@ -167,7 +167,7 @@ pub fn generate_slow_motion(
 
 ///|
 /// 应用运动模糊（水平方向）。
-/// Apply motion blur (horizontal).
+/// 应用运动模糊（水平） Apply motion blur (horizontal).
 fn motion_blur_horizontal(img : @types.Image, amount : Double) -> @types.Image {
   let w = img.width
   let h = img.height
@@ -196,7 +196,7 @@ fn motion_blur_horizontal(img : @types.Image, amount : Double) -> @types.Image {
 
 ///|
 /// 应用运动模糊（垂直方向）。
-/// Apply motion blur (vertical).
+/// 应用运动模糊（垂直） Apply motion blur (vertical).
 fn motion_blur_vertical(img : @types.Image, amount : Double) -> @types.Image {
   let w = img.width
   let h = img.height
@@ -225,7 +225,7 @@ fn motion_blur_vertical(img : @types.Image, amount : Double) -> @types.Image {
 
 ///|
 /// 应用运动模糊（径向）。
-/// Apply motion blur (radial).
+/// 应用运动模糊（径向） Apply motion blur (radial).
 fn motion_blur_radial(img : @types.Image, amount : Double) -> @types.Image {
   let w = img.width
   let h = img.height
@@ -266,7 +266,7 @@ fn motion_blur_radial(img : @types.Image, amount : Double) -> @types.Image {
 
 ///|
 /// 应用运动模糊。
-/// Apply motion blur.
+/// 应用运动模糊 Apply motion blur.
 pub fn apply_motion_blur(
   img : @types.Image,
   amount : Double,
@@ -281,7 +281,7 @@ pub fn apply_motion_blur(
 
 ///|
 /// 运动模糊序列。
-/// Apply motion blur to sequence.
+/// 对序列应用运动模糊 Apply motion blur to sequence.
 pub fn motion_blur_sequence(
   frames : Array[@types.Image],
   config : SlowMotionConfig,
@@ -301,7 +301,7 @@ pub fn motion_blur_sequence(
 
 ///|
 /// 慢动作流水线（插帧 + 运动模糊）。
-/// Slow motion pipeline (interpolation + motion blur).
+/// 慢动作管线（插值 + 运动模糊） Slow motion pipeline (interpolation + motion blur).
 pub fn slow_motion_pipeline(
   frames : Array[@types.Image],
   config : SlowMotionConfig,
@@ -312,7 +312,7 @@ pub fn slow_motion_pipeline(
 
 ///|
 /// 计算插帧数。
-/// Compute number of interpolated frames.
+/// 计算插帧数 Compute number of interpolated frames.
 pub fn compute_interpolated_count(
   frame_count : Int32,
   speed_factor : Int32,

@@ -1,9 +1,8 @@
 ///|
-/// # inpaint
-/// inpaint
+/// # 图像修复 inpaint
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 图像修复（v12.0.0）
 // 基于快速行进法（Fast Marching Method）的图像修复
 

@@ -1,9 +1,8 @@
 ///|
-/// # draw
-/// draw
+/// # 绘图 draw
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 图像合成操作（纯 MoonBit）：draw_over / draw_copy
 
 ///|

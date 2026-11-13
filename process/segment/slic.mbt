@@ -1,9 +1,8 @@
 ///|
-/// # slic
-/// slic
+/// # SLIC 超像素 slic
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // SLIC 超像素分割（Simple Linear Iterative Clustering）
 // 纯 MoonBit 实现，基于 Achanta et al. 2012
 

@@ -1,9 +1,8 @@
 ///|
-/// # point cloud 3d
-/// point cloud 3d
+/// # 三维点云 point cloud 3d
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 3D 视觉增强（v18.0.0）
 // 点云处理、三维重建、立体视觉、深度估计、点云配准
 

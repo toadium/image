@@ -1,8 +1,8 @@
 ///|
-/// # video/video_quality
+/// # 视频质量 video/video_quality
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 视频质量 — VMAF/PSNR/SSIM
 // Video quality: VMAF / PSNR / SSIM
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 视频质量度量方法。
-/// Video quality metric.
+/// 视频质量指标 Video quality metric.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -28,7 +28,7 @@ pub extend VideoQualityMetric with Eq::{not_equal, equal}
 
 ///|
 /// 视频质量评估结果。
-/// Video quality assessment result.
+/// 视频质量评估结果 Video quality assessment result.
 #derive(Eq, @debug.Debug)
 pub(all) struct VideoQualityResult {
   metric : VideoQualityMetric
@@ -47,7 +47,7 @@ pub extend VideoQualityResult with Eq::{not_equal, equal}
 
 ///|
 /// 计算 PSNR（峰值信噪比）。
-/// Compute PSNR (Peak Signal-to-Noise Ratio).
+/// 计算 PSNR（峰值信噪比） Compute PSNR (Peak Signal-to-Noise Ratio).
 pub fn compute_psnr(
   reference : @types.Image,
   distorted : @types.Image,
@@ -73,7 +73,7 @@ pub fn compute_psnr(
 
 ///|
 /// 计算单窗口 SSIM。
-/// Compute SSIM for a single window.
+/// 计算单窗口 SSIM Compute SSIM for a single window.
 fn compute_ssim_window(
   ref_data : @types.Image,
   dis_data : @types.Image,
@@ -124,7 +124,7 @@ fn compute_ssim_window(
 
 ///|
 /// 计算 SSIM（结构相似性指数）。
-/// Compute SSIM (Structural Similarity Index).
+/// 计算 SSIM（结构相似度指数） Compute SSIM (Structural Similarity Index).
 pub fn compute_ssim(
   reference : @types.Image,
   distorted : @types.Image,
@@ -168,7 +168,7 @@ pub fn compute_ssim(
 
 ///|
 /// 计算 MS-SSIM（多尺度结构相似性）。
-/// Compute MS-SSIM (Multi-Scale Structural Similarity).
+/// 计算 MS-SSIM（多尺度结构相似度） Compute MS-SSIM (Multi-Scale Structural Similarity).
 pub fn compute_msssim(
   reference : @types.Image,
   distorted : @types.Image,
@@ -193,7 +193,7 @@ pub fn compute_msssim(
 
 ///|
 /// 下采样图像（2x降采样）。
-/// Downsample image (2x downsample).
+/// 下采样图像（2倍） Downsample image (2x downsample).
 fn downsample(img : @types.Image) -> @types.Image {
   let w = img.width
   let h = img.height
@@ -224,7 +224,7 @@ fn downsample(img : @types.Image) -> @types.Image {
 
 ///|
 /// 计算 VMAF 分数（简化版：基于 PSNR 和 SSIM 的加权组合）。
-/// Compute VMAF score (simplified: weighted combination of PSNR and SSIM).
+/// 计算 VMAF 分数（简化：PSNR 和 SSIM 加权组合） Compute VMAF score (simplified: weighted combination of PSNR and SSIM).
 pub fn compute_vmaf_score(
   reference : @types.Image,
   distorted : @types.Image,
@@ -237,7 +237,7 @@ pub fn compute_vmaf_score(
 
 ///|
 /// 计算单帧质量。
-/// Compute single frame quality.
+/// 计算单帧质量 Compute single frame quality.
 pub fn compute_frame_quality(
   reference : @types.Image,
   distorted : @types.Image,
@@ -255,7 +255,7 @@ pub fn compute_frame_quality(
 
 ///|
 /// 计算视频质量。
-/// Compute video quality.
+/// 计算视频质量 Compute video quality.
 pub fn compute_video_quality(
   reference : Array[@types.Image],
   distorted : Array[@types.Image],
@@ -294,7 +294,7 @@ pub fn compute_video_quality(
 
 ///|
 /// 质量评估流水线：多度量综合评估。
-/// Quality assessment pipeline: multi-metric comprehensive assessment.
+/// 质量评估管线：多指标综合评估 Quality assessment pipeline: multi-metric comprehensive assessment.
 pub fn quality_pipeline(
   reference : Array[@types.Image],
   distorted : Array[@types.Image],

@@ -1,9 +1,8 @@
 ///|
-/// # hough 16f
-/// hough 16f
+/// # 霍夫变换 16f hough 16f
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 霍夫变换 16-bit/float 变体
 // hough_lines / hough_circles
 

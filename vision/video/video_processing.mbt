@@ -1,8 +1,8 @@
 ///|
-/// # video/video_processing
+/// # 视频处理 video/video_processing
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 视频处理基础（v12.8.0）
 // 帧动画创建、帧插值、简单视频效果
 

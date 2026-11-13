@@ -1,8 +1,8 @@
 ///|
-/// # ocr/ocr_deployment
+/// # OCR 部署 ocr/ocr_deployment
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // v13.6.0 OCR 部署工具（纯 MoonBit 配置生成/CLI/打包）
 // Dockerfile 模板 / API Server 配置 / CLI 参数解析 / 模型打包
 

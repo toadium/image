@@ -1,8 +1,7 @@
 ///|
 /// # TIFF 编解码 TIFF Codec
 ///
-/// TIFF 图像格式编解码
-/// TIFF image format encoding/decoding
+/// TIFF 图像格式编解码 TIFF image format encoding/decoding
 // 纯 MoonBit TIFF 编解码（全目标可用：native/wasm/js）
 // 支持无压缩 (Compression=1) 和 LZW 压缩 (Compression=5) TIFF
 // 支持 8-bit 灰度、8-bit RGB、8-bit RGBA
@@ -358,11 +357,9 @@ pub fn tiff_packbits_decode(data : Bytes) -> Array[Byte] raise @types.LoadError 
 }
 
 ///|
-/// 解码 TIFF 字节流为 Image
-/// 支持无压缩 (Compression=1) 和 LZW 压缩 (Compression=5) 8-bit 灰度/RGB/RGBA
-/// Decode TIFF byte stream to Image
-/// Supports uncompressed (Compression=1) and LZW compressed (Compression=5) 8-bit grayscale/RGB/RGBA
-///
+/// 解码 TIFF 字节流为 Image，支持无压缩 (Compression=1) 和 LZW 压缩 (Compression=5) 8-bit 灰度/RGB/RGBA Decode TIFF byte stream to Image, Supports uncompressed (Compression=1) and LZW compressed (Compression=5) 8-bit grayscale/RGB/RGBA
+
+///|
 /// 参数 Parameters:
 /// - `data` - TIFF 字节流 TIFF byte stream
 ///
@@ -370,8 +367,7 @@ pub fn tiff_packbits_decode(data : Bytes) -> Array[Byte] raise @types.LoadError 
 /// - 解码后的 8-bit Image Decoded 8-bit Image
 ///
 /// 错误 Errors:
-/// - `LoadError::DecodeFailed` - 数据过短、TIFF 签名无效、不支持的压缩/格式
-///   Data too short, invalid TIFF signature, unsupported compression/format
+/// - `LoadError::DecodeFailed` - 数据过短、TIFF 签名无效、不支持的压缩/格式 Data too short, invalid TIFF signature, unsupported compression/format
 pub fn decode_tiff_pure(data : Bytes) -> @types.Image raise @types.LoadError {
   let len = data.length()
   if len < 8 {
@@ -639,11 +635,9 @@ pub fn decode_tiff_pure(data : Bytes) -> @types.Image raise @types.LoadError {
 }
 
 ///|
-/// 将 Image 编码为无压缩 TIFF 字节流（小端序）
-/// 支持 1/3/4 channels
-/// Encode Image to uncompressed TIFF byte stream (little-endian)
-/// Supports 1/3/4 channels
-///
+/// 将 Image 编码为无压缩 TIFF 字节流（小端序），支持 1/3/4 channels Encode Image to uncompressed TIFF byte stream (little-endian), Supports 1/3/4 channels
+
+///|
 /// 参数 Parameters:
 /// - `img` - 输入图像 Input image
 ///
@@ -651,8 +645,7 @@ pub fn decode_tiff_pure(data : Bytes) -> @types.Image raise @types.LoadError {
 /// - TIFF 字节流 TIFF byte stream
 ///
 /// 错误 Errors:
-/// - `LoadError::EncodeFailed` - channels 不为 1/3/4
-///   Channels not 1/3/4
+/// - `LoadError::EncodeFailed` - channels 不为 1/3/4 Channels not 1/3/4
 pub fn encode_tiff_pure(img : @types.Image) -> Bytes raise @types.LoadError {
   let width = img.width
   let height = img.height

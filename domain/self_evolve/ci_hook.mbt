@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/ci_hook
+/// # CI 钩子 self_evolve/ci_hook
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 自演化 CI 集成 — moon test 自动演化钩子 + 回归门禁
 // CI integration: auto-evolution hooks + regression gate
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// CI 门禁结果。
-/// CI gate result.
+/// 描述 CI gate result.
 #derive(Eq, @debug.Debug)
 pub(all) struct CIGateResult {
   passed : Bool
@@ -27,7 +27,7 @@ pub extend CIGateResult with Eq::{not_equal, equal}
 
 ///|
 /// CI 门禁检查：对管道执行 grill + repair + optimize 全套检查。
-/// CI gate check: run grill + repair + optimize on a pipeline.
+/// 描述 CI gate check: run grill + repair + optimize on a pipeline.
 pub fn ci_gate_check(pipeline : @imgir.IRPipeline) -> CIGateResult {
   let grill_report = run_grill_check(pipeline)
   let repair_rep = repair_report(pipeline)
@@ -57,7 +57,7 @@ pub fn ci_gate_check(pipeline : @imgir.IRPipeline) -> CIGateResult {
 
 ///|
 /// 对全部 19 种算子执行 CI 门禁检查。
-/// Run CI gate check on all 19 op variants.
+/// 运行 Run CI gate check on all 19 op variants.
 pub fn ci_gate_all() -> Array[CIGateResult] {
   let results : Array[CIGateResult] = []
   for op in all_ops() {
@@ -69,7 +69,7 @@ pub fn ci_gate_all() -> Array[CIGateResult] {
 
 ///|
 /// 回归门禁：优化后不劣化 + 修复后无退化。
-/// Regression gate: optimization non-degrading + repair fully fixed.
+/// 描述 Regression gate: optimization non-degrading + repair fully fixed.
 pub fn ci_regression_gate(pipeline : @imgir.IRPipeline) -> Bool {
   let opt_ok = optimize_verified(pipeline)
   let repair_rep = repair_report(pipeline)
@@ -78,7 +78,7 @@ pub fn ci_regression_gate(pipeline : @imgir.IRPipeline) -> Bool {
 
 ///|
 /// 全部 19 算子是否通过回归门禁。
-/// Whether all 19 ops pass regression gate.
+/// 描述 Whether all 19 ops pass regression gate.
 pub fn ci_regression_all_pass() -> Bool {
   let mut all_ok = true
   for op in all_ops() {
@@ -92,7 +92,7 @@ pub fn ci_regression_all_pass() -> Bool {
 
 ///|
 /// CI 门禁通过率（0-100）。
-/// CI gate pass rate (0-100).
+/// 描述 CI gate pass rate (0-100).
 pub fn CIGateResult::pass_rate(self : CIGateResult) -> Int32 {
   if self.total_checks == 0 {
     100
@@ -103,7 +103,7 @@ pub fn CIGateResult::pass_rate(self : CIGateResult) -> Int32 {
 
 ///|
 /// CI 门禁是否全通过。
-/// Whether CI gate fully passed.
+/// 描述 Whether CI gate fully passed.
 pub fn CIGateResult::is_green(self : CIGateResult) -> Bool {
   self.failed_checks == 0
 }

@@ -1,9 +1,8 @@
 ///|
-/// # fft
-/// fft
+/// # 快速傅里叶变换 fft
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // FFT 频域变换（纯 MoonBit）
 
 ///|

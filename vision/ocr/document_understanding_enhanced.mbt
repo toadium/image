@@ -1,8 +1,8 @@
 ///|
-/// # ocr/document_understanding_enhanced
+/// # 文档理解 ocr/document_understanding_enhanced
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 文档理解增强版（v10.2.0）
 // 增强版面分析、阅读顺序优化、标题检测、段落检测、多栏处理、文档结构树
 

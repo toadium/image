@@ -1,8 +1,8 @@
 ///|
-/// # superres/super_resolution_enhancement
+/// # 超分辨率增强 superres/super_resolution_enhancement
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 图像超分辨率增强（v23.0.0）
 // 图像超分辨率、插值算法、图像增强、质量评估
 

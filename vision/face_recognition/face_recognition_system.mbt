@@ -1,8 +1,8 @@
 ///|
-/// # face_recognition/face_recognition_system
+/// # 人脸识别系统 face_recognition/face_recognition_system
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 人脸识别与表情识别（v33.0.0）
 // 人脸检测、人脸对齐、特征提取、人脸识别、表情识别、年龄性别估计
 

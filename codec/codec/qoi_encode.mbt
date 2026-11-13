@@ -1,8 +1,7 @@
 ///|
 /// # QOI 编码 QOI Encode
 ///
-/// QOI 图像格式编码
-/// QOI image format encoding
+/// QOI 图像格式编码 QOI image format encoding
 // 纯 MoonBit QOI 编码器
 // 规范: https://qoiformat.org/qoi-specification.pdf
 // 移植自 src/format/qoi.mbt 的 encode_qoi，仅替换类型引用：
@@ -10,13 +9,9 @@
 // qoi_hash 复用 src/pure/qoi_decode.mbt 已有定义（同包私有函数跨文件可见）
 
 ///|
-/// 将 Image 编码为 QOI 字节流
-/// 输入 Image 的 channels 必须为 3 (RGB) 或 4 (RGBA)
-/// 输出: 14 字节 header + 像素编码 + 8 字节 padding
-/// Encode Image to QOI byte stream
-/// Input Image channels must be 3 (RGB) or 4 (RGBA)
-/// Output: 14-byte header + pixel encoding + 8-byte padding
-///
+/// 将 Image 编码为 QOI 字节流，输入 Image 的 channels 必须为 3 (RGB) 或 4 (RGBA)，输出: 14 字节 header + 像素编码 + 8 字节 padding Encode Image to QOI byte stream, Input Image channels must be 3 (RGB) or 4 (RGBA), Output: 14-byte header + pixel encoding + 8-byte padding
+
+///|
 /// 参数 Parameters:
 /// - `img` - 输入图像 Input image
 ///
@@ -24,8 +19,7 @@
 /// - QOI 字节流 QOI byte stream
 ///
 /// 错误 Errors:
-/// - `LoadError::EncodeFailed` - channels 不为 3 或 4
-///   Channels not 3 or 4
+/// - `LoadError::EncodeFailed` - channels 不为 3 或 4 Channels not 3 or 4
 ///
 /// ```mbt check
 /// test "doc_encode_qoi_pure" {

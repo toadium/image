@@ -1,11 +1,8 @@
 ///|
 /// # PNM 解码器 PNM Decoder
 ///
-/// 纯 MoonBit PNM 解码器，支持 P5（PGM 二进制灰度，channels=1）和 P6（PPM 二进制 RGB，channels=3）。
-/// 仅支持 8-bit（maxval < 256），不支持 16-bit（maxval ≥ 256）。
-///
-/// Pure MoonBit PNM decoder, supporting P5 (PGM binary grayscale, channels=1) and P6 (PPM binary RGB, channels=3).
-/// Only supports 8-bit (maxval < 256), not 16-bit (maxval ≥ 256).
+/// 纯 MoonBit PNM 解码器，支持 P5（PGM 二进制灰度，channels=1）和 P6（PPM 二进制 RGB，channels=3）。仅支持 8-bit（maxval < 256），不支持 16-bit（maxval ≥ 256）。 Pure MoonBit PNM decoder, supporting P5 (PGM binary grayscale, channels=1) and P6 (PPM binary RGB, channels=3). Only supports 8-bit (maxval < 256), not 16-bit (maxval ≥ 256).
+
 ///
 /// 核心函数 Core functions:
 /// - `decode_pnm_pure` - 解码 PNM 字节流为 Image Decode PNM byte stream to Image
@@ -85,8 +82,7 @@ fn pnm_read_ascii_int(
 /// - 解码后的 8-bit Image Decoded 8-bit Image
 ///
 /// 错误 Errors:
-/// - `LoadError::DecodeFailed` - 数据过短、magic 不匹配、尺寸无效、maxval 不支持
-///   Data too short, magic mismatch, invalid dimensions, unsupported maxval
+/// - `LoadError::DecodeFailed` - 数据过短、magic 不匹配、尺寸无效、maxval 不支持 Data too short, magic mismatch, invalid dimensions, unsupported maxval
 ///
 /// ```mbt check
 /// test "doc_decode_pnm_pure" {

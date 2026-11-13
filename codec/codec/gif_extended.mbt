@@ -1,8 +1,7 @@
 ///|
 /// # GIF 扩展 GIF Extended
 ///
-/// GIF 扩展功能
-/// GIF extended features
+/// GIF 扩展功能 GIF extended features
 
 ///|
 /// GIF 扩展信息（包含版本、全局颜色表、动画标志等）

@@ -1,8 +1,7 @@
 ///|
 /// # CUR 扩展 CUR Extended
 ///
-/// CUR 扩展功能
-/// CUR extended features
+/// CUR 扩展功能 CUR extended features
 
 ///|
 /// CUR 扩展信息（包含图像数量、热点坐标等）

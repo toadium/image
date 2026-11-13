@@ -2,7 +2,7 @@
 /// # WebP 编码 WebP Encode
 ///
 /// WebP 图像格式编码
-/// WebP image format encoding
+/// WebP 图像格式编码 WebP image format encoding
 // 纯 MoonBit WebP lossy 编码器 (VP8)
 // 规范: https://datatracker.ietf.org/doc/html/rfc6386
 // 实现: 仅 intra 帧 (key frame), DC-only 预测, 固定量化

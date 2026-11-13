@@ -1,8 +1,8 @@
 ///|
-/// # video/video_segmentation
+/// # 视频分割 video/video_segmentation
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 视频分割 — 前景/背景/运动
 // Video segmentation: foreground / background / motion
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 视频分割方法。
-/// Video segmentation method.
+/// 视频分割方法 Video segmentation method.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -28,7 +28,7 @@ pub extend VideoSegmentationMethod with Eq::{not_equal, equal}
 
 ///|
 /// 背景模型。
-/// Background model.
+/// 背景模型 Background model.
 #derive(Eq, @debug.Debug)
 pub(all) struct BackgroundModel {
   background : @types.Image
@@ -44,7 +44,7 @@ pub extend BackgroundModel with Eq::{not_equal, equal}
 
 ///|
 /// 分割配置。
-/// Segmentation configuration.
+/// 分割配置 Segmentation configuration.
 #derive(Eq, @debug.Debug)
 pub(all) struct SegmentationConfig {
   seg_method : VideoSegmentationMethod
@@ -61,7 +61,7 @@ pub extend SegmentationConfig with Eq::{not_equal, equal}
 
 ///|
 /// 分割结果。
-/// Segmentation result.
+/// 分割结果 Segmentation result.
 #derive(Eq, @debug.Debug)
 pub(all) struct SegmentationResult {
   foreground_mask : Array[Bool] // 前景掩模
@@ -79,7 +79,7 @@ pub extend SegmentationResult with Eq::{not_equal, equal}
 
 ///|
 /// 默认分割配置。
-/// Default segmentation configuration.
+/// 默认分割配置 Default segmentation configuration.
 pub fn default_segmentation_config() -> SegmentationConfig {
   {
     seg_method: FrameDifference,
@@ -91,7 +91,7 @@ pub fn default_segmentation_config() -> SegmentationConfig {
 
 ///|
 /// 帧差法前景分割。
-/// Frame difference foreground segmentation.
+/// 帧差前景分割 Frame difference foreground segmentation.
 pub fn segment_frame_difference(
   current : @types.Image,
   previous : @types.Image,
@@ -136,7 +136,7 @@ pub fn segment_frame_difference(
 
 ///|
 /// 构建背景模型。
-/// Build background model from frames.
+/// 从帧构建背景模型 Build background model from frames.
 pub fn build_background_model(frames : Array[@types.Image]) -> BackgroundModel? {
   let n = frames.length()
   if n == 0 {
@@ -182,7 +182,7 @@ pub fn build_background_model(frames : Array[@types.Image]) -> BackgroundModel? 
 
 ///|
 /// 更新背景模型。
-/// Update background model with new frame.
+/// 用新帧更新背景模型 Update background model with new frame.
 pub fn update_background_model(
   model : BackgroundModel,
   frame : @types.Image,
@@ -213,7 +213,7 @@ pub fn update_background_model(
 
 ///|
 /// 背景减除。
-/// Background subtraction.
+/// 背景减除 Background subtraction.
 pub fn subtract_background(
   frame : @types.Image,
   model : BackgroundModel,
@@ -258,7 +258,7 @@ pub fn subtract_background(
 
 ///|
 /// 基于运动的分割。
-/// Motion-based segmentation.
+/// 基于运动的分割 Motion-based segmentation.
 pub fn segment_motion(
   frames : Array[@types.Image],
   threshold : Double,
@@ -276,7 +276,7 @@ pub fn segment_motion(
 
 ///|
 /// 视频分割流水线。
-/// Video segmentation pipeline.
+/// 视频分割管线 Video segmentation pipeline.
 pub fn video_segmentation_pipeline(
   frames : Array[@types.Image],
   config : SegmentationConfig,
@@ -315,7 +315,7 @@ pub fn video_segmentation_pipeline(
 
 ///|
 /// 计算运动一致性。
-/// Compute motion consistency across frames.
+/// 计算帧间运动一致性 Compute motion consistency across frames.
 pub fn motion_consistency(results : Array[SegmentationResult]) -> Double {
   let n = results.length()
   if n == 0 {
@@ -348,7 +348,7 @@ pub fn motion_consistency(results : Array[SegmentationResult]) -> Double {
 
 ///|
 /// 提取前景图像。
-/// Extract foreground image using mask.
+/// 使用掩膜提取前景图像 Extract foreground image using mask.
 pub fn extract_foreground(
   img : @types.Image,
   result : SegmentationResult,

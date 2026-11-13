@@ -2,7 +2,7 @@
 /// # AOCI 验证器 AOCI Verifier
 ///
 /// 依赖一致性/过期检测/边界冲突
-/// Dependency consistency/expiry detection/boundary conflict
+/// 依赖一致性/过期检测/边界冲突 Dependency consistency
 // AOCI-Verifier — 依赖一致性/过期检测/边界冲突
 // 验证符号索引的完整性和一致性
 

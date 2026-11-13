@@ -1,9 +1,8 @@
 ///|
-/// # harris
-/// harris
+/// # Harris 角点 harris
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // Harris 角点检测（纯 MoonBit）
 
 ///|

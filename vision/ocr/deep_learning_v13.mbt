@@ -1,8 +1,8 @@
 ///|
-/// # ocr/deep_learning_v13
+/// # 深度学习 V13 ocr/deep_learning_v13
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // v13.0.0 CNN 深度学习增强：反向传播 + 训练流水线 + 字符识别集成 + 模型评估
 
 ///|

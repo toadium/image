@@ -2,7 +2,7 @@
 /// # 统一信息 Unified Info
 ///
 /// 统一图像信息提取
-/// Unified image information extraction
+/// 统一图像信息提取 Unified image information extraction
 
 ///|
 /// 统一图像扩展信息（自动格式检测后的联合类型）

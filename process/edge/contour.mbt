@@ -1,9 +1,8 @@
 ///|
-/// # contour
-/// contour
+/// # 轮廓 contour
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 轮廓提取与绘制（纯 MoonBit）
 
 ///|

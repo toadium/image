@@ -1,9 +1,8 @@
 ///|
-/// # hough circles
-/// hough circles
+/// # 霍夫圆检测 hough circles
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 霍夫圆检测（纯 MoonBit）：hough_circles
 // 梯度法：对边缘点沿梯度方向投票
 

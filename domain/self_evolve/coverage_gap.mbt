@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/coverage_gap
+/// # 覆盖缺口 self_evolve/coverage_gap
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 测试覆盖盲区分析 — 分析测试覆盖盲区，找出未覆盖的算子/退化场景
 // Coverage gap analysis: find untested or under-tested ops and degradation scenarios
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 覆盖盲区类型。
-/// Coverage gap type.
+/// 描述 Coverage gap type.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -28,7 +28,7 @@ pub extend GapKind with Eq::{not_equal, equal}
 
 ///|
 /// 单个覆盖盲区。
-/// Single coverage gap.
+/// 描述 Single coverage gap.
 #derive(Eq, @debug.Debug)
 pub(all) struct CoverageGap {
   op_tag : String
@@ -44,7 +44,7 @@ pub extend CoverageGap with Eq::{not_equal, equal}
 
 ///|
 /// 覆盖盲区报告。
-/// Coverage gap report.
+/// 描述 Coverage gap report.
 #derive(Eq, @debug.Debug)
 pub(all) struct CoverageGapReport {
   gaps : Array[CoverageGap]
@@ -61,7 +61,7 @@ pub extend CoverageGapReport with Eq::{not_equal, equal}
 
 ///|
 /// 计算单算子覆盖百分比。
-/// Calculate coverage percentage for a single op.
+/// 计算 Calculate coverage percentage for a single op.
 pub fn coverage_percentage(op : @imgir.IROp) -> Int32 {
   let degs = detect_degradation(op)
   let tests = evolve_test_suite([op])
@@ -89,7 +89,7 @@ pub fn coverage_percentage(op : @imgir.IROp) -> Int32 {
 
 ///|
 /// 找出完全未测试的算子标签。
-/// Find completely untested op tags.
+/// 查找 Find completely untested op tags.
 pub fn find_untested_ops() -> Array[String] {
   let result : Array[String] = []
   for op in all_ops() {
@@ -103,7 +103,7 @@ pub fn find_untested_ops() -> Array[String] {
 
 ///|
 /// 找出测试不足的算子标签（覆盖 < 50%）。
-/// Find under-tested op tags (coverage < 50%).
+/// 查找 Find under-tested op tags (coverage < 50%).
 pub fn find_under_tested_ops() -> Array[String] {
   let result : Array[String] = []
   for op in all_ops() {
@@ -117,7 +117,7 @@ pub fn find_under_tested_ops() -> Array[String] {
 
 ///|
 /// 分析全算子测试覆盖盲区。
-/// Analyze coverage gaps for all ops.
+/// 描述 Analyze coverage gaps for all ops.
 pub fn analyze_coverage_gaps() -> CoverageGapReport {
   let gaps : Array[CoverageGap] = []
   let mut untested_count = 0
@@ -166,7 +166,7 @@ pub fn analyze_coverage_gaps() -> CoverageGapReport {
 
 ///|
 /// 覆盖盲区报告是否有盲区。
-/// Whether coverage gap report has gaps.
+/// 描述 Whether coverage gap report has gaps.
 pub fn CoverageGapReport::has_gaps(self : CoverageGapReport) -> Bool {
   self.total_gaps > 0
 }

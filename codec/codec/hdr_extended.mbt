@@ -1,8 +1,7 @@
 ///|
 /// # HDR 扩展 HDR Extended
 ///
-/// HDR 扩展功能
-/// HDR extended features
+/// HDR 扩展功能 HDR extended features
 
 ///|
 /// HDR 扩展信息（包含尺寸、通道数等）

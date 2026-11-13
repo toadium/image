@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/root_cause
+/// # 根因分析 self_evolve/root_cause
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 退化根因分析 — 分析退化根因（参数来源/传播路径）
 // Root cause analysis: analyze degradation root cause
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 单个退化根因。
-/// Single degradation root cause.
+/// 描述 Single degradation root cause.
 #derive(Eq, @debug.Debug)
 pub(all) struct RootCause {
   op_tag : String
@@ -28,7 +28,7 @@ pub extend RootCause with Eq::{not_equal, equal}
 
 ///|
 /// 根因分析报告。
-/// Root cause analysis report.
+/// 描述 Root cause analysis report.
 #derive(Eq, @debug.Debug)
 pub(all) struct RootCauseReport {
   causes : Array[RootCause]
@@ -44,7 +44,7 @@ pub extend RootCauseReport with Eq::{not_equal, equal}
 
 ///|
 /// 分析单算子退化根因（根因参数 + 修复建议）。
-/// Analyze root cause of a single op's degradations.
+/// 描述 Analyze root cause of a single op's degradations.
 pub fn analyze_root_cause(op : @imgir.IROp) -> Array[RootCause] {
   let degs = detect_degradation(op)
   let causes : Array[RootCause] = []
@@ -89,7 +89,7 @@ pub fn analyze_root_cause(op : @imgir.IROp) -> Array[RootCause] {
 
 ///|
 /// 对全部 19 种算子分析根因。
-/// Analyze root cause for all 19 op variants.
+/// 描述 Analyze root cause for all 19 op variants.
 pub fn analyze_root_cause_all() -> RootCauseReport {
   let causes : Array[RootCause] = []
   for op in all_ops() {
@@ -104,7 +104,7 @@ pub fn analyze_root_cause_all() -> RootCauseReport {
 
 ///|
 /// 对管道分析根因。
-/// Analyze root cause for a pipeline.
+/// 描述 Analyze root cause for a pipeline.
 pub fn analyze_pipeline_root_cause(
   pipeline : @imgir.IRPipeline,
 ) -> RootCauseReport {
@@ -125,14 +125,14 @@ pub fn analyze_pipeline_root_cause(
 
 ///|
 /// 根因报告是否无退化。
-/// Whether root cause report has no degradation.
+/// 描述 Whether root cause report has no degradation.
 pub fn RootCauseReport::is_clean(self : RootCauseReport) -> Bool {
   self.total == 0
 }
 
 ///|
 /// 按退化类型过滤根因。
-/// Filter root causes by degradation kind.
+/// 滤波 Filter root causes by degradation kind.
 pub fn filter_by_kind(
   causes : Array[RootCause],
   kind : DegradationKind,

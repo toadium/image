@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/propagation
+/// # 传播 self_evolve/propagation
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 跨算子退化传播 — 分析 pipeline 中退化如何在算子间传播
 // Cross-op degradation propagation: analyze how degradations propagate across pipeline
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 单个退化传播步骤。
-/// Single degradation propagation step.
+/// 描述 Single degradation propagation step.
 #derive(Eq, @debug.Debug)
 pub(all) struct PropagationStep {
   from_op_tag : String
@@ -27,7 +27,7 @@ pub extend PropagationStep with Eq::{not_equal, equal}
 
 ///|
 /// 退化传播报告。
-/// Degradation propagation report.
+/// 描述 Degradation propagation report.
 #derive(Eq, @debug.Debug)
 pub(all) struct PropagationReport {
   steps : Array[PropagationStep]
@@ -44,7 +44,7 @@ pub extend PropagationReport with Eq::{not_equal, equal}
 
 ///|
 /// 分析管道中退化传播链。
-/// Analyze degradation propagation chain in a pipeline.
+/// 描述 Analyze degradation propagation chain in a pipeline.
 pub fn analyze_propagation(pipeline : @imgir.IRPipeline) -> PropagationReport {
   let steps : Array[PropagationStep] = []
   let ops = pipeline.ops
@@ -89,7 +89,7 @@ pub fn analyze_propagation(pipeline : @imgir.IRPipeline) -> PropagationReport {
 
 ///|
 /// 对全部 19 种算子的相邻组合分析传播。
-/// Analyze propagation for all adjacent op combinations.
+/// 描述 Analyze propagation for all adjacent op combinations.
 pub fn analyze_propagation_all() -> PropagationReport {
   let ops = all_ops()
   let steps : Array[PropagationStep] = []
@@ -125,14 +125,14 @@ pub fn analyze_propagation_all() -> PropagationReport {
 
 ///|
 /// 管道是否有传播风险。
-/// Whether pipeline has propagation risk.
+/// 描述 Whether pipeline has propagation risk.
 pub fn has_propagation_risk(pipeline : @imgir.IRPipeline) -> Bool {
   analyze_propagation(pipeline).total_propagations > 0
 }
 
 ///|
 /// 获取管道的传播链。
-/// Get propagation chain of a pipeline.
+/// 获取 Get propagation chain of a pipeline.
 pub fn propagation_chain(
   pipeline : @imgir.IRPipeline,
 ) -> Array[PropagationStep] {
@@ -141,7 +141,7 @@ pub fn propagation_chain(
 
 ///|
 /// 传播报告是否无风险。
-/// Whether propagation report has no risk.
+/// 描述 Whether propagation report has no risk.
 pub fn PropagationReport::is_safe(self : PropagationReport) -> Bool {
   self.total_propagations == 0
 }

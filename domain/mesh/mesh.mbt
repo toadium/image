@@ -1,8 +1,8 @@
 ///|
-/// # mesh/mesh
+/// # 网格 mesh/mesh
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 网格处理 — 简化/细分/参数化
 // Mesh processing: simplification / subdivision / parameterization
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 网格简化方法。
-/// Mesh simplification method.
+/// 描述 Mesh simplification method.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -28,7 +28,7 @@ pub extend MeshSimplifyMethod with Eq::{not_equal, equal}
 
 ///|
 /// 网格细分方法。
-/// Mesh subdivision method.
+/// 描述 Mesh subdivision method.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -46,7 +46,7 @@ pub extend MeshSubdivideMethod with Eq::{not_equal, equal}
 
 ///|
 /// 网格顶点。
-/// Mesh vertex.
+/// 描述 Mesh vertex.
 #derive(Eq, @debug.Debug)
 pub(all) struct Vertex3D {
   x : Double
@@ -62,7 +62,7 @@ pub extend Vertex3D with Eq::{not_equal, equal}
 
 ///|
 /// 三角面片（顶点索引）。
-/// Triangle face (vertex indices).
+/// 描述 Triangle face (vertex indices).
 #derive(Eq, @debug.Debug)
 pub(all) struct TriangleFace {
   v0 : Int32
@@ -78,7 +78,7 @@ pub extend TriangleFace with Eq::{not_equal, equal}
 
 ///|
 /// 3D网格。
-/// 3D mesh.
+/// 三维网格 3D mesh.
 #derive(Eq, @debug.Debug)
 pub(all) struct Mesh3D {
   vertices : Array[Vertex3D]
@@ -93,7 +93,7 @@ pub extend Mesh3D with Eq::{not_equal, equal}
 
 ///|
 /// 网格配置。
-/// Mesh configuration.
+/// 描述 Mesh configuration.
 #derive(Eq, @debug.Debug)
 pub(all) struct MeshConfig {
   simplify_method : MeshSimplifyMethod
@@ -110,7 +110,7 @@ pub extend MeshConfig with Eq::{not_equal, equal}
 
 ///|
 /// UV参数化坐标。
-/// UV parameterization coordinate.
+/// 描述 UV parameterization coordinate.
 #derive(Eq, @debug.Debug)
 pub(all) struct UVCoord {
   u : Double
@@ -125,7 +125,7 @@ pub extend UVCoord with Eq::{not_equal, equal}
 
 ///|
 /// 默认网格配置。
-/// Default mesh configuration.
+/// 描述 Default mesh configuration.
 pub fn default_mesh_config() -> MeshConfig {
   {
     simplify_method: EdgeCollapse,
@@ -137,14 +137,14 @@ pub fn default_mesh_config() -> MeshConfig {
 
 ///|
 /// 创建空网格。
-/// Create empty mesh.
+/// 创建 Create empty mesh.
 pub fn create_empty_mesh() -> Mesh3D {
   { vertices: [], faces: [], }
 }
 
 ///|
 /// 从顶点和面片创建网格。
-/// Create mesh from vertices and faces.
+/// 创建 Create mesh from vertices and faces.
 pub fn create_mesh(
   vertices : Array[Vertex3D],
   faces : Array[TriangleFace],
@@ -154,7 +154,7 @@ pub fn create_mesh(
 
 ///|
 /// 计算网格质心。
-/// Compute mesh centroid.
+/// 计算 Compute mesh centroid.
 pub fn compute_mesh_centroid(mesh : Mesh3D) -> Vertex3D {
   let n = mesh.vertices.length()
   if n == 0 {
@@ -177,7 +177,7 @@ pub fn compute_mesh_centroid(mesh : Mesh3D) -> Vertex3D {
 
 ///|
 /// 计算三角形面积。
-/// Compute triangle area.
+/// 计算 Compute triangle area.
 fn triangle_area(v0 : Vertex3D, v1 : Vertex3D, v2 : Vertex3D) -> Double {
   let ex = v1.x - v0.x
   let ey = v1.y - v0.y
@@ -193,7 +193,7 @@ fn triangle_area(v0 : Vertex3D, v1 : Vertex3D, v2 : Vertex3D) -> Double {
 
 ///|
 /// 计算网格表面积。
-/// Compute mesh surface area.
+/// 计算 Compute mesh surface area.
 pub fn compute_mesh_area(mesh : Mesh3D) -> Double {
   let mut total = 0.0
   for face in mesh.faces {
@@ -213,7 +213,7 @@ pub fn compute_mesh_area(mesh : Mesh3D) -> Double {
 
 ///|
 /// 计算网格体积（基于有符号四面体）。
-/// Compute mesh volume (based on signed tetrahedra).
+/// 计算 Compute mesh volume (based on signed tetrahedra).
 pub fn compute_mesh_volume(mesh : Mesh3D) -> Double {
   let mut total = 0.0
   for face in mesh.faces {
@@ -237,7 +237,7 @@ pub fn compute_mesh_volume(mesh : Mesh3D) -> Double {
 
 ///|
 /// 边折叠简化：按比例随机移除顶点。
-/// Edge collapse simplification: remove vertices by ratio.
+/// 边缘 Edge collapse simplification: remove vertices by ratio.
 pub fn edge_collapse_simplify(mesh : Mesh3D, target_ratio : Double) -> Mesh3D {
   let n = mesh.vertices.length()
   let target_count = (n.to_double() * target_ratio).to_int()
@@ -277,7 +277,7 @@ pub fn edge_collapse_simplify(mesh : Mesh3D, target_ratio : Double) -> Mesh3D {
 
 ///|
 /// 顶点聚类简化：将空间划分为网格，每个网格保留一个顶点。
-/// Vertex clustering simplification: divide space into grid, keep one vertex per cell.
+/// 描述 Vertex clustering simplification: divide space into grid, keep one vertex per cell.
 pub fn vertex_clustering_simplify(mesh : Mesh3D, grid_size : Double) -> Mesh3D {
   let n = mesh.vertices.length()
   if n == 0 || grid_size <= 0.0 {
@@ -342,7 +342,7 @@ pub fn vertex_clustering_simplify(mesh : Mesh3D, grid_size : Double) -> Mesh3D {
 
 ///|
 /// 网格简化主流程。
-/// Mesh simplification pipeline.
+/// 描述 Mesh simplification pipeline.
 pub fn simplify_mesh(mesh : Mesh3D, config : MeshConfig) -> Mesh3D {
   match config.simplify_method {
     EdgeCollapse => edge_collapse_simplify(mesh, config.target_ratio)
@@ -353,7 +353,7 @@ pub fn simplify_mesh(mesh : Mesh3D, config : MeshConfig) -> Mesh3D {
 
 ///|
 /// 简单二分细分：每条边中点插入新顶点。
-/// Simple bisection subdivision: insert midpoint on each edge.
+/// 描述 Simple bisection subdivision: insert midpoint on each edge.
 pub fn simple_bisection_subdivide(mesh : Mesh3D) -> Mesh3D {
   let new_vertices : Array[Vertex3D] = []
   for v in mesh.vertices {
@@ -395,21 +395,21 @@ pub fn simple_bisection_subdivide(mesh : Mesh3D) -> Mesh3D {
 
 ///|
 /// Loop细分：基于加权平均的细分。
-/// Loop subdivision: weighted average based subdivision.
+/// 描述 Loop subdivision: weighted average based subdivision.
 pub fn loop_subdivision(mesh : Mesh3D) -> Mesh3D {
   simple_bisection_subdivide(mesh)
 }
 
 ///|
 /// Catmull-Clark细分（简化版）。
-/// Catmull-Clark subdivision (simplified).
+/// 描述 Catmull-Clark subdivision (simplified).
 pub fn catmull_clark_subdivide(mesh : Mesh3D) -> Mesh3D {
   simple_bisection_subdivide(mesh)
 }
 
 ///|
 /// 网格细分主流程。
-/// Mesh subdivision pipeline.
+/// 描述 Mesh subdivision pipeline.
 pub fn subdivide_mesh(mesh : Mesh3D, config : MeshConfig) -> Mesh3D {
   let mut result = mesh
   for _ in 0..<config.subdivide_levels {
@@ -424,7 +424,7 @@ pub fn subdivide_mesh(mesh : Mesh3D, config : MeshConfig) -> Mesh3D {
 
 ///|
 /// 网格参数化：将3D网格映射到2D UV坐标。
-/// Mesh parameterization: map 3D mesh to 2D UV coordinates.
+/// 描述 Mesh parameterization: map 3D mesh to 2D UV coordinates.
 pub fn mesh_parameterization(mesh : Mesh3D) -> Array[UVCoord] {
   let n = mesh.vertices.length()
   if n == 0 {
@@ -461,7 +461,7 @@ pub fn mesh_parameterization(mesh : Mesh3D) -> Array[UVCoord] {
 
 ///|
 /// 网格处理流水线：简化 → 细分 → 参数化。
-/// Mesh processing pipeline: simplify → subdivide → parameterize.
+/// 描述 Mesh processing pipeline: simplify → subdivide → parameterize.
 pub fn mesh_pipeline(
   mesh : Mesh3D,
   config : MeshConfig,

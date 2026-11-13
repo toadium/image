@@ -1,9 +1,8 @@
 ///|
-/// # freq filter
-/// freq filter
+/// # 频域滤波 freq filter
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 频域滤波（基于 FFT）
 
 ///|

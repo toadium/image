@@ -1,8 +1,8 @@
 ///|
-/// # forensics/tamper_detection
+/// # 篡改检测 forensics/tamper_detection
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 图像来源鉴定增强（v27.1.0）
 // ELA 分析、噪声残差、DCT 系数、双 JPEG 检测、克隆检测、光照一致性、篡改检测综合
 

@@ -2,7 +2,7 @@
 /// # VP8 编码 VP8 Encode
 ///
 /// VP8 有损编码实现
-/// VP8 lossy encoding implementation
+/// VP8 有损编码实现 VP8 lossy encoding implementation
 // 纯 MoonBit WebP lossy 编码器 (VP8) - 完整实现
 // 规范: https://datatracker.ietf.org/doc/html/rfc6386
 // 实现: intra 帧 (key frame), I16x16 DC 预测, 4x4 DCT, 量化, 布尔算术编码

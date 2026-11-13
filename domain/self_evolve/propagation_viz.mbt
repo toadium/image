@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/propagation_viz
+/// # 传播 self_evolve/propagation_viz
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 退化传播可视化 — 生成传播链的可视化描述
 // Degradation propagation visualization: generate visual description of propagation chain
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 可视化格式。
-/// Visualization format.
+/// 描述 Visualization format.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -28,7 +28,7 @@ pub extend VizFormat with Eq::{not_equal, equal}
 
 ///|
 /// 传播可视化结果。
-/// Propagation visualization result.
+/// 描述 Propagation visualization result.
 #derive(Eq, @debug.Debug)
 pub(all) struct PropagationViz {
   format : VizFormat
@@ -45,7 +45,7 @@ pub extend PropagationViz with Eq::{not_equal, equal}
 
 ///|
 /// 生成 ASCII 格式传播链可视化。
-/// Generate ASCII format propagation chain visualization.
+/// 生成 Generate ASCII format propagation chain visualization.
 pub fn visualize_propagation_ascii(pipeline : @imgir.IRPipeline) -> String {
   let ops = pipeline.ops
   let n = ops.length()
@@ -73,7 +73,7 @@ pub fn visualize_propagation_ascii(pipeline : @imgir.IRPipeline) -> String {
 
 ///|
 /// 生成 Mermaid 格式传播链可视化。
-/// Generate Mermaid format propagation chain visualization.
+/// 生成 Generate Mermaid format propagation chain visualization.
 pub fn visualize_propagation_mermaid(pipeline : @imgir.IRPipeline) -> String {
   let ops = pipeline.ops
   let n = ops.length()
@@ -100,7 +100,7 @@ pub fn visualize_propagation_mermaid(pipeline : @imgir.IRPipeline) -> String {
 
 ///|
 /// 生成文本格式传播链可视化。
-/// Generate text format propagation chain visualization.
+/// 生成 Generate text format propagation chain visualization.
 pub fn visualize_propagation_text(pipeline : @imgir.IRPipeline) -> String {
   let report = analyze_propagation(pipeline)
   let ops = pipeline.ops
@@ -120,7 +120,7 @@ pub fn visualize_propagation_text(pipeline : @imgir.IRPipeline) -> String {
 
 ///|
 /// 按指定格式生成传播链可视化。
-/// Generate propagation chain visualization in specified format.
+/// 生成 Generate propagation chain visualization in specified format.
 pub fn visualize_propagation(
   pipeline : @imgir.IRPipeline,
   format : VizFormat,
@@ -137,7 +137,7 @@ pub fn visualize_propagation(
 
 ///|
 /// 可视化内容是否非空。
-/// Whether visualization content is non-empty.
+/// 描述 Whether visualization content is non-empty.
 pub fn PropagationViz::is_valid(self : PropagationViz) -> Bool {
   self.content.length() > 0
 }

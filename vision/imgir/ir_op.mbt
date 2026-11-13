@@ -1,8 +1,8 @@
 ///|
-/// # imgir/ir_op
+/// # IR 操作 imgir/ir_op
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // ImgIR 操作类型 + 管道：统一图像/场/时空操作的表达式。
 // IR operation types + pipeline: unified image/field/spatiotemporal operations.
 //
@@ -15,7 +15,7 @@
 
 ///|
 /// IR 操作：统一图像/场/时空操作枚举。
-/// IR operation: unified image/field/spatiotemporal operation enum.
+/// IR 操作：统一图像/场/时空操作枚举 IR operation: unified image/field/spatiotemporal operation enum.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -53,7 +53,7 @@ pub extend IROp with Eq::{not_equal, equal}
 
 ///|
 /// IR 管道：线性操作序列，按顺序执行。
-/// IR pipeline: linear sequence of operations, executed in order.
+/// IR 管线 IR pipeline
 #derive(Eq, @debug.Debug)
 pub(all) struct IRPipeline {
   ops : Array[IROp]
@@ -67,21 +67,21 @@ pub extend IRPipeline with Eq::{not_equal, equal}
 
 ///|
 /// 创建空管道。
-/// Create an empty pipeline.
+/// 创建空管线 Create an empty pipeline.
 pub fn IRPipeline::new() -> IRPipeline {
   { ops: [], }
 }
 
 ///|
 /// 管道操作数。
-/// Number of operations in the pipeline.
+/// 管线中操作数 Number of operations in the pipeline.
 pub fn IRPipeline::length(self : IRPipeline) -> Int32 {
   self.ops.length()
 }
 
 ///|
 /// 追加操作到管道末尾，返回新管道。
-/// Append an operation to the pipeline, returns a new pipeline.
+/// 追加操作到管线，返回新管线 Append an operation to the pipeline, returns a new pipeline.
 pub fn IRPipeline::add(self : IRPipeline, op : IROp) -> IRPipeline {
   let new_ops = []
   for i in 0..<self.ops.length() {
@@ -93,7 +93,7 @@ pub fn IRPipeline::add(self : IRPipeline, op : IROp) -> IRPipeline {
 
 ///|
 /// 获取操作类型标签字符串。
-/// Get operation type tag string.
+/// 获取操作类型标签字符串 Get operation type tag string.
 pub fn IROp::tag(self : IROp) -> String {
   match self {
     Resize(_, _) => "Resize"
@@ -120,7 +120,7 @@ pub fn IROp::tag(self : IROp) -> String {
 
 ///|
 /// 获取操作的输入类型标签。
-/// Get expected input type tag for an operation.
+/// 获取操作的预期输入类型标签 Get expected input type tag for an operation.
 pub fn IROp::input_tag(self : IROp) -> String {
   match self {
     Resize(_, _) => "Image"
@@ -147,7 +147,7 @@ pub fn IROp::input_tag(self : IROp) -> String {
 
 ///|
 /// 获取操作的输出类型标签。
-/// Get expected output type tag for an operation.
+/// 获取操作的预期输出类型标签 Get expected output type tag for an operation.
 pub fn IROp::output_tag(self : IROp) -> String {
   match self {
     Resize(_, _) => "Image"

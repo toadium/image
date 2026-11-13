@@ -1,9 +1,8 @@
 ///|
-/// # denoise
-/// denoise
+/// # 降噪 denoise
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 图像去噪（v12.1.0）
 // 非局部均值（NLM）+ 双边滤波增强 + 中值滤波增强
 

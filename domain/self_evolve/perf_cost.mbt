@@ -1,14 +1,14 @@
 ///|
-/// # self_evolve/perf_cost
+/// # 性能开销 self_evolve/perf_cost
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 算子静态成本估算 — 基于复杂度模型
 // Op static cost estimation: based on complexity model
 
 ///|
 /// 估算单个算子的静态成本。
-/// Estimate static cost of a single op.
+/// 描述 Estimate static cost of a single op.
 pub fn estimate_op_cost(op : @imgir.IROp) -> OpCost {
   let tag = op.tag()
   match op {
@@ -57,7 +57,7 @@ pub fn estimate_op_cost(op : @imgir.IROp) -> OpCost {
 
 ///|
 /// 估算管道总成本。
-/// Estimate total cost of a pipeline.
+/// 描述 Estimate total cost of a pipeline.
 pub fn estimate_pipeline_cost(pipeline : @imgir.IRPipeline) -> PerfBaseline {
   let ops = pipeline.ops
   let op_costs : Array[OpCost] = []
@@ -77,7 +77,7 @@ pub fn estimate_pipeline_cost(pipeline : @imgir.IRPipeline) -> PerfBaseline {
 
 ///|
 /// 检测优化前后是否性能回归。
-/// Check for performance regression between original and optimized.
+/// 检查 Check for performance regression between original and optimized.
 pub fn check_regression(
   original : PerfBaseline,
   optimized : PerfBaseline,
@@ -93,7 +93,7 @@ pub fn check_regression(
 
 ///|
 /// 对管道执行优化并检测性能回归。
-/// Optimize pipeline and check for performance regression.
+/// 描述 Optimize pipeline and check for performance regression.
 pub fn perf_optimize_check(pipeline : @imgir.IRPipeline) -> PerfRegression {
   let original = estimate_pipeline_cost(pipeline)
   let optimized_pipe = optimize_pipeline(pipeline)
@@ -103,7 +103,7 @@ pub fn perf_optimize_check(pipeline : @imgir.IRPipeline) -> PerfRegression {
 
 ///|
 /// 比较两个管道的成本。
-/// Compare cost of two pipelines.
+/// 比较 Compare cost of two pipelines.
 pub fn compare_pipelines(
   pipe1 : @imgir.IRPipeline,
   pipe2 : @imgir.IRPipeline,

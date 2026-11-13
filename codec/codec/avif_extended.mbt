@@ -1,8 +1,7 @@
 ///|
 /// # AVIF 扩展 AVIF Extended
 ///
-/// AVIF 扩展功能
-/// AVIF extended features
+/// AVIF 扩展功能 AVIF extended features
 
 ///|
 /// AVIF 扩展信息（包含色彩空间、旋转、编码配置等）

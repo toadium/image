@@ -1,9 +1,8 @@
 ///|
-/// # distance transform
-/// distance transform
+/// # 距离变换 distance transform
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 距离变换（纯 MoonBit）
 
 ///|

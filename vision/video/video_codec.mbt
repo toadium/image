@@ -1,8 +1,8 @@
 ///|
-/// # video/video_codec
+/// # 视频编解码 video/video_codec
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 视频编解码 — 帧内/帧间/熵编码
 // Video codec: intra-frame / inter-frame / entropy coding
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 帧类型。
-/// Frame type.
+/// 帧类型 Frame type.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -28,7 +28,7 @@ pub extend FrameType with Eq::{not_equal, equal}
 
 ///|
 /// 编码参数。
-/// Codec parameters.
+/// 编解码参数 Codec parameters.
 #derive(Eq, @debug.Debug)
 pub(all) struct VideoCodecParams {
   qp : Int32 // 量化参数 (1-50)
@@ -45,7 +45,7 @@ pub extend VideoCodecParams with Eq::{not_equal, equal}
 
 ///|
 /// 编码帧。
-/// Encoded frame.
+/// 编码帧 Encoded frame.
 #derive(Eq, @debug.Debug)
 pub(all) struct EncodedFrame {
   frame_type : FrameType
@@ -64,7 +64,7 @@ pub extend EncodedFrame with Eq::{not_equal, equal}
 
 ///|
 /// 编码视频。
-/// Encoded video.
+/// 编码视频 Encoded video.
 #derive(Eq, @debug.Debug)
 pub(all) struct EncodedVideo {
   frames : Array[EncodedFrame]
@@ -82,14 +82,14 @@ pub extend EncodedVideo with Eq::{not_equal, equal}
 
 ///|
 /// 默认编码参数。
-/// Default codec parameters.
+/// 默认编解码参数 Default codec parameters.
 pub fn default_video_codec_params() -> VideoCodecParams {
   { qp: 10, block_size: 8, search_range: 8, iframe_interval: 10, }
 }
 
 ///|
 /// 游程编码 (RLE)。
-/// Run-length encoding.
+/// 游程编码 Run-length encoding.
 pub fn rle_encode(data : Array[Int32]) -> Bytes {
   let result : Array[Byte] = []
   let n = data.length()
@@ -112,7 +112,7 @@ pub fn rle_encode(data : Array[Int32]) -> Bytes {
 
 ///|
 /// 游程解码 (RLE)。
-/// Run-length decoding.
+/// 游程解码 Run-length decoding.
 pub fn rle_decode(data : Bytes) -> Array[Int32] {
   let result : Array[Int32] = []
   let n = data.length()
@@ -130,7 +130,7 @@ pub fn rle_decode(data : Bytes) -> Array[Int32] {
 
 ///|
 /// 量化。
-/// Quantization.
+/// 量化 Quantization.
 pub fn quantize(values : Array[Int32], qp : Int32) -> Array[Int32] {
   if qp <= 0 {
     return values
@@ -145,7 +145,7 @@ pub fn quantize(values : Array[Int32], qp : Int32) -> Array[Int32] {
 
 ///|
 /// 反量化。
-/// Dequantization.
+/// 反量化 Dequantization.
 pub fn dequantize(values : Array[Int32], qp : Int32) -> Array[Int32] {
   if qp <= 0 {
     return values
@@ -159,7 +159,7 @@ pub fn dequantize(values : Array[Int32], qp : Int32) -> Array[Int32] {
 
 ///|
 /// 帧内编码：将图像转为像素数组 + RLE 压缩。
-/// Intra-frame encoding: pixel array + RLE compression.
+/// 帧内编码 Intra-frame encoding
 pub fn encode_frame_intra(
   img : @types.Image,
   params : VideoCodecParams,
@@ -182,7 +182,7 @@ pub fn encode_frame_intra(
 
 ///|
 /// 帧内解码。
-/// Intra-frame decoding.
+/// 帧内解码 Intra-frame decoding.
 pub fn decode_frame_intra(frame : EncodedFrame) -> @types.Image {
   let quantized = rle_decode(frame.data)
   let pixels = dequantize(
@@ -208,7 +208,7 @@ pub fn decode_frame_intra(frame : EncodedFrame) -> @types.Image {
 
 ///|
 /// 计算运动矢量（简化块匹配）。
-/// Compute motion vectors (simplified block matching).
+/// 计算运动向量（简化块匹配） Compute motion vectors (simplified block matching).
 pub fn compute_motion_vectors(
   current : @types.Image,
   reference : @types.Image,
@@ -265,7 +265,7 @@ pub fn compute_motion_vectors(
 
 ///|
 /// 帧间编码：运动估计 + 残差编码。
-/// Inter-frame encoding: motion estimation + residual coding.
+/// 帧间编码：运动估计 + 残差编码 Inter-frame encoding: motion estimation + residual coding.
 pub fn encode_frame_inter(
   current : @types.Image,
   reference : @types.Image,
@@ -301,7 +301,7 @@ pub fn encode_frame_inter(
 
 ///|
 /// 帧间解码：运动补偿 + 残差。
-/// Inter-frame decoding: motion compensation + residual.
+/// 帧间解码：运动补偿 + 残差 Inter-frame decoding: motion compensation + residual.
 pub fn decode_frame_inter(
   frame : EncodedFrame,
   reference : @types.Image,
@@ -331,7 +331,7 @@ pub fn decode_frame_inter(
 
 ///|
 /// 视频编码流水线。
-/// Video encoding pipeline.
+/// 视频编码管线 Video encoding pipeline.
 pub fn encode_video(
   frames : Array[@types.Image],
   params : VideoCodecParams,
@@ -356,7 +356,7 @@ pub fn encode_video(
 
 ///|
 /// 视频解码流水线。
-/// Video decoding pipeline.
+/// 视频解码管线 Video decoding pipeline.
 pub fn decode_video(encoded : EncodedVideo) -> Array[@types.Image] {
   let frames : Array[@types.Image] = []
   let n = encoded.frames.length()
@@ -376,7 +376,7 @@ pub fn decode_video(encoded : EncodedVideo) -> Array[@types.Image] {
 
 ///|
 /// 计算压缩比。
-/// Compute compression ratio.
+/// 计算压缩比 Compute compression ratio.
 pub fn compute_compression_ratio(
   original : Array[@types.Image],
   encoded : EncodedVideo,

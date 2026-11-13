@@ -1,8 +1,8 @@
 ///|
-/// # self_evolve/equivalence
+/// # 等价性 self_evolve/equivalence
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 算子等价性验证 — 验证两个算子序列是否等价
 // Op equivalence verification: verify whether two op sequences are equivalent
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 单次等价性检查结果。
-/// Single equivalence check result.
+/// 描述 Single equivalence check result.
 #derive(Eq, @debug.Debug)
 pub(all) struct EquivalenceCheck {
   pipeline_a_desc : String
@@ -27,7 +27,7 @@ pub extend EquivalenceCheck with Eq::{not_equal, equal}
 
 ///|
 /// 等价性验证报告。
-/// Equivalence verification report.
+/// 描述 Equivalence verification report.
 #derive(Eq, @debug.Debug)
 pub(all) struct EquivalenceReport {
   checks : Array[EquivalenceCheck]
@@ -44,7 +44,7 @@ pub extend EquivalenceReport with Eq::{not_equal, equal}
 
 ///|
 /// 检查两个管道是否等价（相同算子序列）。
-/// Check whether two pipelines are equivalent (same op sequence).
+/// 检查 Check whether two pipelines are equivalent (same op sequence).
 pub fn check_equivalence(
   pipe_a : @imgir.IRPipeline,
   pipe_b : @imgir.IRPipeline,
@@ -84,7 +84,7 @@ pub fn check_equivalence(
 
 ///|
 /// 简化等价判断。
-/// Simplified equivalence check.
+/// 描述 Simplified equivalence check.
 pub fn are_equivalent(
   pipe_a : @imgir.IRPipeline,
   pipe_b : @imgir.IRPipeline,
@@ -94,7 +94,7 @@ pub fn are_equivalent(
 
 ///|
 /// 检查所有算子的自等价性（每个算子与自己等价）。
-/// Check self-equivalence for all ops.
+/// 检查 Check self-equivalence for all ops.
 pub fn check_equivalence_all() -> EquivalenceReport {
   let checks : Array[EquivalenceCheck] = []
   let ops = all_ops()
@@ -127,7 +127,7 @@ pub fn check_equivalence_all() -> EquivalenceReport {
 
 ///|
 /// 获取与指定算子等价的算子标签（相同 tag 的算子）。
-/// Get equivalent op tags (ops with same tag).
+/// 获取 Get equivalent op tags (ops with same tag).
 pub fn equivalence_class(op : @imgir.IROp) -> Array[String] {
   let target_tag = op.tag()
   let result : Array[String] = []
@@ -141,7 +141,7 @@ pub fn equivalence_class(op : @imgir.IROp) -> Array[String] {
 
 ///|
 /// 等价性报告是否全部等价。
-/// Whether all checks are equivalent.
+/// 描述 Whether all checks are equivalent.
 pub fn EquivalenceReport::all_equivalent(self : EquivalenceReport) -> Bool {
   self.total_not_equivalent == 0
 }

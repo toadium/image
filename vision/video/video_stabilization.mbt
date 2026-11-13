@@ -1,8 +1,8 @@
 ///|
-/// # video/video_stabilization
+/// # 视频防抖 video/video_stabilization
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 视频稳定 — 轨迹/平滑/裁剪
 // Video stabilization: trajectory / smoothing / cropping
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 稳定方法。
-/// Stabilization method.
+/// 防抖方法 Stabilization method.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -28,7 +28,7 @@ pub extend StabilizationMethod with Eq::{not_equal, equal}
 
 ///|
 /// 平滑方法。
-/// Smoothing method.
+/// 平滑方法 Smoothing method.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -46,7 +46,7 @@ pub extend TrajectorySmoothing with Eq::{not_equal, equal}
 
 ///|
 /// 轨迹点。
-/// Trajectory point.
+/// 轨迹点 Trajectory point.
 #derive(Eq, @debug.Debug)
 pub(all) struct TrajectoryPoint {
   x : Double
@@ -62,7 +62,7 @@ pub extend TrajectoryPoint with Eq::{not_equal, equal}
 
 ///|
 /// 稳定配置。
-/// Stabilization configuration.
+/// 防抖配置 Stabilization configuration.
 #derive(Eq, @debug.Debug)
 pub(all) struct StabilizationConfig {
   stab_method : StabilizationMethod
@@ -79,7 +79,7 @@ pub extend StabilizationConfig with Eq::{not_equal, equal}
 
 ///|
 /// 稳定结果。
-/// Stabilization result.
+/// 防抖结果 Stabilization result.
 #derive(Eq, @debug.Debug)
 pub(all) struct StabilizationResult {
   frames : Array[@types.Image]
@@ -99,7 +99,7 @@ pub extend StabilizationResult with Eq::{not_equal, equal}
 
 ///|
 /// 默认稳定配置。
-/// Default stabilization configuration.
+/// 默认防抖配置 Default stabilization configuration.
 pub fn default_stabilization_config() -> StabilizationConfig {
   {
     stab_method: MotionModel,
@@ -111,7 +111,7 @@ pub fn default_stabilization_config() -> StabilizationConfig {
 
 ///|
 /// 计算帧间运动轨迹。
-/// Compute inter-frame motion trajectory.
+/// 计算帧间运动轨迹 Compute inter-frame motion trajectory.
 pub fn compute_trajectory(
   frames : Array[@types.Image],
 ) -> Array[TrajectoryPoint] {
@@ -137,7 +137,7 @@ pub fn compute_trajectory(
 
 ///|
 /// 计算帧间偏移（简化：用质心差）。
-/// Compute frame offset (simplified: centroid difference).
+/// 计算帧偏移（简化：质心差） Compute frame offset (simplified: centroid difference).
 fn compute_frame_offset(
   prev : @types.Image,
   curr : @types.Image,
@@ -176,7 +176,7 @@ fn compute_frame_offset(
 
 ///|
 /// 高斯平滑轨迹。
-/// Gaussian smoothing of trajectory.
+/// 轨迹高斯平滑 Gaussian smoothing of trajectory.
 fn gaussian_smooth(
   trajectory : Array[TrajectoryPoint],
   radius : Int32,
@@ -214,7 +214,7 @@ fn gaussian_smooth(
 
 ///|
 /// 移动平均平滑轨迹。
-/// Moving average smoothing of trajectory.
+/// 轨迹移动平均平滑 Moving average smoothing of trajectory.
 fn moving_average_smooth(
   trajectory : Array[TrajectoryPoint],
   radius : Int32,
@@ -244,7 +244,7 @@ fn moving_average_smooth(
 
 ///|
 /// 中值滤波平滑轨迹。
-/// Median filter smoothing of trajectory.
+/// 轨迹中值滤波平滑 Median filter smoothing of trajectory.
 fn median_smooth(
   trajectory : Array[TrajectoryPoint],
   radius : Int32,
@@ -271,7 +271,7 @@ fn median_smooth(
 
 ///|
 /// 平滑轨迹。
-/// Smooth trajectory.
+/// 平滑轨迹 Smooth trajectory.
 pub fn smooth_trajectory(
   trajectory : Array[TrajectoryPoint],
   config : StabilizationConfig,
@@ -285,7 +285,7 @@ pub fn smooth_trajectory(
 
 ///|
 /// 平移图像。
-/// Translate image by (dx, dy).
+/// 平移图像 (dx, dy) Translate image by (dx, dy).
 fn translate_image(
   img : @types.Image,
   dx : Double,
@@ -315,7 +315,7 @@ fn translate_image(
 
 ///|
 /// 稳定单帧。
-/// Stabilize a single frame.
+/// 稳定单帧 Stabilize a single frame.
 pub fn stabilize_frame(
   img : @types.Image,
   original_point : TrajectoryPoint,
@@ -329,7 +329,7 @@ pub fn stabilize_frame(
 
 ///|
 /// 计算裁剪区域。
-/// Compute crop region.
+/// 计算裁剪区域 Compute crop region.
 pub fn compute_crop_region(
   width : Int32,
   height : Int32,
@@ -345,7 +345,7 @@ pub fn compute_crop_region(
 
 ///|
 /// 裁剪图像到区域。
-/// Crop image to region.
+/// 裁剪图像到区域 Crop image to region.
 fn crop_to_region(
   img : @types.Image,
   x : Int32,
@@ -369,7 +369,7 @@ fn crop_to_region(
 
 ///|
 /// 稳定视频序列。
-/// Stabilize video sequence.
+/// 稳定视频序列 Stabilize video sequence.
 pub fn stabilize_video_sequence(
   frames : Array[@types.Image],
   config : StabilizationConfig,
@@ -416,7 +416,7 @@ pub fn stabilize_video_sequence(
 
 ///|
 /// 计算稳定度评分。
-/// Compute stabilization quality score.
+/// 计算防抖质量分 Compute stabilization quality score.
 pub fn stabilization_score(
   original_trajectory : Array[TrajectoryPoint],
   smoothed_trajectory : Array[TrajectoryPoint],

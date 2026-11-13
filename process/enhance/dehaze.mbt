@@ -1,9 +1,8 @@
 ///|
-/// # dehaze
-/// dehaze
+/// # 去雾 dehaze
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 图像去雾（v11.6.0）
 // 暗通道先验算法 + 大气光估计 + 透射率优化 + 去雾复原
 
@@ -189,7 +188,7 @@ pub fn estimate_atmospheric_light(
 
 ///|
 /// 计算透射率
-/// t(x) = 1 - omega * dark_channel(I/A)
+/// 透射率 t(x) = 1 - omega * dark_channel(I/A)
 pub fn estimate_transmission(
   img : @types.Image,
   atmospheric : Array[Int32],
@@ -360,7 +359,7 @@ pub fn guided_filter_image(
 
 ///|
 /// 去雾复原
-/// J(x) = (I(x) - A) / max(t(x), t0) + A
+/// 去雾复原 J(x) = (I(x) - A) / max(t(x), t0) + A
 pub fn dehaze_recover(
   img : @types.Image,
   transmission : @types.Image,

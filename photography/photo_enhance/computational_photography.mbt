@@ -1,8 +1,8 @@
 ///|
-/// # photo_enhance/computational_photography
+/// # 计算摄影 photo_enhance/computational_photography
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 计算摄影增强（v15.0.0）
 // HDR 多曝光融合、色调映射、全景拼接增强、景深模拟、夜景增强
 

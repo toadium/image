@@ -1,9 +1,8 @@
 ///|
-/// # morphology
-/// morphology
+/// # 形态学 morphology
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 形态学操作（纯 MoonBit）：erode / dilate / morph_open / morph_close
 // 使用 3x3 结构元素（八邻域）
 

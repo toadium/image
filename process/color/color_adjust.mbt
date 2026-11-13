@@ -1,17 +1,16 @@
 ///|
-/// # color adjust
-/// color adjust
+/// # 色彩调整 color adjust
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 色彩调整操作（纯 MoonBit）
 // 亮度/对比度/gamma/反色 + HSV/HSL 色彩空间转换
 
 ///|
 /// 亮度调整。delta ∈ [-255, 255]，正值变亮，负值变暗。
 /// 仅影响颜色通道（前 min(channels,3) 个），alpha 通道不变。
-/// Brightness adjustment. delta ∈ [-255, 255], positive=brighter, negative=darker.
-/// Only affects color channels (first min(channels,3)), alpha channel unchanged.
+/// 亮度调整。delta ∈ [-255, 255]，正值增亮，负值减暗。 Brightness adjustment. delta ∈ [-255, 255], positive=brighter, negative=darker.
+/// 仅影响颜色通道（前 min(channels,3) 个），alpha 通道不变。 Only affects color channels (first min(channels,3)), alpha channel unchanged.
 ///
 /// ```mbt check
 /// test "doc_adjust_brightness" {

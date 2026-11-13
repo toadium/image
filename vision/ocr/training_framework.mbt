@@ -1,8 +1,8 @@
 ///|
-/// # ocr/training_framework
+/// # 训练框架 ocr/training_framework
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // OCR 模型训练框架（v13.1.0）
 // 数据增强、优化器、学习率调度、训练循环、模型评估、早停机制
 

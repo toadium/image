@@ -1,8 +1,8 @@
 ///|
-/// # video/timelapse
+/// # 延时摄影 video/timelapse
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 时间 lapse — 采样/稳定/曝光
 // Timelapse: sampling / stabilization / exposure
 //
@@ -10,7 +10,7 @@
 
 ///|
 /// 曝光调整模式。
-/// Exposure adjustment mode.
+/// 曝光调整模式 Exposure adjustment mode.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -28,7 +28,7 @@ pub extend ExposureMode with Eq::{not_equal, equal}
 
 ///|
 /// 时间 lapse 配置。
-/// Timelapse configuration.
+/// 延时摄影配置 Timelapse configuration.
 #derive(Eq, @debug.Debug)
 pub(all) struct TimelapseConfig {
   sample_interval : Int32 // 采样间隔（每 N 帧取 1 帧）
@@ -46,7 +46,7 @@ pub extend TimelapseConfig with Eq::{not_equal, equal}
 
 ///|
 /// 默认时间 lapse 配置。
-/// Default timelapse configuration.
+/// 默认延时摄影配置 Default timelapse configuration.
 pub fn default_timelapse_config() -> TimelapseConfig {
   {
     sample_interval: 10,
@@ -59,7 +59,7 @@ pub fn default_timelapse_config() -> TimelapseConfig {
 
 ///|
 /// 按间隔采样帧。
-/// Sample frames at interval.
+/// 按间隔采样帧 Sample frames at interval.
 pub fn sample_frames(
   frames : Array[@types.Image],
   interval : Int32,
@@ -79,7 +79,7 @@ pub fn sample_frames(
 
 ///|
 /// 线性曝光调整。
-/// Linear exposure adjustment.
+/// 线性曝光调整 Linear exposure adjustment.
 fn adjust_exposure_linear(
   img : @types.Image,
   compensation : Double,
@@ -99,7 +99,7 @@ fn adjust_exposure_linear(
 
 ///|
 /// 对数曝光调整。
-/// Logarithmic exposure adjustment.
+/// 对数曝光 Logarithmic exposure
 fn adjust_exposure_log(
   img : @types.Image,
   compensation : Double,
@@ -120,7 +120,7 @@ fn adjust_exposure_log(
 
 ///|
 /// 伽马曝光调整。
-/// Gamma exposure adjustment.
+/// 伽马曝光调整 Gamma exposure adjustment.
 fn adjust_exposure_gamma(img : @types.Image, gamma : Double) -> @types.Image {
   let w = img.width
   let h = img.height
@@ -137,7 +137,7 @@ fn adjust_exposure_gamma(img : @types.Image, gamma : Double) -> @types.Image {
 
 ///|
 /// 调整曝光。
-/// Adjust exposure.
+/// 调整曝光 Adjust exposure.
 pub fn adjust_exposure(
   img : @types.Image,
   config : TimelapseConfig,
@@ -155,7 +155,7 @@ pub fn adjust_exposure(
 
 ///|
 /// 曝光调整序列。
-/// Adjust exposure for sequence.
+/// 调整序列曝光 Adjust exposure for sequence.
 pub fn adjust_exposure_sequence(
   frames : Array[@types.Image],
   config : TimelapseConfig,
@@ -169,7 +169,7 @@ pub fn adjust_exposure_sequence(
 
 ///|
 /// 创建时间 lapse。
-/// Create timelapse from frames.
+/// 从帧创建延时摄影 Create timelapse from frames.
 pub fn create_timelapse(
   frames : Array[@types.Image],
   config : TimelapseConfig,
@@ -190,7 +190,7 @@ pub fn create_timelapse(
 
 ///|
 /// 时间 lapse 流水线（采样 + 曝光 + 稳定 + 运动模糊）。
-/// Timelapse pipeline.
+/// 延时摄影管线 Timelapse pipeline.
 pub fn timelapse_pipeline(
   frames : Array[@types.Image],
   config : TimelapseConfig,
@@ -210,7 +210,7 @@ pub fn timelapse_pipeline(
 
 ///|
 /// 计算时间 lapse 帧数。
-/// Compute timelapse frame count.
+/// 计算延时摄影帧数 Compute timelapse frame count.
 pub fn compute_timelapse_count(
   frame_count : Int32,
   sample_interval : Int32,
@@ -223,7 +223,7 @@ pub fn compute_timelapse_count(
 
 ///|
 /// 计算时间 lapse 时长。
-/// Compute timelapse duration.
+/// 计算延时摄影时长 Compute timelapse duration.
 pub fn compute_timelapse_duration(
   frame_count : Int32,
   sample_interval : Int32,
@@ -238,7 +238,7 @@ pub fn compute_timelapse_duration(
 
 ///|
 /// 计算时间压缩比。
-/// Compute time compression ratio.
+/// 计算时间压缩比 Compute time compression ratio.
 pub fn compute_time_compression(
   source_duration : Double,
   timelapse_duration : Double,

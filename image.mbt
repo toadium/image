@@ -1,13 +1,10 @@
 ///|
-/// # walkzzz/image
+/// # walkzzz/image 图像处理库
 ///
-/// 纯 MoonBit 图像处理库，零 C FFI 依赖。
-/// Pure MoonBit image processing library with zero C FFI dependency.
+/// 纯 MoonBit 图像处理库，零 C FFI 依赖。 Pure MoonBit image processing library with zero C FFI dependency.
 ///
-/// 支持 18 种图像格式（PNG/JPEG/BMP/GIF/QOI/TGA/PSD/HDR/PNM/TIFF/ICO/CUR/ICNS/APNG/WebP/AVIF/HEIF/JPEG-XL）
-/// Supports 18 image formats (PNG/JPEG/BMP/GIF/QOI/TGA/PSD/HDR/PNM/TIFF/ICO/CUR/ICNS/APNG/WebP/AVIF/HEIF/JPEG-XL)
-/// 和多目标编译（native/wasm-gc/js/wasm）。
-/// and multi-target compilation (native/wasm-gc/js/wasm).
+/// 支持 18 种图像格式（PNG/JPEG/BMP/GIF/QOI/TGA/PSD/HDR/PNM/TIFF/ICO/CUR/ICNS/APNG/WebP/AVIF/HEIF/JPEG-XL） Supports 18 image formats (PNG/JPEG/BMP/GIF/QOI/TGA/PSD/HDR/PNM/TIFF/ICO/CUR/ICNS/APNG/WebP/AVIF/HEIF/JPEG-XL)
+/// 和多目标编译（native/wasm-gc/js/wasm）。 and multi-target compilation (native/wasm-gc/js/wasm).
 ///
 /// ## 快速入门 Quick Start
 ///

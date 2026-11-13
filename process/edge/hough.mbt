@@ -1,9 +1,8 @@
 ///|
-/// # hough
-/// hough
+/// # 霍夫变换 hough
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 霍夫变换（直线检测，纯 MoonBit）
 
 ///|

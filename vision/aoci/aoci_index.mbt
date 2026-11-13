@@ -2,7 +2,7 @@
 /// # AOCI 符号语义索引 AOCI Symbol Semantic Index
 ///
 /// 全量符号索引 + 关键词倒排表
-/// Full symbol index + keyword inverted table
+/// 全符号索引 + 关键词倒排表 Full symbol index
 // AOCI 符号语义索引 — 符号索引结构
 // SymbolIndex: 全量符号索引 + 关键词倒排表
 

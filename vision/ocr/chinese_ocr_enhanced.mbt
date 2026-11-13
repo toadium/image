@@ -1,8 +1,8 @@
 ///|
-/// # ocr/chinese_ocr_enhanced
+/// # 增强中文 OCR ocr/chinese_ocr_enhanced
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 中文 OCR 增强版（v10.0.0）
 // 1000常用字、优化模板生成、结构预筛选、笔画特征
 

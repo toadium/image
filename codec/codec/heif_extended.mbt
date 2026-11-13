@@ -1,8 +1,7 @@
 ///|
 /// # HEIF 扩展 HEIF Extended
 ///
-/// HEIF 扩展功能
-/// HEIF extended features
+/// HEIF 扩展功能 HEIF extended features
 
 ///|
 /// HEIF 扩展信息（包含色彩空间、旋转、HEVC 编码配置等）

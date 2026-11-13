@@ -1,8 +1,8 @@
 ///|
 /// # 去雾 16-bit/float 变体 Dehaze 16-bit/float variants
 ///
-/// dehaze_16 / dehaze_f
-/// 16-bit/float dehazing
+/// 16位/浮点去雾 dehaze_16 / dehaze_f
+/// 16位/浮点去雾 16-bit/float dehazing
 // 去雾 16-bit/float 变体（color 包）
 // dehaze / guided_filter 支持 Image16 / ImageF
 

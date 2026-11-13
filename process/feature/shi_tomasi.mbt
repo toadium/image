@@ -1,9 +1,8 @@
 ///|
-/// # shi tomasi
-/// shi tomasi
+/// # Shi-Tomasi 角点 shi tomasi
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // Shi-Tomasi 角点检测 (good_features_to_track)
 // 基于 Harris 的结构张量，用 min eigenvalue 代替 Harris 响应
 

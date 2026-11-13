@@ -1,14 +1,14 @@
 ///|
-/// # self_evolve/evolve_types
+/// # 进化 self_evolve/evolve_types
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // self_evolve 类型定义 — 自动测试用例生成 + 退化场景发现
 // Type definitions for self-evolution: auto test generation + degradation detection
 
 ///|
 /// 测试用例类别。
-/// Test case category.
+/// 描述 Test case category.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -27,7 +27,7 @@ pub extend TestCategory with Eq::{not_equal, equal}
 
 ///|
 /// 退化类型（对应 4.7.4 领域规则）。
-/// Degradation kind (corresponds to 4.7.4 domain rules).
+/// 描述 Degradation kind (corresponds to 4.7.4 domain rules).
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -48,7 +48,7 @@ pub extend DegradationKind with Eq::{not_equal, equal}
 
 ///|
 /// 严重程度。
-/// Severity level.
+/// 描述 Severity level.
 /// `#non_exhaustive` 表示未来可能添加新构造器
 #derive(Eq, @debug.Debug)
 #non_exhaustive
@@ -66,7 +66,7 @@ pub extend Severity with Eq::{not_equal, equal}
 
 ///|
 /// 自动生成的测试用例描述。
-/// Auto-generated test case description.
+/// 描述 Auto-generated test case description.
 #derive(Eq, @debug.Debug)
 pub(all) struct TestCase {
   name : String
@@ -85,7 +85,7 @@ pub extend TestCase with Eq::{not_equal, equal}
 
 ///|
 /// 退化场景描述。
-/// Degradation case description.
+/// 描述 Degradation case description.
 #derive(Eq, @debug.Debug)
 pub(all) struct DegradationCase {
   kind : DegradationKind
@@ -102,7 +102,7 @@ pub extend DegradationCase with Eq::{not_equal, equal}
 
 ///|
 /// 演化报告：生成的测试 + 发现的退化。
-/// Evolution report: generated tests + found degradations.
+/// 描述 Evolution report: generated tests + found degradations.
 #derive(Eq, @debug.Debug)
 pub(all) struct EvolveReport {
   generated_tests : Array[TestCase]
@@ -118,21 +118,21 @@ pub extend EvolveReport with Eq::{not_equal, equal}
 
 ///|
 /// 测试用例数量。
-/// Number of test cases.
+/// 描述 Number of test cases.
 pub fn EvolveReport::test_count(self : EvolveReport) -> Int32 {
   self.generated_tests.length()
 }
 
 ///|
 /// 退化场景数量。
-/// Number of degradation cases.
+/// 描述 Number of degradation cases.
 pub fn EvolveReport::degradation_count(self : EvolveReport) -> Int32 {
   self.found_degradations.length()
 }
 
 ///|
 /// 严重退化数量（Critical + Fatal）。
-/// Number of severe degradations.
+/// 描述 Number of severe degradations.
 pub fn EvolveReport::severe_count(self : EvolveReport) -> Int32 {
   let mut count = 0
   for d in self.found_degradations {

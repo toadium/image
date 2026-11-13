@@ -1,8 +1,7 @@
 ///|
 /// # AVIF 解码 AVIF Decode
 ///
-/// AVIF 图像格式解码
-/// AVIF image format decoding
+/// AVIF 图像格式解码 AVIF image format decoding
 
 ///|
 /// AVIF (AV1 Image File Format) 解码器
@@ -10,8 +9,7 @@
 /// AVIF 基于 AV1 编码，使用 ISOBMFF 容器格式。
 /// 本模块提供格式检测和基本头部解析，完整解码需 AV1 解码器支持。
 ///
-/// Magic bytes: 0x00 0x00 0x00 0x?? 0x66 0x74 0x79 0x70 0x61 0x76 0x69 0x66
-/// (ftyp box with brand "avif" or "avis")
+/// Magic bytes: 0x00 0x00 0x00 0x?? 0x66 0x74 0x79 0x70 0x61 0x76 0x69 0x66（ftyp box，brand 为 "avif" 或 "avis"）
 
 ///|
 /// AVIF 图像信息

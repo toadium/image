@@ -1,9 +1,8 @@
 ///|
-/// # convolve bilateral 16f
-/// convolve bilateral 16f
+/// # 卷积双边 16f convolve bilateral 16f
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 卷积 + 双边滤波 16-bit/float 变体
 
 // ========== 辅助函数 ==========

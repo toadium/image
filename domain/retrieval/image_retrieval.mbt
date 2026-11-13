@@ -1,8 +1,8 @@
 ///|
-/// # retrieval/image_retrieval
+/// # 图像检索 retrieval/image_retrieval
 ///
 /// 图像处理库子模块
-/// Image processing library submodule
+/// 图像处理库子模块 Image processing library submodule
 // 图像检索（v12.13.0）
 // 基于特征的图像检索、相似度计算、图像数据库管理
 

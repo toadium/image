@@ -4,8 +4,8 @@
 /// 纯 MoonBit 图像信息查询（全目标可用），仅依赖 @types，不加载像素数据。
 /// 通过解析各格式头部获取 width/height/channels。
 ///
-/// Pure MoonBit image info query (all targets), depends only on @types, does not load pixel data.
-/// Obtains width/height/channels by parsing format headers.
+/// 纯 MoonBit 图像信息查询（全目标），仅依赖 @types，不加载像素数据。通过解析格式头部获取 width/height/channels。 Pure MoonBit image info query (all targets), depends only on @types, does not load pixel data.
+/// 通过解析格式头部获取 width/height/channels。 Obtains width/height/channels by parsing format headers.
 ///
 /// 核心函数 Core functions:
 /// - `load_image_info_pure` - 加载图像信息（不含像素数据）Load image info (no pixel data)

@@ -1,9 +1,8 @@
 ///|
-/// # stereo 3d
-/// stereo 3d
+/// # 立体视觉 stereo 3d
 ///
 /// 图像处理算法模块
-/// Image processing algorithm module
+/// 图像处理算法模块 Image processing algorithm module
 // 3D 视觉基础（v12.9.0）
 // 深度图处理、点云可视化、立体视觉基础
 
