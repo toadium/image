@@ -1,3 +1,8 @@
+///|
+/// # medical/medical_image
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 医学图像处理（v12.10.0）
 // 窗宽窗位调整、伪彩色映射、医学图像增强
 

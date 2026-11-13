@@ -1,3 +1,8 @@
+///|
+/// # video/video_stabilization
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 视频稳定 — 轨迹/平滑/裁剪
 // Video stabilization: trajectory / smoothing / cropping
 //

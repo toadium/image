@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/root_cause
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 退化根因分析 — 分析退化根因（参数来源/传播路径）
 // Root cause analysis: analyze degradation root cause
 //

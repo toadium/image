@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/equivalence
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 算子等价性验证 — 验证两个算子序列是否等价
 // Op equivalence verification: verify whether two op sequences are equivalent
 //

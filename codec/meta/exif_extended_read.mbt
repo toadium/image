@@ -1,3 +1,8 @@
+///|
+/// # meta/exif_extended_read
+///
+/// 编解码工具模块
+/// Codec utility module
 // v248.0.0 扩展 EXIF 元数据读取
 // 支持 GPS/曝光参数/白平衡/焦距/ISO/光圈/闪光灯等标签
 // 保持原有 ExifInfo 不变，新增 ExifInfoExtended

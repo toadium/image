@@ -1,3 +1,8 @@
+///|
+/// # ocr/chinese_dictionary
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 中文字库管理与部件分解识别（v12.23.0 P2 中文增强）
 // 3500 常用字库管理、部首/部件分解、结构分析、相似度匹配
 

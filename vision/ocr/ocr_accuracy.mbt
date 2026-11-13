@@ -1,3 +1,8 @@
+///|
+/// # ocr/ocr_accuracy
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // OCR 准确率提升
 // 更多特征提取、集成学习、训练数据管理、置信度校准
 

@@ -1,3 +1,8 @@
+///|
+/// # 字节 I/O Byte I/O
+///
+/// 编解码通用字节读写工具
+/// Codec common byte I/O utilities
 // 共享的大端/小端字节读写函数与 PNG signature 验证
 // 供 bmp/ico/tiff/apng/icns/psd/gif/png 等编解码器复用
 

@@ -1,3 +1,8 @@
+///|
+/// # util/zlib
+///
+/// 编解码工具模块
+/// Codec utility module
 // 纯 MoonBit zlib 支持（全目标可用：native/wasm/js）
 // 实现 DEFLATE inflate 解压缩 + Adler32 + CRC32
 // 仅依赖 @types，不依赖 @core/FFI

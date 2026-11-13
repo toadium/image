@@ -1,3 +1,8 @@
+///|
+/// # 色调映射 16-bit/float 变体 Tone mapping 16-bit/float variants
+///
+/// tonemap_reinhard_16 / tonemap_gamma_16
+/// 16-bit/float tone mapping variants
 // 色调映射 16-bit/float 变体
 // Gamma + Reinhard，返回 Image16/ImageF
 

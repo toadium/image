@@ -1,3 +1,9 @@
+///|
+/// # contour 16f
+/// contour 16f
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 轮廓提取与绘制 16-bit/float 变体
 
 ///|

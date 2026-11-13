@@ -1,3 +1,8 @@
+///|
+/// # video/slow_motion
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 慢动作 — 光流插帧/运动模糊
 // Slow motion: optical flow interpolation / motion blur
 //

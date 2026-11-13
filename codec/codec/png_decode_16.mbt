@@ -1,3 +1,8 @@
+///|
+/// # PNG 16-bit 解码 PNG 16-bit Decode
+///
+/// PNG 16-bit 高精度解码
+/// PNG 16-bit high-precision decoding
 // 纯 MoonBit PNG 16-bit 解码（全目标可用：native/wasm/js）
 // 支持 8-bit PNG 上采样为 16-bit，以及原生 16-bit PNG
 // 输出 Image16（little-endian uint16 per sample）

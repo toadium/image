@@ -1,4 +1,10 @@
 ///|
+/// # PSD 扩展 PSD Extended
+///
+/// PSD 扩展功能
+/// PSD extended features
+
+///|
 /// PSD 扩展信息（包含通道数、位深、颜色模式、压缩方式等）
 pub struct PsdInfoExtended {
   width : Int32

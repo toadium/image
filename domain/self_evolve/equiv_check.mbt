@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/equiv_check
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 算子等价性检查 — 恒等算子 + 互逆算子对
 // Op equivalence: identity ops + inverse pairs
 

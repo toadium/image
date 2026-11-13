@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/meta_evolve
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 自演化 Meta — 元演化（演化演化本身）
 // Meta evolution: evolve the evolution process itself
 //

@@ -1,3 +1,9 @@
+///|
+/// # adaptive threshold 16f
+/// adaptive threshold 16f
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 阈值处理 16-bit/float 变体
 // 支持 Image16 / ImageF 两种类型
 // 输出均为二值图像（16-bit: 0/65535，float: 0.0/1.0）

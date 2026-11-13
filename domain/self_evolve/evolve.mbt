@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/evolve
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // self_evolve 高层 API — 完整演化流程
 // High-level API: full evolution pipeline
 

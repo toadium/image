@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/coverage_gap
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 测试覆盖盲区分析 — 分析测试覆盖盲区，找出未覆盖的算子/退化场景
 // Coverage gap analysis: find untested or under-tested ops and degradation scenarios
 //

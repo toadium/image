@@ -1,3 +1,9 @@
+///|
+/// # hough circles 16f
+/// hough circles 16f
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 霍夫圆检测 16-bit/float 变体
 
 ///|

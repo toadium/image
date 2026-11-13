@@ -1,3 +1,9 @@
+///|
+/// # adaptive threshold
+/// adaptive threshold
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 自适应阈值（纯 MoonBit）
 
 ///|

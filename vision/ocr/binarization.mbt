@@ -1,3 +1,8 @@
+///|
+/// # ocr/binarization
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // OCR 专用二值化算法
 // Sauvola 阈值、Niblack 阈值、OCR 自适应阈值
 

@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/pipeline_optimize
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 管道优化建议 — 基于等价性与退化分析推荐管道优化
 // Pipeline optimization suggestion: recommend optimizations based on equivalence and degradation
 //

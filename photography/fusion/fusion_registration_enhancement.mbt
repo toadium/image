@@ -1,3 +1,8 @@
+///|
+/// # fusion/fusion_registration_enhancement
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 图像融合与配准增强（v26.0.0）
 // 多尺度图像融合、图像配准、全景拼接、HDR融合
 

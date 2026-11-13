@@ -1,3 +1,8 @@
+///|
+/// # registration/advanced_registration
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 高级图像配准算法（v30.0.0）
 // 特征点匹配、变换估计、多模态配准、配准质量评估
 

@@ -1,3 +1,8 @@
+///|
+/// # video/video_transcode
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 视频转码 — 格式/分辨率/码率
 // Video transcoding: format / resolution / bitrate
 //

@@ -1,3 +1,8 @@
+///|
+/// # watermark/digital_watermark
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 数字水印（v12.12.0）
 // LSB 水印嵌入/提取、DCT 水印、水印鲁棒性
 

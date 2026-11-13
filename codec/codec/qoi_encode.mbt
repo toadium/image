@@ -1,3 +1,8 @@
+///|
+/// # QOI 编码 QOI Encode
+///
+/// QOI 图像格式编码
+/// QOI image format encoding
 // 纯 MoonBit QOI 编码器
 // 规范: https://qoiformat.org/qoi-specification.pdf
 // 移植自 src/format/qoi.mbt 的 encode_qoi，仅替换类型引用：
@@ -8,6 +13,34 @@
 /// 将 Image 编码为 QOI 字节流
 /// 输入 Image 的 channels 必须为 3 (RGB) 或 4 (RGBA)
 /// 输出: 14 字节 header + 像素编码 + 8 字节 padding
+/// Encode Image to QOI byte stream
+/// Input Image channels must be 3 (RGB) or 4 (RGBA)
+/// Output: 14-byte header + pixel encoding + 8-byte padding
+///
+/// 参数 Parameters:
+/// - `img` - 输入图像 Input image
+///
+/// 返回 Return:
+/// - QOI 字节流 QOI byte stream
+///
+/// 错误 Errors:
+/// - `LoadError::EncodeFailed` - channels 不为 3 或 4
+///   Channels not 3 or 4
+///
+/// ```mbt check
+/// test "doc_encode_qoi_pure" {
+///   try {
+///     let data = Bytes::from_array([b'\xff', b'\x00', b'\x00'])
+///     let img = @types.Image::{ width: 1, height: 1, channels: 3, data, }
+///     let encoded = @codec.encode_qoi_pure(img)
+///     assert_true(encoded.length() > 0)
+///     let decoded = @codec.decode_qoi_pure(encoded)
+///     assert_eq(decoded.width, 1)
+///   } catch {
+///     _ => assert_true(false)
+///   }
+/// }
+/// ```
 pub fn encode_qoi_pure(img : @types.Image) -> Bytes raise @types.LoadError {
   if img.channels != 3 && img.channels != 4 {
     raise @types.LoadError::EncodeFailed(

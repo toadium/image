@@ -1,9 +1,31 @@
+///|
+/// # color adjust
+/// color adjust
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 色彩调整操作（纯 MoonBit）
 // 亮度/对比度/gamma/反色 + HSV/HSL 色彩空间转换
 
 ///|
 /// 亮度调整。delta ∈ [-255, 255]，正值变亮，负值变暗。
 /// 仅影响颜色通道（前 min(channels,3) 个），alpha 通道不变。
+/// Brightness adjustment. delta ∈ [-255, 255], positive=brighter, negative=darker.
+/// Only affects color channels (first min(channels,3)), alpha channel unchanged.
+///
+/// ```mbt check
+/// test "doc_adjust_brightness" {
+///   try {
+///     let data = Bytes::from_array([b'\x80', b'\x80', b'\x80'])
+///     let img = @types.Image::{ width: 1, height: 1, channels: 3, data, }
+///     let brightened = @color.adjust_brightness(img, 50)
+///     assert_eq(brightened.width, 1)
+///     assert_eq(brightened.channels, 3)
+///   } catch {
+///     _ => assert_true(false)
+///   }
+/// }
+/// ```
 pub fn adjust_brightness(
   img : @types.Image,
   delta : Int32,

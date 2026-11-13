@@ -1,4 +1,10 @@
 ///|
+/// # WebP 扩展 WebP Extended
+///
+/// WebP 扩展功能
+/// WebP extended features
+
+///|
 /// WebP 扩展信息（包含格式类型、alpha、动画、元数据标志等）
 pub struct WebpInfoExtended {
   width : Int32

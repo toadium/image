@@ -1,3 +1,8 @@
+///|
+/// # ocr/document_understanding
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 文档理解
 // 版面分析、阅读顺序、标题/正文分类、文档结构提取
 

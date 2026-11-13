@@ -1,3 +1,8 @@
+///|
+/// # video/video_effects
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 视频特效 — 滤镜/转场/字幕
 // Video effects: filters / transitions / text overlay
 //

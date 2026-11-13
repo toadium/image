@@ -1,3 +1,8 @@
+///|
+/// # util/image_combine
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 图像混合与翻转（纯 MoonBit）
 
 ///|

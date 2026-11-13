@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/auto_decide
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 自主决策引擎 — 根据预测结果自主决策演化方向
 // Autonomous decision engine: decide evolution direction based on predictions
 //

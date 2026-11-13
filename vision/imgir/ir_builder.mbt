@@ -1,3 +1,8 @@
+///|
+/// # imgir/ir_builder
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // ImgIR 管道构建器：链式 API 构建操作管道。
 // IR pipeline builder: fluent API for constructing operation pipelines.
 //

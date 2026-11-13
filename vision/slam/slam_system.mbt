@@ -1,3 +1,8 @@
+///|
+/// # slam/slam_system
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // SLAM 同时定位与地图构建（v31.0.0）
 // 特征点跟踪、位姿估计、地图构建、回环检测、优化
 

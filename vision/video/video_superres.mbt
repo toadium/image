@@ -1,3 +1,8 @@
+///|
+/// # video/video_superres
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 视频超分 — 时空/递归/深度
 // Video super-resolution: spatio-temporal / recursive / depth
 //

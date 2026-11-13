@@ -1,4 +1,10 @@
 ///|
+/// # JPEG-XL 解码 JPEG-XL Decode
+///
+/// JPEG-XL 图像格式解码
+/// JPEG-XL image format decoding
+
+///|
 /// JPEG-XL (JPEG XL) 解码器
 ///
 /// JPEG-XL 是新一代图像格式，支持有损和无损压缩。

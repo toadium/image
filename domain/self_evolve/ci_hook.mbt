@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/ci_hook
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 自演化 CI 集成 — moon test 自动演化钩子 + 回归门禁
 // CI integration: auto-evolution hooks + regression gate
 //

@@ -1,3 +1,8 @@
+///|
+/// # meta/png_meta_write
+///
+/// 编解码工具模块
+/// Codec utility module
 // v250.0.0 PNG 元数据写入 + eXIf chunk 读写
 // PNG text chunk 写入 + PNG eXIf chunk 读取/写入
 

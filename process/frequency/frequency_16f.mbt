@@ -1,3 +1,8 @@
+///|
+/// # 频域变换 16-bit/float 变体 Frequency domain transforms 16-bit/float variants
+///
+/// fft_2d_16 / dct_2d_16 / haar_wavelet_16
+/// 16-bit/float FFT/DCT/Haar wavelet
 // 频域变换 16-bit/float 变体
 // FFT / DCT / Haar 支持 Image16 / ImageF
 

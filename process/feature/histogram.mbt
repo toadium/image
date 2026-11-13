@@ -1,3 +1,9 @@
+///|
+/// # histogram
+/// histogram
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 直方图操作（纯 MoonBit）：均衡化 + 归一化
 
 ///|

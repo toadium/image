@@ -1,3 +1,8 @@
+///|
+/// # ocr/batch_processing
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // OCR 批处理引擎（v12.25.0 P4 工程化）
 // 批量文档处理、进度跟踪、错误恢复、结果汇总、内存管理、性能优化
 

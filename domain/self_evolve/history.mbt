@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/history
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 演化历史持久化 — 记录历次演化结果，支持回滚
 // Evolution history persistence: record evolution snapshots, support rollback
 //

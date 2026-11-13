@@ -1,3 +1,8 @@
+///|
+/// # HDR 编码 HDR Encode
+///
+/// HDR Radiance 格式编码
+/// HDR Radiance format encoding
 // 纯 MoonBit HDR 编码（全目标可用：native/wasm/js）
 // RGBE 格式编码，使用 RLE 压缩扫描线
 // 仅依赖 @types，不依赖 @core/FFI
@@ -54,6 +59,18 @@ fn rle_encode_scanline_channel(
 ///|
 /// HDR 编码（纯 MoonBit，全目标可用）。
 /// 输入 ImageF（32-bit float 像素数据），返回 HDR 格式字节流。
+/// HDR encoding (pure MoonBit, all targets).
+/// Input ImageF (32-bit float pixel data), returns HDR format byte stream.
+///
+/// 参数 Parameters:
+/// - `img` - 输入 ImageF Input ImageF
+///
+/// 返回 Return:
+/// - HDR 字节流 HDR byte stream
+///
+/// 错误 Errors:
+/// - `LoadError::EncodeFailed` - channels 不为 3
+///   Channels not 3
 pub fn encode_hdr_pure(img : @types.ImageF) -> Bytes raise @types.LoadError {
   if img.channels != 3 {
     raise @types.LoadError::EncodeFailed(

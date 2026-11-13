@@ -1,3 +1,8 @@
+///|
+/// # video/video_inpaint
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 视频修复 — 补全/去抖/去闪烁
 // Video inpainting: completion / de-flicker / de-shimmer
 //

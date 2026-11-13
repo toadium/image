@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/recommend
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 演化推荐引擎 — 根据当前状态推荐下一步演化
 // Evolution recommendation engine: recommend next evolution step based on current state
 //

@@ -1,3 +1,8 @@
+///|
+/// # vlm_multimodal/vlm_multimodal
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 视觉语言模型与多模态融合（v38.0.0）
 // VLM、多模态融合、扩散模型高级、生成式AI
 

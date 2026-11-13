@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/perf_cost
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 算子静态成本估算 — 基于复杂度模型
 // Op static cost estimation: based on complexity model
 

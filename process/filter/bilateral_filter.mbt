@@ -1,3 +1,9 @@
+///|
+/// # bilateral filter
+/// bilateral filter
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 双边滤波（纯 MoonBit）
 
 ///|

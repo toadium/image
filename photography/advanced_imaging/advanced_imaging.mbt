@@ -1,3 +1,8 @@
+///|
+/// # advanced_imaging/advanced_imaging
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 高级成像技术（v40.0.0）
 // 量子成像、太赫兹成像、红外成像、高光谱成像、偏振成像、热成像、X射线成像、超声成像、MRI成像、PET成像
 

@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/test_gen
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 测试用例自动生成 — 基于算子签名 + 边界条件
 // Auto test case generation: based on op signature + boundary conditions
 

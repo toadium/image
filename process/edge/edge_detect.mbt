@@ -1,3 +1,9 @@
+///|
+/// # edge detect
+/// edge detect
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 边缘检测扩展（纯 MoonBit）：edge_detect_laplacian / edge_detect_prewitt / edge_detect_sobel
 // @types.clamp_byte / @types.clamp_int 来自 walkzzz/core/types
 

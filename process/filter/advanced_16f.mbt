@@ -1,3 +1,8 @@
+///|
+/// # 高级滤波 16-bit/float 变体 Advanced filtering 16-bit/float variants
+///
+/// bilateral_filter_16 / non_local_means_16
+/// 16-bit/float bilateral/NLM filtering
 // 高级算法 16-bit/float 变体（filter 包）
 // inpaint / NLM 去噪 支持 Image16 / ImageF
 

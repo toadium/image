@@ -1,3 +1,9 @@
+///|
+/// # seam carving 16f
+/// seam carving 16f
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 接缝裁剪（Seam Carving）16-bit/float 变体
 
 ///|

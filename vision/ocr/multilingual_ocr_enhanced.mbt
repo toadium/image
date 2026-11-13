@@ -1,3 +1,8 @@
+///|
+/// # ocr/multilingual_ocr_enhanced
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 多语言混合识别增强版（v10.4.0）
 // 更准确语言检测、智能字符分割、混排优化、标点处理、语言模型后处理
 

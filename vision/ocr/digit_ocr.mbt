@@ -1,3 +1,8 @@
+///|
+/// # ocr/digit_ocr
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 数字 OCR
 // 完整数字识别流水线：预处理→分割→特征提取→分类
 

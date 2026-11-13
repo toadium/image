@@ -1,3 +1,8 @@
+///|
+/// # remote_sensing/remote_sensing_enhancement
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 遥感图像增强（v20.0.0）
 // 遥感图像处理、地物分类、变化检测、植被指数、光谱分析
 

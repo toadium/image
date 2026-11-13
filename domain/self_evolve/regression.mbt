@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/regression
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 跨版本回归检测 — 检测版本间退化回归
 // Cross-version regression detection: detect degradation regressions across versions
 //

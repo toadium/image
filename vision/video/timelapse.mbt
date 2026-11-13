@@ -1,3 +1,8 @@
+///|
+/// # video/timelapse
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 时间 lapse — 采样/稳定/曝光
 // Timelapse: sampling / stabilization / exposure
 //

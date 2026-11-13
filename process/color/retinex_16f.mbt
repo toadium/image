@@ -1,3 +1,8 @@
+///|
+/// # 多尺度 Retinex 16-bit/float 变体 Multi-scale Retinex 16-bit/float variants
+///
+/// msrcr_16 / msrcr_f
+/// 16-bit/float Multi-Scale Retinex with Color Restoration
 // 多尺度 Retinex 16-bit/float 变体
 // SSR / MSR / MSRCR
 

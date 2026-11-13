@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/phase11_report
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // Phase 11 综合报告 — 汇总 v311-v314 全部能力
 // Phase 11 comprehensive report: aggregate v311-v314 capabilities
 

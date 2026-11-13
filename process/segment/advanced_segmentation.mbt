@@ -1,3 +1,9 @@
+///|
+/// # advanced segmentation
+/// advanced segmentation
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 图像分割增强（v17.0.0）
 // 语义分割、实例分割、超像素分割、分水岭算法、K-Means 聚类分割、GrabCut
 

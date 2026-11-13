@@ -1,4 +1,10 @@
 ///|
+/// # PNM 扩展 PNM Extended
+///
+/// PNM 扩展功能
+/// PNM extended features
+
+///|
 /// PNM 扩展信息（包含格式类型、maxval、位深等）
 pub struct PnmInfoExtended {
   width : Int32

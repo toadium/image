@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/evolve_loop
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 自演化闭环 — 串联 test_gen + degrade + optimize + perf
 // Evolution loop: full cycle connecting all self_evolve capabilities
 

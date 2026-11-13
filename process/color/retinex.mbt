@@ -1,3 +1,9 @@
+///|
+/// # retinex
+/// retinex
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 多尺度 Retinex（纯 MoonBit）
 
 ///|

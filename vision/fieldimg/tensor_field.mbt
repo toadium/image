@@ -1,3 +1,8 @@
+///|
+/// # fieldimg/tensor_field
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 张量场：2D 张量场，每个点 (x, y) 映射到 rows×cols 矩阵。
 // Tensor field: 2D tensor field, each point (x, y) maps to a rows×cols matrix.
 // 典型应用：结构张量（2×2 对称）用于角点检测，梯度张量用于边缘分析。

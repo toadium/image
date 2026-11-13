@@ -1,4 +1,10 @@
 ///|
+/// # AVIF 解码 AVIF Decode
+///
+/// AVIF 图像格式解码
+/// AVIF image format decoding
+
+///|
 /// AVIF (AV1 Image File Format) 解码器
 ///
 /// AVIF 基于 AV1 编码，使用 ISOBMFF 容器格式。

@@ -1,3 +1,8 @@
+///|
+/// # ocr/table_recognition
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 表格识别
 // 表格线检测、单元格分割、表格结构分析
 

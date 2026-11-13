@@ -1,3 +1,8 @@
+///|
+/// # remote_sensing/remote_sensing
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 遥感图像处理（v12.11.0）
 // NDVI、假彩色合成、多光谱指数计算
 

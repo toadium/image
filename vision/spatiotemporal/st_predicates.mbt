@@ -1,3 +1,8 @@
+///|
+/// # spatiotemporal/st_predicates
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 时空拓扑谓词：时间区间之间的拓扑关系。
 // Spatiotemporal predicates: topological relations between time intervals.
 //

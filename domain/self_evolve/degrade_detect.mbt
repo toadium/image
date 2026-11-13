@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/degrade_detect
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 退化场景自动发现 — 基于 4.7.4 领域规则
 // Degradation detection: based on 4.7.4 domain rules
 //

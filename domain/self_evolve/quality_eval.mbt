@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/quality_eval
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 演化质量评估 — 评估演化质量
 // Evolution quality evaluation: assess evolution quality
 //

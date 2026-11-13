@@ -1,3 +1,8 @@
+///|
+/// # fieldimg/field_ops
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 场通用算子：梯度、散度、旋度、拉普拉斯、积分、阈值、掩码、代数运算、等值提取。
 // Field operators: gradient, divergence, curl, laplacian, integrate, clamp, mask, algebra, isosurface.
 //

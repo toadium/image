@@ -1,3 +1,8 @@
+///|
+/// # mesh/mesh
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 网格处理 — 简化/细分/参数化
 // Mesh processing: simplification / subdivision / parameterization
 //

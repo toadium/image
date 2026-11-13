@@ -1,3 +1,8 @@
+///|
+/// # BMP 解码 BMP Decode
+///
+/// BMP 图像格式解码
+/// BMP image format decoding
 // 纯 MoonBit BMP 解码器
 // 支持 24-bit / 32-bit 无压缩 BMP（BI_RGB，compression=0）
 // 规范: https://en.wikipedia.org/wiki/BMP_file_format
@@ -5,6 +10,31 @@
 ///|
 /// 解码 BMP 字节流为 Image（24-bit -> channels=3, 32-bit -> channels=4）
 /// 仅支持 BITMAPINFOHEADER（DIB 头 40 字节）+ BI_RGB（无压缩）
+/// Decode BMP byte stream to Image (24-bit -> channels=3, 32-bit -> channels=4)
+/// Only supports BITMAPINFOHEADER (DIB header 40 bytes) + BI_RGB (uncompressed)
+///
+/// 参数 Parameters:
+/// - `data` - BMP 字节流 BMP byte stream
+///
+/// 返回 Return:
+/// - 解码后的 8-bit Image Decoded 8-bit Image
+///
+/// 错误 Errors:
+/// - `LoadError::DecodeFailed` - 数据过短、magic 不匹配、不支持的位深/压缩/尺寸、像素越界
+///   Data too short, magic mismatch, unsupported bit depth/compression/dimensions, pixel out of bounds
+///
+/// ```mbt check
+/// test "doc_decode_bmp_pure" {
+///   try {
+///     let img = @codec.decode_bmp_pure(@types.DOC_TEST_BMP_1X1)
+///     assert_eq(img.width, 1)
+///     assert_eq(img.height, 1)
+///     assert_eq(img.channels, 3)
+///   } catch {
+///     _ => assert_true(false)
+///   }
+/// }
+/// ```
 pub fn decode_bmp_pure(data : Bytes) -> @types.Image raise @types.LoadError {
   let len = data.length()
   // BMP 文件头 14 字节 + DIB 头 40 字节 = 54 字节最小

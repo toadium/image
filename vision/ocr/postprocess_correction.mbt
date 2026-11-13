@@ -1,3 +1,8 @@
+///|
+/// # ocr/postprocess_correction
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // OCR 后处理纠错模块（v12.22.0 P1 准确率提升）
 // 词典纠错、相似字符纠正、语言模型、上下文纠错、常见错误模式纠正
 

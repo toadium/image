@@ -1,3 +1,8 @@
+///|
+/// # video/video_tracking2
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 视频跟踪 — 多目标/长程/关联
 // Video tracking: multi-object / long-term / association
 //

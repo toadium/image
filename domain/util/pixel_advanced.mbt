@@ -1,3 +1,8 @@
+///|
+/// # util/pixel_advanced
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 高级像素操作（纯 MoonBit）：pixelate / replace_color / swap_channels
 
 ///|

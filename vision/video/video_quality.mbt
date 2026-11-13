@@ -1,3 +1,8 @@
+///|
+/// # video/video_quality
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 视频质量 — VMAF/PSNR/SSIM
 // Video quality: VMAF / PSNR / SSIM
 //

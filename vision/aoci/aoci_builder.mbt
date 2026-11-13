@@ -1,3 +1,8 @@
+///|
+/// # aoci/aoci_builder
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // AOCI-Builder — 源码/mbti 解析 → 符号坐标 + 依赖图谱
 // 从 .mbti 格式文本解析符号，或手动构建符号索引
 

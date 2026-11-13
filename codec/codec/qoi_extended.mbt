@@ -1,4 +1,10 @@
 ///|
+/// # QOI 扩展 QOI Extended
+///
+/// QOI 扩展功能
+/// QOI extended features
+
+///|
 /// QOI 扩展信息（包含通道数、色彩空间等）
 pub struct QoiInfoExtended {
   width : Int32

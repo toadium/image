@@ -1,3 +1,8 @@
+///|
+/// # texture/texture
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 纹理映射 — UV/烘焙/采样
 // Texture mapping: UV / baking / sampling
 //

@@ -1,3 +1,9 @@
+///|
+/// # geometry
+/// geometry
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 几何变换（纯 MoonBit）：仿射变换 + 任意角度旋转
 // 使用双线性插值，边界 clamp 到边缘像素
 

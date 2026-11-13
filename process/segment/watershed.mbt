@@ -1,3 +1,9 @@
+///|
+/// # watershed
+/// watershed
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 分水岭分割（纯 MoonBit）
 
 ///|

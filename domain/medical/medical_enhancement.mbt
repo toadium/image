@@ -1,3 +1,8 @@
+///|
+/// # medical/medical_enhancement
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 医学图像增强（v19.0.0）
 // 医学图像分割、配准、增强、DICOM 处理、病灶检测
 

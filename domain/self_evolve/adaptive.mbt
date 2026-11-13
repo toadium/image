@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/adaptive
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 自适应测试策略 — 根据覆盖率自动调整测试优先级
 // Adaptive test strategy: auto-adjust test priority based on coverage
 //

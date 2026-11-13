@@ -1,3 +1,8 @@
+///|
+/// # 色彩调整 16-bit/float 变体 Color adjustment 16-bit/float variants
+///
+/// adjust_brightness_16 / adjust_contrast_16 / adjust_gamma_16
+/// 16-bit/float variants of brightness/contrast/gamma adjustment
 // 色彩调整 16-bit/float 变体
 // 支持 Image16 / ImageF 两种类型
 

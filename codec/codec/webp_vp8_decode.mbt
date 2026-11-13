@@ -1,3 +1,12 @@
+///|
+/// # WebP Lossy VP8 解码器 WebP Lossy VP8 Decoder
+///
+/// 纯 MoonBit WebP lossy VP8 解码器，基于 RFC 6386 规范实现。
+/// Pure MoonBit WebP lossy VP8 decoder, implemented per RFC 6386.
+///
+/// 核心函数 Core functions:
+/// - `decode_webp_vp8_pure` - 解码 VP8 lossy 字节流为 Image Decode VP8 lossy byte stream to Image
+
 // 纯 MoonBit WebP lossy VP8 解码器
 // 规范: https://datatracker.ietf.org/doc/html/rfc6386
 // 支持 VP8 lossy 解码

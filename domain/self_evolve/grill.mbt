@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/grill
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // grill-me 拷问引擎 — 4.7.4 领域规则可执行化
 // Grill engine: executable 4.7.4 domain rules
 //

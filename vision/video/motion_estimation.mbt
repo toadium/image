@@ -1,3 +1,8 @@
+///|
+/// # video/motion_estimation
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 运动估计 — 块匹配/亚像素/分数像素
 // Motion estimation: block matching / subpixel / fractional
 //

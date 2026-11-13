@@ -1,3 +1,8 @@
+///|
+/// # fusion/image_fusion
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 图像融合（v12.6.0）
 // 多焦点融合、曝光融合、Alpha 融合、拉普拉斯金字塔融合
 

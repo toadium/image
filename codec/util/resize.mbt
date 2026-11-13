@@ -1,3 +1,8 @@
+///|
+/// # util/resize
+///
+/// 编解码工具模块
+/// Codec utility module
 // 纯 MoonBit 图像缩放（全目标可用：native/wasm/js）
 // 仅依赖 @types，不依赖 @core/FFI
 // 支持最近邻 + 双线性插值

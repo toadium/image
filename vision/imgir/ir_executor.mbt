@@ -1,3 +1,8 @@
+///|
+/// # imgir/ir_executor
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // ImgIR 执行器：在 IR 值上按顺序执行管道操作。
 // IR executor: executes pipeline operations on IR values in order.
 //

@@ -1,3 +1,9 @@
+///|
+/// # dct
+/// dct
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // DCT (离散余弦变换) 公共 API：dct_2d + idct_2d
 // 2D DCT-II 和 IDCT-III，用于频域分析和图像压缩
 // 优化：预计算余弦表 + 可分离 1D DCT，O(N³) 而非 O(N⁴)

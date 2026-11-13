@@ -1,4 +1,10 @@
 ///|
+/// # pipeline/pipeline
+///
+/// 图像处理库子模块
+/// Image processing library submodule
+
+///|
 /// 批处理流水线 + 插件系统 + CLI 工具
 ///
 /// v49.0.0: 生态建设
@@ -194,6 +200,9 @@ pub(all) enum CliCommand {
 /// - batch <input_dir> <output_dir> <pipeline_config>
 /// - info <input>
 /// - help
+/// Parse command-line arguments, return corresponding command.
+/// Supported command formats:
+/// - convert / resize / rotate / batch / info / help
 pub fn cli_parse(args : Array[String]) -> CliCommand {
   if args.length() == 0 {
     return CliCommand::Help

@@ -1,3 +1,8 @@
+///|
+/// # video/video_tracking
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 视频目标跟踪与动作识别（v14.0.0）
 // 光流跟踪、目标跟踪、动作识别、视频稳定、关键帧提取、视频摘要
 

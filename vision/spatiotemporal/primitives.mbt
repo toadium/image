@@ -1,3 +1,8 @@
+///|
+/// # spatiotemporal/primitives
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 时空原语：TInterval / TFrame / TImage / TVideo。
 // Spatiotemporal primitives: time interval, temporal frame, time-varying image, video.
 //

@@ -1,3 +1,8 @@
+///|
+/// # lib/unified_info
+///
+/// 编解码工具模块
+/// Codec utility module
 // v246.0.0 统一 info API：整合基本信息 + 格式特定扩展信息
 
 ///|

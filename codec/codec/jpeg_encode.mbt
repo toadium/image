@@ -1,3 +1,8 @@
+///|
+/// # JPEG 编码 JPEG Encode
+///
+/// JPEG baseline 编码实现
+/// JPEG baseline encoding implementation
 // 纯 MoonBit JPEG 编码（全目标可用：native/wasm/js）
 // baseline JPEG (SOF0), 8-bit, 4:4:4 YCbCr, 标准量化表 + 标准霍夫曼表
 
@@ -330,6 +335,18 @@ fn jpeg_encode_block(
 ///|
 /// JPEG 编码（纯 MoonBit，全目标可用）。
 /// baseline JPEG, 4:4:4 YCbCr, 标准量化表 + 标准霍夫曼表。
+/// JPEG encoding (pure MoonBit, all targets).
+/// Baseline JPEG, 4:4:4 YCbCr, standard quantization table + standard Huffman table.
+///
+/// 参数 Parameters:
+/// - `img` - 输入图像 Input image
+///
+/// 返回 Return:
+/// - JPEG 字节流 JPEG byte stream
+///
+/// 错误 Errors:
+/// - `LoadError::EncodeFailed` - 尺寸无效、channels 不支持
+///   Invalid dimensions, unsupported channels
 pub fn encode_jpeg_pure(img : @types.Image) -> Bytes raise @types.LoadError {
   let width = img.width
   let height = img.height

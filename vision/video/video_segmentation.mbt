@@ -1,3 +1,8 @@
+///|
+/// # video/video_segmentation
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 视频分割 — 前景/背景/运动
 // Video segmentation: foreground / background / motion
 //

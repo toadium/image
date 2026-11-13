@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/exec_test_run
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 实际执行测试 — 从占位 assert_true 走向真实断言执行
 // Execute tests: from placeholder assert_true to real assertion execution
 //

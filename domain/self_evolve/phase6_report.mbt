@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/phase6_report
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // Phase 6 综合报告 — 汇总 v286-v289 全部能力
 // Phase 6 comprehensive report: aggregate v286-v289 capabilities
 

@@ -1,3 +1,16 @@
+///|
+/// # PNM 解码器 PNM Decoder
+///
+/// 纯 MoonBit PNM 解码器，支持 P5（PGM 二进制灰度，channels=1）和 P6（PPM 二进制 RGB，channels=3）。
+/// 仅支持 8-bit（maxval < 256），不支持 16-bit（maxval ≥ 256）。
+///
+/// Pure MoonBit PNM decoder, supporting P5 (PGM binary grayscale, channels=1) and P6 (PPM binary RGB, channels=3).
+/// Only supports 8-bit (maxval < 256), not 16-bit (maxval ≥ 256).
+///
+/// 核心函数 Core functions:
+/// - `decode_pnm_pure` - 解码 PNM 字节流为 Image Decode PNM byte stream to Image
+/// - `decode_pnm_16_pure` - 解码 PNM 字节流为 Image16 Decode PNM byte stream to Image16
+
 // 纯 MoonBit PNM 解码器
 // 支持 P5（PGM 二进制灰度，channels=1）和 P6（PPM 二进制 RGB，channels=3）
 // 仅支持 8-bit（maxval < 256），不支持 16-bit（maxval ≥ 256）
@@ -64,6 +77,29 @@ fn pnm_read_ascii_int(
 /// 仅支持 8-bit（maxval < 256），不支持 16-bit（maxval ≥ 256）
 /// Header: magic(2 字节) + whitespace + width(ASCII) + whitespace + height(ASCII) + whitespace + maxval(ASCII) + 单 whitespace + 像素
 /// 注释行（# 开头至行尾）可出现在 magic 后 header 任意位置
+///
+/// 参数 Parameters:
+/// - `data` - PNM 字节流 PNM byte stream
+///
+/// 返回 Return:
+/// - 解码后的 8-bit Image Decoded 8-bit Image
+///
+/// 错误 Errors:
+/// - `LoadError::DecodeFailed` - 数据过短、magic 不匹配、尺寸无效、maxval 不支持
+///   Data too short, magic mismatch, invalid dimensions, unsupported maxval
+///
+/// ```mbt check
+/// test "doc_decode_pnm_pure" {
+///   try {
+///     let img = @codec.decode_pnm_pure(@types.DOC_TEST_PNM_1X1)
+///     assert_eq(img.width, 1)
+///     assert_eq(img.height, 1)
+///     assert_eq(img.channels, 3)
+///   } catch {
+///     _ => assert_true(false)
+///   }
+/// }
+/// ```
 pub fn decode_pnm_pure(data : Bytes) -> @types.Image raise @types.LoadError {
   let len = data.length()
   if len < 2 {

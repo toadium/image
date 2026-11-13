@@ -1,3 +1,8 @@
+///|
+/// # spatiotemporal/st_interpolate
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 帧间插值：线性插值 + 指定时间取帧。
 // Frame interpolation: linear blend + frame at specific time.
 

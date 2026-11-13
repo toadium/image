@@ -1,3 +1,18 @@
+///|
+/// # 全局配置状态 Global Configuration State
+///
+/// 纯 MoonBit 全局配置状态（全目标可用：native/wasm/js）。
+/// 用 Ref[Bool]/Ref[Float] 替代 C 端全局状态。
+///
+/// Pure MoonBit global configuration state (all targets: native/wasm/js).
+/// Uses Ref[Bool]/Ref[Float] to replace C-side global state.
+///
+/// 核心配置 Core configs:
+/// - `flip_vertically_on_load_flag` - 加载时垂直翻转 Flip vertically on load
+/// - `flip_vertically_on_write_flag` - 保存时垂直翻转 Flip vertically on write
+/// - `jpeg_quality` - JPEG 编码质量 JPEG encoding quality
+/// - `unpremultiply_alpha_flag` - 解码时去预乘 alpha Demultiply alpha on decode
+
 // 纯 MoonBit 全局配置状态（全目标可用：native/wasm/js）
 // 对应 @core 的 C 端全局状态，用 Ref[Bool]/Ref[Float] 替代
 

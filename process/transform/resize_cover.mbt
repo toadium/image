@@ -1,3 +1,9 @@
+///|
+/// # resize cover
+/// resize cover
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 高级 Resize 操作（纯 MoonBit）：resize_to_cover / resize_to_contain
 // 含裁剪和填充逻辑，属于高级算法层
 

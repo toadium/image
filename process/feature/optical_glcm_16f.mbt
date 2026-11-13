@@ -1,3 +1,8 @@
+///|
+/// # 光流 + GLCM 16-bit/float 变体 Optical flow + GLCM 16-bit/float variants
+///
+/// lucas_kanade_16 / glcm_16
+/// 16-bit/float optical flow/GLCM
 // 光流 + GLCM 16-bit/float 变体
 
 // ========== 辅助函数 ==========

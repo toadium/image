@@ -1,3 +1,21 @@
+///|
+/// # 图像加载/保存统一入口 Image Load/Save Unified Entry
+///
+/// 通过 magic bytes 自动检测图像格式，并委托 codec/color 包进行解码和通道转换。
+/// Automatically detects image format via magic bytes, and delegates to codec/color packages for decoding and channel conversion.
+///
+/// 核心函数 Core functions:
+/// - `detect_format` - 检测图像格式 Detect image format
+/// - `load_from_bytes` - 从字节流加载图像 Load image from byte stream
+/// - `save_to_bytes` - 保存图像为字节流 Save image to byte stream
+/// - `load_image_info` - 加载图像信息（不含像素数据）Load image info (no pixel data)
+///
+/// 注意 Notes:
+/// - TGA 无固定 magic bytes，需显式调用 @codec.decode_tga_pure
+///   TGA has no fixed magic bytes, must explicitly call @codec.decode_tga_pure
+/// - HDR 返回 ImageF（浮点图像），需显式调用 @codec.decode_hdr_pure
+///   HDR returns ImageF (float image), must explicitly call @codec.decode_hdr_pure
+
 // lib 包：统一分派入口（格式分派层）
 // 职责：通过 magic bytes 检测图像格式，并委托 pure/codec 进行解码、pure/color 进行通道转换
 // 注意：TGA 无固定 magic bytes，需显式调用 @codec.decode_tga_pure
@@ -174,6 +192,24 @@ pub fn detect_format(data : Bytes) -> @types.ImageFormat {
 /// - HDR 返回 ImageF，需显式调用 @codec.decode_hdr_pure
 /// - APNG 与 PNG 共享签名，需显式调用 decode_apng_pure
 /// - 未识别格式 raise LoadError::DecodeFailed
+/// Auto-format dispatch decoding (pure side unified entry)
+/// Detects format from magic bytes and delegates to corresponding pure decoder
+/// - TGA not supported for auto-dispatch (no fixed magic bytes), call @codec.decode_tga_pure explicitly
+/// - HDR returns ImageF, call @codec.decode_hdr_pure explicitly
+/// - APNG shares signature with PNG, call decode_apng_pure explicitly
+/// - Unrecognized format raises LoadError::DecodeFailed
+///
+/// ```mbt check
+/// test "doc_load_from_bytes_auto_bmp" {
+///   try {
+///     let img = @lib.load_from_bytes_auto(@types.DOC_TEST_BMP_1X1)
+///     assert_eq(img.width, 1)
+///     assert_eq(img.channels, 3)
+///   } catch {
+///     _ => assert_true(false)
+///   }
+/// }
+/// ```
 pub fn load_from_bytes_auto(
   data : Bytes,
   req_channels~ : Int32? = None,
@@ -242,6 +278,10 @@ pub fn load_16_from_bytes_auto(
 
 ///|
 /// QOI 编码委托
+/// QOI encoding delegation
+///
+/// 错误 Errors:
+/// - `LoadError::EncodeFailed` - channels 不为 3 或 4 Channels not 3 or 4
 pub fn encode_qoi(img : @types.Image) -> Bytes raise @types.LoadError {
   @codec.encode_qoi_pure(img)
 }
@@ -266,6 +306,10 @@ pub fn encode_pgm_auto(img : @types.Image) -> Bytes {
 
 ///|
 /// GIF 编码委托
+/// GIF encoding delegation
+///
+/// 错误 Errors:
+/// - `LoadError::EncodeFailed` - channels 不为 3 或 4 Channels not 3 or 4
 pub fn encode_gif(img : @types.Image) -> Bytes raise @types.LoadError {
   @codec.encode_gif_pure(img)
 }
@@ -278,12 +322,20 @@ pub fn encode_png(img : @types.Image) -> Bytes {
 
 ///|
 /// JPEG 编码委托
+/// JPEG encoding delegation
+///
+/// 错误 Errors:
+/// - `LoadError::EncodeFailed` - 尺寸无效、channels 不支持 Invalid dimensions, unsupported channels
 pub fn encode_jpeg(img : @types.Image) -> Bytes raise @types.LoadError {
   @codec.encode_jpeg_pure(img)
 }
 
 ///|
 /// HDR 编码委托
+/// HDR encoding delegation
+///
+/// 错误 Errors:
+/// - `LoadError::EncodeFailed` - channels 不为 3 Channels not 3
 pub fn encode_hdr(img : @types.ImageF) -> Bytes raise @types.LoadError {
   @codec.encode_hdr_pure(img)
 }
@@ -359,6 +411,19 @@ pub fn save_image_with_quality(
 /// Float 自动格式分派加载
 /// - HDR → decode_hdr_pure 返回 ImageF
 /// - 其他格式不支持 Float 加载，raise
+/// Float auto-format dispatch loading
+/// - HDR → decode_hdr_pure returns ImageF
+/// - Other formats do not support Float loading, raises
+///
+/// 参数 Parameters:
+/// - `data` - 字节流 Byte stream
+///
+/// 返回 Return:
+/// - ImageF（HDR 解码结果）ImageF (HDR decode result)
+///
+/// 错误 Errors:
+/// - `LoadError::DecodeFailed` - 非 HDR 格式、HDR 头无效
+///   Non-HDR format, invalid HDR header
 pub fn load_any_f(data : Bytes) -> @types.ImageF raise @types.LoadError {
   match detect_format(data) {
     @types.ImageFormat::Hdr => @codec.decode_hdr_pure(data)

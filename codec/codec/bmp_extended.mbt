@@ -1,4 +1,10 @@
 ///|
+/// # BMP 扩展 BMP Extended
+///
+/// BMP 扩展功能
+/// BMP extended features
+
+///|
 /// BMP 扩展信息（包含位深、压缩方式、行序、调色板等）
 pub struct BmpInfoExtended {
   width : Int32

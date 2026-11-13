@@ -1,3 +1,9 @@
+///|
+/// # dehaze
+/// dehaze
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 图像去雾（v11.6.0）
 // 暗通道先验算法 + 大气光估计 + 透射率优化 + 去雾复原
 

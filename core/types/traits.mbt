@@ -1,4 +1,10 @@
 ///|
+/// # types/traits
+///
+/// 图像处理库子模块
+/// Image processing library submodule
+
+///|
 /// 图像统一接口 trait，抽象 8-bit / 16-bit / float 三种像素精度
 ///
 /// 所有图像类型（Image / Image16 / ImageF / AnyImage）均实现此 trait，

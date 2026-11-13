@@ -1,3 +1,8 @@
+///|
+/// # imgir/ir_value
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // ImgIR 统一中间表示：IR 值类型。
 // Unified IR value type: represents any intermediate value in the IR pipeline.
 //

@@ -1,3 +1,9 @@
+///|
+/// # orb
+/// orb
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // ORB 特征检测与描述（纯 MoonBit）
 // Oriented FAST and Rotated BRIEF
 // 参考: https://docs.opencv.org/4.x/d5/d3c/classcv_1_1Feature2D.html

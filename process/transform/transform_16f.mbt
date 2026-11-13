@@ -1,3 +1,8 @@
+///|
+/// # 图像变换 16-bit/float 变体 Image transforms 16-bit/float variants
+///
+/// rotate_16 / flip_16
+/// 16-bit/float rotate/flip transforms
 // 图像变换 16-bit/float 变体：rotate / flip
 // 支持 Image16 / ImageF 两种类型
 

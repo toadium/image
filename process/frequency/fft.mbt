@@ -1,3 +1,9 @@
+///|
+/// # fft
+/// fft
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // FFT 频域变换（纯 MoonBit）
 
 ///|

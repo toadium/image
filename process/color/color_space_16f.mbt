@@ -1,3 +1,9 @@
+///|
+/// # color space 16f
+/// color space 16f
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 颜色空间转换 16-bit/float 变体
 // HSL / HSV / LAB / XYZ
 

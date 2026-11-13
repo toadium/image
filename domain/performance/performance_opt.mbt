@@ -1,4 +1,10 @@
 ///|
+/// # performance/performance_opt
+///
+/// 图像处理库子模块
+/// Image processing library submodule
+
+///|
 /// 性能优化工具模块
 ///
 /// 提供大图分块处理、循环展开、缓存友好数据访问等优化工具。

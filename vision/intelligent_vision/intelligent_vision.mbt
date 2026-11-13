@@ -1,3 +1,8 @@
+///|
+/// # intelligent_vision/intelligent_vision
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 智能应用视觉（v39.0.0）
 // 自动驾驶、机器人视觉、工业检测、安防监控、农业视觉、天文图像处理
 

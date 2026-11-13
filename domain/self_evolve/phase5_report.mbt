@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/phase5_report
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // Phase 5 综合报告 — 汇总 v281-v284 全部能力
 // Phase 5 comprehensive report: aggregate v281-v284 capabilities
 

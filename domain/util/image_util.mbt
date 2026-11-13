@@ -1,3 +1,8 @@
+///|
+/// # util/image_util
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 图像几何增强（纯 MoonBit）：pad / add_border
 
 ///|

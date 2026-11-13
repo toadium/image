@@ -1,3 +1,8 @@
+///|
+/// # PSD 解码 PSD Decode
+///
+/// Adobe PSD 格式解码
+/// Adobe PSD format decoding
 // 纯 MoonBit PSD 解码器
 // 支持 8-bit RGB（channelCount=3）/ RGBA（channelCount=4）、无压缩（compression=0）
 // 大端序字节流，按通道排列像素数据交错为 RGBRGBRGB
@@ -8,6 +13,19 @@
 /// 支持 8-bit RGB（channelCount=3）/ RGBA（channelCount=4）、无压缩（compression=0）
 /// Header(26 字节) + Color mode data + Image resources + Layer and mask data + Image data
 /// 像素数据按通道排列（RRRGGGBBB），交错为 Image.data 格式（RGBRGBRGB）
+/// Decode PSD byte stream to Image
+/// Supports 8-bit RGB (channelCount=3) / RGBA (channelCount=4), uncompressed (compression=0)
+/// Pixel data stored per-channel (RRRGGGBBB), interleaved to Image.data format (RGBRGBRGB)
+///
+/// 参数 Parameters:
+/// - `data` - PSD 字节流 PSD byte stream
+///
+/// 返回 Return:
+/// - 解码后的 8-bit Image Decoded 8-bit Image
+///
+/// 错误 Errors:
+/// - `LoadError::DecodeFailed` - 数据过短、8BPS 签名无效、不支持的颜色模式/压缩
+///   Data too short, invalid 8BPS signature, unsupported color mode/compression
 pub fn decode_psd_pure(data : Bytes) -> @types.Image raise @types.LoadError {
   let len = data.length()
   // Header 26 字节

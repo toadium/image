@@ -1,3 +1,8 @@
+///|
+/// # fieldimg/vector_field
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 矢量场：2D 矢量场，每个点 (x, y) 映射到 dim 维 Float 矢量。
 // Vector field: 2D vector field, each point (x, y) maps to a dim-dimensional Float vector.
 // RGB 图可视为 2D 矢量场（dim=3）；梯度场 dim=2。

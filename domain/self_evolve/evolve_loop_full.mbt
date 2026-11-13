@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/evolve_loop_full
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 自演化闭环 — 完整的自主演化闭环
 // Evolution loop: complete autonomous evolution loop
 //

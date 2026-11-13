@@ -1,3 +1,8 @@
+///|
+/// # APNG 编解码 APNG Codec
+///
+/// APNG 动画 PNG 编解码实现
+/// Animated PNG encoding/decoding
 // 纯 MoonBit APNG 编解码（全目标可用：native/wasm/js）
 // APNG 规范: https://wiki.mozilla.org/APNG_Specification
 // APNG 是 PNG 的扩展，新增 acTL/fcTL/fdAT chunk

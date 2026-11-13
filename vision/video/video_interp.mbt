@@ -1,3 +1,8 @@
+///|
+/// # video/video_interp
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 视频插帧 — 光流/相位/深度
 // Video frame interpolation: optical flow / phase / depth
 //

@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/auto_repair
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 退化自动修复 — 检测退化后自动修正参数
 // Auto repair: detect degradation and auto-fix parameters
 //

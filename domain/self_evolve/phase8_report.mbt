@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/phase8_report
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // Phase 8 综合报告 — 汇总 v296-v299 全部能力
 // Phase 8 comprehensive report: aggregate v296-v299 capabilities
 

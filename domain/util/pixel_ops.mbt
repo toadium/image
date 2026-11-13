@@ -1,3 +1,8 @@
+///|
+/// # util/pixel_ops
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 像素操作（纯 MoonBit）：threshold / posterize / extract_channel / blend 模式
 
 ///|

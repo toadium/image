@@ -1,3 +1,8 @@
+///|
+/// # superres/super_resolution
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 超分辨率（v11.2.0）
 // 双三次插值 + Lanczos 插值 + 边缘保持超分
 

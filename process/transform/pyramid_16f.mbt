@@ -1,3 +1,8 @@
+///|
+/// # 图像金字塔 16-bit/float 变体 Image pyramid 16-bit/float variants
+///
+/// gaussian_pyramid_16 / laplacian_pyramid_16
+/// 16-bit/float Gaussian/Laplacian pyramid
 // 图像金字塔 16-bit/float 变体
 // pyr_down / pyr_up
 

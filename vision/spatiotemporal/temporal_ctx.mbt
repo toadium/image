@@ -1,3 +1,8 @@
+///|
+/// # spatiotemporal/temporal_ctx
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 时态控制器：管理时变图像的播放状态。
 // Temporal context: manages playback state of time-varying images.
 

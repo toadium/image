@@ -1,3 +1,9 @@
+///|
+/// # haar wavelet
+/// haar wavelet
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // Haar 小波变换（纯 MoonBit）
 
 ///|

@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/phase7_report
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // Phase 7 综合报告 — 汇总 v291-v294 全部能力
 // Phase 7 comprehensive report: aggregate v291-v294 capabilities
 

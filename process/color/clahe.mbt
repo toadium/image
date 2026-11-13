@@ -1,3 +1,9 @@
+///|
+/// # clahe
+/// clahe
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // CLAHE: 对比度受限自适应直方图均衡（纯 MoonBit）
 
 ///|

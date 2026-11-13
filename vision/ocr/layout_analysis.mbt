@@ -1,3 +1,8 @@
+///|
+/// # ocr/layout_analysis
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 版面分析
 // 文本区域检测、页面分割、多栏检测
 

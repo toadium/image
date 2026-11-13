@@ -1,3 +1,9 @@
+///|
+/// # canny
+/// canny
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // Canny 边缘检测（纯 MoonBit）
 
 ///|

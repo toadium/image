@@ -1,3 +1,8 @@
+///|
+/// # meta/png_meta
+///
+/// 编解码工具模块
+/// Codec utility module
 // PNG 元数据读取（纯 MoonBit）：text chunks (tEXt/iTXt)
 
 ///|

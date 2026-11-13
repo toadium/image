@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/perf_types
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 性能回归检测类型 — 静态成本模型
 // Performance regression types: static cost model
 

@@ -1,3 +1,8 @@
+///|
+/// # meta/xmp_meta
+///
+/// 编解码工具模块
+/// Codec utility module
 // v249.0.0 XMP 元数据解析与写入
 // XMP 基于 XML，嵌入在 JPEG APP1 段中（以 "http://ns.adobe.com/xap/1.0/\0" 开头）
 // 纯 MoonBit 实现，无外部 XML 库依赖

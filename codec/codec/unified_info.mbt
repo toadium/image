@@ -1,4 +1,10 @@
 ///|
+/// # 统一信息 Unified Info
+///
+/// 统一图像信息提取
+/// Unified image information extraction
+
+///|
 /// 统一图像扩展信息（自动格式检测后的联合类型）
 ///
 /// 通过 `get_image_info_extended` 自动检测格式并返回对应类型的扩展信息

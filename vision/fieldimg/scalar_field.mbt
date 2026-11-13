@@ -1,3 +1,8 @@
+///|
+/// # fieldimg/scalar_field
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 标量场：2D 标量场，将每个点 (x, y) 映射到 Float 值。
 // Scalar field: a 2D field mapping each point (x, y) to a Float value.
 // 灰度图可视为 2D 标量场；场是一等几何对象。

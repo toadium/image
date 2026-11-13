@@ -1,3 +1,8 @@
+///|
+/// # style_transfer/style_transfer_enhancement
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 图像风格迁移增强（v24.0.0）
 // 图像风格迁移、艺术风格化、颜色转移、纹理合成
 

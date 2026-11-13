@@ -1,3 +1,8 @@
+///|
+/// # barcode/qr_decode
+///
+/// 编解码工具模块
+/// Codec utility module
 // QR Code 完整解码（v11.4.0）
 // 透视校正 + 模块采样 + 格式信息 + 数据提取 + Reed-Solomon 纠错 + 数据解码
 

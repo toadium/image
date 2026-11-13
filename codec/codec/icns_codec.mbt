@@ -1,3 +1,8 @@
+///|
+/// # ICNS 编解码 ICNS Codec
+///
+/// macOS ICNS 图标格式编解码
+/// macOS ICNS icon format encoding/decoding
 // 纯 MoonBit ICNS 编解码（全目标可用：native/wasm/js）
 // ICNS 规范: https://en.wikipedia.org/wiki/Apple_Icon_Image_format
 // 文件结构: "icns" + file_size(BE32) + chunks
@@ -140,6 +145,18 @@ fn decode_icns_argb(
 ///|
 /// 解码 ICNS 字节流为 Image（选择面积最大的图标）
 /// 支持 PNG 子图像（ic07-ic14）和 ARGB 原始数据（ic04/ic05/icp4-9）
+/// Decode ICNS byte stream to Image (selects largest icon by area)
+/// Supports PNG sub-images (ic07-ic14) and ARGB raw data (ic04/ic05/icp4-9)
+///
+/// 参数 Parameters:
+/// - `data` - ICNS 字节流 ICNS byte stream
+///
+/// 返回 Return:
+/// - 解码后的 8-bit Image Decoded 8-bit Image
+///
+/// 错误 Errors:
+/// - `LoadError::DecodeFailed` - 数据过短、icns 签名无效、无可用图标
+///   Data too short, invalid icns signature, no usable icon
 pub fn decode_icns_pure(data : Bytes) -> @types.Image raise @types.LoadError {
   let chunks = parse_icns(data)
   // 选择面积最大的图标 chunk

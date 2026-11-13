@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/exec_test_gen
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 可执行测试生成 — 从 TestCase 描述生成可运行 moon test 代码
 // Executable test generation: from TestCase to runnable moon test code
 //

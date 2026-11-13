@@ -1,3 +1,8 @@
+///|
+/// # ocr/english_ocr
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 英文 OCR
 // 数字+字母识别（0-9, A-Z, a-z）
 

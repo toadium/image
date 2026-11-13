@@ -1,3 +1,8 @@
+///|
+/// # ocr/deskew
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 倾斜校正
 // 基于霍夫变换的倾斜检测与校正
 

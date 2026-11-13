@@ -1,3 +1,8 @@
+///|
+/// # GIF 解码 GIF Decode
+///
+/// GIF 图像格式解码
+/// GIF image format decoding
 // 纯 MoonBit GIF 解码器
 // 支持 GIF89a/GIF87a 单帧解码（RGB，channels=3）
 // 规范: GIF89a Specification + src/format/gif_encode.mbt
@@ -95,6 +100,20 @@ fn lzw_decode(
 /// 支持 GIF89a/GIF87a 单帧解码（RGB，channels=3）
 /// 不支持 interlace（packed bit6=1 时 raise LoadError）
 /// 委托 decode_gif_animation_pure 取第一帧
+/// Decode GIF byte stream to Image
+/// Supports GIF89a/GIF87a single-frame decoding (RGB, channels=3)
+/// Does not support interlace (raises LoadError when packed bit6=1)
+/// Delegates to decode_gif_animation_pure, takes first frame
+///
+/// 参数 Parameters:
+/// - `data` - GIF 字节流 GIF byte stream
+///
+/// 返回 Return:
+/// - 解码后的 8-bit Image Decoded 8-bit Image
+///
+/// 错误 Errors:
+/// - `LoadError::DecodeFailed` - 数据过短、GIF 签名无效、interlace 不支持、LZW 解码失败
+///   Data too short, invalid GIF signature, interlace not supported, LZW decode failure
 pub fn decode_gif_pure(data : Bytes) -> @types.Image raise @types.LoadError {
   let anim = decode_gif_animation_pure(data)
   if anim.frames.length() == 0 {

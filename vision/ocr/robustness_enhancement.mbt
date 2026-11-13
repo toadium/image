@@ -1,3 +1,8 @@
+///|
+/// # ocr/robustness_enhancement
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 扫描质量自适应与鲁棒性增强（v12.24.0 P3 鲁棒性）
 // 扫描质量自动评估与自适应预处理、倾斜/畸变校正、复杂版面支持、噪声鲁棒性
 

@@ -1,3 +1,8 @@
+///|
+/// # video/video_codec
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 视频编解码 — 帧内/帧间/熵编码
 // Video codec: intra-frame / inter-frame / entropy coding
 //

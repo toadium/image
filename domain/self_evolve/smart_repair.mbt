@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/smart_repair
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 智能修复策略 — 多策略修复（保守/激进/最优）+ 质量评分
 // Smart repair: multi-strategy repair + quality scoring
 //

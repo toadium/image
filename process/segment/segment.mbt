@@ -1,3 +1,9 @@
+///|
+/// # segment
+/// segment
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 图像分割（纯 MoonBit）：kmeans_segment / region_growing_segment / flood_fill / segment_to_color
 
 ///|

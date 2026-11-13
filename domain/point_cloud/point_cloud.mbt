@@ -1,3 +1,8 @@
+///|
+/// # point_cloud/point_cloud
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 点云处理 — 采样/法向/分割
 // Point cloud processing: sampling / normal estimation / segmentation
 //

@@ -1,3 +1,8 @@
+///|
+/// # util/image_noise
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 噪声生成（纯 MoonBit）：add_noise_gaussian / add_noise_salt_pepper
 // 使用简单的 LCG 伪随机数生成器，种子固定以保证可测试性
 

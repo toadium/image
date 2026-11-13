@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/optimize
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 管道优化 — 消除冗余 + 合并相邻
 // Pipeline optimization: remove redundant + merge adjacent
 

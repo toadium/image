@@ -1,3 +1,8 @@
+///|
+/// # color/color_convert
+///
+/// 编解码工具模块
+/// Codec utility module
 // 纯 MoonBit 色彩模型转换（全目标可用：native/wasm/js）
 // 仅依赖 @types，不依赖 @core/FFI
 // 移植自 src/process/color/color_convert.mbt:1-162 的 5 个 8-bit Image 色彩转换函数
@@ -5,6 +10,18 @@
 ///|
 /// 转为灰度图（channels=1，纯 MoonBit，全目标可用）
 /// 使用 ITU-R BT.601 亮度公式: Y = 0.299R + 0.587G + 0.114B
+/// Convert to grayscale (channels=1, pure MoonBit, all targets)
+/// Uses ITU-R BT.601 luma formula: Y = 0.299R + 0.587G + 0.114B
+///
+/// ```mbt check
+/// test "doc_to_grayscale_pure" {
+///   let data = Bytes::from_array([b'\xff', b'\x00', b'\x00'])
+///   let img = @types.Image::{ width: 1, height: 1, channels: 3, data, }
+///   let gray = @color.to_grayscale_pure(img)
+///   assert_eq(gray.channels, 1)
+///   assert_eq(gray.width, 1)
+/// }
+/// ```
 pub fn to_grayscale_pure(img : @types.Image) -> @types.Image {
   if img.channels == 1 {
     return img
@@ -92,6 +109,24 @@ pub fn to_rgba_pure(img : @types.Image) -> @types.Image {
 /// - 2: 灰度 + alpha（alpha=255 若源无 alpha）
 /// - 3: RGB（丢弃 alpha，灰度展开为 R=G=B）
 /// - 4: RGBA（alpha=255 若源无 alpha，灰度展开为 R=G=B）
+/// Convert channels following stb_image semantics (pure MoonBit, all targets)
+/// - 1: Grayscale (BT.601 luma formula)
+/// - 2: Grayscale + alpha (alpha=255 if source has no alpha)
+/// - 3: RGB (discard alpha, grayscale expanded to R=G=B)
+/// - 4: RGBA (alpha=255 if source has no alpha, grayscale expanded to R=G=B)
+///
+/// ```mbt check
+/// test "doc_convert_channels_pure" {
+///   try {
+///     let data = Bytes::from_array([b'\xff', b'\x00', b'\x00'])
+///     let img = @types.Image::{ width: 1, height: 1, channels: 3, data, }
+///     let rgba = @color.convert_channels_pure(img, 4)
+///     assert_eq(rgba.channels, 4)
+///   } catch {
+///     _ => assert_true(false)
+///   }
+/// }
+/// ```
 pub fn convert_channels_pure(
   img : @types.Image,
   req_channels : Int32,

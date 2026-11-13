@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/combo_coverage
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 组合测试覆盖 — 自动发现未覆盖算子组合，生成组合测试
 // Combo coverage: discover uncovered op combinations and generate combo tests
 //

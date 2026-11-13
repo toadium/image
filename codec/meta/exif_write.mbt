@@ -1,3 +1,12 @@
+///|
+/// # EXIF 元数据写入 EXIF Metadata Writer
+///
+/// 纯 MoonBit EXIF 元数据写入，支持将 ExifInfo 写入 JPEG 字节流。
+/// Pure MoonBit EXIF metadata writer, supports writing ExifInfo into JPEG byte stream.
+///
+/// 核心函数 Core functions:
+/// - `write_exif_to_jpeg` - 将 EXIF 数据写入 JPEG 字节流 Write EXIF data into JPEG byte stream
+
 // EXIF 元数据写入（纯 MoonBit）
 // 支持将 ExifInfo 写入 JPEG 字节流
 

@@ -1,3 +1,8 @@
+///|
+/// # ocr/connected_components
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 连通域分析
 // 完整的连通域标记、筛选、合并
 

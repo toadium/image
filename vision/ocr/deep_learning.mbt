@@ -1,3 +1,8 @@
+///|
+/// # ocr/deep_learning
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // OCR 深度学习集成（v13.0.0）
 // CNN 字符识别、神经网络推理、模型管理、特征提取
 

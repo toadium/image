@@ -1,3 +1,8 @@
+///|
+/// # ImgIR 序列化 ImgIR Serialization
+///
+/// 管道 ↔ Bytes 双向转换
+/// Pipeline ↔ Bytes bidirectional conversion
 // ImgIR 序列化：管道 ↔ Bytes 双向转换。
 // IR serialization: pipeline ↔ Bytes bidirectional conversion.
 //

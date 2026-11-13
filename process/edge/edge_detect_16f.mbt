@@ -1,3 +1,8 @@
+///|
+/// # 边缘检测 16-bit/float 变体 Edge detection 16-bit/float variants
+///
+/// edge_detect_sobel_16 / edge_detect_sobel_f
+/// 16-bit/float Sobel edge detection
 // 边缘检测 16-bit/float 变体：edge_detect_sobel
 // 支持 Image16 / ImageF 两种类型
 

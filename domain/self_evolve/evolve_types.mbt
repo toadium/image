@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/evolve_types
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // self_evolve 类型定义 — 自动测试用例生成 + 退化场景发现
 // Type definitions for self-evolution: auto test generation + degradation detection
 

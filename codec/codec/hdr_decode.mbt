@@ -1,3 +1,8 @@
+///|
+/// # HDR 解码 HDR Decode
+///
+/// HDR Radiance 格式解码
+/// HDR Radiance format decoding
 // 纯 MoonBit HDR 解码（全目标可用：native/wasm/js）
 // RGBE 格式解析，支持 RLE 和未压缩扫描线
 // 仅依赖 @types，不依赖 @core/FFI
@@ -165,6 +170,18 @@ fn rle_decode_scanline_channel(
 ///|
 /// HDR 解码（纯 MoonBit，全目标可用）。
 /// 返回 ImageF（32-bit float 像素数据）。
+/// HDR decoding (pure MoonBit, all targets).
+/// Returns ImageF (32-bit float pixel data).
+///
+/// 参数 Parameters:
+/// - `data` - HDR 字节流 HDR byte stream
+///
+/// 返回 Return:
+/// - 解码后的 ImageF Decoded ImageF
+///
+/// 错误 Errors:
+/// - `LoadError::DecodeFailed` - RADIANCE 头无效、尺寸无效、数据过短
+///   Invalid RADIANCE header, invalid dimensions, data too short
 pub fn decode_hdr_pure(data : Bytes) -> @types.ImageF raise @types.LoadError {
   let (width, height, data_start) = match parse_hdr_header(data) {
     Some(v) => v

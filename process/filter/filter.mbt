@@ -1,3 +1,9 @@
+///|
+/// # filter
+/// filter
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 图像滤波/卷积（纯 MoonBit）
 // box_blur / gaussian_blur / sharpen / convolve
 
@@ -93,6 +99,21 @@ pub fn box_blur(
 ///|
 /// 高斯模糊。radius 为核半径，sigma 为标准差。
 /// 使用可分离高斯核，O(n*radius) 复杂度。仅模糊颜色通道，alpha 不变。
+/// Gaussian blur. radius is kernel radius, sigma is standard deviation.
+/// Uses separable Gaussian kernel, O(n*radius) complexity. Only blurs color channels, alpha unchanged.
+///
+/// ```mbt check
+/// test "doc_gaussian_blur" {
+///   try {
+///     let data = Bytes::from_array([b'\xff', b'\x00', b'\x00'])
+///     let img = @types.Image::{ width: 1, height: 1, channels: 3, data, }
+///     let blurred = @filter.gaussian_blur(img, 1, 1.0)
+///     assert_eq(blurred.width, 1)
+///   } catch {
+///     _ => assert_true(false)
+///   }
+/// }
+/// ```
 pub fn gaussian_blur(
   img : @types.Image,
   radius : Int32,

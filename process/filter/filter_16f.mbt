@@ -1,3 +1,9 @@
+///|
+/// # filter 16f
+/// filter 16f
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 图像滤波 16-bit/float 变体：box_blur / gaussian_blur / median_blur
 // 支持 Image16 / ImageF 两种类型
 

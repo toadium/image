@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/propagation_viz
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 退化传播可视化 — 生成传播链的可视化描述
 // Degradation propagation visualization: generate visual description of propagation chain
 //

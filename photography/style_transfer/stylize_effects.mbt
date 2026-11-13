@@ -1,3 +1,8 @@
+///|
+/// # style_transfer/stylize_effects
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 图像风格化（v11.5.0）
 // 油画效果 / 素描效果 / 水彩效果 / 卡通效果
 

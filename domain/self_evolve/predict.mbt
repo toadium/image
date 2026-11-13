@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/predict
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 演化预测模型 — 基于历史预测演化结果
 // Evolution prediction model: predict evolution outcomes based on history
 //

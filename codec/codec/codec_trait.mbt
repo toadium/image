@@ -1,4 +1,10 @@
 ///|
+/// # 编解码特征 Codec Trait
+///
+/// 编解码统一接口定义
+/// Unified codec interface definitions
+
+///|
 /// 编解码器统一接口 trait
 ///
 /// 为 ImageFormat 枚举实现，提供统一的 encode / decode 方法

@@ -1,3 +1,8 @@
+///|
+/// # forensics/image_source_verification
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 图像来源鉴定（v27.0.0）
 // AI 生成图像检测、物理生成（真实拍摄）图像检测、图像取证分析
 

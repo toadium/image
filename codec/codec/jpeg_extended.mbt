@@ -1,4 +1,10 @@
 ///|
+/// # JPEG 扩展 JPEG Extended
+///
+/// JPEG 扩展功能
+/// JPEG extended features
+
+///|
 /// JPEG 扩展信息（包含精度、分量数、渐进标志等）
 pub struct JpegInfoExtended {
   width : Int32

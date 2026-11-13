@@ -1,3 +1,8 @@
+///|
+/// # util/color_map
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 色彩映射与 alpha 操作（纯 MoonBit）：apply_lut / gradient_map / set_alpha / fill_alpha
 
 ///|

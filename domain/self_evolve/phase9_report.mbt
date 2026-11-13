@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/phase9_report
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // Phase 9 综合报告 — 汇总 v301-v304 全部能力
 // Phase 9 comprehensive report: aggregate v301-v304 capabilities
 

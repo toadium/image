@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/optimize_types
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 算法优化类型 — 优化建议 + 优化报告
 // Optimization types: suggestion + report
 

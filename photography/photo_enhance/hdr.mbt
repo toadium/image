@@ -1,3 +1,8 @@
+///|
+/// # photo_enhance/hdr
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // HDR 高动态范围（v11.7.0）
 // 多曝光融合 + 色调映射（Reinhard / Gamma / Sigmoid）
 

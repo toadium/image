@@ -1,4 +1,10 @@
 ///|
+/// # HEIF 解码 HEIF Decode
+///
+/// HEIF 图像格式解码
+/// HEIF image format decoding
+
+///|
 /// HEIF (High Efficiency Image File Format) 解码器
 ///
 /// HEIF 基于 HEVC (H.265) 编码，使用 ISOBMFF 容器格式。

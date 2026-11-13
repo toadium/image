@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/strategy_combo
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 演化策略组合 — 组合多种演化策略
 // Evolution strategy combination: combine multiple evolution strategies
 //

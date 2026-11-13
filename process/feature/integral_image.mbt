@@ -1,3 +1,9 @@
+///|
+/// # integral image
+/// integral image
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 积分图像（纯 MoonBit）
 
 ///|

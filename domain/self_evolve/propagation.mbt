@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/propagation
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 跨算子退化传播 — 分析 pipeline 中退化如何在算子间传播
 // Cross-op degradation propagation: analyze how degradations propagate across pipeline
 //

@@ -1,3 +1,9 @@
+///|
+/// # morphology 16f
+/// morphology 16f
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 形态学操作 16-bit/float 变体
 // 支持 Image16 / ImageF 两种类型
 // StructuringElement 复用 morphology.mbt 中的定义

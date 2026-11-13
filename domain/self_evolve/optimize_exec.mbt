@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/optimize_exec
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 管道优化执行 — 应用 OptimizationSuggestion 到实际 IRPipeline
 // Optimize execution: apply suggestions to actual pipeline and verify
 //

@@ -1,3 +1,9 @@
+///|
+/// # gabor
+/// gabor
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // Gabor 滤波（纯 MoonBit）
 
 ///|

@@ -1,3 +1,9 @@
+///|
+/// # advanced denoise enhance
+/// advanced denoise enhance
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 高级图像降噪与增强算法（v29.0.0）
 // 高级降噪、图像增强、质量评估
 

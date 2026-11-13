@@ -1,3 +1,8 @@
+///|
+/// # ocr/postprocess
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // OCR 后处理
 // 词典匹配、N-gram语言模型、拼写纠错、置信度校准
 

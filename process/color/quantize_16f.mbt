@@ -1,3 +1,8 @@
+///|
+/// # 色彩量化 16-bit/float 变体 Color quantization 16-bit/float variants
+///
+/// quantize_16 / quantize_f
+/// 16-bit/float color quantization
 // 色彩量化 16-bit/float 变体
 // K-means 量化 + Median Cut
 

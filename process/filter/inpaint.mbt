@@ -1,3 +1,9 @@
+///|
+/// # inpaint
+/// inpaint
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 图像修复（纯 MoonBit）
 // 基于扩散法：对掩码区域求解 Laplace 方程
 // 已知像素作为 Dirichlet 边界条件，迭代至收敛

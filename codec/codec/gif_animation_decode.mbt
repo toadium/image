@@ -1,3 +1,8 @@
+///|
+/// # GIF 动画解码 GIF Animation Decode
+///
+/// GIF 动画帧序列解码
+/// GIF animation frame sequence decoding
 // 纯 MoonBit GIF 多帧动画解码（全目标可用：native/wasm/js）
 // 支持 GIF89a 多帧动画：Graphics Control Extension + 多 Image Descriptor
 // 仅依赖 @types，不依赖 @core/FFI

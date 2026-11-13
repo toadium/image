@@ -1,3 +1,9 @@
+///|
+/// # dehaze
+/// dehaze
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 暗通道先验去雾（纯 MoonBit）
 
 ///|

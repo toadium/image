@@ -1,3 +1,8 @@
+///|
+/// # 色调映射 Tone mapping
+///
+/// tonemap_reinhard / tonemap_gamma
+/// Reinhard + Gamma tone mapping
 // 色调映射（纯 MoonBit）：Reinhard + Gamma
 // 将 HDR float 图像 (ImageF) 映射到 LDR 8-bit 图像 (Image)
 

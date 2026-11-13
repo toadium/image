@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/cross_module
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 跨模块演化协同 — 跨模块协同演化
 // Cross-module evolution coordination: coordinate evolution across modules
 //

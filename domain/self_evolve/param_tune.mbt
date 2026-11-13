@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/param_tune
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 自适应参数调优 — 根据历史自动调优参数
 // Adaptive parameter tuning: auto-tune parameters based on history
 //

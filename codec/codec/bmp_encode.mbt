@@ -1,3 +1,8 @@
+///|
+/// # BMP 编码 BMP Encode
+///
+/// BMP 图像格式编码
+/// BMP image format encoding
 // 纯 MoonBit BMP 编码（全目标可用：native/wasm/js）
 // 24-bit BMP, BITMAPINFOHEADER, bottom-up, BGR, 4字节行对齐
 

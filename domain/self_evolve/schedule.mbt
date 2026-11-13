@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/schedule
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 演化调度引擎 — 调度并执行自动演化周期
 // Evolution schedule engine: schedule and execute automatic evolution cycles
 //

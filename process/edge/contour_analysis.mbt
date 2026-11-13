@@ -1,3 +1,9 @@
+///|
+/// # contour analysis
+/// contour analysis
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 轮廓分析（纯 MoonBit）：凸包 + 多边形逼近 + 矩 + Hu矩 + 最小外接圆
 
 ///|

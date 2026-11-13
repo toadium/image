@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/knowledge_graph
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 演化知识图谱 — 将演化经验构建为知识图谱
 // Evolution knowledge graph: build knowledge graph from evolution experience
 //

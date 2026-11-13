@@ -1,3 +1,8 @@
+///|
+/// # TGA 解码 TGA Decode
+///
+/// TGA 图像格式解码
+/// TGA image format decoding
 // 纯 MoonBit TGA 解码器
 // 支持 image type 2（未压缩 RGB）和 type 10（RLE RGB）
 // 24-bit（BGR→RGB）和 32-bit（BGRA→RGBA）
@@ -6,6 +11,34 @@
 ///|
 /// 解码 TGA 字节流为 Image（24-bit -> channels=3, 32-bit -> channels=4）
 /// 支持 image type 2（未压缩 RGB）和 type 10（RLE RGB）
+/// Decode TGA byte stream to Image (24-bit -> channels=3, 32-bit -> channels=4)
+/// Supports image type 2 (uncompressed RGB) and type 10 (RLE RGB)
+///
+/// 参数 Parameters:
+/// - `data` - TGA 字节流 TGA byte stream
+///
+/// 返回 Return:
+/// - 解码后的 8-bit Image Decoded 8-bit Image
+///
+/// 错误 Errors:
+/// - `LoadError::DecodeFailed` - 数据过短、不支持的类型/位深、尺寸无效、像素越界
+///   Data too short, unsupported type/bpp, invalid dimensions, pixel out of bounds
+///
+/// ```mbt check
+/// test "doc_decode_tga_pure" {
+///   try {
+///     let data = Bytes::from_array([b'\xff', b'\x00', b'\x00'])
+///     let img = @types.Image::{ width: 1, height: 1, channels: 3, data, }
+///     let tga_bytes = @codec.encode_tga_pure(img)
+///     let decoded = @codec.decode_tga_pure(tga_bytes)
+///     assert_eq(decoded.width, 1)
+///     assert_eq(decoded.height, 1)
+///     assert_eq(decoded.channels, 3)
+///   } catch {
+///     _ => assert_true(false)
+///   }
+/// }
+/// ```
 pub fn decode_tga_pure(data : Bytes) -> @types.Image raise @types.LoadError {
   let len = data.length()
   // TGA header 18 字节

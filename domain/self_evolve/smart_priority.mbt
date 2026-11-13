@@ -1,3 +1,8 @@
+///|
+/// # self_evolve/smart_priority
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 智能测试优先级 — 基于历史数据智能评分
 // Smart test priority: intelligently score test priorities based on historical data
 //

@@ -1,3 +1,8 @@
+///|
+/// # ocr/document_enhance
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 文档图像增强
 // 文档增强、阴影去除、背景归一化
 

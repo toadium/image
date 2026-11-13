@@ -1,3 +1,9 @@
+///|
+/// # match
+/// match
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // SIFT 描述子匹配 + RANSAC 单应性估计（纯 MoonBit）
 
 ///|

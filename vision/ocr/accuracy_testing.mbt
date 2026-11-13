@@ -1,3 +1,8 @@
+///|
+/// # ocr/accuracy_testing
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // OCR 准确率测试框架（v12.21.0 P0 基础加固）
 // 提供准确率计算、混淆矩阵、错误分析、基准测试等工具
 

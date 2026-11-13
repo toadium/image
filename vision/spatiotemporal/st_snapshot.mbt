@@ -1,3 +1,8 @@
+///|
+/// # spatiotemporal/st_snapshot
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 时序快照：取指定时间帧、截取子片段、帧抽取。
 // Temporal snapshot: frame at time, subclip, frame extraction.
 

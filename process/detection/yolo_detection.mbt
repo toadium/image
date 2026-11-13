@@ -1,3 +1,9 @@
+///|
+/// # yolo detection
+/// yolo detection
+///
+/// 图像处理算法模块
+/// Image processing algorithm module
 // 目标检测增强（v16.0.0）
 // YOLO 风格目标检测、边界框回归、非极大值抑制、目标跟踪、检测评估
 

@@ -1,3 +1,8 @@
+///|
+/// # imgir/ir_op
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // ImgIR 操作类型 + 管道：统一图像/场/时空操作的表达式。
 // IR operation types + pipeline: unified image/field/spatiotemporal operations.
 //

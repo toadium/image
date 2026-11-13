@@ -1,4 +1,10 @@
 ///|
+/// # TGA 扩展 TGA Extended
+///
+/// TGA 扩展功能
+/// TGA extended features
+
+///|
 /// TGA 扩展信息（包含图像类型、位深、行序等）
 pub struct TgaInfoExtended {
   width : Int32

@@ -1,3 +1,8 @@
+///|
+/// # Agent 工具包 Agent Kit
+///
+/// 智能体集成工具包
+/// Agent integration toolkit
 // Agent-Kit 高层 API — 自然语言图像处理
 // nl_process: "给这张图去噪并检测边缘" → 引擎原生算子执行
 

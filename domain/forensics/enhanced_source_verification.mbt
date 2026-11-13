@@ -1,3 +1,8 @@
+///|
+/// # forensics/enhanced_source_verification
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 图像来源鉴定增强（v27.1.0）
 // 增强准确性：UI 元素检测、文字区域检测、几何形状分析、颜色量化分析、智能决策引擎
 

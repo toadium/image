@@ -1,3 +1,8 @@
+///|
+/// # computational_imaging/computational_imaging
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 计算成像与光场成像（v37.0.0）
 // 计算摄影、光场成像、全息成像、计算层析、相位恢复、编码孔径
 

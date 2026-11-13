@@ -1,3 +1,8 @@
+///|
+/// # 特征检测高级 16-bit/float 变体 Advanced feature detection 16-bit/float variants
+///
+/// harris_16 / orb_16 / sift_16
+/// 16-bit/float Harris/ORB/SIFT
 // 特征检测高级 16-bit/float 变体
 // harris / sift / orb / shi_tomasi / gabor
 

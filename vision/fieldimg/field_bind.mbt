@@ -1,3 +1,8 @@
+///|
+/// # fieldimg/field_bind
+///
+/// 图像处理库子模块
+/// Image processing library submodule
 // 场与 Image 双向转换：Image ↔ ScalarField / VectorField。
 // Field-Image bidirectional binding: Image ↔ ScalarField / VectorField.
 //
