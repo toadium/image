@@ -115,6 +115,7 @@ fn img8_to_imgf_dh(img : @types.Image) -> @types.ImageF {
 
 ///|
 /// 16-bit 图像去雾。
+/// @see dehaze 8-bit 版本，本函数为 Image16 变体
 pub fn dehaze_16(
   img : @types.Image16,
   patch_size~ : Int32 = 7,
@@ -148,6 +149,7 @@ pub fn dehaze_16(
 
 ///|
 /// float 图像去雾。
+/// @see dehaze 8-bit 版本，本函数为 ImageF 变体
 pub fn dehaze_f(
   img : @types.ImageF,
   patch_size~ : Int32 = 7,
@@ -181,6 +183,7 @@ pub fn dehaze_f(
 
 ///|
 /// 16-bit 引导滤波。
+/// @see guided_filter 8-bit 版本，本函数为 Image16 变体
 pub fn guided_filter_16(
   img : @types.Image16,
   input : Array[Float],
@@ -221,6 +224,7 @@ pub fn guided_filter_16(
 
 ///|
 /// float 引导滤波。
+/// @see guided_filter 8-bit 版本，本函数为 ImageF 变体
 pub fn guided_filter_f(
   img : @types.ImageF,
   input : Array[Float],

@@ -8,6 +8,7 @@
 
 ///|
 /// 计算图像能量图 16-bit 版本
+/// @see compute_energy 8-bit 版本，本函数为 Image16 变体
 pub fn compute_energy_16(img : @types.Image16) -> Array[Double] {
   let w = img.width
   let h = img.height
@@ -43,6 +44,7 @@ pub fn compute_energy_16(img : @types.Image16) -> Array[Double] {
 
 ///|
 /// 计算图像能量图 float 版本
+/// @see compute_energy 8-bit 版本，本函数为 ImageF 变体
 pub fn compute_energy_f(img : @types.ImageF) -> Array[Double] {
   let w = img.width
   let h = img.height
@@ -90,6 +92,7 @@ pub fn compute_energy_f(img : @types.ImageF) -> Array[Double] {
 
 ///|
 /// 移除垂直 seam 16-bit 版本
+/// @see remove_vertical_seam 8-bit 版本，本函数为 Image16 变体
 pub fn remove_vertical_seam_16(
   img : @types.Image16,
   seam : Array[Int32],
@@ -136,6 +139,7 @@ pub fn remove_vertical_seam_16(
 
 ///|
 /// 移除垂直 seam float 版本
+/// @see remove_vertical_seam 8-bit 版本，本函数为 ImageF 变体
 pub fn remove_vertical_seam_f(
   img : @types.ImageF,
   seam : Array[Int32],
@@ -180,6 +184,7 @@ pub fn remove_vertical_seam_f(
 
 ///|
 /// 移除水平 seam 16-bit 版本
+/// @see remove_horizontal_seam 8-bit 版本，本函数为 Image16 变体
 pub fn remove_horizontal_seam_16(
   img : @types.Image16,
   seam : Array[Int32],
@@ -221,6 +226,7 @@ pub fn remove_horizontal_seam_16(
 
 ///|
 /// 移除水平 seam float 版本
+/// @see remove_horizontal_seam 8-bit 版本，本函数为 ImageF 变体
 pub fn remove_horizontal_seam_f(
   img : @types.ImageF,
   seam : Array[Int32],
@@ -476,6 +482,7 @@ fn insert_horizontal_seam_f(
 
 ///|
 /// 内容感知缩放 16-bit 版本
+/// @see seam_carve_resize 8-bit 版本，本函数为 Image16 变体
 pub fn seam_carve_resize_16(
   img : @types.Image16,
   new_w : Int32,
@@ -513,6 +520,7 @@ pub fn seam_carve_resize_16(
 
 ///|
 /// 内容感知缩放 float 版本
+/// @see seam_carve_resize 8-bit 版本，本函数为 ImageF 变体
 pub fn seam_carve_resize_f(
   img : @types.ImageF,
   new_w : Int32,

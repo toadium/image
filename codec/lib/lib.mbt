@@ -424,6 +424,7 @@ pub fn save_image_with_quality(
 /// 错误 Errors:
 /// - `LoadError::DecodeFailed` - 非 HDR 格式、HDR 头无效
 ///   Non-HDR format, invalid HDR header
+/// @see load_any 基础版本，本函数为 ImageF 变体
 pub fn load_any_f(data : Bytes) -> @types.ImageF raise @types.LoadError {
   match detect_format(data) {
     @types.ImageFormat::Hdr => @codec.decode_hdr_pure(data)
@@ -438,6 +439,7 @@ pub fn load_any_f(data : Bytes) -> @types.ImageF raise @types.LoadError {
 /// Float 自动格式分派保存
 /// - HDR → encode_hdr_pure
 /// - 其他格式不支持 Float 保存，raise
+/// @see save_any 基础版本，本函数为 ImageF 变体
 pub fn save_any_f(
   img : @types.ImageF,
   format : @types.ImageFormat,

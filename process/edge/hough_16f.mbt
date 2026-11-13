@@ -9,6 +9,7 @@
 
 ///|
 /// 霍夫直线变换 16-bit 版本。
+/// @see hough_lines 8-bit 版本，本函数为 Image16 变体
 pub fn hough_lines_16(
   img : @types.Image16,
   threshold : Int32,
@@ -114,6 +115,7 @@ pub fn hough_lines_16(
 
 ///|
 /// 霍夫直线变换 float 版本。
+/// @see hough_lines 8-bit 版本，本函数为 ImageF 变体
 pub fn hough_lines_f(
   img : @types.ImageF,
   threshold : Int32,

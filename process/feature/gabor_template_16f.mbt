@@ -114,6 +114,7 @@ fn img8_to_imgf_gabor(img : @types.Image) -> @types.ImageF {
 
 ///|
 /// 16-bit Gabor 滤波。
+/// @see gabor_filter 8-bit 版本，本函数为 Image16 变体
 pub fn gabor_filter_16(
   img : @types.Image16,
   ksize : Int32,
@@ -161,6 +162,7 @@ pub fn gabor_filter_16(
 
 ///|
 /// float Gabor 滤波。
+/// @see gabor_filter 8-bit 版本，本函数为 ImageF 变体
 pub fn gabor_filter_f(
   img : @types.ImageF,
   ksize : Int32,
@@ -208,6 +210,7 @@ pub fn gabor_filter_f(
 
 ///|
 /// 16-bit Gabor 滤波器组。
+/// @see gabor_filter_bank 8-bit 版本，本函数为 Image16 变体
 pub fn gabor_filter_bank_16(
   img : @types.Image16,
   ksize : Int32,
@@ -268,6 +271,7 @@ pub fn gabor_filter_bank_16(
 
 ///|
 /// float Gabor 滤波器组。
+/// @see gabor_filter_bank 8-bit 版本，本函数为 ImageF 变体
 pub fn gabor_filter_bank_f(
   img : @types.ImageF,
   ksize : Int32,
@@ -328,6 +332,7 @@ pub fn gabor_filter_bank_f(
 
 ///|
 /// 16-bit 模板匹配。
+/// @see template_match 8-bit 版本，本函数为 Image16 变体
 pub fn template_match_16(
   img : @types.Image16,
   template : @types.Image16,
@@ -390,6 +395,7 @@ pub fn template_match_16(
 
 ///|
 /// float 模板匹配。
+/// @see template_match 8-bit 版本，本函数为 ImageF 变体
 pub fn template_match_f(
   img : @types.ImageF,
   template : @types.ImageF,
@@ -452,6 +458,7 @@ pub fn template_match_f(
 
 ///|
 /// 16-bit 模板匹配（最佳匹配）。
+/// @see template_match_best 8-bit 版本，本函数为 Image16 变体
 pub fn template_match_best_16(
   img : @types.Image16,
   template : @types.Image16,
@@ -514,6 +521,7 @@ pub fn template_match_best_16(
 
 ///|
 /// float 模板匹配（最佳匹配）。
+/// @see template_match_best 8-bit 版本，本函数为 ImageF 变体
 pub fn template_match_best_f(
   img : @types.ImageF,
   template : @types.ImageF,

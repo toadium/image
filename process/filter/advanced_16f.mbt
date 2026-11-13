@@ -115,6 +115,7 @@ fn img8_to_imgf_adv(img : @types.Image) -> @types.ImageF {
 
 ///|
 /// 16-bit 图像修复。
+/// @see inpaint 8-bit 版本，本函数为 Image16 变体
 pub fn inpaint_16(
   img : @types.Image16,
   mask : @types.Image16,
@@ -157,6 +158,7 @@ pub fn inpaint_16(
 
 ///|
 /// 16-bit 快速图像修复。
+/// @see inpaint_fast 8-bit 版本，本函数为 Image16 变体
 pub fn inpaint_fast_16(
   img : @types.Image16,
   mask : @types.Image16,
@@ -201,6 +203,7 @@ pub fn inpaint_fast_16(
 
 ///|
 /// float 图像修复。
+/// @see inpaint 8-bit 版本，本函数为 ImageF 变体
 pub fn inpaint_f(
   img : @types.ImageF,
   mask : @types.ImageF,
@@ -241,6 +244,7 @@ pub fn inpaint_f(
 
 ///|
 /// float 快速图像修复。
+/// @see inpaint_fast 8-bit 版本，本函数为 ImageF 变体
 pub fn inpaint_fast_f(
   img : @types.ImageF,
   mask : @types.ImageF,
@@ -285,6 +289,7 @@ pub fn inpaint_fast_f(
 
 ///|
 /// 16-bit 非局部均值去噪。
+/// @see nlm_denoise 8-bit 版本，本函数为 Image16 变体
 pub fn nlm_denoise_16(
   img : @types.Image16,
   patch_size~ : Int32 = 3,
@@ -332,6 +337,7 @@ pub fn nlm_denoise_16(
 
 ///|
 /// 16-bit 快速非局部均值去噪。
+/// @see nlm_denoise_fast 8-bit 版本，本函数为 Image16 变体
 pub fn nlm_denoise_fast_16(
   img : @types.Image16,
   patch_size~ : Int32 = 3,
@@ -387,6 +393,7 @@ pub fn nlm_denoise_fast_16(
 
 ///|
 /// float 非局部均值去噪。
+/// @see nlm_denoise 8-bit 版本，本函数为 ImageF 变体
 pub fn nlm_denoise_f(
   img : @types.ImageF,
   patch_size~ : Int32 = 3,
@@ -434,6 +441,7 @@ pub fn nlm_denoise_f(
 
 ///|
 /// float 快速非局部均值去噪。
+/// @see nlm_denoise_fast 8-bit 版本，本函数为 ImageF 变体
 pub fn nlm_denoise_fast_f(
   img : @types.ImageF,
   patch_size~ : Int32 = 3,

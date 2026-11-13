@@ -93,6 +93,7 @@ fn canny_gaussian_blur_16(
 
 ///|
 /// 16-bit Canny 边缘检测。阈值范围 0-65535，输出二值图像（0/65535）。
+/// @see canny_edge 8-bit 版本，本函数为 Image16 变体
 pub fn canny_edge_16(
   img : @types.Image16,
   low_threshold~ : Int32 = 12800,
@@ -261,6 +262,7 @@ pub fn canny_edge_16(
 
 ///|
 /// float Canny 边缘检测。阈值范围 0.0-1.0，输出二值图像（0.0/1.0）。
+/// @see canny_edge 8-bit 版本，本函数为 ImageF 变体
 pub fn canny_edge_f(
   img : @types.ImageF,
   low_threshold~ : Float = 0.2F,

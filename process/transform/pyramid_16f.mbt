@@ -40,6 +40,7 @@ fn write_f32_p(data : Array[Byte], offset : Int32, v : Float) -> Unit {
 
 ///|
 /// 高斯金字塔下采样 16-bit 版本。
+/// @see pyr_down 8-bit 版本，本函数为 Image16 变体
 pub fn pyr_down_16(
   img : @types.Image16,
 ) -> @types.Image16 raise @types.LoadError {
@@ -90,6 +91,7 @@ pub fn pyr_down_16(
 
 ///|
 /// 高斯金字塔下采样 float 版本。
+/// @see pyr_down 8-bit 版本，本函数为 ImageF 变体
 pub fn pyr_down_f(img : @types.ImageF) -> @types.ImageF raise @types.LoadError {
   if img.channels != 1 && img.channels != 3 && img.channels != 4 {
     raise @types.LoadError::DecodeFailed("pyr_down_f 仅支持 channels=1/3/4")
@@ -142,6 +144,7 @@ pub fn pyr_down_f(img : @types.ImageF) -> @types.ImageF raise @types.LoadError {
 
 ///|
 /// 拉普拉斯金字塔上采样 16-bit 版本。
+/// @see pyr_up 8-bit 版本，本函数为 Image16 变体
 pub fn pyr_up_16(img : @types.Image16) -> @types.Image16 raise @types.LoadError {
   if img.channels != 1 && img.channels != 3 && img.channels != 4 {
     raise @types.LoadError::DecodeFailed("pyr_up_16 仅支持 channels=1/3/4")
@@ -219,6 +222,7 @@ pub fn pyr_up_16(img : @types.Image16) -> @types.Image16 raise @types.LoadError 
 
 ///|
 /// 拉普拉斯金字塔上采样 float 版本。
+/// @see pyr_up 8-bit 版本，本函数为 ImageF 变体
 pub fn pyr_up_f(img : @types.ImageF) -> @types.ImageF raise @types.LoadError {
   if img.channels != 1 && img.channels != 3 && img.channels != 4 {
     raise @types.LoadError::DecodeFailed("pyr_up_f 仅支持 channels=1/3/4")
@@ -372,6 +376,7 @@ fn laplacian_diff_pf(a : @types.ImageF, b : @types.ImageF) -> @types.ImageF {
 
 ///|
 /// 构建高斯金字塔 16-bit 版本。
+/// @see build_gaussian_pyramid 8-bit 版本，本函数为 Image16 变体
 pub fn build_gaussian_pyramid_16(
   img : @types.Image16,
   levels : Int32,
@@ -393,6 +398,7 @@ pub fn build_gaussian_pyramid_16(
 
 ///|
 /// 构建高斯金字塔 float 版本。
+/// @see build_gaussian_pyramid 8-bit 版本，本函数为 ImageF 变体
 pub fn build_gaussian_pyramid_f(
   img : @types.ImageF,
   levels : Int32,
@@ -414,6 +420,7 @@ pub fn build_gaussian_pyramid_f(
 
 ///|
 /// 构建拉普拉斯金字塔 16-bit 版本。
+/// @see build_laplacian_pyramid 8-bit 版本，本函数为 Image16 变体
 pub fn build_laplacian_pyramid_16(
   img : @types.Image16,
   levels : Int32,

@@ -15,6 +15,7 @@
 
 ///|
 /// 16-bit RGB → HSL。输入 r,g,b ∈ [0,65535]，输出 h ∈ [0,360), s,l ∈ [0,1]
+/// @see rgb_to_hsl 8-bit 版本，本函数为 Image16 变体
 pub fn rgb_to_hsl_16(
   r : Int32,
   g : Int32,
@@ -53,6 +54,7 @@ pub fn rgb_to_hsl_16(
 
 ///|
 /// 16-bit HSL → RGB。输入 h ∈ [0,360), s,l ∈ [0,1]，输出 r,g,b ∈ [0,65535]
+/// @see hsl_to_rgb 8-bit 版本，本函数为 Image16 变体
 pub fn hsl_to_rgb_16(
   h : Float,
   s : Float,
@@ -97,6 +99,7 @@ pub fn hsl_to_rgb_16(
 
 ///|
 /// float RGB → HSL。输入 r,g,b ∈ [0,1]，输出 h ∈ [0,360), s,l ∈ [0,1]
+/// @see rgb_to_hsl 8-bit 版本，本函数为 ImageF 变体
 pub fn rgb_to_hsl_f(
   r : Float,
   g : Float,
@@ -135,6 +138,7 @@ pub fn rgb_to_hsl_f(
 
 ///|
 /// float HSL → RGB。输入 h ∈ [0,360), s,l ∈ [0,1]，输出 r,g,b ∈ [0,1]
+/// @see hsl_to_rgb 8-bit 版本，本函数为 ImageF 变体
 pub fn hsl_to_rgb_f(
   h : Float,
   s : Float,
@@ -180,6 +184,7 @@ pub fn hsl_to_rgb_f(
 
 ///|
 /// 16-bit RGB → HSV。输入 r,g,b ∈ [0,65535]，输出 h ∈ [0,360), s,v ∈ [0,1]
+/// @see rgb_to_hsv 8-bit 版本，本函数为 Image16 变体
 pub fn rgb_to_hsv_16(
   r : Int32,
   g : Int32,
@@ -214,6 +219,7 @@ pub fn rgb_to_hsv_16(
 
 ///|
 /// 16-bit HSV → RGB。输入 h ∈ [0,360), s,v ∈ [0,1]，输出 r,g,b ∈ [0,65535]
+/// @see hsv_to_rgb 8-bit 版本，本函数为 Image16 变体
 pub fn hsv_to_rgb_16(
   h : Float,
   s : Float,
@@ -258,6 +264,7 @@ pub fn hsv_to_rgb_16(
 
 ///|
 /// float RGB → HSV。输入 r,g,b ∈ [0,1]，输出 h ∈ [0,360), s,v ∈ [0,1]
+/// @see rgb_to_hsv 8-bit 版本，本函数为 ImageF 变体
 pub fn rgb_to_hsv_f(
   r : Float,
   g : Float,
@@ -292,6 +299,7 @@ pub fn rgb_to_hsv_f(
 
 ///|
 /// float HSV → RGB。输入 h ∈ [0,360), s,v ∈ [0,1]，输出 r,g,b ∈ [0,1]
+/// @see hsv_to_rgb 8-bit 版本，本函数为 ImageF 变体
 pub fn hsv_to_rgb_f(
   h : Float,
   s : Float,
@@ -337,6 +345,7 @@ pub fn hsv_to_rgb_f(
 
 ///|
 /// 16-bit RGB → XYZ。输入 r,g,b ∈ [0,65535]，输出 x,y,z ∈ [0,1]
+/// @see rgb_to_xyz 8-bit 版本，本函数为 Image16 变体
 pub fn rgb_to_xyz_16(
   r : Int32,
   g : Int32,
@@ -367,6 +376,7 @@ pub fn rgb_to_xyz_16(
 
 ///|
 /// 16-bit XYZ → RGB。输入 x,y,z ∈ [0,1]，输出 r,g,b ∈ [0,65535]
+/// @see xyz_to_rgb 8-bit 版本，本函数为 Image16 变体
 pub fn xyz_to_rgb_16(
   x : Float,
   y : Float,
@@ -394,6 +404,7 @@ pub fn xyz_to_rgb_16(
 
 ///|
 /// float RGB → XYZ。输入 r,g,b ∈ [0,1]，输出 x,y,z ∈ [0,1]
+/// @see rgb_to_xyz 8-bit 版本，本函数为 ImageF 变体
 pub fn rgb_to_xyz_f(
   r : Float,
   g : Float,
@@ -424,6 +435,7 @@ pub fn rgb_to_xyz_f(
 
 ///|
 /// float XYZ → RGB。输入 x,y,z ∈ [0,1]，输出 r,g,b ∈ [0,1]
+/// @see xyz_to_rgb 8-bit 版本，本函数为 ImageF 变体
 pub fn xyz_to_rgb_f(
   x : Float,
   y : Float,
@@ -451,6 +463,7 @@ pub fn xyz_to_rgb_f(
 
 ///|
 /// 16-bit RGB → LAB。输入 r,g,b ∈ [0,65535]，输出 L ∈ [0,100], a,b ∈ [-128,127]
+/// @see rgb_to_lab 8-bit 版本，本函数为 Image16 变体
 pub fn rgb_to_lab_16(
   r : Int32,
   g : Int32,
@@ -484,6 +497,7 @@ pub fn rgb_to_lab_16(
 
 ///|
 /// 16-bit LAB → RGB。输入 L ∈ [0,100], a,b ∈ [-128,127]，输出 r,g,b ∈ [0,65535]
+/// @see lab_to_rgb 8-bit 版本，本函数为 Image16 变体
 pub fn lab_to_rgb_16(
   l : Float,
   a : Float,
@@ -518,6 +532,7 @@ pub fn lab_to_rgb_16(
 
 ///|
 /// float RGB → LAB。输入 r,g,b ∈ [0,1]，输出 L ∈ [0,100], a,b ∈ [-128,127]
+/// @see rgb_to_lab 8-bit 版本，本函数为 ImageF 变体
 pub fn rgb_to_lab_f(
   r : Float,
   g : Float,
@@ -551,6 +566,7 @@ pub fn rgb_to_lab_f(
 
 ///|
 /// float LAB → RGB。输入 L ∈ [0,100], a,b ∈ [-128,127]，输出 r,g,b ∈ [0,1]
+/// @see lab_to_rgb 8-bit 版本，本函数为 ImageF 变体
 pub fn lab_to_rgb_f(
   l : Float,
   a : Float,

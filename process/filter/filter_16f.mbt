@@ -40,6 +40,7 @@ fn write_f32_le_f(buf : Array[Byte], offset : Int32, val : Float) -> Unit {
 ///|
 /// 16-bit 盒模糊。radius 为模糊半径，窗口大小 = 2*radius+1。
 /// 使用可分离滑动窗口，O(n) 复杂度。仅模糊颜色通道，alpha 不变。
+/// @see box_blur 8-bit 版本，本函数为 Image16 变体
 pub fn box_blur_16(
   img : @types.Image16,
   radius : Int32,
@@ -134,6 +135,7 @@ pub fn box_blur_16(
 ///|
 /// float 盒模糊。radius 为模糊半径，窗口大小 = 2*radius+1。
 /// 使用可分离滑动窗口，O(n) 复杂度。仅模糊颜色通道，alpha 不变。
+/// @see box_blur 8-bit 版本，本函数为 ImageF 变体
 pub fn box_blur_f(
   img : @types.ImageF,
   radius : Int32,
@@ -230,6 +232,7 @@ pub fn box_blur_f(
 ///|
 /// 16-bit 高斯模糊。radius 为核半径，sigma 为标准差。
 /// 使用可分离高斯核，O(n*radius) 复杂度。仅模糊颜色通道，alpha 不变。
+/// @see gaussian_blur 8-bit 版本，本函数为 Image16 变体
 pub fn gaussian_blur_16(
   img : @types.Image16,
   radius : Int32,
@@ -380,6 +383,7 @@ pub fn gaussian_blur_16(
 ///|
 /// float 高斯模糊。radius 为核半径，sigma 为标准差。
 /// 使用可分离高斯核，O(n*radius) 复杂度。仅模糊颜色通道，alpha 不变。
+/// @see gaussian_blur 8-bit 版本，本函数为 ImageF 变体
 pub fn gaussian_blur_f(
   img : @types.ImageF,
   radius : Int32,
@@ -526,6 +530,7 @@ pub fn gaussian_blur_f(
 ///|
 /// 16-bit 中值滤波。ksize 为窗口大小（奇数）。有效去除椒盐噪声。
 /// 仅滤波颜色通道，alpha 不变。
+/// @see median_blur 8-bit 版本，本函数为 Image16 变体
 pub fn median_blur_16(
   img : @types.Image16,
   ksize : Int32,
@@ -634,6 +639,7 @@ pub fn median_blur_16(
 ///|
 /// float 中值滤波。ksize 为窗口大小（奇数）。有效去除椒盐噪声。
 /// 仅滤波颜色通道，alpha 不变。
+/// @see median_blur 8-bit 版本，本函数为 ImageF 变体
 pub fn median_blur_f(
   img : @types.ImageF,
   ksize : Int32,
@@ -722,6 +728,7 @@ pub fn median_blur_f(
 
 ///|
 /// 16-bit 锐化。amount 控制锐化强度（0.0=原图，1.0=强锐化）。
+/// @see sharpen 8-bit 版本，本函数为 Image16 变体
 pub fn sharpen_16(
   img : @types.Image16,
   amount : Float,
@@ -834,6 +841,7 @@ pub fn sharpen_16(
 
 ///|
 /// float 锐化。amount 控制锐化强度（0.0=原图，1.0=强锐化）。
+/// @see sharpen 8-bit 版本，本函数为 ImageF 变体
 pub fn sharpen_f(
   img : @types.ImageF,
   amount : Float,

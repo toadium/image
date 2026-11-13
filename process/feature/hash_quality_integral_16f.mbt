@@ -63,6 +63,7 @@ fn imgf_to_img8_iq(img : @types.ImageF) -> @types.Image {
 
 ///|
 /// 16-bit 平均哈希。
+/// @see ahash 8-bit 版本，本函数为 Image16 变体
 pub fn ahash_16(img : @types.Image16) -> Array[Int32] raise @types.LoadError {
   // 输入验证
   if img.width <= 0 || img.height <= 0 {
@@ -89,6 +90,7 @@ pub fn ahash_16(img : @types.Image16) -> Array[Int32] raise @types.LoadError {
 
 ///|
 /// 16-bit 差异哈希。
+/// @see dhash 8-bit 版本，本函数为 Image16 变体
 pub fn dhash_16(img : @types.Image16) -> Array[Int32] raise @types.LoadError {
   // 输入验证
   if img.width <= 0 || img.height <= 0 {
@@ -115,6 +117,7 @@ pub fn dhash_16(img : @types.Image16) -> Array[Int32] raise @types.LoadError {
 
 ///|
 /// 16-bit 感知哈希。
+/// @see phash 8-bit 版本，本函数为 Image16 变体
 pub fn phash_16(img : @types.Image16) -> Array[Int32] raise @types.LoadError {
   // 输入验证
   if img.width <= 0 || img.height <= 0 {
@@ -143,6 +146,7 @@ pub fn phash_16(img : @types.Image16) -> Array[Int32] raise @types.LoadError {
 
 ///|
 /// float 平均哈希。
+/// @see ahash 8-bit 版本，本函数为 ImageF 变体
 pub fn ahash_f(img : @types.ImageF) -> Array[Int32] raise @types.LoadError {
   // 输入验证
   if img.width <= 0 || img.height <= 0 {
@@ -167,6 +171,7 @@ pub fn ahash_f(img : @types.ImageF) -> Array[Int32] raise @types.LoadError {
 
 ///|
 /// float 差异哈希。
+/// @see dhash 8-bit 版本，本函数为 ImageF 变体
 pub fn dhash_f(img : @types.ImageF) -> Array[Int32] raise @types.LoadError {
   // 输入验证
   if img.width <= 0 || img.height <= 0 {
@@ -191,6 +196,7 @@ pub fn dhash_f(img : @types.ImageF) -> Array[Int32] raise @types.LoadError {
 
 ///|
 /// float 感知哈希。
+/// @see phash 8-bit 版本，本函数为 ImageF 变体
 pub fn phash_f(img : @types.ImageF) -> Array[Int32] raise @types.LoadError {
   // 输入验证
   if img.width <= 0 || img.height <= 0 {
@@ -217,6 +223,7 @@ pub fn phash_f(img : @types.ImageF) -> Array[Int32] raise @types.LoadError {
 
 ///|
 /// 16-bit 均方误差。
+/// @see mse 8-bit 版本，本函数为 Image16 变体
 pub fn mse_16(
   img1 : @types.Image16,
   img2 : @types.Image16,
@@ -267,6 +274,7 @@ pub fn mse_16(
 
 ///|
 /// 16-bit 峰值信噪比。
+/// @see psnr 8-bit 版本，本函数为 Image16 变体
 pub fn psnr_16(
   img1 : @types.Image16,
   img2 : @types.Image16,
@@ -317,6 +325,7 @@ pub fn psnr_16(
 
 ///|
 /// 16-bit 结构相似性。
+/// @see ssim 8-bit 版本，本函数为 Image16 变体
 pub fn ssim_16(
   img1 : @types.Image16,
   img2 : @types.Image16,
@@ -369,6 +378,7 @@ pub fn ssim_16(
 
 ///|
 /// float 均方误差。
+/// @see mse 8-bit 版本，本函数为 ImageF 变体
 pub fn mse_f(
   img1 : @types.ImageF,
   img2 : @types.ImageF,
@@ -419,6 +429,7 @@ pub fn mse_f(
 
 ///|
 /// float 峰值信噪比。
+/// @see psnr 8-bit 版本，本函数为 ImageF 变体
 pub fn psnr_f(
   img1 : @types.ImageF,
   img2 : @types.ImageF,
@@ -469,6 +480,7 @@ pub fn psnr_f(
 
 ///|
 /// float 结构相似性。
+/// @see ssim 8-bit 版本，本函数为 ImageF 变体
 pub fn ssim_f(
   img1 : @types.ImageF,
   img2 : @types.ImageF,
@@ -521,6 +533,7 @@ pub fn ssim_f(
 
 ///|
 /// 16-bit 积分图像。
+/// @see integral_image 8-bit 版本，本函数为 Image16 变体
 pub fn integral_image_16(
   img : @types.Image16,
 ) -> IntegralImage raise @types.LoadError {
@@ -551,6 +564,7 @@ pub fn integral_image_16(
 
 ///|
 /// 16-bit 平方积分图像。
+/// @see integral_image_sq 8-bit 版本，本函数为 Image16 变体
 pub fn integral_image_sq_16(
   img : @types.Image16,
 ) -> IntegralImageSq raise @types.LoadError {
@@ -583,6 +597,7 @@ pub fn integral_image_sq_16(
 
 ///|
 /// float 积分图像。
+/// @see integral_image 8-bit 版本，本函数为 ImageF 变体
 pub fn integral_image_f(
   img : @types.ImageF,
 ) -> IntegralImage raise @types.LoadError {
@@ -613,6 +628,7 @@ pub fn integral_image_f(
 
 ///|
 /// float 平方积分图像。
+/// @see integral_image_sq 8-bit 版本，本函数为 ImageF 变体
 pub fn integral_image_sq_f(
   img : @types.ImageF,
 ) -> IntegralImageSq raise @types.LoadError {

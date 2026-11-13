@@ -42,6 +42,7 @@ fn write_f32_le_freq(buf : Array[Byte], offset : Int32, val : Float) -> Unit {
 
 ///|
 /// 16-bit 2D FFT。输入归一化到 0-1 后变换。
+/// @see fft_2d 8-bit 版本，本函数为 Image16 变体
 pub fn fft_2d_16(
   img : @types.Image16,
 ) -> Array[FFTResult] raise @types.LoadError {
@@ -72,6 +73,7 @@ pub fn fft_2d_16(
 
 ///|
 /// 16-bit 逆 FFT。输出 Image16（0-65535）。
+/// @see ifft_2d 8-bit 版本，本函数为 Image16 变体
 pub fn ifft_2d_16(fft : FFTResult) -> @types.Image16 {
   let img8 = ifft_2d(fft)
   let w = img8.width
@@ -92,6 +94,7 @@ pub fn ifft_2d_16(fft : FFTResult) -> @types.Image16 {
 
 ///|
 /// 16-bit FFT 幅度谱。输出 Image16。
+/// @see fft_magnitude 8-bit 版本，本函数为 Image16 变体
 pub fn fft_magnitude_16(fft : FFTResult, log_scale : Bool) -> @types.Image16 {
   let img8 = fft_magnitude(fft, log_scale)
   let w = img8.width
@@ -114,6 +117,7 @@ pub fn fft_magnitude_16(fft : FFTResult, log_scale : Bool) -> @types.Image16 {
 
 ///|
 /// float 2D FFT。输入直接使用 float 值。
+/// @see fft_2d 8-bit 版本，本函数为 ImageF 变体
 pub fn fft_2d_f(img : @types.ImageF) -> Array[FFTResult] raise @types.LoadError {
   if img.channels != 1 && img.channels != 3 && img.channels != 4 {
     raise @types.LoadError::DecodeFailed("fft_2d_f 仅支持 channels=1/3/4")
@@ -143,6 +147,7 @@ pub fn fft_2d_f(img : @types.ImageF) -> Array[FFTResult] raise @types.LoadError 
 
 ///|
 /// float 逆 FFT。输出 ImageF（0-1）。
+/// @see ifft_2d 8-bit 版本，本函数为 ImageF 变体
 pub fn ifft_2d_f(fft : FFTResult) -> @types.ImageF {
   let img8 = ifft_2d(fft)
   let w = img8.width
@@ -163,6 +168,7 @@ pub fn ifft_2d_f(fft : FFTResult) -> @types.ImageF {
 
 ///|
 /// float FFT 幅度谱。输出 ImageF。
+/// @see fft_magnitude 8-bit 版本，本函数为 ImageF 变体
 pub fn fft_magnitude_f(fft : FFTResult, log_scale : Bool) -> @types.ImageF {
   let img8 = fft_magnitude(fft, log_scale)
   let w = img8.width
@@ -185,6 +191,7 @@ pub fn fft_magnitude_f(fft : FFTResult, log_scale : Bool) -> @types.ImageF {
 
 ///|
 /// 16-bit 2D DCT。输入归一化后变换。
+/// @see dct_2d 8-bit 版本，本函数为 Image16 变体
 pub fn dct_2d_16(img : @types.Image16) -> Array[Array[Double]] {
   let w = img.width
   let h = img.height
@@ -206,6 +213,7 @@ pub fn dct_2d_16(img : @types.Image16) -> Array[Array[Double]] {
 
 ///|
 /// 16-bit 逆 DCT。输出 Image16。
+/// @see idct_2d 8-bit 版本，本函数为 Image16 变体
 pub fn idct_2d_16(coeffs : Array[Array[Double]]) -> @types.Image16 {
   let img8 = idct_2d(coeffs)
   let w = img8.width
@@ -228,6 +236,7 @@ pub fn idct_2d_16(coeffs : Array[Array[Double]]) -> @types.Image16 {
 
 ///|
 /// float 2D DCT。
+/// @see dct_2d 8-bit 版本，本函数为 ImageF 变体
 pub fn dct_2d_f(img : @types.ImageF) -> Array[Array[Double]] {
   let w = img.width
   let h = img.height
@@ -249,6 +258,7 @@ pub fn dct_2d_f(img : @types.ImageF) -> Array[Array[Double]] {
 
 ///|
 /// float 逆 DCT。输出 ImageF。
+/// @see idct_2d 8-bit 版本，本函数为 ImageF 变体
 pub fn idct_2d_f(coeffs : Array[Array[Double]]) -> @types.ImageF {
   let img8 = idct_2d(coeffs)
   let w = img8.width
@@ -271,6 +281,7 @@ pub fn idct_2d_f(coeffs : Array[Array[Double]]) -> @types.ImageF {
 
 ///|
 /// 16-bit 2D Haar 小波变换。
+/// @see haar_transform_2d 8-bit 版本，本函数为 Image16 变体
 pub fn haar_transform_2d_16(
   img : @types.Image16,
   levels~ : Int32 = 1,
@@ -294,6 +305,7 @@ pub fn haar_transform_2d_16(
 
 ///|
 /// 16-bit 逆 Haar 小波变换。输出 Image16。
+/// @see haar_inverse_transform_2d 8-bit 版本，本函数为 Image16 变体
 pub fn haar_inverse_transform_2d_16(
   result : HaarWaveletResult,
 ) -> @types.Image16 {
@@ -316,6 +328,7 @@ pub fn haar_inverse_transform_2d_16(
 
 ///|
 /// 16-bit Haar 去噪。
+/// @see haar_denoise 8-bit 版本，本函数为 Image16 变体
 pub fn haar_denoise_16(
   img : @types.Image16,
   threshold~ : Float = 10.0F,
@@ -354,6 +367,7 @@ pub fn haar_denoise_16(
 
 ///|
 /// float 2D Haar 小波变换。
+/// @see haar_transform_2d 8-bit 版本，本函数为 ImageF 变体
 pub fn haar_transform_2d_f(
   img : @types.ImageF,
   levels~ : Int32 = 1,
@@ -378,6 +392,7 @@ pub fn haar_transform_2d_f(
 
 ///|
 /// float 逆 Haar 小波变换。输出 ImageF。
+/// @see haar_inverse_transform_2d 8-bit 版本，本函数为 ImageF 变体
 pub fn haar_inverse_transform_2d_f(result : HaarWaveletResult) -> @types.ImageF {
   let img8 = haar_inverse_transform_2d(result)
   let w = img8.width
@@ -398,6 +413,7 @@ pub fn haar_inverse_transform_2d_f(result : HaarWaveletResult) -> @types.ImageF 
 
 ///|
 /// float Haar 去噪。
+/// @see haar_denoise 8-bit 版本，本函数为 ImageF 变体
 pub fn haar_denoise_f(
   img : @types.ImageF,
   threshold~ : Float = 10.0F,

@@ -7,6 +7,7 @@
 // 支持 Image16 / ImageF 两种类型
 
 ///|
+/// @see rotate_90 8-bit 版本，本函数为 Image16 变体
 pub fn rotate_90_16(img : @types.Image16) -> @types.Image16 {
   let ch = img.channels
   let new_w = img.height
@@ -33,6 +34,7 @@ pub fn rotate_90_16(img : @types.Image16) -> @types.Image16 {
 }
 
 ///|
+/// @see rotate_90 8-bit 版本，本函数为 ImageF 变体
 pub fn rotate_90_f(img : @types.ImageF) -> @types.ImageF {
   let ch = img.channels
   let new_w = img.height
@@ -59,6 +61,7 @@ pub fn rotate_90_f(img : @types.ImageF) -> @types.ImageF {
 }
 
 ///|
+/// @see rotate_180 8-bit 版本，本函数为 Image16 变体
 pub fn rotate_180_16(img : @types.Image16) -> @types.Image16 {
   let ch = img.channels
   let bpp = ch * 2
@@ -83,6 +86,7 @@ pub fn rotate_180_16(img : @types.Image16) -> @types.Image16 {
 }
 
 ///|
+/// @see rotate_180 8-bit 版本，本函数为 ImageF 变体
 pub fn rotate_180_f(img : @types.ImageF) -> @types.ImageF {
   let ch = img.channels
   let bpp = ch * 4
@@ -107,6 +111,7 @@ pub fn rotate_180_f(img : @types.ImageF) -> @types.ImageF {
 }
 
 ///|
+/// @see rotate_270 8-bit 版本，本函数为 Image16 变体
 pub fn rotate_270_16(img : @types.Image16) -> @types.Image16 {
   let ch = img.channels
   let new_w = img.height
@@ -133,6 +138,7 @@ pub fn rotate_270_16(img : @types.Image16) -> @types.Image16 {
 }
 
 ///|
+/// @see rotate_270 8-bit 版本，本函数为 ImageF 变体
 pub fn rotate_270_f(img : @types.ImageF) -> @types.ImageF {
   let ch = img.channels
   let new_w = img.height
@@ -159,6 +165,7 @@ pub fn rotate_270_f(img : @types.ImageF) -> @types.ImageF {
 }
 
 ///|
+/// @see flip_horizontal 8-bit 版本，本函数为 Image16 变体
 pub fn flip_horizontal_16(img : @types.Image16) -> @types.Image16 {
   let ch = img.channels
   let bpp = ch * 2
@@ -182,6 +189,7 @@ pub fn flip_horizontal_16(img : @types.Image16) -> @types.Image16 {
 }
 
 ///|
+/// @see flip_horizontal 8-bit 版本，本函数为 ImageF 变体
 pub fn flip_horizontal_f(img : @types.ImageF) -> @types.ImageF {
   let ch = img.channels
   let bpp = ch * 4
@@ -206,6 +214,7 @@ pub fn flip_horizontal_f(img : @types.ImageF) -> @types.ImageF {
 
 ///|
 /// 16-bit 垂直翻转。上下镜像。
+/// @see flip_vertical 8-bit 版本，本函数为 Image16 变体
 pub fn flip_vertical_16(img : @types.Image16) -> @types.Image16 {
   let ch = img.channels
   let bpp = ch * 2
@@ -230,6 +239,7 @@ pub fn flip_vertical_16(img : @types.Image16) -> @types.Image16 {
 
 ///|
 /// float 垂直翻转。上下镜像。
+/// @see flip_vertical 8-bit 版本，本函数为 ImageF 变体
 pub fn flip_vertical_f(img : @types.ImageF) -> @types.ImageF {
   let ch = img.channels
   let bpp = ch * 4
@@ -254,6 +264,7 @@ pub fn flip_vertical_f(img : @types.ImageF) -> @types.ImageF {
 
 ///|
 /// 16-bit 转置。交换宽高，(x,y) -> (y,x)。
+/// @see transpose 8-bit 版本，本函数为 Image16 变体
 pub fn transpose_16(img : @types.Image16) -> @types.Image16 {
   let ch = img.channels
   let new_w = img.height
@@ -279,6 +290,7 @@ pub fn transpose_16(img : @types.Image16) -> @types.Image16 {
 
 ///|
 /// float 转置。交换宽高，(x,y) -> (y,x)。
+/// @see transpose 8-bit 版本，本函数为 ImageF 变体
 pub fn transpose_f(img : @types.ImageF) -> @types.ImageF {
   let ch = img.channels
   let new_w = img.height

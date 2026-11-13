@@ -101,6 +101,7 @@ fn uniform_lbp_map(lbp_val : Int32) -> Int32 {
 
 ///|
 /// 16-bit 基本局部二值模式（LBP）。输出 0-255 的编码值，存储为 16-bit。
+/// @see lbp 8-bit 版本，本函数为 Image16 变体
 pub fn lbp_16(img : @types.Image16) -> @types.Image16 raise @types.LoadError {
   // 输入验证
   if img.width <= 0 || img.height <= 0 {
@@ -214,6 +215,7 @@ pub fn lbp_16(img : @types.Image16) -> @types.Image16 raise @types.LoadError {
 
 ///|
 /// float 基本局部二值模式（LBP）。输出归一化到 0.0-1.0（LBP值/255）。
+/// @see lbp 8-bit 版本，本函数为 ImageF 变体
 pub fn lbp_f(img : @types.ImageF) -> @types.ImageF raise @types.LoadError {
   // 输入验证
   if img.width <= 0 || img.height <= 0 {
@@ -338,6 +340,7 @@ pub fn lbp_f(img : @types.ImageF) -> @types.ImageF raise @types.LoadError {
 
 ///|
 /// 16-bit 均匀局部二值模式（Uniform LBP）。输出 0-9 的标签值，存储为 16-bit。
+/// @see lbp_uniform 8-bit 版本，本函数为 Image16 变体
 pub fn lbp_uniform_16(
   img : @types.Image16,
 ) -> @types.Image16 raise @types.LoadError {
@@ -457,6 +460,7 @@ pub fn lbp_uniform_16(
 
 ///|
 /// float 均匀局部二值模式（Uniform LBP）。输出归一化到 0.0-1.0（标签/9）。
+/// @see lbp_uniform 8-bit 版本，本函数为 ImageF 变体
 pub fn lbp_uniform_f(
   img : @types.ImageF,
 ) -> @types.ImageF raise @types.LoadError {

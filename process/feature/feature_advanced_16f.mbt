@@ -64,6 +64,7 @@ fn imgf_to_img8_feat(img : @types.ImageF) -> @types.Image {
 
 ///|
 /// 16-bit Harris 角点检测。
+/// @see harris_corners 8-bit 版本，本函数为 Image16 变体
 pub fn harris_corners_16(
   img : @types.Image16,
   k~ : Float = 0.04F,
@@ -112,6 +113,7 @@ pub fn harris_corners_16(
 
 ///|
 /// float Harris 角点检测。
+/// @see harris_corners 8-bit 版本，本函数为 ImageF 变体
 pub fn harris_corners_f(
   img : @types.ImageF,
   k~ : Float = 0.04F,
@@ -160,6 +162,7 @@ pub fn harris_corners_f(
 
 ///|
 /// 16-bit SIFT 特征检测。
+/// @see sift_detect 8-bit 版本，本函数为 Image16 变体
 pub fn sift_detect_16(
   img : @types.Image16,
   max_features~ : Int32 = 500,
@@ -204,6 +207,7 @@ pub fn sift_detect_16(
 
 ///|
 /// float SIFT 特征检测。
+/// @see sift_detect 8-bit 版本，本函数为 ImageF 变体
 pub fn sift_detect_f(
   img : @types.ImageF,
   max_features~ : Int32 = 500,
@@ -248,6 +252,7 @@ pub fn sift_detect_f(
 
 ///|
 /// 16-bit ORB 特征检测。
+/// @see orb_detect 8-bit 版本，本函数为 Image16 变体
 pub fn orb_detect_16(
   img : @types.Image16,
   max_features~ : Int32 = 500,
@@ -292,6 +297,7 @@ pub fn orb_detect_16(
 
 ///|
 /// float ORB 特征检测。
+/// @see orb_detect 8-bit 版本，本函数为 ImageF 变体
 pub fn orb_detect_f(
   img : @types.ImageF,
   max_features~ : Int32 = 500,
@@ -334,6 +340,7 @@ pub fn orb_detect_f(
 
 ///|
 /// 16-bit Shi-Tomasi 角点检测。
+/// @see good_features_to_track 8-bit 版本，本函数为 Image16 变体
 pub fn good_features_to_track_16(
   img : @types.Image16,
   max_corners : Int32,
@@ -384,6 +391,7 @@ pub fn good_features_to_track_16(
 
 ///|
 /// float Shi-Tomasi 角点检测。
+/// @see good_features_to_track 8-bit 版本，本函数为 ImageF 变体
 pub fn good_features_to_track_f(
   img : @types.ImageF,
   max_corners : Int32,

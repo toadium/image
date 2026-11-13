@@ -8,6 +8,7 @@
 
 ///|
 /// 提取轮廓 16-bit 版本。
+/// @see find_contours 8-bit 版本，本函数为 Image16 变体
 pub fn find_contours_16(
   img : @types.Image16,
 ) -> Array[Contour] raise @types.LoadError {
@@ -59,6 +60,7 @@ pub fn find_contours_16(
 
 ///|
 /// 提取轮廓 float 版本。
+/// @see find_contours 8-bit 版本，本函数为 ImageF 变体
 pub fn find_contours_f(
   img : @types.ImageF,
 ) -> Array[Contour] raise @types.LoadError {
@@ -169,6 +171,7 @@ fn trace_boundary_16f(
 
 ///|
 /// 绘制轮廓 16-bit 版本。
+/// @see draw_contours 8-bit 版本，本函数为 Image16 变体
 pub fn draw_contours_16(
   img : @types.Image16,
   contours : Array[Contour],
@@ -231,6 +234,7 @@ pub fn draw_contours_16(
 
 ///|
 /// 绘制轮廓 float 版本。
+/// @see draw_contours 8-bit 版本，本函数为 ImageF 变体
 pub fn draw_contours_f(
   img : @types.ImageF,
   contours : Array[Contour],

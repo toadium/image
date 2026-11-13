@@ -100,6 +100,7 @@ fn sample_bilinear_f(
 
 ///|
 /// 16-bit 仿射变换。
+/// @see warp_affine 8-bit 版本，本函数为 Image16 变体
 pub fn warp_affine_16(
   img : @types.Image16,
   matrix : (Float, Float, Float, Float, Float, Float),
@@ -142,6 +143,7 @@ pub fn warp_affine_16(
 
 ///|
 /// float 仿射变换。
+/// @see warp_affine 8-bit 版本，本函数为 ImageF 变体
 pub fn warp_affine_f(
   img : @types.ImageF,
   matrix : (Float, Float, Float, Float, Float, Float),
@@ -180,6 +182,7 @@ pub fn warp_affine_f(
 
 ///|
 /// 16-bit 透视变换。
+/// @see warp_perspective 8-bit 版本，本函数为 Image16 变体
 pub fn warp_perspective_16(
   img : @types.Image16,
   matrix : PerspectiveMatrix,
@@ -223,6 +226,7 @@ pub fn warp_perspective_16(
 
 ///|
 /// float 透视变换。
+/// @see warp_perspective 8-bit 版本，本函数为 ImageF 变体
 pub fn warp_perspective_f(
   img : @types.ImageF,
   matrix : PerspectiveMatrix,
@@ -262,6 +266,7 @@ pub fn warp_perspective_f(
 
 ///|
 /// 16-bit 图像缩放。
+/// @see resize 8-bit 版本，本函数为 Image16 变体
 pub fn resize_16(
   img : @types.Image16,
   new_w : Int32,
@@ -303,6 +308,7 @@ pub fn resize_16(
 
 ///|
 /// float 图像缩放。
+/// @see resize 8-bit 版本，本函数为 ImageF 变体
 pub fn resize_f(
   img : @types.ImageF,
   new_w : Int32,

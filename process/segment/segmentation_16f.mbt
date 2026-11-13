@@ -64,6 +64,7 @@ fn imgf_to_img8(img : @types.ImageF) -> @types.Image {
 
 ///|
 /// 16-bit Watershed 分割。
+/// @see watershed 8-bit 版本，本函数为 Image16 变体
 pub fn watershed_16(
   img : @types.Image16,
   markers : Array[Int32],
@@ -74,6 +75,7 @@ pub fn watershed_16(
 
 ///|
 /// 16-bit 自动 Watershed 分割。
+/// @see watershed_auto 8-bit 版本，本函数为 Image16 变体
 pub fn watershed_auto_16(
   img : @types.Image16,
 ) -> (Array[Int32], Int32) raise @types.LoadError {
@@ -85,6 +87,7 @@ pub fn watershed_auto_16(
 
 ///|
 /// float Watershed 分割。
+/// @see watershed 8-bit 版本，本函数为 ImageF 变体
 pub fn watershed_f(
   img : @types.ImageF,
   markers : Array[Int32],
@@ -95,6 +98,7 @@ pub fn watershed_f(
 
 ///|
 /// float 自动 Watershed 分割。
+/// @see watershed_auto 8-bit 版本，本函数为 ImageF 变体
 pub fn watershed_auto_f(
   img : @types.ImageF,
 ) -> (Array[Int32], Int32) raise @types.LoadError {
@@ -106,6 +110,7 @@ pub fn watershed_auto_f(
 
 ///|
 /// 16-bit K-means 图像分割。
+/// @see kmeans_segment 8-bit 版本，本函数为 Image16 变体
 pub fn kmeans_segment_16(
   img : @types.Image16,
   k : Int32,
@@ -119,6 +124,7 @@ pub fn kmeans_segment_16(
 
 ///|
 /// float K-means 图像分割。
+/// @see kmeans_segment 8-bit 版本，本函数为 ImageF 变体
 pub fn kmeans_segment_f(
   img : @types.ImageF,
   k : Int32,
@@ -132,6 +138,7 @@ pub fn kmeans_segment_f(
 
 ///|
 /// 16-bit SLIC 超像素分割。
+/// @see slic 8-bit 版本，本函数为 Image16 变体
 pub fn slic_16(
   img : @types.Image16,
   k : Int32,
@@ -146,6 +153,7 @@ pub fn slic_16(
 
 ///|
 /// float SLIC 超像素分割。
+/// @see slic 8-bit 版本，本函数为 ImageF 变体
 pub fn slic_f(
   img : @types.ImageF,
   k : Int32,

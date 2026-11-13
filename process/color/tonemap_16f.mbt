@@ -42,6 +42,7 @@ fn log_f_tm(x : Float) -> Float {
 /// Gamma 色调映射（float 输出）。
 /// 先归一化到 [0,1]，再应用 gamma 校正：L_out = L^(1/gamma)。
 /// gamma > 1 提亮暗部，gamma < 1 压暗。
+/// @see gamma_tonemap 基础版本，本函数为 ImageF 变体
 pub fn gamma_tonemap_f(
   imgf : @types.ImageF,
   gamma : Float,
@@ -123,6 +124,7 @@ pub fn gamma_tonemap_f(
 /// Reinhard 全局色调映射（float 输出）。
 /// key 控制整体亮度（默认 0.18），值越大越亮。
 /// 公式：L_out = L_scaled / (1 + L_scaled)，其中 L_scaled = key * L / L_avg。
+/// @see reinhard_tonemap 基础版本，本函数为 ImageF 变体
 pub fn reinhard_tonemap_f(
   imgf : @types.ImageF,
   key~ : Float = 0.18F,
@@ -193,6 +195,7 @@ pub fn reinhard_tonemap_f(
 ///|
 /// Gamma 色调映射（16-bit 输出）。
 /// 输入 ImageF，输出 Image16（0-65535）。
+/// @see gamma_tonemap 基础版本，本函数为 Image16 变体
 pub fn gamma_tonemap_16(
   imgf : @types.ImageF,
   gamma : Float,
@@ -275,6 +278,7 @@ pub fn gamma_tonemap_16(
 ///|
 /// Reinhard 全局色调映射（16-bit 输出）。
 /// 输入 ImageF，输出 Image16（0-65535）。
+/// @see reinhard_tonemap 基础版本，本函数为 Image16 变体
 pub fn reinhard_tonemap_16(
   imgf : @types.ImageF,
   key~ : Float = 0.18F,

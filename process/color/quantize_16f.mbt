@@ -55,6 +55,7 @@ fn dist_sq_f(
 
 ///|
 /// K-means 色彩量化 16-bit 版本。
+/// @see kmeans_quantize 8-bit 版本，本函数为 Image16 变体
 pub fn kmeans_quantize_16(
   img : @types.Image16,
   k : Int32,
@@ -173,6 +174,7 @@ pub fn kmeans_quantize_16(
 
 ///|
 /// K-means 色彩量化 float 版本。
+/// @see kmeans_quantize 8-bit 版本，本函数为 ImageF 变体
 pub fn kmeans_quantize_f(
   img : @types.ImageF,
   k : Int32,
@@ -301,6 +303,7 @@ pub fn kmeans_quantize_f(
 
 ///|
 /// Floyd-Steinberg 误差扩散抖动量化 16-bit 版本。
+/// @see floyd_steinberg 8-bit 版本，本函数为 Image16 变体
 pub fn floyd_steinberg_16(
   img : @types.Image16,
   levels : Int32,
@@ -406,6 +409,7 @@ pub fn floyd_steinberg_16(
 
 ///|
 /// Floyd-Steinberg 误差扩散抖动量化 float 版本。
+/// @see floyd_steinberg 8-bit 版本，本函数为 ImageF 变体
 pub fn floyd_steinberg_f(
   img : @types.ImageF,
   levels : Int32,
@@ -589,6 +593,7 @@ fn bucket_average_mc16(
 
 ///|
 /// Median Cut 色彩量化 16-bit 版本。
+/// @see median_cut 8-bit 版本，本函数为 Image16 变体
 pub fn median_cut_16(
   img : @types.Image16,
   num_colors : Int32,
@@ -784,6 +789,7 @@ fn bucket_average_mcf(
 
 ///|
 /// Median Cut 色彩量化 float 版本。
+/// @see median_cut 8-bit 版本，本函数为 ImageF 变体
 pub fn median_cut_f(
   img : @types.ImageF,
   num_colors : Int32,

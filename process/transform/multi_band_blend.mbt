@@ -237,6 +237,7 @@ fn collapse_laplacian_pyramid_f(
 
 ///|
 /// 多频带融合 16-bit 版本。
+/// @see multi_band_blend 8-bit 版本，本函数为 Image16 变体
 pub fn multi_band_blend_16(
   img_a : @types.Image16,
   img_b : @types.Image16,
@@ -320,6 +321,7 @@ pub fn multi_band_blend_16(
 
 ///|
 /// 多频带融合 float 版本。
+/// @see multi_band_blend 8-bit 版本，本函数为 ImageF 变体
 pub fn multi_band_blend_f(
   img_a : @types.ImageF,
   img_b : @types.ImageF,

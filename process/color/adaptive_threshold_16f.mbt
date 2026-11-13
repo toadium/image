@@ -14,6 +14,7 @@
 ///|
 /// 16-bit 自适应阈值（均值法）。block_size 必须为 >=3 的奇数。
 /// 输出二值图像（0 或 65535），alpha 通道不变。
+/// @see adaptive_threshold_mean 8-bit 版本，本函数为 Image16 变体
 pub fn adaptive_threshold_mean_16(
   img : @types.Image16,
   block_size : Int32,
@@ -118,6 +119,7 @@ pub fn adaptive_threshold_mean_16(
 ///|
 /// float 自适应阈值（均值法）。c 为浮点偏移量。
 /// 输出二值图像（0.0 或 1.0），alpha 通道不变。
+/// @see adaptive_threshold_mean 8-bit 版本，本函数为 ImageF 变体
 pub fn adaptive_threshold_mean_f(
   img : @types.ImageF,
   block_size : Int32,
@@ -207,6 +209,7 @@ pub fn adaptive_threshold_mean_f(
 
 ///|
 /// 16-bit 自适应阈值（高斯加权法）。
+/// @see adaptive_threshold_gaussian 8-bit 版本，本函数为 Image16 变体
 pub fn adaptive_threshold_gaussian_16(
   img : @types.Image16,
   block_size : Int32,
@@ -324,6 +327,7 @@ pub fn adaptive_threshold_gaussian_16(
 
 ///|
 /// float 自适应阈值（高斯加权法）。
+/// @see adaptive_threshold_gaussian 8-bit 版本，本函数为 ImageF 变体
 pub fn adaptive_threshold_gaussian_f(
   img : @types.ImageF,
   block_size : Int32,
@@ -428,6 +432,7 @@ pub fn adaptive_threshold_gaussian_f(
 ///|
 /// 16-bit Otsu 大津法自动阈值。使用 65536-bin 直方图。
 /// 输出二值图像（0 或 65535）。
+/// @see threshold_otsu 8-bit 版本，本函数为 Image16 变体
 pub fn threshold_otsu_16(
   img : @types.Image16,
 ) -> @types.Image16 raise @types.LoadError {
@@ -517,6 +522,7 @@ pub fn threshold_otsu_16(
 ///|
 /// float Otsu 大津法自动阈值。将值归一化到 0-255 后使用 256-bin 直方图。
 /// 输出二值图像（0.0 或 1.0）。
+/// @see threshold_otsu 8-bit 版本，本函数为 ImageF 变体
 pub fn threshold_otsu_f(
   img : @types.ImageF,
 ) -> @types.ImageF raise @types.LoadError {

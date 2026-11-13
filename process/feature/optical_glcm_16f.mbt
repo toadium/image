@@ -63,6 +63,7 @@ fn imgf_to_img8_of(img : @types.ImageF) -> @types.Image {
 
 ///|
 /// 16-bit Lucas-Kanade 光流。
+/// @see lucas_kanade 8-bit 版本，本函数为 Image16 变体
 pub fn lucas_kanade_16(
   prev : @types.Image16,
   next : @types.Image16,
@@ -139,6 +140,7 @@ pub fn lucas_kanade_16(
 
 ///|
 /// float Lucas-Kanade 光流。
+/// @see lucas_kanade 8-bit 版本，本函数为 ImageF 变体
 pub fn lucas_kanade_f(
   prev : @types.ImageF,
   next : @types.ImageF,
@@ -215,6 +217,7 @@ pub fn lucas_kanade_f(
 
 ///|
 /// 16-bit Horn-Schunck 密集光流。
+/// @see horn_schunck 8-bit 版本，本函数为 Image16 变体
 pub fn horn_schunck_16(
   prev : @types.Image16,
   next : @types.Image16,
@@ -283,6 +286,7 @@ pub fn horn_schunck_16(
 
 ///|
 /// float Horn-Schunck 密集光流。
+/// @see horn_schunck 8-bit 版本，本函数为 ImageF 变体
 pub fn horn_schunck_f(
   prev : @types.ImageF,
   next : @types.ImageF,
@@ -351,6 +355,7 @@ pub fn horn_schunck_f(
 
 ///|
 /// 16-bit 灰度共生矩阵。
+/// @see compute_glcm 8-bit 版本，本函数为 Image16 变体
 pub fn compute_glcm_16(
   img : @types.Image16,
   dx : Int32,
@@ -389,6 +394,7 @@ pub fn compute_glcm_16(
 
 ///|
 /// float 灰度共生矩阵。
+/// @see compute_glcm 8-bit 版本，本函数为 ImageF 变体
 pub fn compute_glcm_f(
   img : @types.ImageF,
   dx : Int32,
@@ -427,6 +433,7 @@ pub fn compute_glcm_f(
 
 ///|
 /// 16-bit 多方向 GLCM 特征。
+/// @see glcm_features_multi_direction 8-bit 版本，本函数为 Image16 变体
 pub fn glcm_features_multi_direction_16(
   img : @types.Image16,
   levels~ : Int32 = 256,
@@ -465,6 +472,7 @@ pub fn glcm_features_multi_direction_16(
 
 ///|
 /// float 多方向 GLCM 特征。
+/// @see glcm_features_multi_direction 8-bit 版本，本函数为 ImageF 变体
 pub fn glcm_features_multi_direction_f(
   img : @types.ImageF,
   levels~ : Int32 = 256,

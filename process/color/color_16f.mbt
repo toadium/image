@@ -28,6 +28,7 @@ fn write_f32_le(buf : Array[Byte], offset : Int32, val : Float) -> Unit {
 
 ///|
 /// 16-bit 亮度调整。delta ∈ [-65535, 65535]
+/// @see adjust_brightness 8-bit 版本，本函数为 Image16 变体
 pub fn adjust_brightness_16(
   img : @types.Image16,
   delta : Int32,
@@ -86,6 +87,7 @@ pub fn adjust_brightness_16(
 
 ///|
 /// float 亮度调整。delta 为浮点偏移量
+/// @see adjust_brightness 8-bit 版本，本函数为 ImageF 变体
 pub fn adjust_brightness_f(
   img : @types.ImageF,
   delta : Float,
@@ -138,6 +140,7 @@ pub fn adjust_brightness_f(
 
 ///|
 /// 16-bit 对比度调整。factor=1.0 为原图，以 32768 为中心
+/// @see adjust_contrast 8-bit 版本，本函数为 Image16 变体
 pub fn adjust_contrast_16(
   img : @types.Image16,
   factor : Float,
@@ -202,6 +205,7 @@ pub fn adjust_contrast_16(
 
 ///|
 /// float 对比度调整。factor=1.0 为原图，以 0.5 为中心
+/// @see adjust_contrast 8-bit 版本，本函数为 ImageF 变体
 pub fn adjust_contrast_f(
   img : @types.ImageF,
   factor : Float,
@@ -260,6 +264,7 @@ pub fn adjust_contrast_f(
 ///|
 /// 16-bit Gamma 校正。gamma=1.0 为原图，>1 变暗，<1 变亮。
 /// 以 65535 为满量程。仅影响颜色通道，alpha 不变。
+/// @see adjust_gamma 8-bit 版本，本函数为 Image16 变体
 pub fn adjust_gamma_16(
   img : @types.Image16,
   gamma : Float,
@@ -325,6 +330,7 @@ pub fn adjust_gamma_16(
 ///|
 /// float Gamma 校正。gamma=1.0 为原图，>1 变暗，<1 变亮。
 /// 以 1.0 为满量程。仅影响颜色通道，alpha 不变。
+/// @see adjust_gamma 8-bit 版本，本函数为 ImageF 变体
 pub fn adjust_gamma_f(
   img : @types.ImageF,
   gamma : Float,
@@ -387,6 +393,7 @@ pub fn adjust_gamma_f(
 
 ///|
 /// 16-bit 反色（负片）。new = 65535 - old。仅影响颜色通道，alpha 不变。
+/// @see invert 8-bit 版本，本函数为 Image16 变体
 pub fn invert_16(img : @types.Image16) -> @types.Image16 raise @types.LoadError {
   // 输入验证
   if img.width <= 0 || img.height <= 0 {
@@ -433,6 +440,7 @@ pub fn invert_16(img : @types.Image16) -> @types.Image16 raise @types.LoadError 
 
 ///|
 /// float 反色（负片）。new = 1.0 - old。仅影响颜色通道，alpha 不变。
+/// @see invert 8-bit 版本，本函数为 ImageF 变体
 pub fn invert_f(img : @types.ImageF) -> @types.ImageF raise @types.LoadError {
   // 输入验证
   if img.width <= 0 || img.height <= 0 {
@@ -481,6 +489,7 @@ pub fn invert_f(img : @types.ImageF) -> @types.ImageF raise @types.LoadError {
 ///|
 /// 16-bit 转灰度。ITU-R BT.601: Y = 0.299R + 0.587G + 0.114B。
 /// 输出 channels=1 的 16-bit 灰度图。
+/// @see to_grayscale 8-bit 版本，本函数为 Image16 变体
 pub fn to_grayscale_16(
   img : @types.Image16,
 ) -> @types.Image16 raise @types.LoadError {
@@ -535,6 +544,7 @@ pub fn to_grayscale_16(
 ///|
 /// float 转灰度。ITU-R BT.601: Y = 0.299R + 0.587G + 0.114B。
 /// 输出 channels=1 的 float 灰度图。
+/// @see to_grayscale 8-bit 版本，本函数为 ImageF 变体
 pub fn to_grayscale_f(
   img : @types.ImageF,
 ) -> @types.ImageF raise @types.LoadError {

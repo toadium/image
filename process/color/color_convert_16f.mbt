@@ -12,6 +12,7 @@
 
 ///|
 /// 16-bit 去除 alpha 通道（RGBA → RGB，channels=3）
+/// @see to_rgb 8-bit 版本，本函数为 Image16 变体
 pub fn to_rgb_16(img : @types.Image16) -> @types.Image16 raise @types.LoadError {
   // 输入验证
   if img.width < 0 || img.height < 0 {
@@ -60,6 +61,7 @@ pub fn to_rgb_16(img : @types.Image16) -> @types.Image16 raise @types.LoadError 
 
 ///|
 /// float 去除 alpha 通道（RGBA → RGB，channels=3）
+/// @see to_rgb 8-bit 版本，本函数为 ImageF 变体
 pub fn to_rgb_f(img : @types.ImageF) -> @types.ImageF raise @types.LoadError {
   // 输入验证
   if img.width <= 0 || img.height <= 0 {
@@ -109,6 +111,7 @@ pub fn to_rgb_f(img : @types.ImageF) -> @types.ImageF raise @types.LoadError {
 
 ///|
 /// 16-bit 添加 alpha 通道（RGB → RGBA，channels=4，alpha=65535）
+/// @see to_rgba 8-bit 版本，本函数为 Image16 变体
 pub fn to_rgba_16(
   img : @types.Image16,
 ) -> @types.Image16 raise @types.LoadError {
@@ -162,6 +165,7 @@ pub fn to_rgba_16(
 
 ///|
 /// float 添加 alpha 通道（RGB → RGBA，channels=4，alpha=1.0）
+/// @see to_rgba 8-bit 版本，本函数为 ImageF 变体
 pub fn to_rgba_f(img : @types.ImageF) -> @types.ImageF raise @types.LoadError {
   // 输入验证
   if img.width <= 0 || img.height <= 0 {
@@ -212,6 +216,7 @@ pub fn to_rgba_f(img : @types.ImageF) -> @types.ImageF raise @types.LoadError {
 
 ///|
 /// 16-bit 预乘 alpha（RGBA → RGBA premultiplied）。要求 channels=4。
+/// @see premultiply_alpha 8-bit 版本，本函数为 Image16 变体
 pub fn premultiply_alpha_16(
   img : @types.Image16,
 ) -> @types.Image16 raise @types.LoadError {
@@ -258,6 +263,7 @@ pub fn premultiply_alpha_16(
 
 ///|
 /// float 预乘 alpha（RGBA → RGBA premultiplied）。要求 channels=4。
+/// @see premultiply_alpha 8-bit 版本，本函数为 ImageF 变体
 pub fn premultiply_alpha_f(
   img : @types.ImageF,
 ) -> @types.ImageF raise @types.LoadError {
@@ -304,6 +310,7 @@ pub fn premultiply_alpha_f(
 
 ///|
 /// 16-bit 反预乘 alpha（RGBA premA → RGBA unpremultiplied）。要求 channels=4。
+/// @see unpremultiply_alpha 8-bit 版本，本函数为 Image16 变体
 pub fn unpremultiply_alpha_16(
   img : @types.Image16,
 ) -> @types.Image16 raise @types.LoadError {
@@ -357,6 +364,7 @@ pub fn unpremultiply_alpha_16(
 
 ///|
 /// float 反预乘 alpha（RGBA premA → RGBA unpremultiplied）。要求 channels=4。
+/// @see unpremultiply_alpha 8-bit 版本，本函数为 ImageF 变体
 pub fn unpremultiply_alpha_f(
   img : @types.ImageF,
 ) -> @types.ImageF raise @types.LoadError {
@@ -412,6 +420,7 @@ pub fn unpremultiply_alpha_f(
 
 ///|
 /// 16-bit RGB → YCbCr（ITU-R BT.601）。输入范围 0-65535，输出范围 0-65535。
+/// @see rgb_to_ycbcr 8-bit 版本，本函数为 Image16 变体
 pub fn rgb_to_ycbcr_16(
   r : Int32,
   g : Int32,
@@ -435,6 +444,7 @@ pub fn rgb_to_ycbcr_16(
 
 ///|
 /// float RGB → YCbCr（ITU-R BT.601）。输入范围 0.0-1.0，输出范围 0.0-1.0。
+/// @see rgb_to_ycbcr 8-bit 版本，本函数为 ImageF 变体
 pub fn rgb_to_ycbcr_f(
   r : Float,
   g : Float,
@@ -458,6 +468,7 @@ pub fn rgb_to_ycbcr_f(
 
 ///|
 /// 16-bit YCbCr → RGB（ITU-R BT.601）。输入范围 0-65535。
+/// @see ycbcr_to_rgb 8-bit 版本，本函数为 Image16 变体
 pub fn ycbcr_to_rgb_16(
   y : Int32,
   cb : Int32,
@@ -483,6 +494,7 @@ pub fn ycbcr_to_rgb_16(
 
 ///|
 /// float YCbCr → RGB（ITU-R BT.601）。输入范围 0.0-1.0。
+/// @see ycbcr_to_rgb 8-bit 版本，本函数为 ImageF 变体
 pub fn ycbcr_to_rgb_f(
   y : Float,
   cb : Float,
@@ -508,6 +520,7 @@ pub fn ycbcr_to_rgb_f(
 
 ///|
 /// 16-bit RGB → CMYK。输入范围 0-65535，输出范围 0-65535。
+/// @see rgb_to_cmyk 8-bit 版本，本函数为 Image16 变体
 pub fn rgb_to_cmyk_16(
   r : Int32,
   g : Int32,
@@ -538,6 +551,7 @@ pub fn rgb_to_cmyk_16(
 
 ///|
 /// float RGB → CMYK。输入范围 0.0-1.0，输出范围 0.0-1.0。
+/// @see rgb_to_cmyk 8-bit 版本，本函数为 ImageF 变体
 pub fn rgb_to_cmyk_f(
   r : Float,
   g : Float,
@@ -563,6 +577,7 @@ pub fn rgb_to_cmyk_f(
 
 ///|
 /// 16-bit CMYK → RGB。输入范围 0-65535。
+/// @see cmyk_to_rgb 8-bit 版本，本函数为 Image16 变体
 pub fn cmyk_to_rgb_16(
   c : Int32,
   m : Int32,
@@ -594,6 +609,7 @@ pub fn cmyk_to_rgb_16(
 
 ///|
 /// float CMYK → RGB。输入范围 0.0-1.0。
+/// @see cmyk_to_rgb 8-bit 版本，本函数为 ImageF 变体
 pub fn cmyk_to_rgb_f(
   c : Float,
   m : Float,

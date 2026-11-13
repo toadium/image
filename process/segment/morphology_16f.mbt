@@ -15,6 +15,7 @@
 
 ///|
 /// 16-bit 腐蚀。每个像素取 3x3 邻域最小值。
+/// @see erode 8-bit 版本，本函数为 Image16 变体
 pub fn erode_16(img : @types.Image16) -> @types.Image16 {
   let ch = img.channels
   let w = img.width
@@ -95,6 +96,7 @@ pub fn erode_16(img : @types.Image16) -> @types.Image16 {
 
 ///|
 /// float 腐蚀。每个像素取 3x3 邻域最小值。
+/// @see erode 8-bit 版本，本函数为 ImageF 变体
 pub fn erode_f(img : @types.ImageF) -> @types.ImageF {
   let ch = img.channels
   let w = img.width
@@ -173,6 +175,7 @@ pub fn erode_f(img : @types.ImageF) -> @types.ImageF {
 
 ///|
 /// 16-bit 膨胀。每个像素取 3x3 邻域最大值。
+/// @see dilate 8-bit 版本，本函数为 Image16 变体
 pub fn dilate_16(img : @types.Image16) -> @types.Image16 {
   let ch = img.channels
   let w = img.width
@@ -251,6 +254,7 @@ pub fn dilate_16(img : @types.Image16) -> @types.Image16 {
 
 ///|
 /// float 膨胀。每个像素取 3x3 邻域最大值。
+/// @see dilate 8-bit 版本，本函数为 ImageF 变体
 pub fn dilate_f(img : @types.ImageF) -> @types.ImageF {
   let ch = img.channels
   let w = img.width
@@ -331,30 +335,35 @@ pub fn dilate_f(img : @types.ImageF) -> @types.ImageF {
 
 ///|
 /// 16-bit 开运算（先腐蚀后膨胀）。
+/// @see morph_open 8-bit 版本，本函数为 Image16 变体
 pub fn morph_open_16(img : @types.Image16) -> @types.Image16 {
   dilate_16(erode_16(img))
 }
 
 ///|
 /// float 开运算（先腐蚀后膨胀）。
+/// @see morph_open 8-bit 版本，本函数为 ImageF 变体
 pub fn morph_open_f(img : @types.ImageF) -> @types.ImageF {
   dilate_f(erode_f(img))
 }
 
 ///|
 /// 16-bit 闭运算（先膨胀后腐蚀）。
+/// @see morph_close 8-bit 版本，本函数为 Image16 变体
 pub fn morph_close_16(img : @types.Image16) -> @types.Image16 {
   erode_16(dilate_16(img))
 }
 
 ///|
 /// float 闭运算（先膨胀后腐蚀）。
+/// @see morph_close 8-bit 版本，本函数为 ImageF 变体
 pub fn morph_close_f(img : @types.ImageF) -> @types.ImageF {
   erode_f(dilate_f(img))
 }
 
 ///|
 /// 16-bit 形态学梯度（dilate - erode）。
+/// @see morph_gradient 8-bit 版本，本函数为 Image16 变体
 pub fn morph_gradient_16(img : @types.Image16) -> @types.Image16 {
   let dilated = dilate_16(img)
   let eroded = erode_16(img)
@@ -379,6 +388,7 @@ pub fn morph_gradient_16(img : @types.Image16) -> @types.Image16 {
 
 ///|
 /// float 形态学梯度（dilate - erode）。
+/// @see morph_gradient 8-bit 版本，本函数为 ImageF 变体
 pub fn morph_gradient_f(img : @types.ImageF) -> @types.ImageF {
   let dilated = dilate_f(img)
   let eroded = erode_f(img)
@@ -403,6 +413,7 @@ pub fn morph_gradient_f(img : @types.ImageF) -> @types.ImageF {
 
 ///|
 /// 16-bit 顶帽变换（original - open）。
+/// @see morph_tophat 8-bit 版本，本函数为 Image16 变体
 pub fn morph_tophat_16(img : @types.Image16) -> @types.Image16 {
   let opened = morph_open_16(img)
   let ch = img.channels
@@ -425,6 +436,7 @@ pub fn morph_tophat_16(img : @types.Image16) -> @types.Image16 {
 
 ///|
 /// float 顶帽变换（original - open）。
+/// @see morph_tophat 8-bit 版本，本函数为 ImageF 变体
 pub fn morph_tophat_f(img : @types.ImageF) -> @types.ImageF {
   let opened = morph_open_f(img)
   let ch = img.channels
@@ -448,6 +460,7 @@ pub fn morph_tophat_f(img : @types.ImageF) -> @types.ImageF {
 
 ///|
 /// 16-bit 黑帽变换（close - original）。
+/// @see morph_blackhat 8-bit 版本，本函数为 Image16 变体
 pub fn morph_blackhat_16(img : @types.Image16) -> @types.Image16 {
   let closed = morph_close_16(img)
   let ch = img.channels
@@ -470,6 +483,7 @@ pub fn morph_blackhat_16(img : @types.Image16) -> @types.Image16 {
 
 ///|
 /// float 黑帽变换（close - original）。
+/// @see morph_blackhat 8-bit 版本，本函数为 ImageF 变体
 pub fn morph_blackhat_f(img : @types.ImageF) -> @types.ImageF {
   let closed = morph_close_f(img)
   let ch = img.channels
@@ -495,6 +509,7 @@ pub fn morph_blackhat_f(img : @types.ImageF) -> @types.ImageF {
 
 ///|
 /// 16-bit 自定义结构元素腐蚀。
+/// @see erode_custom 8-bit 版本，本函数为 Image16 变体
 pub fn erode_custom_16(
   img : @types.Image16,
   se : StructuringElement,
@@ -541,6 +556,7 @@ pub fn erode_custom_16(
 
 ///|
 /// float 自定义结构元素腐蚀。
+/// @see erode_custom 8-bit 版本，本函数为 ImageF 变体
 pub fn erode_custom_f(
   img : @types.ImageF,
   se : StructuringElement,
@@ -587,6 +603,7 @@ pub fn erode_custom_f(
 
 ///|
 /// 16-bit 自定义结构元素膨胀。
+/// @see dilate_custom 8-bit 版本，本函数为 Image16 变体
 pub fn dilate_custom_16(
   img : @types.Image16,
   se : StructuringElement,
@@ -633,6 +650,7 @@ pub fn dilate_custom_16(
 
 ///|
 /// float 自定义结构元素膨胀。
+/// @see dilate_custom 8-bit 版本，本函数为 ImageF 变体
 pub fn dilate_custom_f(
   img : @types.ImageF,
   se : StructuringElement,
@@ -679,6 +697,7 @@ pub fn dilate_custom_f(
 
 ///|
 /// 16-bit 自定义结构元素开运算。
+/// @see morph_open_custom 8-bit 版本，本函数为 Image16 变体
 pub fn morph_open_custom_16(
   img : @types.Image16,
   se : StructuringElement,
@@ -688,6 +707,7 @@ pub fn morph_open_custom_16(
 
 ///|
 /// float 自定义结构元素开运算。
+/// @see morph_open_custom 8-bit 版本，本函数为 ImageF 变体
 pub fn morph_open_custom_f(
   img : @types.ImageF,
   se : StructuringElement,
@@ -697,6 +717,7 @@ pub fn morph_open_custom_f(
 
 ///|
 /// 16-bit 自定义结构元素闭运算。
+/// @see morph_close_custom 8-bit 版本，本函数为 Image16 变体
 pub fn morph_close_custom_16(
   img : @types.Image16,
   se : StructuringElement,
@@ -706,6 +727,7 @@ pub fn morph_close_custom_16(
 
 ///|
 /// float 自定义结构元素闭运算。
+/// @see morph_close_custom 8-bit 版本，本函数为 ImageF 变体
 pub fn morph_close_custom_f(
   img : @types.ImageF,
   se : StructuringElement,

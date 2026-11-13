@@ -115,6 +115,7 @@ fn img8_to_imgf_cb(img : @types.Image) -> @types.ImageF {
 
 ///|
 /// 16-bit 3x3 卷积。
+/// @see convolve 8-bit 版本，本函数为 Image16 变体
 pub fn convolve_16(
   img : @types.Image16,
   kernel : Array[Float],
@@ -159,6 +160,7 @@ pub fn convolve_16(
 
 ///|
 /// float 3x3 卷积。
+/// @see convolve 8-bit 版本，本函数为 ImageF 变体
 pub fn convolve_f(
   img : @types.ImageF,
   kernel : Array[Float],
@@ -203,6 +205,7 @@ pub fn convolve_f(
 
 ///|
 /// 16-bit 双边滤波。
+/// @see bilateral_filter 8-bit 版本，本函数为 Image16 变体
 pub fn bilateral_filter_16(
   img : @types.Image16,
   radius : Int32,
@@ -254,6 +257,7 @@ pub fn bilateral_filter_16(
 
 ///|
 /// float 双边滤波。
+/// @see bilateral_filter 8-bit 版本，本函数为 ImageF 变体
 pub fn bilateral_filter_f(
   img : @types.ImageF,
   radius : Int32,
@@ -305,6 +309,7 @@ pub fn bilateral_filter_f(
 
 ///|
 /// 16-bit 快速双边滤波。
+/// @see bilateral_filter_fast 8-bit 版本，本函数为 Image16 变体
 pub fn bilateral_filter_fast_16(
   img : @types.Image16,
   radius : Int32,
@@ -364,6 +369,7 @@ pub fn bilateral_filter_fast_16(
 
 ///|
 /// float 快速双边滤波。
+/// @see bilateral_filter_fast 8-bit 版本，本函数为 ImageF 变体
 pub fn bilateral_filter_fast_f(
   img : @types.ImageF,
   radius : Int32,

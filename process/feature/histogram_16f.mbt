@@ -42,6 +42,7 @@ fn write_f32_le_h(buf : Array[Byte], offset : Int32, val : Float) -> Unit {
 
 ///|
 /// 16-bit 直方图。返回 65536 个 bin 的计数数组。彩色图像先转灰度（BT.601）。
+/// @see histogram 8-bit 版本，本函数为 Image16 变体
 pub fn histogram_16(
   img : @types.Image16,
 ) -> Array[Int32] raise @types.LoadError {
@@ -85,6 +86,7 @@ pub fn histogram_16(
 
 ///|
 /// float 直方图。将值归一化到 [0,1] 后分 256 个 bin。彩色图像先转灰度。
+/// @see histogram 8-bit 版本，本函数为 ImageF 变体
 pub fn histogram_f(img : @types.ImageF) -> Array[Int32] raise @types.LoadError {
   // 输入验证
   if img.width <= 0 || img.height <= 0 {
@@ -135,6 +137,7 @@ pub fn histogram_f(img : @types.ImageF) -> Array[Int32] raise @types.LoadError {
 
 ///|
 /// 16-bit 直方图均衡化。基于灰度直方图计算映射 LUT，应用到所有颜色通道。
+/// @see histogram_equalize 8-bit 版本，本函数为 Image16 变体
 pub fn histogram_equalize_16(
   img : @types.Image16,
 ) -> @types.Image16 raise @types.LoadError {
@@ -194,6 +197,7 @@ pub fn histogram_equalize_16(
 
 ///|
 /// float 直方图均衡化。基于灰度直方图计算映射 LUT，应用到所有颜色通道。
+/// @see histogram_equalize 8-bit 版本，本函数为 ImageF 变体
 pub fn histogram_equalize_f(
   img : @types.ImageF,
 ) -> @types.ImageF raise @types.LoadError {
@@ -261,6 +265,7 @@ pub fn histogram_equalize_f(
 
 ///|
 /// 16-bit 直方图归一化（线性拉伸）。将像素值范围线性映射到 [0, 65535]。
+/// @see histogram_normalize 8-bit 版本，本函数为 Image16 变体
 pub fn histogram_normalize_16(
   img : @types.Image16,
 ) -> @types.Image16 raise @types.LoadError {
@@ -334,6 +339,7 @@ pub fn histogram_normalize_16(
 
 ///|
 /// float 直方图归一化（线性拉伸）。将像素值范围线性映射到 [0.0, 1.0]。
+/// @see histogram_normalize 8-bit 版本，本函数为 ImageF 变体
 pub fn histogram_normalize_f(
   img : @types.ImageF,
 ) -> @types.ImageF raise @types.LoadError {
@@ -414,6 +420,7 @@ pub fn histogram_normalize_f(
 
 ///|
 /// 16-bit 直方图匹配（规定化）。将输入图像的直方图匹配到参考图像的直方图。
+/// @see histogram_matching 8-bit 版本，本函数为 Image16 变体
 pub fn histogram_matching_16(
   img : @types.Image16,
   reference : @types.Image16,
@@ -526,6 +533,7 @@ pub fn histogram_matching_16(
 
 ///|
 /// float 直方图匹配（规定化）。将输入图像的直方图匹配到参考图像的直方图。
+/// @see histogram_matching 8-bit 版本，本函数为 ImageF 变体
 pub fn histogram_matching_f(
   img : @types.ImageF,
   reference : @types.ImageF,

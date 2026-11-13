@@ -8,6 +8,7 @@
 
 ///|
 /// 霍夫圆检测 16-bit 版本。
+/// @see hough_circles 8-bit 版本，本函数为 Image16 变体
 pub fn hough_circles_16(
   img : @types.Image16,
   dp~ : Int32 = 1,
@@ -174,6 +175,7 @@ pub fn hough_circles_16(
 
 ///|
 /// 霍夫圆检测 float 版本。
+/// @see hough_circles 8-bit 版本，本函数为 ImageF 变体
 pub fn hough_circles_f(
   img : @types.ImageF,
   dp~ : Int32 = 1,

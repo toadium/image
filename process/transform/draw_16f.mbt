@@ -67,6 +67,7 @@ fn set_pixel_f(
 
 ///|
 /// 16-bit 绘制直线。
+/// @see draw_line 8-bit 版本，本函数为 Image16 变体
 pub fn draw_line_16(
   img : @types.Image16,
   x1 : Int32,
@@ -120,6 +121,7 @@ pub fn draw_line_16(
 
 ///|
 /// 16-bit 绘制矩形。
+/// @see draw_rectangle 8-bit 版本，本函数为 Image16 变体
 pub fn draw_rectangle_16(
   img : @types.Image16,
   x : Int32,
@@ -165,6 +167,7 @@ pub fn draw_rectangle_16(
 
 ///|
 /// 16-bit 绘制圆形。
+/// @see draw_circle 8-bit 版本，本函数为 Image16 变体
 pub fn draw_circle_16(
   img : @types.Image16,
   cx : Int32,
@@ -222,6 +225,7 @@ pub fn draw_circle_16(
 
 ///|
 /// 16-bit 绘制多边形。
+/// @see draw_polygon 8-bit 版本，本函数为 Image16 变体
 pub fn draw_polygon_16(
   img : @types.Image16,
   points : Array[(Int32, Int32)],
@@ -245,6 +249,7 @@ pub fn draw_polygon_16(
 
 ///|
 /// float 绘制直线。
+/// @see draw_line 8-bit 版本，本函数为 ImageF 变体
 pub fn draw_line_f(
   img : @types.ImageF,
   x1 : Int32,
@@ -298,6 +303,7 @@ pub fn draw_line_f(
 
 ///|
 /// float 绘制矩形。
+/// @see draw_rectangle 8-bit 版本，本函数为 ImageF 变体
 pub fn draw_rectangle_f(
   img : @types.ImageF,
   x : Int32,
@@ -343,6 +349,7 @@ pub fn draw_rectangle_f(
 
 ///|
 /// float 绘制圆形。
+/// @see draw_circle 8-bit 版本，本函数为 ImageF 变体
 pub fn draw_circle_f(
   img : @types.ImageF,
   cx : Int32,
@@ -400,6 +407,7 @@ pub fn draw_circle_f(
 
 ///|
 /// float 绘制多边形。
+/// @see draw_polygon 8-bit 版本，本函数为 ImageF 变体
 pub fn draw_polygon_f(
   img : @types.ImageF,
   points : Array[(Int32, Int32)],

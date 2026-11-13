@@ -40,6 +40,7 @@ pub extend ImageStatsF with Eq::{not_equal, equal}
 ///|
 /// 计算 16-bit 图像统计信息（均值、标准差、最小值、最大值）。
 /// 统计所有通道的像素值，像素值范围为 [0, 65535]。
+/// @see compute_stats 8-bit 版本，本函数为 Image16 变体
 pub fn compute_stats_16(img : @types.Image16) -> ImageStats {
   let n = img.width * img.height * img.channels
   let bpp = 2
@@ -67,6 +68,7 @@ pub fn compute_stats_16(img : @types.Image16) -> ImageStats {
 ///|
 /// 计算 float 图像统计信息（均值、标准差、最小值、最大值）。
 /// 统计所有通道的像素值。
+/// @see compute_stats 8-bit 版本，本函数为 ImageF 变体
 pub fn compute_stats_f(img : @types.ImageF) -> ImageStatsF {
   let n = img.width * img.height * img.channels
   let bpp = 4
@@ -94,6 +96,7 @@ pub fn compute_stats_f(img : @types.ImageF) -> ImageStatsF {
 
 ///|
 /// 计算 16-bit 图像均值（所有通道所有像素的平均值）。
+/// @see mean_value 8-bit 版本，本函数为 Image16 变体
 pub fn mean_value_16(img : @types.Image16) -> Float {
   let n = img.width * img.height * img.channels
   let bpp = 2
@@ -106,6 +109,7 @@ pub fn mean_value_16(img : @types.Image16) -> Float {
 
 ///|
 /// 计算 float 图像均值（所有通道所有像素的平均值）。
+/// @see mean_value 8-bit 版本，本函数为 ImageF 变体
 pub fn mean_value_f(img : @types.ImageF) -> Float {
   let n = img.width * img.height * img.channels
   let bpp = 4

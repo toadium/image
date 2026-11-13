@@ -45,6 +45,7 @@ fn write_f32_r(data : Array[Byte], offset : Int32, v : Float) -> Unit {
 
 ///|
 /// 单尺度 Retinex（SSR）16-bit 版本。
+/// @see ssr 8-bit 版本，本函数为 Image16 变体
 pub fn ssr_16(
   img : @types.Image16,
   sigma~ : Float = 80.0F,
@@ -116,6 +117,7 @@ pub fn ssr_16(
 
 ///|
 /// 单尺度 Retinex（SSR）float 版本。
+/// @see ssr 8-bit 版本，本函数为 ImageF 变体
 pub fn ssr_f(
   img : @types.ImageF,
   sigma~ : Float = 80.0F,
@@ -185,6 +187,7 @@ pub fn ssr_f(
 
 ///|
 /// 多尺度 Retinex（MSR）16-bit 版本。
+/// @see msr 8-bit 版本，本函数为 Image16 变体
 pub fn msr_16(
   img : @types.Image16,
   sigmas~ : Array[Float] = [15.0F, 80.0F, 250.0F],
@@ -269,6 +272,7 @@ pub fn msr_16(
 
 ///|
 /// 多尺度 Retinex（MSR）float 版本。
+/// @see msr 8-bit 版本，本函数为 ImageF 变体
 pub fn msr_f(
   img : @types.ImageF,
   sigmas~ : Array[Float] = [15.0F, 80.0F, 250.0F],
@@ -338,6 +342,7 @@ pub fn msr_f(
 
 ///|
 /// 带颜色恢复的多尺度 Retinex（MSRCR）16-bit 版本。
+/// @see msrcr 8-bit 版本，本函数为 Image16 变体
 pub fn msrcr_16(
   img : @types.Image16,
   sigmas~ : Array[Float] = [15.0F, 80.0F, 250.0F],
@@ -440,6 +445,7 @@ pub fn msrcr_16(
 
 ///|
 /// 带颜色恢复的多尺度 Retinex（MSRCR）float 版本。
+/// @see msrcr 8-bit 版本，本函数为 ImageF 变体
 pub fn msrcr_f(
   img : @types.ImageF,
   sigmas~ : Array[Float] = [15.0F, 80.0F, 250.0F],

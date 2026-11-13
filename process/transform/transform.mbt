@@ -166,6 +166,7 @@ pub fn flip_vertical(img : @types.Image) -> @types.Image {
 
 ///|
 /// 裁剪 16-bit Image16
+/// @see crop 8-bit 版本，本函数为 Image16 变体
 pub fn crop_16(
   img : @types.Image16,
   x : Int32,
@@ -200,6 +201,7 @@ pub fn crop_16(
 
 ///|
 /// 裁剪 float ImageF
+/// @see crop 8-bit 版本，本函数为 ImageF 变体
 pub fn crop_f(
   img : @types.ImageF,
   x : Int32,
