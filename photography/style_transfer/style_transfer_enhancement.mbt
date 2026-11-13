@@ -4,6 +4,7 @@
 ///|
 /// 风格迁移算法类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum StyleTransferAlgorithm {
   ColorTransfer
   TextureSynthesis
@@ -110,6 +111,7 @@ pub extend StyleTransferTextureFeatures with @debug.Debug::{to_repr}
 ///|
 /// 艺术风格类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum ArtStyle {
   Impressionist
   Cubist

@@ -4,6 +4,7 @@
 ///|
 /// SLAM 算法类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum SLAMAlgorithm {
   MonoSLAM
   ORBSLAM

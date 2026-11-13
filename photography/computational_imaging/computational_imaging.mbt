@@ -4,6 +4,7 @@
 ///|
 /// 计算成像算法类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum ComputationalImagingAlgorithm {
   LightField
   Holography
@@ -25,6 +26,7 @@ pub extend ComputationalImagingAlgorithm with Eq::{not_equal, equal}
 ///|
 /// 光场表示类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum LightFieldRepresentation {
   TwoPlane
   Lumigraph
@@ -42,6 +44,7 @@ pub extend LightFieldRepresentation with Eq::{not_equal, equal}
 ///|
 /// 全息图类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum HologramType {
   Fresnel
   Fourier

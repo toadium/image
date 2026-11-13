@@ -47,6 +47,7 @@ pub(all) struct AnchorBox {
 ///|
 /// 检测目标类型
 #derive(Eq)
+#non_exhaustive
 pub(all) enum ObjectClass {
   Person
   Car

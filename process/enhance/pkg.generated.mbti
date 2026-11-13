@@ -84,6 +84,7 @@ pub(all) struct DehazeConfig {
   max_atmospheric : Int32
 }
 
+#non_exhaustive
 #derive(Eq)
 pub(all) enum DenoiseAlgorithm {
   MeanFilter
@@ -123,6 +124,7 @@ pub(all) struct DenoiseResult {
   strength : Double
 }
 
+#non_exhaustive
 #derive(Eq)
 pub(all) enum EnhancementAlgorithm {
   HistogramEqualization
@@ -165,6 +167,7 @@ pub(all) struct NlmConfig {
   sigma : Double
 }
 
+#non_exhaustive
 #derive(Eq)
 pub(all) enum NoiseType {
   GaussianNoise

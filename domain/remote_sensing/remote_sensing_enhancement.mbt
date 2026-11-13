@@ -4,6 +4,7 @@
 ///|
 /// 遥感图像类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum RemoteSensingImageType {
   Optical
   Multispectral
@@ -37,6 +38,7 @@ pub(all) struct RemoteSensingImage {
 ///|
 /// 地物类别
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum LandCoverClass {
   Water
   Forest

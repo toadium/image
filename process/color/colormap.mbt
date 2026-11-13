@@ -2,6 +2,7 @@
 
 ///|
 /// 色彩映射预设
+#non_exhaustive
 pub(all) enum Colormap {
   JET // 蓝→青→绿→黄→红
   HOT // 黑→红→黄→白

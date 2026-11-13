@@ -50,6 +50,7 @@ pub(all) struct BoundingBox {
   class_id : Int32
 }
 
+#non_exhaustive
 #derive(Eq)
 pub(all) enum ObjectClass {
   Person

@@ -292,6 +292,7 @@ pub fn create_memory_stats() -> MemoryUsageStats {
 ///|
 /// 错误码枚举
 #derive(Eq)
+#non_exhaustive
 pub(all) enum ProductionErrorCode {
   InvalidInput
   OutOfMemory

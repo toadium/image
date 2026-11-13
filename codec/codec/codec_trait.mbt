@@ -33,6 +33,7 @@ pub impl Codec for @types.ImageFormat with fn format_name(self) {
     @types.ImageFormat::Heif => "HEIF"
     @types.ImageFormat::JpegXl => "JPEG-XL"
     @types.ImageFormat::Unknown => "Unknown"
+    @types.ImageFormat::.. => "Unknown"
   }
 }
 
@@ -58,6 +59,7 @@ pub impl Codec for @types.ImageFormat with fn can_encode(self) {
     @types.ImageFormat::Heif => false
     @types.ImageFormat::JpegXl => false
     @types.ImageFormat::Unknown => false
+    @types.ImageFormat::.. => false
   }
 }
 
@@ -140,6 +142,8 @@ pub impl Codec for @types.ImageFormat with fn decode(self, data) {
     @types.ImageFormat::JpegXl => @types.AnyImage::U8(jpegxl_decode(data))
     @types.ImageFormat::Unknown =>
       raise @types.LoadError::DecodeFailed("Unknown format")
+    @types.ImageFormat::.. =>
+      raise @types.LoadError::DecodeFailed("Unsupported format")
   }
 }
 

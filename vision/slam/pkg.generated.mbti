@@ -90,6 +90,7 @@ pub fn MapPoint::equal(Self, Self) -> Bool
 pub fn MapPoint::not_equal(Self, Self) -> Bool
 pub fn MapPoint::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum SLAMAlgorithm {
   MonoSLAM

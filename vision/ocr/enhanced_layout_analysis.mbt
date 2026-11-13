@@ -4,6 +4,7 @@
 ///|
 /// 布局类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum LayoutType {
   SingleColumn
   DoubleColumn

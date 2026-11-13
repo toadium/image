@@ -4,6 +4,7 @@
 ///|
 /// 文档块类型（增强版）
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum DocumentBlockType {
   Title
   Heading1

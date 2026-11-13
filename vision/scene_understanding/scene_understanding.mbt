@@ -4,6 +4,7 @@
 ///|
 /// 场景分类算法类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum SceneClassificationAlgorithm {
   ResNet
   VGG
@@ -26,6 +27,7 @@ pub extend SceneClassificationAlgorithm with Eq::{not_equal, equal}
 ///|
 /// 图像描述算法类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum ImageCaptioningAlgorithm {
   ShowAndTell
   ShowAttendAndTell
@@ -47,6 +49,7 @@ pub extend ImageCaptioningAlgorithm with Eq::{not_equal, equal}
 ///|
 /// 视觉问答算法类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum VisualQuestionAnsweringAlgorithm {
   VQA
   VisualBERT

@@ -221,6 +221,7 @@ pub fn ycbcr_to_rgb_f(Float, Float, Float) -> (Float, Float, Float) raise @types
 // Errors
 
 // Types and methods
+#non_exhaustive
 pub(all) enum Colormap {
   JET
   HOT

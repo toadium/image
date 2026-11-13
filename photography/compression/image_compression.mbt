@@ -4,6 +4,7 @@
 ///|
 /// 压缩算法类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum CompressionAlgorithm {
   RunLengthEncoding
   HuffmanCoding

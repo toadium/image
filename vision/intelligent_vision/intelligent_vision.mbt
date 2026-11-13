@@ -4,6 +4,7 @@
 ///|
 /// 自动驾驶任务类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum AutonomousDrivingTask {
   LaneDetection
   TrafficSignRecognition
@@ -25,6 +26,7 @@ pub extend AutonomousDrivingTask with Eq::{not_equal, equal}
 ///|
 /// 机器人视觉任务类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum RobotVisionTask {
   ObjectRecognition
   GraspDetection
@@ -46,6 +48,7 @@ pub extend RobotVisionTask with Eq::{not_equal, equal}
 ///|
 /// 工业检测任务类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum IndustrialInspectionTask {
   DefectDetection
   SurfaceInspection
@@ -67,6 +70,7 @@ pub extend IndustrialInspectionTask with Eq::{not_equal, equal}
 ///|
 /// 安防监控任务类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum SecurityMonitoringTask {
   IntrusionDetection
   FaceRecognition
@@ -88,6 +92,7 @@ pub extend SecurityMonitoringTask with Eq::{not_equal, equal}
 ///|
 /// 农业视觉任务类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum AgriculturalVisionTask {
   CropDetection
   WeedDetection
@@ -109,6 +114,7 @@ pub extend AgriculturalVisionTask with Eq::{not_equal, equal}
 ///|
 /// 天文图像处理任务类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum AstronomicalImageTask {
   StarDetection
   GalaxyClassification

@@ -58,6 +58,7 @@ pub fn ExpressionRecognitionResult::equal(Self, Self) -> Bool
 pub fn ExpressionRecognitionResult::not_equal(Self, Self) -> Bool
 pub fn ExpressionRecognitionResult::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum ExpressionType {
   Neutral
@@ -101,6 +102,7 @@ pub fn FaceDatabase::equal(Self, Self) -> Bool
 pub fn FaceDatabase::not_equal(Self, Self) -> Bool
 pub fn FaceDatabase::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum FaceDetectionAlgorithm {
   HaarCascade
@@ -143,6 +145,7 @@ pub fn FaceFeature::equal(Self, Self) -> Bool
 pub fn FaceFeature::not_equal(Self, Self) -> Bool
 pub fn FaceFeature::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum FaceRecognitionAlgorithm {
   FaceNet

@@ -58,6 +58,7 @@ pub fn CodedAperturePattern::equal(Self, Self) -> Bool
 pub fn CodedAperturePattern::not_equal(Self, Self) -> Bool
 pub fn CodedAperturePattern::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum ComputationalImagingAlgorithm {
   LightField
@@ -87,6 +88,7 @@ pub fn Hologram::equal(Self, Self) -> Bool
 pub fn Hologram::not_equal(Self, Self) -> Bool
 pub fn Hologram::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum HologramType {
   Fresnel
@@ -139,6 +141,7 @@ pub fn LightFieldData::equal(Self, Self) -> Bool
 pub fn LightFieldData::not_equal(Self, Self) -> Bool
 pub fn LightFieldData::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum LightFieldRepresentation {
   TwoPlane

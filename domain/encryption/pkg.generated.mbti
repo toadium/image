@@ -76,6 +76,7 @@ pub(all) struct ChaoticParams {
   iterations : Int32
 }
 
+#non_exhaustive
 #derive(Eq)
 pub(all) enum EncryptionAlgorithm {
   XOR
@@ -153,6 +154,7 @@ pub(all) struct WatermarkInfo {
   key : String
 }
 
+#non_exhaustive
 #derive(Eq)
 pub(all) enum WatermarkType {
   Visible

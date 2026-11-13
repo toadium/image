@@ -4,6 +4,7 @@
 ///|
 /// 图像特征类型
 #derive(Eq)
+#non_exhaustive
 pub(all) enum FeatureType {
   ColorHistogram
   ColorCorrelogram
@@ -91,6 +92,7 @@ pub(all) struct CBIRImageIndex {
 ///|
 /// 相似度度量类型
 #derive(Eq)
+#non_exhaustive
 pub(all) enum SimilarityMetric {
   Cosine
   Euclidean

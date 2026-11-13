@@ -59,6 +59,7 @@ pub fn HyperspectralData::equal(Self, Self) -> Bool
 pub fn HyperspectralData::not_equal(Self, Self) -> Bool
 pub fn HyperspectralData::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum ImagingModality {
   Quantum
@@ -78,6 +79,7 @@ pub fn ImagingModality::equal(Self, Self) -> Bool
 pub fn ImagingModality::not_equal(Self, Self) -> Bool
 pub fn ImagingModality::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum InfraredImagingType {
   MWIR
@@ -130,6 +132,7 @@ pub fn PolarizationData::equal(Self, Self) -> Bool
 pub fn PolarizationData::not_equal(Self, Self) -> Bool
 pub fn PolarizationData::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum QuantumImagingAlgorithm {
   GhostImaging

@@ -4,6 +4,7 @@
 ///|
 /// 加密算法类型
 #derive(Eq)
+#non_exhaustive
 pub(all) enum EncryptionAlgorithm {
   XOR
   AES_Simplified
@@ -34,6 +35,7 @@ pub(all) struct EncryptionResult {
 ///|
 /// 水印类型
 #derive(Eq)
+#non_exhaustive
 pub(all) enum WatermarkType {
   Visible
   Invisible_LSB

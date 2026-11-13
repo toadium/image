@@ -210,6 +210,8 @@ pub fn load_from_bytes_auto(
       raise @types.LoadError::DecodeFailed(
         "不支持或无法识别的格式（TGA 无 magic bytes，需显式调用 decode_tga_pure）",
       )
+    @types.ImageFormat::.. =>
+      raise @types.LoadError::DecodeFailed("不支持或无法识别的格式")
   }
   match req_channels {
     Some(n) => @color.convert_channels_pure(img, n)

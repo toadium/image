@@ -4,6 +4,7 @@
 ///|
 /// 医学图像类型
 #derive(Eq)
+#non_exhaustive
 pub(all) enum MedicalImageType {
   CT
   MRI

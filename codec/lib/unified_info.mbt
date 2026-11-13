@@ -46,6 +46,7 @@ pub fn get_image_info(data : Bytes) -> UnifiedImageInfo raise @types.LoadError {
     @types.ImageFormat::Heif => "HEIF"
     @types.ImageFormat::JpegXl => "JPEG-XL"
     @types.ImageFormat::Unknown => "unknown"
+    @types.ImageFormat::.. => "unknown"
   }
   match ext {
     @codec.ImageInfoExtended::Avif(e) =>

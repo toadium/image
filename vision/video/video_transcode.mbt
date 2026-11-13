@@ -7,6 +7,7 @@
 /// 视频格式。
 /// Video format.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum VideoFormat {
   Raw // 原始格式
   MPEG // MPEG

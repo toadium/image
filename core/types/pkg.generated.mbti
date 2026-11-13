@@ -147,6 +147,7 @@ pub fn ImageF::to_repr(Self) -> @debug.Repr
 pub fn ImageF::width(Self) -> Int32
 pub impl ImageLike for ImageF
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum ImageFormat {
   Png

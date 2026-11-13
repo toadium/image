@@ -4,6 +4,7 @@
 ///|
 /// 语言类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum LanguageType {
   Chinese
   English
@@ -269,6 +270,7 @@ pub fn detect_document_language(
 
 ///|
 /// 多语言混合识别（完整流水线）
+#deprecated("Use recognize_multilingual_enhanced instead", skip_current_package=true)
 pub fn recognize_multilingual(
   img : @types.Image,
   config? : MultilingualOcrConfig,

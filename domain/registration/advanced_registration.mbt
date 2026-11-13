@@ -4,6 +4,7 @@
 ///|
 /// 配准算法类型
 #derive(Eq)
+#non_exhaustive
 pub(all) enum RegistrationAlgorithm {
   PhaseCorrelation
   FeatureBased
@@ -23,6 +24,7 @@ pub extend RegistrationAlgorithm with Eq::{not_equal, equal}
 ///|
 /// 变换类型
 #derive(Eq)
+#non_exhaustive
 pub(all) enum TransformType {
   Translation
   Rigid

@@ -87,6 +87,7 @@ pub(all) struct MedicalImageQuality {
   overall_quality : Double
 }
 
+#non_exhaustive
 #derive(Eq)
 pub(all) enum MedicalImageType {
   CT

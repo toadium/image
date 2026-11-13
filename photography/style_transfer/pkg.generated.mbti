@@ -40,6 +40,7 @@ pub fn watercolor(@types.Image, blur_radius? : Int32) -> @types.Image
 // Errors
 
 // Types and methods
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum ArtStyle {
   Impressionist
@@ -77,6 +78,7 @@ pub fn ColorStatistics::equal(Self, Self) -> Bool
 pub fn ColorStatistics::not_equal(Self, Self) -> Bool
 pub fn ColorStatistics::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum StyleTransferAlgorithm {
   ColorTransfer

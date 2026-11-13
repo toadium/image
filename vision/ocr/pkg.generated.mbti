@@ -81,6 +81,7 @@ pub fn calculate_learning_rate(LRSchedulerConfig, Int32, Double, Double) -> Doub
 
 pub fn calculate_word_accuracy(String, String) -> Double
 
+#deprecated
 pub fn calibrate_confidence(OcrResult, factor? : Double) -> OcrResult raise @types.LoadError
 
 pub fn calibrate_confidence_enhanced(Double, Array[Double]) -> Double
@@ -523,12 +524,14 @@ pub fn recognize_english(@types.Image, config? : EnglishOcrConfig) -> OcrResult 
 
 pub fn recognize_enhanced_chinese(@types.Image, config? : EnhancedChineseOcrConfig) -> OcrResult raise @types.LoadError
 
+#deprecated
 pub fn recognize_handwriting(@types.Image, config? : HandwritingOcrConfig) -> OcrResult raise @types.LoadError
 
 pub fn recognize_handwriting_char(@types.Image, Array[HandwritingTemplate], HandwritingRecognitionConfig) -> HandwritingRecognitionResult raise @types.LoadError
 
 pub fn recognize_handwriting_enhanced(@types.Image, config? : HandwritingOcrEnhancedConfig) -> OcrResult raise @types.LoadError
 
+#deprecated
 pub fn recognize_multilingual(@types.Image, config? : MultilingualOcrConfig) -> OcrResult raise @types.LoadError
 
 pub fn recognize_multilingual_enhanced(@types.Image, config? : MultilingualOcrEnhancedConfig) -> OcrResult raise @types.LoadError
@@ -605,6 +608,7 @@ pub fn template_matcher_create(distance_metric? : String) -> TemplateMatcher
 
 pub fn template_matcher_predict(TemplateMatcher, Array[Double]) -> ClassificationResult raise @types.LoadError
 
+#deprecated
 pub fn understand_document(@types.Image) -> DocumentStructure raise @types.LoadError
 
 pub fn understand_document_enhanced(@types.Image, config? : DocumentUnderstandingEnhancedConfig) -> (Array[DocumentBlock], Array[DocumentTreeNode], String) raise @types.LoadError
@@ -1248,6 +1252,7 @@ pub fn DigitOcrConfig::equal(Self, Self) -> Bool
 pub fn DigitOcrConfig::not_equal(Self, Self) -> Bool
 pub fn DigitOcrConfig::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum DistanceMetric {
   Euclidean
@@ -1323,6 +1328,7 @@ pub fn DocumentBlock::equal(Self, Self) -> Bool
 pub fn DocumentBlock::not_equal(Self, Self) -> Bool
 pub fn DocumentBlock::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum DocumentBlockType {
   Title
@@ -1776,6 +1782,7 @@ pub fn LanguageModelState::equal(Self, Self) -> Bool
 pub fn LanguageModelState::not_equal(Self, Self) -> Bool
 pub fn LanguageModelState::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum LanguageType {
   Chinese
@@ -1789,6 +1796,7 @@ pub fn LanguageType::equal(Self, Self) -> Bool
 pub fn LanguageType::not_equal(Self, Self) -> Bool
 pub fn LanguageType::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum LayoutType {
   SingleColumn
@@ -2059,6 +2067,7 @@ pub fn OcrConnectedComponentsResult::equal(Self, Self) -> Bool
 pub fn OcrConnectedComponentsResult::not_equal(Self, Self) -> Bool
 pub fn OcrConnectedComponentsResult::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum OcrErrorType {
   Substitution

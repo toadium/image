@@ -52,6 +52,7 @@ pub fn upsample_fe(@types.Image) -> @types.Image
 // Errors
 
 // Types and methods
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum FusionAlgorithm {
   WeightedAverage
@@ -114,6 +115,7 @@ pub fn RegistrationAdvancedConfig::equal(Self, Self) -> Bool
 pub fn RegistrationAdvancedConfig::not_equal(Self, Self) -> Bool
 pub fn RegistrationAdvancedConfig::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum RegistrationAlgorithm {
   PhaseCorrelation

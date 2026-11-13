@@ -4,6 +4,7 @@
 ///|
 /// 人脸检测算法类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum FaceDetectionAlgorithm {
   HaarCascade
   HOG_SVM
@@ -24,6 +25,7 @@ pub extend FaceDetectionAlgorithm with Eq::{not_equal, equal}
 ///|
 /// 人脸识别算法类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum FaceRecognitionAlgorithm {
   FaceNet
   ArcFace
@@ -44,6 +46,7 @@ pub extend FaceRecognitionAlgorithm with Eq::{not_equal, equal}
 ///|
 /// 表情类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum ExpressionType {
   Neutral
   Happy

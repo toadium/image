@@ -76,6 +76,7 @@ pub(all) struct FeaturePoint {
   descriptor : Array[Double]
 }
 
+#non_exhaustive
 #derive(Eq)
 pub(all) enum RegistrationAlgorithm {
   PhaseCorrelation
@@ -136,6 +137,7 @@ pub(all) struct TransformMatrix {
   height : Int32
 }
 
+#non_exhaustive
 #derive(Eq)
 pub(all) enum TransformType {
   Translation

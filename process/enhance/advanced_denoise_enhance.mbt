@@ -4,6 +4,7 @@
 ///|
 /// 降噪算法类型
 #derive(Eq)
+#non_exhaustive
 pub(all) enum DenoiseAlgorithm {
   MeanFilter
   MedianFilter
@@ -50,6 +51,7 @@ pub(all) struct DenoiseConfig {
 ///|
 /// 增强算法类型
 #derive(Eq)
+#non_exhaustive
 pub(all) enum EnhancementAlgorithm {
   HistogramEqualization
   CLAHE
@@ -84,6 +86,7 @@ pub(all) struct EnhancementResult {
 ///|
 /// 噪声类型
 #derive(Eq)
+#non_exhaustive
 pub(all) enum NoiseType {
   GaussianNoise
   SaltAndPepper

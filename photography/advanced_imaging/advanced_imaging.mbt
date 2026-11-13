@@ -4,6 +4,7 @@
 ///|
 /// 成像模态类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum ImagingModality {
   Quantum
   Terahertz
@@ -28,6 +29,7 @@ pub extend ImagingModality with Eq::{not_equal, equal}
 ///|
 /// 量子成像算法类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum QuantumImagingAlgorithm {
   GhostImaging
   SinglePixel
@@ -46,6 +48,7 @@ pub extend QuantumImagingAlgorithm with Eq::{not_equal, equal}
 ///|
 /// 红外成像类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum InfraredImagingType {
   MWIR
   LWIR

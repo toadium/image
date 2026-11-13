@@ -26,6 +26,7 @@ pub fn understand_scene(@types.Image, SceneUnderstandingConfig) -> (SceneClassif
 // Errors
 
 // Types and methods
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum ImageCaptioningAlgorithm {
   ShowAndTell
@@ -56,6 +57,7 @@ pub fn ImageCaptioningResult::equal(Self, Self) -> Bool
 pub fn ImageCaptioningResult::not_equal(Self, Self) -> Bool
 pub fn ImageCaptioningResult::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum SceneClassificationAlgorithm {
   ResNet
@@ -135,6 +137,7 @@ pub fn SceneUnderstandingConfig::equal(Self, Self) -> Bool
 pub fn SceneUnderstandingConfig::not_equal(Self, Self) -> Bool
 pub fn SceneUnderstandingConfig::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum VisualQuestionAnsweringAlgorithm {
   VQA

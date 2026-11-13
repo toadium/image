@@ -87,6 +87,7 @@ pub(all) suberror LoadError {
 ///|
 /// 图像格式枚举
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum ImageFormat {
   Png
   Jpeg

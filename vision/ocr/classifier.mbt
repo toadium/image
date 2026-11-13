@@ -62,6 +62,7 @@ pub extend TemplateMatcher with @debug.Debug::{to_repr}
 ///|
 /// 距离度量类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum DistanceMetric {
   Euclidean
   Manhattan

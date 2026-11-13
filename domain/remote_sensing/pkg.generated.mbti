@@ -83,6 +83,7 @@ pub fn ClassificationResult::equal(Self, Self) -> Bool
 pub fn ClassificationResult::not_equal(Self, Self) -> Bool
 pub fn ClassificationResult::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum LandCoverClass {
   Water
@@ -120,6 +121,7 @@ pub(all) struct RemoteSensingImage {
   cloud_cover : Double
 }
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum RemoteSensingImageType {
   Optical

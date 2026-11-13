@@ -77,6 +77,7 @@ pub extend ConfusionMatrix with @debug.Debug::{to_repr}
 ///|
 /// 错误类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum OcrErrorType {
   Substitution // 替换错误（A→B）
   Insertion // 插入错误（多识别了字符）

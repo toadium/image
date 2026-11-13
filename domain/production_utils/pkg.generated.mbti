@@ -98,6 +98,7 @@ pub(all) struct ProductionError {
   recoverable : Bool
 }
 
+#non_exhaustive
 #derive(Eq)
 pub(all) enum ProductionErrorCode {
   InvalidInput

@@ -38,6 +38,7 @@ pub extend HdrImage with @debug.Debug::{to_repr}
 ///|
 /// 色调映射算法类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum ToneMappingType {
   Reinhard
   Drago

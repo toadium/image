@@ -423,6 +423,7 @@ fn split_into_words(text : String) -> Array[String] {
 
 ///|
 /// 置信度校准
+#deprecated("Use calibrate_confidence_enhanced instead", skip_current_package=true)
 pub fn calibrate_confidence(
   result : OcrResult,
   factor~ : Double = 1.0,

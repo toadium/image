@@ -4,6 +4,7 @@
 ///|
 /// 神经渲染算法类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum NeuralRenderingAlgorithm {
   NeRF
   NeRFStudio
@@ -25,6 +26,7 @@ pub extend NeuralRenderingAlgorithm with Eq::{not_equal, equal}
 ///|
 /// 3D 重建算法类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum ReconstructionAlgorithm {
   MultiViewStereo
   StructureFromMotion

@@ -90,6 +90,7 @@ pub fn NeRFConfig::equal(Self, Self) -> Bool
 pub fn NeRFConfig::not_equal(Self, Self) -> Bool
 pub fn NeRFConfig::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum NeuralRenderingAlgorithm {
   NeRF
@@ -128,6 +129,7 @@ pub fn Ray::equal(Self, Self) -> Bool
 pub fn Ray::not_equal(Self, Self) -> Bool
 pub fn Ray::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum ReconstructionAlgorithm {
   MultiViewStereo

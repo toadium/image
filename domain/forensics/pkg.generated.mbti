@@ -62,6 +62,7 @@ pub fn intelligent_decision(SourceVerificationResult, UIDetectionResult, TextDet
 
 pub fn source_verification_report_to_string(SourceVerificationResult) -> String
 
+#deprecated
 pub fn verify_image_source(@types.Image, SourceVerificationConfig) -> SourceVerificationResult raise @types.LoadError
 
 pub fn verify_image_source_enhanced(@types.Image, EnhancedVerificationConfig) -> EnhancedVerificationResult raise @types.LoadError

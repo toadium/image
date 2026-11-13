@@ -38,6 +38,7 @@ pub fn run_length_encode(Bytes) -> Bytes
 // Errors
 
 // Types and methods
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum CompressionAlgorithm {
   RunLengthEncoding

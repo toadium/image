@@ -733,6 +733,7 @@ pub fn analyze_details(
 
 ///|
 /// 综合来源鉴定
+#deprecated("Use verify_image_source_enhanced instead", skip_current_package=true)
 pub fn verify_image_source(
   img : @types.Image,
   config : SourceVerificationConfig,

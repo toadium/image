@@ -4,6 +4,7 @@
 ///|
 /// 修复算法类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum InpaintingAlgorithm {
   Telea
   NavierStokes
@@ -58,6 +59,7 @@ pub extend InpaintingConfig with @debug.Debug::{to_repr}
 ///|
 /// 去雾算法类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum DehazeAlgorithm {
   DarkChannelPrior
   ColorAttenuation
@@ -93,6 +95,7 @@ pub extend DehazeResult with @debug.Debug::{to_repr}
 ///|
 /// 去雨算法类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum DerainAlgorithm {
   DictionaryLearning
   ConvolutionalNeuralNetwork

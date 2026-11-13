@@ -4,6 +4,7 @@
 ///|
 /// 融合算法类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum FusionAlgorithm {
   WeightedAverage
   LaplacianPyramid
@@ -60,6 +61,7 @@ pub extend FusionEnhancedConfig with @debug.Debug::{to_repr}
 ///|
 /// 配准算法类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum RegistrationAlgorithm {
   PhaseCorrelation
   FeatureBased

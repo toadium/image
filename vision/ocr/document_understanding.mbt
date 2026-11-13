@@ -369,6 +369,7 @@ pub fn detect_document_columns(
 
 ///|
 /// 完整文档理解流水线
+#deprecated("Use understand_document_enhanced instead", skip_current_package=true)
 pub fn understand_document(
   img : @types.Image,
 ) -> DocumentStructure raise @types.LoadError {
