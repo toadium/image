@@ -189,6 +189,7 @@ test "frn_edge: detect_ui_elements 零宽度" {
 // ===== 8. verify_image_source / verify_image_source_enhanced =====
 
 ///|
+#warnings("-deprecated")
 test "frn_edge: verify_image_source 零宽度" {
   try {
     let config = @forensics.create_default_source_verification_config()

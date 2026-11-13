@@ -248,6 +248,7 @@ test "correct_slant: 无效图像抛异常" {
 }
 
 ///|
+#warnings("-deprecated")
 test "recognize_handwriting: 基本识别" {
   let img = make_test_img(32, 32)
   let result = @ocr.recognize_handwriting(img)

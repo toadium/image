@@ -38,6 +38,7 @@ test "correct_slant: 基本校正" {
 }
 
 ///|
+#warnings("-deprecated")
 test "recognize_handwriting: 基本识别" {
   try {
     let img = @types.Image::{

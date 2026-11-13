@@ -264,6 +264,7 @@ test "detect_document_language: RGB image" {
 // ========== recognize_multilingual 错误路径 ==========
 
 ///|
+#warnings("-deprecated")
 test "recognize_multilingual: zero width raises" {
   try {
     let _ = @ocr.recognize_multilingual(mo_make_img(0, 16, 128))
@@ -275,6 +276,7 @@ test "recognize_multilingual: zero width raises" {
 }
 
 ///|
+#warnings("-deprecated")
 test "recognize_multilingual: channels 0 raises" {
   try {
     let img = @types.Image::{
@@ -292,6 +294,7 @@ test "recognize_multilingual: channels 0 raises" {
 }
 
 ///|
+#warnings("-deprecated")
 test "recognize_multilingual: channels 5 raises" {
   try {
     let img = @types.Image::{
@@ -309,6 +312,7 @@ test "recognize_multilingual: channels 5 raises" {
 }
 
 ///|
+#warnings("-deprecated")
 test "recognize_multilingual: data mismatch raises" {
   try {
     let img = @types.Image::{
@@ -328,6 +332,7 @@ test "recognize_multilingual: data mismatch raises" {
 // ========== recognize_multilingual 功能路径 ==========
 
 ///|
+#warnings("-deprecated")
 test "recognize_multilingual: with custom config all enabled" {
   try {
     let config = mo_make_config(true, true, true)
@@ -339,6 +344,7 @@ test "recognize_multilingual: with custom config all enabled" {
 }
 
 ///|
+#warnings("-deprecated")
 test "recognize_multilingual: with custom config chinese only" {
   try {
     let config = mo_make_config(true, false, false)
@@ -350,6 +356,7 @@ test "recognize_multilingual: with custom config chinese only" {
 }
 
 ///|
+#warnings("-deprecated")
 test "recognize_multilingual: with custom config english only" {
   try {
     let config = mo_make_config(false, true, false)
@@ -361,6 +368,7 @@ test "recognize_multilingual: with custom config english only" {
 }
 
 ///|
+#warnings("-deprecated")
 test "recognize_multilingual: RGB image" {
   try {
     let img = @types.Image::{
@@ -377,6 +385,7 @@ test "recognize_multilingual: RGB image" {
 }
 
 ///|
+#warnings("-deprecated")
 test "recognize_multilingual: all white image" {
   try {
     let result = @ocr.recognize_multilingual(mo_make_img(32, 32, 255))
@@ -387,6 +396,7 @@ test "recognize_multilingual: all white image" {
 }
 
 ///|
+#warnings("-deprecated")
 test "recognize_multilingual: all black image" {
   try {
     let result = @ocr.recognize_multilingual(mo_make_img(32, 32, 0))

@@ -177,6 +177,7 @@ test "ocr_postprocess: 基本后处理" {
 }
 
 ///|
+#warnings("-deprecated")
 test "calibrate_confidence: 基本校准" {
   try {
     let result = @ocr.OcrResult::{
@@ -201,6 +202,7 @@ test "calibrate_confidence: 基本校准" {
 }
 
 ///|
+#warnings("-deprecated")
 test "calibrate_confidence: 空字符抛异常" {
   try {
     let result = @ocr.OcrResult::{ text: "", confidence: 0.5, characters: [], }

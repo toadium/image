@@ -87,6 +87,7 @@ test "detect_document_columns: 检测栏数" {
 }
 
 ///|
+#warnings("-deprecated")
 test "understand_document: 完整文档理解" {
   let img = make_doc_img(64, 64)
   let structure = @ocr.understand_document(img)

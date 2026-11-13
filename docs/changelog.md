@@ -2,6 +2,39 @@
 
 > 下表为**功能迭代版本**（v0.1 → v237.0.0）演进历史。mooncakes **包版本**为 `0.5.0`（mooncakes 早期阶段 0.x.y 格式），对应最新功能版本 v237.0.0。
 
+## v0.5.1 (2026-11-13)
+
+### MoonBit 属性系统优化 — Sprint A-D
+
+#### Sprint A: #derive 自动实现补全
+- 全 6 子模块 (core/codec/process/photography/vision/domain) 的 pub struct/enum 补全 #derive(Eq, Default, @debug.Debug)
+- 新增 ~100+ 类型自动实现 Eq/Default/Debug trait，减少手写样板代码
+- 所有 moon.pkg 添加 moonbitlang/core/debug 导入
+- 所有 #derive 配套 extend 声明
+
+#### Sprint B: #inline 性能标注
+- core/safe_math 14 个小纯函数加 #inline（clamp_int/clamp_coord/clamp_byte/clamp_float/clamp_double/int_max/int_min/dims_valid_check/is_valid_index/is_valid_2d_index/rotate90_power_is_identity/paeth_predict/qoi_hash/hamming_distance）
+- moon prove 5 goals 验证通过，#inline 不影响形式化证明
+
+#### Sprint C: #deprecated API 迁移指引
+- 5 个旧 API 标记 #deprecated("Use xxx_enhanced instead", skip_current_package=true)
+  - verify_image_source → verify_image_source_enhanced
+  - understand_document → understand_document_enhanced
+  - recognize_handwriting → recognize_handwriting_enhanced
+  - recognize_multilingual → recognize_multilingual_enhanced
+  - calibrate_confidence → calibrate_confidence_enhanced
+
+#### Sprint D: #non_exhaustive 前向兼容
+- 53 个可扩展 enum 加 #non_exhaustive，保障下游代码前向兼容
+- 覆盖 ImageFormat、CompressionAlgorithm、FusionAlgorithm 等核心类型
+- 5 处跨包 ImageFormat match 添加 TypeName::.. catch-all
+
+### 统计
+- 185 files changed, +3572 行
+- moon check: 0 error, 0 warning
+- moon test: 6526/6526 pass (native)
+- moon prove: 5 goals proved
+
 ## Phase 18｜架构全面重构：多模块工作空间（v0.5.0 重构）
 
 ### 0.5.0-refactor — 多模块工作空间架构重构

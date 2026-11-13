@@ -94,6 +94,22 @@ MAX_IMAGE_DIMENSION(65535) 守卫 + check_dims 全入口校验 + safe_mul 溢出
 
 </td>
 </tr>
+<tr>
+<td width="50%">
+
+### 🟢 MoonBit 属性系统
+
+`#derive(Eq, Default, @debug.Debug)` 自动实现 100+ 类型 · `#inline` 核心纯函数性能标注 · `#deprecated` API 迁移指引 · `#non_exhaustive` 53 个可扩展 enum 前向兼容
+
+</td>
+<td width="50%">
+
+### 🟢 71 个子包
+
+6 子模块 (core/codec/process/photography/vision/domain) · 用户直接 import 子包 · 根包仅门面
+
+</td>
+</tr>
 </table>
 
 ---

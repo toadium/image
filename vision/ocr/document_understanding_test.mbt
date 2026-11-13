@@ -160,6 +160,7 @@ test "detect_document_columns: 基本检测" {
 }
 
 ///|
+#warnings("-deprecated")
 test "understand_document: 基本理解" {
   try {
     let img = @types.Image::{

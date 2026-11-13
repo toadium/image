@@ -74,6 +74,7 @@ test "detect_document_language: 无效图像抛异常" {
 }
 
 ///|
+#warnings("-deprecated")
 test "recognize_multilingual: 基本识别" {
   let img = make_ml_test_img(32, 32)
   let result = @ocr.recognize_multilingual(img)

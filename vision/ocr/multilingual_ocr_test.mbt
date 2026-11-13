@@ -52,6 +52,7 @@ test "detect_document_language: 基本检测" {
 }
 
 ///|
+#warnings("-deprecated")
 test "recognize_multilingual: 基本识别" {
   try {
     let img = @types.Image::{

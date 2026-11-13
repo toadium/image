@@ -61,8 +61,16 @@ pub fn safe_mul3(a : Int32, b : Int32, c : Int32) -> Int32? {
 /// 判断维度是否在安全范围内（纯函数）。
 /// 返回 true 当且仅当 width/height/channels 均为正、
 /// 不超过 MAX_IMAGE_DIMENSION、且乘积不溢出 Int32。
+///
+/// ✅ 形式化验证：证明结果等价于维度合法性谓词。
 #inline
-pub fn dims_valid_check(w : Int32, h : Int32, c : Int32) -> Bool {
+pub fn dims_valid_check(
+  w : Int32,
+  h : Int32,
+  c : Int32,
+) -> Bool where {
+  proof_ensure: result => dims_valid_pred(w, h, c, result),
+} {
   1 <= w &&
   w <= 65535 &&
   1 <= h &&
@@ -167,8 +175,15 @@ pub fn clamp_double(v : Double, lo : Double, hi : Double) -> Double {
 
 ///|
 /// 整数最大值：返回 a 和 b 中较大的那个。
+///
+/// ✅ 形式化验证：证明结果确实是 a 和 b 中的较大者。
 #inline
-pub fn int_max(a : Int32, b : Int32) -> Int32 {
+pub fn int_max(
+  a : Int32,
+  b : Int32,
+) -> Int32 where {
+  proof_ensure: result => int_max_ok(a, b, result),
+} {
   if a > b {
     a
   } else {
@@ -178,8 +193,15 @@ pub fn int_max(a : Int32, b : Int32) -> Int32 {
 
 ///|
 /// 整数最小值：返回 a 和 b 中较小的那个。
+///
+/// ✅ 形式化验证：证明结果确实是 a 和 b 中的较小者。
 #inline
-pub fn int_min(a : Int32, b : Int32) -> Int32 {
+pub fn int_min(
+  a : Int32,
+  b : Int32,
+) -> Int32 where {
+  proof_ensure: result => int_min_ok(a, b, result),
+} {
   if a < b {
     a
   } else {

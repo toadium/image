@@ -231,6 +231,7 @@ test "analyze_details: 随机噪声图像" {
 }
 
 ///|
+#warnings("-deprecated")
 test "verify_image_source: 纯色图像鉴定结果有效" {
   let img = create_solid_image_v27(16, 16, 128)
   let config = @forensics.create_default_source_verification_config()
@@ -246,6 +247,7 @@ test "verify_image_source: 纯色图像鉴定结果有效" {
 }
 
 ///|
+#warnings("-deprecated")
 test "verify_image_source: 随机噪声图像鉴定结果有效" {
   let img = create_noise_image_v27(16, 16)
   let config = @forensics.create_default_source_verification_config()
@@ -257,6 +259,7 @@ test "verify_image_source: 随机噪声图像鉴定结果有效" {
 }
 
 ///|
+#warnings("-deprecated")
 test "verify_image_source: 禁用所有分析时返回中性结果" {
   let img = create_solid_image_v27(16, 16, 128)
   let config = @forensics.SourceVerificationConfig::{
@@ -277,6 +280,7 @@ test "verify_image_source: 禁用所有分析时返回中性结果" {
 }
 
 ///|
+#warnings("-deprecated")
 test "verify_image_source: 棋盘格图像鉴定" {
   let img = create_checkerboard_v27(16, 16, 4)
   let config = @forensics.create_default_source_verification_config()
@@ -288,6 +292,7 @@ test "verify_image_source: 棋盘格图像鉴定" {
 }
 
 ///|
+#warnings("-deprecated")
 test "source_verification_report_to_string: 报告非空" {
   let img = create_solid_image_v27(16, 16, 128)
   let config = @forensics.create_default_source_verification_config()
@@ -298,6 +303,7 @@ test "source_verification_report_to_string: 报告非空" {
 }
 
 ///|
+#warnings("-deprecated")
 test "source_verification_report_to_string: 包含概率信息" {
   let img = create_noise_image_v27(16, 16)
   let config = @forensics.create_default_source_verification_config()
@@ -438,6 +444,7 @@ test "analyze_pixel_distribution: 随机噪声图像分布均匀" {
 }
 
 ///|
+#warnings("-deprecated")
 test "intelligent_decision: 强 UI 特征判定为物理生成" {
   let img = create_solid_image_v27(16, 16, 128)
   let basic_config = @forensics.create_default_source_verification_config()
@@ -490,6 +497,7 @@ test "intelligent_decision: 强 UI 特征判定为物理生成" {
 }
 
 ///|
+#warnings("-deprecated")
 test "intelligent_decision: 弱 UI 特征时根据综合评分判定" {
   let img = create_solid_image_v27(16, 16, 128)
   let basic_config = @forensics.create_default_source_verification_config()
