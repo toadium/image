@@ -41,7 +41,7 @@ predicate dims_valid_pred(w : Int32, h : Int32, c : Int32, result : Bool) {
 /// 通用整数钳制后置条件（简化版：只保证范围）
 ///
 /// clamp_int(v, lo, hi) 的结果在 [lo, hi] 范围内
-/// 预留给未来 proof_ensure 扩展（当前 SMT 求解超时）
+/// 预留给未来 proof_ensure 扩展（当前 if/else 分支中不支持 proof_ensure）
 predicate _clamp_int_ok(_v : Int32, lo : Int32, hi : Int32, result : Int32) {
   (lo <= result) && (result <= hi)
 }
