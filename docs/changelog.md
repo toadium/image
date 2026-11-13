@@ -39,6 +39,16 @@
 - 格式：`@see base_func 8-bit 版本，本函数为 Image16/ImageF 变体`
 - 覆盖 35 个文件（process/codec/lib/domain/util）
 
+### Sprint G: #deprecated/#non_exhaustive doc 标注
+- 5 个 #deprecated 函数加 @deprecated 文档说明
+- 143 个 #non_exhaustive enum 加文档说明（未来可能添加新构造器）
+
+### Sprint H: 双语文档注释
+- ~1460 行纯英文 doc 注释转为双语格式（中文 + 英文）
+- 格式：`/// 中文描述 English description`
+- 348 文件覆盖 6 子模块
+- 8 行 VP8 专有名词保留英文
+
 ### 文档注释增强
 - 287 文件 +98 mbt check doc tests +100% pub item doc coverage
 
@@ -50,13 +60,14 @@
 - 27 deprecated warning 用 #warnings("-deprecated") 抑制
 
 ### 统计
-- 220+ files changed, +4100 行
+- 570+ files changed, +5700 行
 - moon check: 0 error, 0 warning
-- moon test: 6575/6575 pass (native)
+- moon test: 6574/6574 pass (native)
 - moon prove: 8 goals proved
-- #non_exhaustive: 149 个
-- #deprecated: 5 个
+- #non_exhaustive: 149 个（全部有 doc 标注）
+- #deprecated: 5 个（全部有 doc 标注）
 - @see 引用: 255 个
+- 双语文档: ~1460 行翻译完成
 
 ## Phase 18｜架构全面重构：多模块工作空间（v0.5.0 重构）
 
