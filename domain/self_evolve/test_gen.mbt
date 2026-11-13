@@ -270,6 +270,17 @@ pub fn gen_boundary_tests(op : @imgir.IROp) -> Array[TestCase] {
           expected_behavior: "返回末帧",
         },
       ]
+    @imgir.IROp::.. =>
+      [
+        {
+          name: tag + "_boundary_default",
+          op_tag: tag,
+          category: Boundary,
+          description: "未知算子边界测试",
+          input_spec: "标准输入",
+          expected_behavior: "返回有效结果或抛异常",
+        },
+      ]
   }
 }
 

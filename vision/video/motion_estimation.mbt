@@ -12,6 +12,7 @@
 /// 运动估计方法。
 /// Motion estimation method.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum MotionEstimationMethod {
   FullSearch // 全搜索
   DiamondSearch // 菱形搜索

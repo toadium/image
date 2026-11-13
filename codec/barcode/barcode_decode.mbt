@@ -9,6 +9,7 @@
 ///|
 /// 条形码类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum BarcodeType {
   Ean13
   UpcA

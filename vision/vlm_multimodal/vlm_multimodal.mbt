@@ -9,6 +9,7 @@
 ///|
 /// 视觉语言模型类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum VisionLanguageModelType {
   CLIP
   BLIP
@@ -31,6 +32,7 @@ pub extend VisionLanguageModelType with Eq::{not_equal, equal}
 ///|
 /// 多模态融合策略
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum MultimodalFusionStrategy {
   EarlyFusion
   LateFusion
@@ -50,6 +52,7 @@ pub extend MultimodalFusionStrategy with Eq::{not_equal, equal}
 ///|
 /// 扩散模型类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum DiffusionModelType {
   StableDiffusion
   DALLE
@@ -71,6 +74,7 @@ pub extend DiffusionModelType with Eq::{not_equal, equal}
 ///|
 /// 生成式AI任务类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum GenerativeAITaskType {
   TextToImage
   ImageToText

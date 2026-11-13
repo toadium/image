@@ -9,6 +9,7 @@
 ///|
 /// 手写体类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum HandwritingStyle {
   Print // 印刷体
   Cursive // 草书/连笔
@@ -26,6 +27,7 @@ pub extend HandwritingStyle with Eq::{not_equal, equal}
 ///|
 /// 笔画类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum StrokeType {
   Horizontal // 横
   Vertical // 竖

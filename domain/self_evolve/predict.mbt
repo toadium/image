@@ -12,6 +12,7 @@
 /// 预测类型。
 /// Prediction kind.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum PredictionKind {
   DegradationLikely
   TestGrowthExpected

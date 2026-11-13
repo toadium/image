@@ -9,6 +9,7 @@
 ///|
 /// 扫描质量等级
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum ScanQualityLevel {
   Excellent // 优秀：可直接识别
   Good // 良好：轻微预处理即可
@@ -47,6 +48,7 @@ pub extend AdaptivePreprocessConfig with @debug.Debug::{to_repr}
 ///|
 /// 畸变类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum DistortionType {
   Skew // 倾斜
   Perspective // 透视畸变
@@ -84,6 +86,7 @@ pub extend DistortionDetectionResult with @debug.Debug::{to_repr}
 ///|
 /// 复杂版面类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum ComplexLayoutType {
   SingleColumn
   DoubleColumn

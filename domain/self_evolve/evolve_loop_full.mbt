@@ -12,6 +12,7 @@
 /// 闭环阶段。
 /// Loop phase.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum LoopPhase {
   Predict
   Decide

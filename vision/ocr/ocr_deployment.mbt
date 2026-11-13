@@ -29,6 +29,7 @@ fn parse_int_str(s : String) -> Int32 {
 ///|
 /// 部署环境类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum DeploymentEnvironment {
   Development
   Staging

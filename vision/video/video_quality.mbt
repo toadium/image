@@ -12,6 +12,7 @@
 /// 视频质量度量方法。
 /// Video quality metric.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum VideoQualityMetric {
   PSNRMetric // PSNR
   SSIMMetric // SSIM

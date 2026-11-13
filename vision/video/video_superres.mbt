@@ -12,6 +12,7 @@
 /// 视频超分方法。
 /// Video super-resolution method.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum VideoSRMethod {
   BicubicSR // 双三次插值
   SpatioTemporal // 时空超分

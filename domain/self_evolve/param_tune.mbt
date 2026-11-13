@@ -12,6 +12,7 @@
 /// 参数类型。
 /// Parameter kind.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum ParamKind {
   Threshold
   Weight

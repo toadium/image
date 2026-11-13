@@ -9,6 +9,7 @@
 ///|
 /// Markdown 元素类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum MarkdownElementType {
   Title
   Heading1

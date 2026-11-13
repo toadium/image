@@ -12,6 +12,7 @@
 /// 纹理过滤模式。
 /// Texture filter mode.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum TextureFilterMode {
   NearestFilter // 最近邻
   BilinearFilter // 双线性
@@ -28,6 +29,7 @@ pub extend TextureFilterMode with Eq::{not_equal, equal}
 /// 纹理映射方法。
 /// Texture mapping method.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum TextureMappingMethod {
   PlanarMapping // 平面映射
   SphericalMapping // 球面映射

@@ -313,6 +313,7 @@ pub fn ActionRecognitionResult::equal(Self, Self) -> Bool
 pub fn ActionRecognitionResult::not_equal(Self, Self) -> Bool
 pub fn ActionRecognitionResult::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum ActionType {
   Walking
@@ -343,6 +344,7 @@ pub fn BackgroundModel::equal(Self, Self) -> Bool
 pub fn BackgroundModel::not_equal(Self, Self) -> Bool
 pub fn BackgroundModel::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum BitrateMode {
   CBR
@@ -378,6 +380,7 @@ pub fn EncodedVideo::equal(Self, Self) -> Bool
 pub fn EncodedVideo::not_equal(Self, Self) -> Bool
 pub fn EncodedVideo::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum ExposureMode {
   Linear
@@ -408,6 +411,7 @@ pub fn FlickerDetection::equal(Self, Self) -> Bool
 pub fn FlickerDetection::not_equal(Self, Self) -> Bool
 pub fn FlickerDetection::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum FlickerMethod {
   TemporalFlicker
@@ -429,6 +433,7 @@ pub fn FrameInterpConfig::equal(Self, Self) -> Bool
 pub fn FrameInterpConfig::not_equal(Self, Self) -> Bool
 pub fn FrameInterpConfig::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum FrameInterpMethod {
   LinearInterp
@@ -439,6 +444,7 @@ pub fn FrameInterpMethod::equal(Self, Self) -> Bool
 pub fn FrameInterpMethod::not_equal(Self, Self) -> Bool
 pub fn FrameInterpMethod::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum FrameType {
   IFrame
@@ -461,6 +467,7 @@ pub fn Keyframe::equal(Self, Self) -> Bool
 pub fn Keyframe::not_equal(Self, Self) -> Bool
 pub fn Keyframe::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum KeyframeType {
   SceneChange
@@ -483,6 +490,7 @@ pub fn MotionEstimateResult::equal(Self, Self) -> Bool
 pub fn MotionEstimateResult::not_equal(Self, Self) -> Bool
 pub fn MotionEstimateResult::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum MotionEstimationMethod {
   FullSearch
@@ -516,6 +524,7 @@ pub fn MultiDetectedObject::equal(Self, Self) -> Bool
 pub fn MultiDetectedObject::not_equal(Self, Self) -> Bool
 pub fn MultiDetectedObject::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum MultiTrackState {
   Active
@@ -552,6 +561,7 @@ pub fn MultiTrackingConfig::equal(Self, Self) -> Bool
 pub fn MultiTrackingConfig::not_equal(Self, Self) -> Bool
 pub fn MultiTrackingConfig::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum MultiTrackingMethod {
   Centroid
@@ -586,6 +596,7 @@ pub fn OpticalFlowVector::equal(Self, Self) -> Bool
 pub fn OpticalFlowVector::not_equal(Self, Self) -> Bool
 pub fn OpticalFlowVector::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum ResolutionMode {
   Scale
@@ -641,6 +652,7 @@ pub fn SlowMotionConfig::equal(Self, Self) -> Bool
 pub fn SlowMotionConfig::not_equal(Self, Self) -> Bool
 pub fn SlowMotionConfig::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum SlowMotionMethod {
   OpticalFlow
@@ -662,6 +674,7 @@ pub fn StabilizationConfig::equal(Self, Self) -> Bool
 pub fn StabilizationConfig::not_equal(Self, Self) -> Bool
 pub fn StabilizationConfig::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum StabilizationMethod {
   MotionModel
@@ -752,6 +765,7 @@ pub fn TrajectoryPoint::equal(Self, Self) -> Bool
 pub fn TrajectoryPoint::not_equal(Self, Self) -> Bool
 pub fn TrajectoryPoint::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum TrajectorySmoothing {
   Gaussian
@@ -801,6 +815,7 @@ pub fn TransitionParams::equal(Self, Self) -> Bool
 pub fn TransitionParams::not_equal(Self, Self) -> Bool
 pub fn TransitionParams::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum TransitionType {
   Fade
@@ -833,6 +848,7 @@ pub fn VideoFilterParams::equal(Self, Self) -> Bool
 pub fn VideoFilterParams::not_equal(Self, Self) -> Bool
 pub fn VideoFilterParams::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum VideoFilterType {
   Blur
@@ -882,6 +898,7 @@ pub fn VideoInpaintConfig::equal(Self, Self) -> Bool
 pub fn VideoInpaintConfig::not_equal(Self, Self) -> Bool
 pub fn VideoInpaintConfig::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum VideoInpaintMethod {
   Temporal
@@ -892,6 +909,7 @@ pub fn VideoInpaintMethod::equal(Self, Self) -> Bool
 pub fn VideoInpaintMethod::not_equal(Self, Self) -> Bool
 pub fn VideoInpaintMethod::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum VideoQualityMetric {
   PSNRMetric
@@ -926,6 +944,7 @@ pub fn VideoSRConfig::equal(Self, Self) -> Bool
 pub fn VideoSRConfig::not_equal(Self, Self) -> Bool
 pub fn VideoSRConfig::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum VideoSRMethod {
   BicubicSR
@@ -946,6 +965,7 @@ pub fn VideoSRResult::equal(Self, Self) -> Bool
 pub fn VideoSRResult::not_equal(Self, Self) -> Bool
 pub fn VideoSRResult::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum VideoSegmentationMethod {
   FrameDifference

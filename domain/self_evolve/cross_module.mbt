@@ -12,6 +12,7 @@
 /// 模块依赖类型。
 /// Module dependency kind.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum ModuleDepKind {
   Uses // 使用
   Extends // 扩展
@@ -44,6 +45,7 @@ pub extend ModuleDep with Eq::{not_equal, equal}
 /// 协同演化动作类型。
 /// Co-evolution action kind.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum CoEvolveActionKind {
   SyncEvolve // 同步演化
   CascadeEvolve // 级联演化

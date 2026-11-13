@@ -12,6 +12,7 @@
 /// 点云采样方法。
 /// Point cloud sampling method.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum PointCloudSampleMethod {
   RandomSampling // 随机采样
   UniformSampling // 均匀采样
@@ -28,6 +29,7 @@ pub extend PointCloudSampleMethod with Eq::{not_equal, equal}
 /// 法向估计方法。
 /// Normal estimation method.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum NormalEstimationMethod {
   KNN // K近邻
   RadiusSearch // 半径搜索
@@ -43,6 +45,7 @@ pub extend NormalEstimationMethod with Eq::{not_equal, equal}
 /// 点云分割方法。
 /// Point cloud segmentation method.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum PointCloudSegmentMethod {
   EuclideanClustering // 欧式聚类
   RegionGrowing // 区域生长

@@ -59,6 +59,7 @@ pub(all) suberror LoadError {
 }
 
 // Types and methods
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum AnyImage {
   U8(Image)
@@ -201,6 +202,7 @@ pub fn PngAnimation::equal(Self, Self) -> Bool
 pub fn PngAnimation::not_equal(Self, Self) -> Bool
 pub fn PngAnimation::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum ResizeEdge {
   Clamp
@@ -212,6 +214,7 @@ pub fn ResizeEdge::equal(Self, Self) -> Bool
 pub fn ResizeEdge::not_equal(Self, Self) -> Bool
 pub fn ResizeEdge::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum ResizeFilter {
   Default

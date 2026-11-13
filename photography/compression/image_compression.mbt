@@ -91,6 +91,7 @@ pub extend CompressionQualityMetrics with @debug.Debug::{to_repr}
 ///|
 /// 量化表类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum QuantizationTableType {
   Luminance
   Chrominance

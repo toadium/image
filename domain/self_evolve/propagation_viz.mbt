@@ -12,6 +12,7 @@
 /// 可视化格式。
 /// Visualization format.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum VizFormat {
   AsciiViz
   MermaidViz

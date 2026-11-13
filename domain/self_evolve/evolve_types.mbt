@@ -10,6 +10,7 @@
 /// 测试用例类别。
 /// Test case category.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum TestCategory {
   Boundary // 边界条件（零尺寸/最小尺寸/最大尺寸）
   Normal // 正常用例
@@ -27,6 +28,7 @@ pub extend TestCategory with Eq::{not_equal, equal}
 /// 退化类型（对应 4.7.4 领域规则）。
 /// Degradation kind (corresponds to 4.7.4 domain rules).
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum DegradationKind {
   DivisionByZero // 除零
   SingularMatrix // 奇异矩阵（行列式 ≈ 0）
@@ -46,6 +48,7 @@ pub extend DegradationKind with Eq::{not_equal, equal}
 /// 严重程度。
 /// Severity level.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum Severity {
   Warning // 警告：结果可能不精确但可用
   Critical // 严重：结果不可靠

@@ -9,6 +9,7 @@
 ///|
 /// 图像来源类型
 #derive(Eq)
+#non_exhaustive
 pub(all) enum ImageSourceType {
   AIGenerated
   PhysicalCaptured

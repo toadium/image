@@ -63,6 +63,7 @@ pub fn TextureCoord::equal(Self, Self) -> Bool
 pub fn TextureCoord::not_equal(Self, Self) -> Bool
 pub fn TextureCoord::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum TextureFilterMode {
   NearestFilter
@@ -73,6 +74,7 @@ pub fn TextureFilterMode::equal(Self, Self) -> Bool
 pub fn TextureFilterMode::not_equal(Self, Self) -> Bool
 pub fn TextureFilterMode::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum TextureMappingMethod {
   PlanarMapping

@@ -9,6 +9,7 @@
 ///|
 /// 文档元素类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum DocumentElementType {
   Title
   Subtitle

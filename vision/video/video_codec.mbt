@@ -12,6 +12,7 @@
 /// 帧类型。
 /// Frame type.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum FrameType {
   IFrame // 帧内编码
   PFrame // 前向预测

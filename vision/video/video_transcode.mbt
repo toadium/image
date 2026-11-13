@@ -31,6 +31,7 @@ pub extend VideoFormat with Eq::{not_equal, equal}
 /// 分辨率调整模式。
 /// Resolution adjustment mode.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum ResolutionMode {
   Scale // 缩放
   Crop // 裁剪
@@ -47,6 +48,7 @@ pub extend ResolutionMode with Eq::{not_equal, equal}
 /// 码率控制模式。
 /// Bitrate control mode.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum BitrateMode {
   CBR // 恒定码率
   VBR // 可变码率

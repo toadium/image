@@ -15,6 +15,7 @@
 
 ///|
 /// 处理操作类型
+#non_exhaustive
 pub(all) enum Operation {
   Resize(Int32, Int32)
   Rotate(Double)
@@ -180,6 +181,7 @@ pub fn batch_summary(result : BatchResult) -> String {
 
 ///|
 /// CLI 命令
+#non_exhaustive
 pub(all) enum CliCommand {
   Convert(String, String)
   Resize(String, String, Int32, Int32)

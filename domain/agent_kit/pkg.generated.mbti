@@ -31,6 +31,7 @@ pub fn nl_to_pipeline(String) -> @imgir.IRPipeline
 // Errors
 
 // Types and methods
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum Intent {
   Denoise

@@ -12,6 +12,7 @@
 /// 优化建议类型。
 /// Optimization suggestion kind.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum SuggestionKind {
   RemoveRedundant
   ReorderOps

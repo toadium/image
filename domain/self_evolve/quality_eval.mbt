@@ -12,6 +12,7 @@
 /// 质量维度。
 /// Quality dimension.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum QualityDimension {
   TestCoverage // 测试覆盖度
   DegradationRate // 退化率
@@ -46,6 +47,7 @@ pub extend QualityScore with Eq::{not_equal, equal}
 /// 质量等级。
 /// Quality grade.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum QualityGrade {
   GradeA // >= 90
   GradeB // >= 80

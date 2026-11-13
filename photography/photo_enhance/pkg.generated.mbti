@@ -71,6 +71,7 @@ pub fn DepthOfFieldConfig::equal(Self, Self) -> Bool
 pub fn DepthOfFieldConfig::not_equal(Self, Self) -> Bool
 pub fn DepthOfFieldConfig::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum ExposureType {
   Underexposed

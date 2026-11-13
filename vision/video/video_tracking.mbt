@@ -87,6 +87,7 @@ pub extend TrackingResult with @debug.Debug::{to_repr}
 ///|
 /// 动作类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum ActionType {
   Walking
   Running
@@ -149,6 +150,7 @@ pub extend VideoStabilizationConfig with @debug.Debug::{to_repr}
 ///|
 /// 关键帧类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum KeyframeType {
   SceneChange
   MotionPeak

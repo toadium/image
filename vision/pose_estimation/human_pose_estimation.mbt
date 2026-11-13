@@ -9,6 +9,7 @@
 ///|
 /// 姿态估计算法类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum PoseEstimationAlgorithm {
   OpenPose
   MediaPipe
@@ -30,6 +31,7 @@ pub extend PoseEstimationAlgorithm with Eq::{not_equal, equal}
 ///|
 /// 动作识别算法类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum ActionRecognitionAlgorithm {
   C3D
   I3D
@@ -122,6 +124,7 @@ pub extend ActionRecognitionResult with @debug.Debug::{to_repr}
 ///|
 /// 手势类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum GestureType {
   OpenPalm
   Fist

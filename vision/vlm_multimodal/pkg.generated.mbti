@@ -49,6 +49,7 @@ pub fn DiffusionConfig::equal(Self, Self) -> Bool
 pub fn DiffusionConfig::not_equal(Self, Self) -> Bool
 pub fn DiffusionConfig::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum DiffusionModelType {
   StableDiffusion
@@ -133,6 +134,7 @@ pub fn GenerativeAIResult::equal(Self, Self) -> Bool
 pub fn GenerativeAIResult::not_equal(Self, Self) -> Bool
 pub fn GenerativeAIResult::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum GenerativeAITaskType {
   TextToImage
@@ -149,6 +151,7 @@ pub fn GenerativeAITaskType::equal(Self, Self) -> Bool
 pub fn GenerativeAITaskType::not_equal(Self, Self) -> Bool
 pub fn GenerativeAITaskType::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum MultimodalFusionStrategy {
   EarlyFusion
@@ -178,6 +181,7 @@ pub fn VLMConfig::equal(Self, Self) -> Bool
 pub fn VLMConfig::not_equal(Self, Self) -> Bool
 pub fn VLMConfig::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum VisionLanguageModelType {
   CLIP

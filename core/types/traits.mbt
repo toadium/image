@@ -175,6 +175,7 @@ pub extend ImageF with ImageLike::{
 ///
 /// 用于需要统一处理不同精度图像的场景，如编解码器接口
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum AnyImage {
   U8(Image)
   U16(Image16)

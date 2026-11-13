@@ -59,6 +59,7 @@ pub fn MeshConfig::equal(Self, Self) -> Bool
 pub fn MeshConfig::not_equal(Self, Self) -> Bool
 pub fn MeshConfig::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum MeshSimplifyMethod {
   EdgeCollapse
@@ -69,6 +70,7 @@ pub fn MeshSimplifyMethod::equal(Self, Self) -> Bool
 pub fn MeshSimplifyMethod::not_equal(Self, Self) -> Bool
 pub fn MeshSimplifyMethod::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum MeshSubdivideMethod {
   LoopSubdivision

@@ -12,6 +12,7 @@
 /// 覆盖盲区类型。
 /// Coverage gap type.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum GapKind {
   UntestedOp
   UnderTestedOp

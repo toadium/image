@@ -208,6 +208,7 @@ pub(all) struct IlluminationConsistencyResult {
   has_inconsistent_lighting : Bool
 }
 
+#non_exhaustive
 #derive(Eq)
 pub(all) enum ImageSourceType {
   AIGenerated

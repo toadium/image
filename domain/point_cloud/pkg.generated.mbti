@@ -46,6 +46,7 @@ pub fn ClusterResult::equal(Self, Self) -> Bool
 pub fn ClusterResult::not_equal(Self, Self) -> Bool
 pub fn ClusterResult::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum NormalEstimationMethod {
   KNN
@@ -88,6 +89,7 @@ pub fn PointCloudConfig::equal(Self, Self) -> Bool
 pub fn PointCloudConfig::not_equal(Self, Self) -> Bool
 pub fn PointCloudConfig::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum PointCloudSampleMethod {
   RandomSampling
@@ -98,6 +100,7 @@ pub fn PointCloudSampleMethod::equal(Self, Self) -> Bool
 pub fn PointCloudSampleMethod::not_equal(Self, Self) -> Bool
 pub fn PointCloudSampleMethod::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum PointCloudSegmentMethod {
   EuclideanClustering

@@ -12,6 +12,7 @@
 /// 修复策略。
 /// Repair strategy.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum RepairStrategy {
   Conservative // 保守：仅修复 Fatal 级退化
   Aggressive // 激进：修复全部退化

@@ -12,6 +12,7 @@
 /// 跟踪方法。
 /// Tracking method.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum MultiTrackingMethod {
   Centroid // 质心跟踪
   KalmanFilter // 卡尔曼滤波
@@ -28,6 +29,7 @@ pub extend MultiTrackingMethod with Eq::{not_equal, equal}
 /// 跟踪对象状态。
 /// Tracked object state.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum MultiTrackState {
   Active // 活跃
   Lost // 丢失

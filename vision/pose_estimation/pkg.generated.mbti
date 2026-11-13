@@ -32,6 +32,7 @@ pub fn visualize_pose(@types.Image, HumanPose) -> @types.Image raise @types.Load
 // Errors
 
 // Types and methods
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum ActionRecognitionAlgorithm {
   C3D
@@ -88,6 +89,7 @@ pub fn GestureRecognitionResult::equal(Self, Self) -> Bool
 pub fn GestureRecognitionResult::not_equal(Self, Self) -> Bool
 pub fn GestureRecognitionResult::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum GestureType {
   OpenPalm
@@ -130,6 +132,7 @@ pub fn Keypoint::equal(Self, Self) -> Bool
 pub fn Keypoint::not_equal(Self, Self) -> Bool
 pub fn Keypoint::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum PoseEstimationAlgorithm {
   OpenPose

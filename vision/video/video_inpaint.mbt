@@ -12,6 +12,7 @@
 /// 视频修复方法。
 /// Video inpainting method.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum VideoInpaintMethod {
   Temporal // 时域修复（用前后帧填补）
   Spatial // 空域修复（用周围像素填补）
@@ -28,6 +29,7 @@ pub extend VideoInpaintMethod with Eq::{not_equal, equal}
 /// 去闪烁方法。
 /// De-flicker method.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum FlickerMethod {
   TemporalFlicker // 时域闪烁去除
   HistogramFlicker // 直方图稳定

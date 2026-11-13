@@ -12,6 +12,7 @@
 /// 评分因子类型。
 /// Score factor kind.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum ScoreFactor {
   DegradationRisk
   CoverageGap

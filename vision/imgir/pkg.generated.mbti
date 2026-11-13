@@ -28,6 +28,7 @@ pub fn ir_type_check(IRPipeline, String) -> String raise @types.LoadError
 // Errors
 
 // Types and methods
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum IROp {
   Resize(Int32, Int32)
@@ -88,6 +89,7 @@ pub fn IRPipeline::to_gray(Self) -> Self
 pub fn IRPipeline::to_repr(Self) -> @debug.Repr
 pub fn IRPipeline::to_scalar_field(Self) -> Self
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum IRValue {
   VImage(@types.Image)

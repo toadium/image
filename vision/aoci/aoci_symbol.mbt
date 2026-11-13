@@ -8,6 +8,7 @@
 
 ///|
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum SymbolKind {
   Function
   Method

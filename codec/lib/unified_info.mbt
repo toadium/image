@@ -238,6 +238,16 @@ pub fn get_image_info(data : Bytes) -> UnifiedImageInfo raise @types.LoadError {
         bit_depth: e.bit_depth,
         has_alpha: e.has_alpha,
       }
+    @codec.ImageInfoExtended::.. =>
+      UnifiedImageInfo::{
+        format,
+        format_name: "unknown",
+        width: 0,
+        height: 0,
+        channels: 0,
+        bit_depth: 0,
+        has_alpha: false,
+      }
   }
 }
 

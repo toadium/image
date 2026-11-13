@@ -9,6 +9,7 @@
 ///|
 /// HDR 曝光类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum ExposureType {
   Underexposed
   Normal

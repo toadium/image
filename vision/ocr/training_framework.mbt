@@ -9,6 +9,7 @@
 ///|
 /// 优化器类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum OptimizerType {
   SGD
   Momentum
@@ -46,6 +47,7 @@ pub extend OptimizerConfig with @debug.Debug::{to_repr}
 ///|
 /// 学习率调度器类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum LRSchedulerType {
   Constant
   StepDecay
@@ -84,6 +86,7 @@ pub extend LRSchedulerConfig with @debug.Debug::{to_repr}
 ///|
 /// 数据增强类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum AugmentationType {
   RandomRotation
   RandomShift

@@ -12,6 +12,7 @@
 /// 决策动作类型。
 /// Decision action type.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum DecisionAction {
   EvolveNow
   DeferEvolution

@@ -10,6 +10,7 @@
 /// 优化类型。
 /// Optimization kind.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum OptimizationKind {
   RemoveRedundant // 消除冗余算子对（如 FlipH ∘ FlipH）
   RemoveIdentity // 消除恒等算子（如 Brightness(0)）

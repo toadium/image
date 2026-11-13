@@ -14,6 +14,7 @@
 /// IR 值类型：统一中间表示，可持有 Image / ScalarField / VectorField / TImage / Float / Int。
 /// IR value type: unified representation holding Image / ScalarField / VectorField / TImage / Float / Int.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum IRValue {
   VImage(@types.Image)
   VScalarField(@fieldimg.ScalarField)

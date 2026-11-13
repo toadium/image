@@ -27,6 +27,7 @@ pub extend TableLine with @debug.Debug::{to_repr}
 ///|
 /// 表格线类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum TableLineType {
   Horizontal
   Vertical

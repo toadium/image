@@ -12,6 +12,7 @@
 /// 推荐动作类型。
 /// Recommendation action type.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum RecommendAction {
   AddTests
   FixDegradation

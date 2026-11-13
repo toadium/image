@@ -12,6 +12,7 @@
 /// 调度状态。
 /// Schedule status.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum ScheduleStatus {
   Pending
   Running

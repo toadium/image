@@ -12,6 +12,7 @@
 /// 策略类型。
 /// Strategy kind.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum StrategyKind {
   FixFirst
   TestFirst

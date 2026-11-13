@@ -12,6 +12,7 @@
 /// 网格简化方法。
 /// Mesh simplification method.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum MeshSimplifyMethod {
   EdgeCollapse // 边折叠
   VertexClustering // 顶点聚类
@@ -28,6 +29,7 @@ pub extend MeshSimplifyMethod with Eq::{not_equal, equal}
 /// 网格细分方法。
 /// Mesh subdivision method.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum MeshSubdivideMethod {
   LoopSubdivision // Loop细分
   CatmullClark // Catmull-Clark细分

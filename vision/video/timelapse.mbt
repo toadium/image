@@ -12,6 +12,7 @@
 /// 曝光调整模式。
 /// Exposure adjustment mode.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum ExposureMode {
   Linear // 线性
   Logarithmic // 对数

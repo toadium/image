@@ -414,6 +414,7 @@ pub fn CoEvolveAction::equal(Self, Self) -> Bool
 pub fn CoEvolveAction::not_equal(Self, Self) -> Bool
 pub fn CoEvolveAction::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum CoEvolveActionKind {
   SyncEvolve
@@ -483,6 +484,7 @@ pub fn CoverageGapReport::has_gaps(Self) -> Bool
 pub fn CoverageGapReport::not_equal(Self, Self) -> Bool
 pub fn CoverageGapReport::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum DecisionAction {
   EvolveNow
@@ -518,6 +520,7 @@ pub fn DegradationCase::equal(Self, Self) -> Bool
 pub fn DegradationCase::not_equal(Self, Self) -> Bool
 pub fn DegradationCase::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum DegradationKind {
   DivisionByZero
@@ -629,6 +632,7 @@ pub fn ExecutableTestFile::not_equal(Self, Self) -> Bool
 pub fn ExecutableTestFile::test_count(Self) -> Int32
 pub fn ExecutableTestFile::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum GapKind {
   UntestedOp
@@ -662,6 +666,7 @@ pub fn GrillResult::equal(Self, Self) -> Bool
 pub fn GrillResult::not_equal(Self, Self) -> Bool
 pub fn GrillResult::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum GrillRule {
   NumericRobustness
@@ -709,6 +714,7 @@ pub fn KnowledgeEdge::equal(Self, Self) -> Bool
 pub fn KnowledgeEdge::not_equal(Self, Self) -> Bool
 pub fn KnowledgeEdge::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum KnowledgeEdgeKind {
   Causes
@@ -748,6 +754,7 @@ pub fn KnowledgeNode::equal(Self, Self) -> Bool
 pub fn KnowledgeNode::not_equal(Self, Self) -> Bool
 pub fn KnowledgeNode::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum KnowledgeNodeKind {
   OpNode
@@ -760,6 +767,7 @@ pub fn KnowledgeNodeKind::equal(Self, Self) -> Bool
 pub fn KnowledgeNodeKind::not_equal(Self, Self) -> Bool
 pub fn KnowledgeNodeKind::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum LoopPhase {
   Predict
@@ -820,6 +828,7 @@ pub fn MetaReport::not_equal(Self, Self) -> Bool
 pub fn MetaReport::strategy_count(Self) -> Int32
 pub fn MetaReport::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum MetaStrategy {
   TightenThresholds
@@ -842,6 +851,7 @@ pub fn ModuleDep::equal(Self, Self) -> Bool
 pub fn ModuleDep::not_equal(Self, Self) -> Bool
 pub fn ModuleDep::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum ModuleDepKind {
   Uses
@@ -872,6 +882,7 @@ pub fn OpCost::equal(Self, Self) -> Bool
 pub fn OpCost::not_equal(Self, Self) -> Bool
 pub fn OpCost::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum OptimizationKind {
   RemoveRedundant
@@ -924,6 +935,7 @@ pub fn OptimizeExecResult::is_significant(Self) -> Bool
 pub fn OptimizeExecResult::not_equal(Self, Self) -> Bool
 pub fn OptimizeExecResult::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum ParamKind {
   Threshold
@@ -1182,6 +1194,7 @@ pub fn PipelineOptSuggestion::equal(Self, Self) -> Bool
 pub fn PipelineOptSuggestion::not_equal(Self, Self) -> Bool
 pub fn PipelineOptSuggestion::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum PredictionKind {
   DegradationLikely
@@ -1240,6 +1253,7 @@ pub fn PropagationViz::is_valid(Self) -> Bool
 pub fn PropagationViz::not_equal(Self, Self) -> Bool
 pub fn PropagationViz::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum QualityDimension {
   TestCoverage
@@ -1252,6 +1266,7 @@ pub fn QualityDimension::equal(Self, Self) -> Bool
 pub fn QualityDimension::not_equal(Self, Self) -> Bool
 pub fn QualityDimension::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum QualityGrade {
   GradeA
@@ -1287,6 +1302,7 @@ pub fn QualityScore::equal(Self, Self) -> Bool
 pub fn QualityScore::not_equal(Self, Self) -> Bool
 pub fn QualityScore::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum RecommendAction {
   AddTests
@@ -1334,6 +1350,7 @@ pub fn RegressionCase::equal(Self, Self) -> Bool
 pub fn RegressionCase::not_equal(Self, Self) -> Bool
 pub fn RegressionCase::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum RegressionKind {
   DegradationIncrease
@@ -1381,6 +1398,7 @@ pub fn RepairReport::not_equal(Self, Self) -> Bool
 pub fn RepairReport::repair_count(Self) -> Int32
 pub fn RepairReport::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum RepairStrategy {
   Conservative
@@ -1440,6 +1458,7 @@ pub fn ScheduleResult::is_successful(Self) -> Bool
 pub fn ScheduleResult::not_equal(Self, Self) -> Bool
 pub fn ScheduleResult::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum ScheduleStatus {
   Pending
@@ -1451,6 +1470,7 @@ pub fn ScheduleStatus::equal(Self, Self) -> Bool
 pub fn ScheduleStatus::not_equal(Self, Self) -> Bool
 pub fn ScheduleStatus::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum ScoreFactor {
   DegradationRisk
@@ -1462,6 +1482,7 @@ pub fn ScoreFactor::equal(Self, Self) -> Bool
 pub fn ScoreFactor::not_equal(Self, Self) -> Bool
 pub fn ScoreFactor::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum Severity {
   Warning
@@ -1506,6 +1527,7 @@ pub fn StrategyCombo::equal(Self, Self) -> Bool
 pub fn StrategyCombo::not_equal(Self, Self) -> Bool
 pub fn StrategyCombo::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum StrategyKind {
   FixFirst
@@ -1533,6 +1555,7 @@ pub fn StrategyRepairResult::is_improvement(Self) -> Bool
 pub fn StrategyRepairResult::not_equal(Self, Self) -> Bool
 pub fn StrategyRepairResult::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum SuggestionKind {
   RemoveRedundant
@@ -1558,6 +1581,7 @@ pub fn TestCase::equal(Self, Self) -> Bool
 pub fn TestCase::not_equal(Self, Self) -> Bool
 pub fn TestCase::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum TestCategory {
   Boundary
@@ -1569,6 +1593,7 @@ pub fn TestCategory::equal(Self, Self) -> Bool
 pub fn TestCategory::not_equal(Self, Self) -> Bool
 pub fn TestCategory::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum TestPriority {
   HighPriority
@@ -1615,6 +1640,7 @@ pub fn TunedParam::equal(Self, Self) -> Bool
 pub fn TunedParam::not_equal(Self, Self) -> Bool
 pub fn TunedParam::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum VizFormat {
   AsciiViz

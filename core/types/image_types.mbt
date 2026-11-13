@@ -199,6 +199,7 @@ pub extend ImageFormat with Eq::{not_equal, equal}
 /// 用于图像缩放时的插值算法选择。
 /// Selects interpolation algorithm for image resizing.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum ResizeFilter {
   Default
   Box
@@ -221,6 +222,7 @@ pub extend ResizeFilter with Eq::{not_equal, equal}
 /// 定义图像缩放时如何处理超出边界的像素坐标。
 /// Defines how pixel coordinates beyond image boundaries are handled during resizing.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum ResizeEdge {
   Clamp
   Reflect

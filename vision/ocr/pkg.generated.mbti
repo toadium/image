@@ -709,6 +709,7 @@ pub fn AugmentationConfig::equal(Self, Self) -> Bool
 pub fn AugmentationConfig::not_equal(Self, Self) -> Bool
 pub fn AugmentationConfig::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum AugmentationType {
   RandomRotation
@@ -935,6 +936,7 @@ pub fn ComplexLayoutAnalysis::equal(Self, Self) -> Bool
 pub fn ComplexLayoutAnalysis::not_equal(Self, Self) -> Bool
 pub fn ComplexLayoutAnalysis::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum ComplexLayoutType {
   SingleColumn
@@ -1057,6 +1059,7 @@ pub fn DLInferenceResult::equal(Self, Self) -> Bool
 pub fn DLInferenceResult::not_equal(Self, Self) -> Bool
 pub fn DLInferenceResult::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum DLLayerType {
   Conv2D
@@ -1127,6 +1130,7 @@ pub fn DataLoader::equal(Self, Self) -> Bool
 pub fn DataLoader::not_equal(Self, Self) -> Bool
 pub fn DataLoader::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum DeploymentEnvironment {
   Development
@@ -1167,6 +1171,7 @@ pub fn DictCharMatch::equal(Self, Self) -> Bool
 pub fn DictCharMatch::not_equal(Self, Self) -> Bool
 pub fn DictCharMatch::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum DictCharStructure {
   LeftRight
@@ -1276,6 +1281,7 @@ pub fn DistortionDetectionResult::equal(Self, Self) -> Bool
 pub fn DistortionDetectionResult::not_equal(Self, Self) -> Bool
 pub fn DistortionDetectionResult::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum DistortionType {
   Skew
@@ -1366,6 +1372,7 @@ pub fn DocumentElement::equal(Self, Self) -> Bool
 pub fn DocumentElement::not_equal(Self, Self) -> Bool
 pub fn DocumentElement::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum DocumentElementType {
   Title
@@ -1686,6 +1693,7 @@ pub fn HandwritingStrokeFeatures::equal(Self, Self) -> Bool
 pub fn HandwritingStrokeFeatures::not_equal(Self, Self) -> Bool
 pub fn HandwritingStrokeFeatures::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum HandwritingStyle {
   Print
@@ -1747,6 +1755,7 @@ pub fn LRSchedulerConfig::equal(Self, Self) -> Bool
 pub fn LRSchedulerConfig::not_equal(Self, Self) -> Bool
 pub fn LRSchedulerConfig::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum LRSchedulerType {
   Constant
@@ -1831,6 +1840,7 @@ pub fn ListItemInfo::equal(Self, Self) -> Bool
 pub fn ListItemInfo::not_equal(Self, Self) -> Bool
 pub fn ListItemInfo::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum ListItemType {
   Bullet
@@ -1871,6 +1881,7 @@ pub fn MarkdownElement::equal(Self, Self) -> Bool
 pub fn MarkdownElement::not_equal(Self, Self) -> Bool
 pub fn MarkdownElement::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum MarkdownElementType {
   Title
@@ -2105,6 +2116,7 @@ pub fn OptimizerConfig::equal(Self, Self) -> Bool
 pub fn OptimizerConfig::not_equal(Self, Self) -> Bool
 pub fn OptimizerConfig::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum OptimizerType {
   SGD
@@ -2130,6 +2142,7 @@ pub fn PageRegion::equal(Self, Self) -> Bool
 pub fn PageRegion::not_equal(Self, Self) -> Bool
 pub fn PageRegion::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum PageRegionType {
   Header
@@ -2249,6 +2262,7 @@ pub fn ScanQuality::equal(Self, Self) -> Bool
 pub fn ScanQuality::not_equal(Self, Self) -> Bool
 pub fn ScanQuality::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum ScanQualityLevel {
   Excellent
@@ -2324,6 +2338,7 @@ pub fn StrokeSegmentationResult::equal(Self, Self) -> Bool
 pub fn StrokeSegmentationResult::not_equal(Self, Self) -> Bool
 pub fn StrokeSegmentationResult::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum StrokeType {
   Horizontal
@@ -2399,6 +2414,7 @@ pub fn TableLine::equal(Self, Self) -> Bool
 pub fn TableLine::not_equal(Self, Self) -> Bool
 pub fn TableLine::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum TableLineType {
   Horizontal
@@ -2501,6 +2517,7 @@ pub fn TextRegion::equal(Self, Self) -> Bool
 pub fn TextRegion::not_equal(Self, Self) -> Bool
 pub fn TextRegion::to_repr(Self) -> @debug.Repr
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum TextRegionType {
   Text

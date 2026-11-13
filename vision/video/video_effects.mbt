@@ -12,6 +12,7 @@
 /// 视频滤镜类型。
 /// Video filter type.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum VideoFilterType {
   Blur // 模糊
   Sharpen // 锐化
@@ -31,6 +32,7 @@ pub extend VideoFilterType with Eq::{not_equal, equal}
 /// 转场类型。
 /// Transition type.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum TransitionType {
   Fade // 淡入淡出
   Dissolve // 溶解

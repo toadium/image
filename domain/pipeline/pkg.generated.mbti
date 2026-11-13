@@ -47,6 +47,7 @@ pub struct BatchTask {
   pipeline : Pipeline
 }
 
+#non_exhaustive
 pub(all) enum CliCommand {
   Convert(String, String)
   Resize(String, String, Int32, Int32)
@@ -56,6 +57,7 @@ pub(all) enum CliCommand {
   Help
 }
 
+#non_exhaustive
 pub(all) enum Operation {
   Resize(Int32, Int32)
   Rotate(Double)

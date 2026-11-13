@@ -9,6 +9,7 @@
 ///|
 /// 汉字结构类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum DictCharStructure {
   LeftRight // 左右结构
   UpDown // 上下结构

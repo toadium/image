@@ -334,6 +334,7 @@ pub struct IcoInfoExtended {
   has_alpha : Bool
 }
 
+#non_exhaustive
 pub enum ImageInfoExtended {
   Avif(AvifInfoExtended)
   Heif(HeifInfoExtended)

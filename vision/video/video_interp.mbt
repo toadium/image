@@ -12,6 +12,7 @@
 /// 视频插帧方法。
 /// Video frame interpolation method.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum FrameInterpMethod {
   LinearInterp // 线性插值
   OpticalFlowInterp // 光流插值

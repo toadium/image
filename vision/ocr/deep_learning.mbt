@@ -9,6 +9,7 @@
 ///|
 /// 神经网络层类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum DLLayerType {
   Conv2D
   MaxPool2D

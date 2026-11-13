@@ -12,6 +12,7 @@
 /// 测试优先级。
 /// Test priority level.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum TestPriority {
   HighPriority
   MediumPriority

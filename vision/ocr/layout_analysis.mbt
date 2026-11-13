@@ -26,6 +26,7 @@ pub extend TextRegion with @debug.Debug::{to_repr}
 ///|
 /// 文本区域类型
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum TextRegionType {
   Text
   Image

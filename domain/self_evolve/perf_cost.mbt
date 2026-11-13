@@ -50,6 +50,8 @@ pub fn estimate_op_cost(op : @imgir.IROp) -> OpCost {
       { op_tag: tag, time_complexity: "O(n)", estimated_cost: 35, }
     @imgir.STInterpolate(_) =>
       { op_tag: tag, time_complexity: "O(n)", estimated_cost: 35, }
+    @imgir.IROp::.. =>
+      { op_tag: tag, time_complexity: "O(n)", estimated_cost: 20, }
   }
 }
 

@@ -12,6 +12,7 @@
 /// 知识节点类型。
 /// Knowledge node kind.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum KnowledgeNodeKind {
   OpNode // 算子节点
   DegradationNode // 退化模式节点
@@ -48,6 +49,7 @@ pub extend KnowledgeNode with Eq::{not_equal, equal}
 /// 知识边类型。
 /// Knowledge edge kind.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum KnowledgeEdgeKind {
   Causes // 导致
   Fixes // 修复

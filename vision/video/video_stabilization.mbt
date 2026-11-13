@@ -12,6 +12,7 @@
 /// 稳定方法。
 /// Stabilization method.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum StabilizationMethod {
   MotionModel // 运动模型（平移）
   Affine // 仿射
@@ -28,6 +29,7 @@ pub extend StabilizationMethod with Eq::{not_equal, equal}
 /// 平滑方法。
 /// Smoothing method.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum TrajectorySmoothing {
   Gaussian // 高斯平滑
   MovingAverage // 移动平均

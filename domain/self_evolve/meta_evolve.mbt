@@ -12,6 +12,7 @@
 /// 元演化策略。
 /// Meta evolution strategy.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum MetaStrategy {
   TightenThresholds // 收紧阈值
   LoosenThresholds // 放宽阈值

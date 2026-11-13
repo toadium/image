@@ -12,6 +12,7 @@
 /// 回归类型。
 /// Regression kind.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum RegressionKind {
   DegradationIncrease
   TestDecrease

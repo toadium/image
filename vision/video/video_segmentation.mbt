@@ -12,6 +12,7 @@
 /// 视频分割方法。
 /// Video segmentation method.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum VideoSegmentationMethod {
   FrameDifference // 帧差法
   BackgroundSubtraction // 背景减除

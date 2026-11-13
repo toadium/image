@@ -17,6 +17,7 @@
 /// 拷问规则（对应 4.7.4 五条领域规则）。
 /// Grill rule (corresponds to 4.7.4 domain rules).
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum GrillRule {
   NumericRobustness // 数值鲁棒性
   DegenerateGeometry // 退化几何

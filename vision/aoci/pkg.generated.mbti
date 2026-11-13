@@ -86,6 +86,7 @@ pub fn SymbolIndex::size(Self) -> Int32
 pub fn SymbolIndex::to_repr(Self) -> @debug.Repr
 pub fn SymbolIndex::total_tokens(Self) -> Int32
 
+#non_exhaustive
 #derive(Eq, @debug.Debug)
 pub(all) enum SymbolKind {
   Function

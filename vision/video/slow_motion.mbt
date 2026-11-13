@@ -12,6 +12,7 @@
 /// 慢动作方法。
 /// Slow motion method.
 #derive(Eq, @debug.Debug)
+#non_exhaustive
 pub(all) enum SlowMotionMethod {
   OpticalFlow // 光流插帧
   FrameBlending // 帧混合
