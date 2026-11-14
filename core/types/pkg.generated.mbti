@@ -57,6 +57,9 @@ pub(all) suberror LoadError {
   DecodeFailed(String)
   EncodeFailed(String)
 }
+pub fn LoadError::output(Self, &Logger) -> Unit
+pub fn LoadError::to_string(Self) -> String
+pub impl Show for LoadError
 
 // Types and methods
 #non_exhaustive

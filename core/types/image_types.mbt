@@ -147,6 +147,24 @@ pub(all) suberror LoadError {
 }
 
 ///|
+/// `LoadError` 实现 `Show` — 分类前缀 + 消息，使 `"\{err}"` 插值与 `inspect` 开箱可用（下游调试体验）。
+/// `LoadError` implements `Show` — category prefix + message, making interpolation and `inspect` work out of the box.
+pub impl Show for LoadError with fn output(self, logger) {
+  logger.write_string(
+    match self {
+      FileIO(msg) => "FileIO: \{msg}"
+      UnsupportedFormat(msg) => "UnsupportedFormat: \{msg}"
+      DecodeFailed(msg) => "DecodeFailed: \{msg}"
+      EncodeFailed(msg) => "EncodeFailed: \{msg}"
+    },
+  )
+}
+
+///|
+/// 补齐 `Show` 的 `to_string` 派生方法。Add the derived `to_string` from `Show`.
+pub extend LoadError with Show::{output, to_string}
+
+///|
 /// 图像格式枚举 Image format enum
 ///
 /// 标识支持的图像编解码格式。`#non_exhaustive` 表示未来可能添加新格式。

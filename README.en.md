@@ -346,6 +346,8 @@ Full OCR pipeline · Face recognition · Pose estimation · SLAM · Video proces
 | [docs/api_reference.md](docs/api_reference.md) | Full API reference |
 | [docs/roadmap.md](docs/roadmap.md) | Iteration roadmap |
 | [docs/changelog.md](docs/changelog.md) | Version changelog |
+| [docs/proposal.md](docs/proposal.md) | Quarterly award proposal |
+| [docs/pitfall-catalog.md](docs/pitfall-catalog.md) | MoonBit evolution & engineering pitfalls (measured) |
 | [docs/comparison.md](docs/comparison.md) | mooncakes.io image library comparison |
 | [docs/performance_report.md](docs/performance_report.md) | Performance benchmark report |
 | [docs/notes.md](docs/notes.md) | Usage notes and core constraints |
