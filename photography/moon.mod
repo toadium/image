@@ -4,6 +4,8 @@ version = "0.1.0"
 
 license = "MIT"
 
+readme = "README.md"
+
 description = "MoonBit computational photography: HDR, night shot, depth, bokeh, fusion, stitch, superres."
 
 repository = "https://github.com/toadium/image"

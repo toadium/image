@@ -4,6 +4,8 @@ version = "0.1.0"
 
 license = "MIT"
 
+readme = "README.md"
+
 description = "MoonBit image processing: color, transform, filter, edge, feature, enhance, segment, detection."
 
 repository = "https://github.com/toadium/image"
