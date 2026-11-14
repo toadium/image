@@ -93,3 +93,5 @@
 剩余路线（下赛期）：B3 性能基准现代化（真实尺寸 + stb C 基线量化对比）、B4 格式矩阵补齐（JPEG progressive / TIFF LZW）、B5 coverage 95%、B6 workspace 子模块独立发布。
 
 **B3 方案记录（2026-11-13 侦查完成）**：bench 入口为 `cmd/bench/main.mbt`（`moon run cmd/bench`，46 项基准数据源，当前环境字段为 ARM aarch64 + 128×128 固定图）。现代化方案 = cmd/bench 参数化真实尺寸（1024²/4096² 的 PNG/JPEG 解码与 resize）+ 报告补充跨机器环境字段 + 与 stb_image.h C 基线的量化对比列。下赛期实施。
+
+**B3 部分落地（2026-11-13 迭代实施）**：根包新增 `bench_real.mbt`（moonbitlang/core bench 框架，与 astrolabe 同款）——**真实尺寸基准已实测入册**（docs/performance_report.md「真实尺寸基准」节）：png_encode_1024 50 ms / png_decode_1024 80 ms / resize_1024→512 5.3 ms / 4096² 编码 780 ms / 解码 1.25 s，跨规模线性度良好。剩余：JPEG 真实尺寸项与 stb C 基线同机对比列。
