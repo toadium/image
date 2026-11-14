@@ -11,7 +11,7 @@ You can browse and install extra skills here:
 
 | 属性 | 值 |
 |------|-----|
-| 版本 | 0.6.0（workspace 重构；mooncakes 最新 0.5.0，待发布） |
+| 版本 | 0.6.1（mooncakes 0.6.0 已发布，0.6.1 待发布） |
 | 测试 | 6574 (native) × 4 目标，`moon check --deny-warn --target all` 零警告 |
 | 架构 | 6 子模块工作空间 (core/codec/process/photography/vision/domain)，子模块独立发布（各 0.1.0，按依赖顺序 core → codec → process → photography/vision → domain） |
 | 格式 | 18 种编解码 (PNG/JPEG/BMP/GIF/QOI/TGA/PSD/HDR/PNM/TIFF/ICO/CUR/ICNS/APNG/WebP/AVIF/HEIF/JPEG-XL) |
