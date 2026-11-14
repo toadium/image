@@ -23,10 +23,10 @@ jobs:
 
       - name: Check compilation
         run: |
-          moon check --target native
-          moon check --target wasm-gc
-          moon check --target js
-          moon check --target wasm
+          moon check --deny-warn --targetnative
+          moon check --deny-warn --targetwasm-gc
+          moon check --deny-warn --targetjs
+          moon check --deny-warn --targetwasm
 
       - name: Run tests
         run: |
