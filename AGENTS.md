@@ -7,15 +7,15 @@ You can browse and install extra skills here:
 
 ## Project Overview
 
-**stb-image** (walkzzz/image) — 纯 MoonBit 图像处理库，零 C FFI 依赖。
+**walkzzz/image**（参考 stb_image.h 移植）— 纯 MoonBit 图像处理库，零 C FFI 依赖。
 
 | 属性 | 值 |
 |------|-----|
-| 版本 | 0.5.0 |
-| 测试 | 6526 (native) × 4 目标 |
-| 架构 | 6 子模块工作空间 (core/codec/process/photography/vision/domain) |
+| 版本 | 0.6.0（workspace 重构；mooncakes 最新 0.5.0，待发布） |
+| 测试 | 6574 (native) × 4 目标，`moon check --deny-warn --target all` 零警告 |
+| 架构 | 6 子模块工作空间 (core/codec/process/photography/vision/domain)，子模块独立发布（各 0.1.0，按依赖顺序 core → codec → process → photography/vision → domain） |
 | 格式 | 18 种编解码 (PNG/JPEG/BMP/GIF/QOI/TGA/PSD/HDR/PNM/TIFF/ICO/CUR/ICNS/APNG/WebP/AVIF/HEIF/JPEG-XL) |
-| 形式化验证 | core/safe_math 包已启用 proof_enabled，5 goals proved（safe_mul/clamp_pixel_value/is_valid_index/is_valid_2d_index/rotate90_power_is_identity） |
+| 形式化验证 | core/safe_math `moon prove` **8 goals proved**（safe_mul_ok/clamp_pixel_ok/dims_valid_pred/int_max_ok/int_min_ok/valid_index/valid_2d_index/rotate90_identity）；另有 8 条谓词预留（SMT 超时与前端限制，见 safe_math.mbtp 注释） |
 
 ## Project Structure
 
@@ -69,7 +69,7 @@ src/  (已迁移为根目录 6 子模块工作空间)
 
 ## Development Rules（开发规则全集）
 
-> **来源**：`rules.md`，适配 stb-image 项目。优先级：防跑偏规则 > 项目规则 > 个人偏好。
+> **来源**：`rules.md`，适配 walkzzz/image 项目。优先级：防跑偏规则 > 项目规则 > 个人偏好。
 
 ### R1 — 源码目录
 源代码放在 6 个根目录子模块中：core/ codec/ process/ photography/ vision/ domain/

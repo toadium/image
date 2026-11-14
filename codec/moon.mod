@@ -6,7 +6,7 @@ license = "MIT"
 
 description = "MoonBit image codec: pure MoonBit backend for 18+ image formats, color, metadata, barcode."
 
-repository = "https://github.com/toadium/stb-image"
+repository = "https://github.com/toadium/image"
 
 preferred_target = "native"
 

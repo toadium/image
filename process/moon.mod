@@ -6,7 +6,7 @@ license = "MIT"
 
 description = "MoonBit image processing: color, transform, filter, edge, feature, enhance, segment, detection."
 
-repository = "https://github.com/toadium/stb-image"
+repository = "https://github.com/toadium/image"
 
 preferred_target = "native"
 

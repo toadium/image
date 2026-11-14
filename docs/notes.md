@@ -5,46 +5,47 @@
 ## 版本与安装
 
 > [!NOTE]
-> 包版本 `0.4.11`（mooncakes，要求 0.x.y 格式）对应功能迭代版本 `v5.3.0`。安装：`moon add walkzzz/image`。
+> mooncakes 包版本 `0.6.0` 对应 **workspace 六模块重构**后的主模块（mooncakes 上 0.5.0 为重构前最后版本）；功能迭代版本（v0.1 → v237.0.0+）历史见 [docs/changelog.md](docs/changelog.md)。主模块安装：`moon add walkzzz/image`。
+
+> [!TIP]
+> **子模块可独立安装**（按需轻量依赖）：
+> - `moon add walkzzz/core` — 基础类型（Image/Image16/ImageF/LoadError）
+> - `moon add walkzzz/codec` — 18 种格式编解码 + 颜色 + 元数据 + 条码
+> - `moon add walkzzz/process` — 90+ 图像算法子包
+> - `moon add walkzzz/photography` / `walkzzz/vision` / `walkzzz/domain` — 上层能力
 
 ## 格式检测
 
 > [!NOTE]
 > `detect_format` 仅通过 magic bytes 识别 PNG/JPEG/BMP/GIF/QOI/PNM/PSD/HDR/WebP。TIFF/ICO/CUR/ICNS/APNG/TGA 需手动调用 `decode_tiff`/`decode_ico`/`decode_cur`/`decode_icns`/`decode_apng` 等函数。
+> v244+ 已提供 `get_image_info_extended`（18 格式统一信息探测）与 `detect_image_format` 全格式检测，见 docs/roadmap.md。
 
 ## 多目标测试
 
 > [!NOTE]
-> 四目标（native / wasm-gc / js / wasm）均使用同一套纯 MoonBit 代码，各 1203 测试全部通过，覆盖率 90.4%。
+> 四目标（native / wasm-gc / js / wasm）均使用同一套纯 MoonBit 代码，各 **6574 测试**全部通过，覆盖率 90.4%，`moon check --deny-warn` 零警告。
 
 > [!TIP]
-> 四目标共用 `src/pure/` 下的同一套代码，无任何条件编译或目标分支。
-
-## 版本更新摘要
-
-> [!TIP]
-> **v4.10 最新更新** — 维度溢出安全守卫（`check_dims` + `MAX_IMAGE_DIMENSION`） · 全解码器入口校验 · `safe_mul`/`safe_mul3` 溢出保护 · 19 项安全测试 + 5 项大尺寸溢出测试 · 15 项高级算法基准测试 · 魔法数字清理
-
-> [!TIP]
-> **v4.9 诚实性修复** — 删除流式解码"零内存峰值"虚假声明 · 修正 WebP 格式表（解码仅 lossless） · 添加 `encode_webp_lossy` 不可解码警告 · 修正 reexport.mbt 虚假注释
+> 四目标共用 workspace（core/codec/process/photography/vision/domain）同一套代码，无任何条件编译或目标分支。
 
 ## 安全约束
 
 > [!WARNING]
-> v4.10.0 引入维度安全守卫，所有解码器在分配内存前调用 `check_dims(width, height, channels)` 校验：
+> 所有解码器在分配内存前调用 `check_dims(width, height, channels)` 校验：
 > - 宽/高必须为正数且不超过 `MAX_IMAGE_DIMENSION`（65535）
 > - `width × height × channels` 不超过 `Int` 最大值（防整数溢出）
 > - 校验失败时 `raise LoadError::DecodeFailed`
 >
 > `safe_mul` / `safe_mul3` 提供溢出安全乘法，返回 `Int?`（溢出时返回 `None`）。
 
-## 核心约束
+## 形式化验证
 
-> [!WARNING]
-> 以下约束不可违反，否则 PR 将被拒绝：
+> [!TIP]
+> core/safe_math 通过 `moon prove` 验证 **8 个 goals**（溢出安全 / 维度有效 / clamp / 索引 / 旋转不变量等），另有 8 条谓词预留（SMT 超时与前端限制，清单见 safe_math.mbtp 注释）。
 
-- **禁止引入 C FFI 依赖** — 所有代码必须纯 MoonBit 实现，确保四目标可用
-- **禁止破坏已有 API** — 新增功能只添加不修改已有签名，保持向后兼容
-- **禁止目标条件编译** — 不使用 `target == "native"` 等条件分支，四目标共用代码
-- **新增 `pub` 函数须在 `reexport.mbt` 注册** — 保持顶层 API 完整性
-- **新增解码器须调用 `check_dims` 校验** — 防止恶意图像导致 OOM 或整数溢出
+## 版本更新摘要
+
+> [!TIP]
+> **0.6.0（workspace 重构）** — src/ 单体 → 六模块 workspace · 根 CHANGELOG · CI `--deny-warn` 零警告门禁 · badge 数据实测对齐（6574 测试 / 8 goals）· 子模块独立安装 · 自演化叙事（中英）
+>
+> 完整功能迭代历史见 [docs/changelog.md](docs/changelog.md)。

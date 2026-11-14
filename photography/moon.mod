@@ -6,7 +6,7 @@ license = "MIT"
 
 description = "MoonBit computational photography: HDR, night shot, depth, bokeh, fusion, stitch, superres."
 
-repository = "https://github.com/toadium/stb-image"
+repository = "https://github.com/toadium/image"
 
 preferred_target = "native"
 

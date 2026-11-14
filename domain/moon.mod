@@ -6,7 +6,7 @@ license = "MIT"
 
 description = "MoonBit domain imaging: medical, remote sensing, encryption, watermark, forensics, quality."
 
-repository = "https://github.com/toadium/stb-image"
+repository = "https://github.com/toadium/image"
 
 preferred_target = "native"
 

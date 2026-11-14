@@ -6,7 +6,7 @@ license = "MIT"
 
 description = "MoonBit computer vision: OCR, face recognition, pose estimation, SLAM, video, 3D vision."
 
-repository = "https://github.com/toadium/stb-image"
+repository = "https://github.com/toadium/image"
 
 preferred_target = "native"
 

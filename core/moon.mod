@@ -6,7 +6,7 @@ license = "MIT"
 
 description = "MoonBit image core types: Image, Image16, ImageF, LoadError, traits."
 
-repository = "https://github.com/toadium/stb-image"
+repository = "https://github.com/toadium/image"
 
 keywords = [ "moonbit", "image", "types", "core" ]
 

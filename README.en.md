@@ -148,6 +148,8 @@ Core safety functions carry SMT-checkable proofs: representation invariants, ove
 moon add walkzzz/image
 ```
 
+> 🧩 **Modular installation** (since 0.6.0, six workspace modules published independently): `moon add walkzzz/codec` for the 18-format codecs only; `moon add walkzzz/process` for the 90+ algorithm packages; likewise core / photography / vision / domain.
+
 ### 30-Second Example
 
 ```moonbit

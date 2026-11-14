@@ -14,6 +14,7 @@
 
 [![Tests](https://img.shields.io/badge/tests-6_574×4-4CAF50?style=flat-square)]()
 [![Proved](https://img.shields.io/badge/formal__proof-8%20goals-6E40C9?style=flat-square)]()
+[![Coverage](https://img.shields.io/badge/coverage-90.4%25-4CAF50?style=flat-square)]()
 [![Targets](https://img.shields.io/badge/targets-native%20%7C%20wasm--gc%20%7C%20js%20%7C%20wasm-2196F3?style=flat-square)]()
 [![Formats](https://img.shields.io/badge/formats-18-FF9800?style=flat-square)]()
 [![Packages](https://img.shields.io/badge/packages-71-9C27B0?style=flat-square)]()
@@ -164,6 +165,8 @@ MAX_IMAGE_DIMENSION(65535) 守卫 + check_dims 全入口校验 + safe_mul 溢出
 ```bash
 moon add walkzzz/image
 ```
+
+> 🧩 **子模块按需安装**（0.6.0 起，workspace 六模块独立发布）：`moon add walkzzz/codec` 只装 18 格式编解码；`moon add walkzzz/process` 只装 90+ 算法子包；core / photography / vision / domain 同理。
 
 ### 30 秒示例
 
