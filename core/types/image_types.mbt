@@ -267,6 +267,15 @@ pub extend PngAnimation with Eq::{not_equal, equal}
 /// 65535 覆盖常见图像格式最大尺寸（PNG/TIFF 32-bit、JPEG 65500、BMP 32-bit）。 65535 covers max sizes of common formats (PNG/TIFF 32-bit, JPEG 65500, BMP 32-bit).
 pub const MAX_IMAGE_DIMENSION : Int32 = 65535
 
+///| 总像素数上限 — 维度守卫之上的内存安全闸门（发起人确认取值 5e8）。
+
+///| 内存峰值：RGB 3 通道 ≈ 1.5 GB / ImageF HDR float 3 通道 ≈ 12 GB。
+
+///| Total pixel budget — memory-safety gate on top of per-dimension guards
+
+///| (confirmed value 5e8; peak memory: RGB ≈ 1.5 GB, ImageF HDR ≈ 12 GB).
+pub const MAX_TOTAL_PIXELS : Int32 = 500000000
+
 ///|
 /// 校验图像维度是否在安全范围内。 Validate image dimensions are within safe bounds.
 ///
@@ -286,6 +295,25 @@ pub const MAX_IMAGE_DIMENSION : Int32 = 65535
 /// test "doc_check_dims_valid" {
 ///   @types.check_dims(1, 1, 3)
 ///   assert_true(true)
+/// }
+/// ```
+///
+/// ```mbt check
+/// test "doc_check_dims_total_pixels_ok" {
+///   @types.check_dims(25000, 20000, 3) // 5e8 边界内（总像素上限 5 亿）
+///   assert_true(true)
+/// }
+/// ```
+///
+/// ```mbt check
+/// test "doc_check_dims_total_pixels_exceeded" {
+///   try {
+///     @types.check_dims(25001, 20000, 3) // 500,020,000 > 5e8
+///     assert_true(false)
+///   } catch {
+///     @types.LoadError::DecodeFailed(_) => assert_true(true)
+///     _ => assert_true(false)
+///   }
 /// }
 /// ```
 pub fn check_dims(
@@ -313,6 +341,11 @@ pub fn check_dims(
     )
   }
   let pixel_count = width * height
+  if pixel_count > MAX_TOTAL_PIXELS {
+    raise LoadError::DecodeFailed(
+      "图像像素总数超过内存安全上限 \{MAX_TOTAL_PIXELS}: \{pixel_count} 像素（\{pixel_count / 1000000} M pixels） Total pixels exceed the memory-safety budget",
+    )
+  }
   if pixel_count > max_int / channels {
     raise LoadError::DecodeFailed(
       "图像数据大小溢出: \{pixel_count} * \{channels}",

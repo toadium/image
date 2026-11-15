@@ -51,6 +51,8 @@
 
 > 🌱 **生态采用**：已被 [moonrockz/diagrams-raster](https://mooncakes.io/package/moonrockz/diagrams-raster) 依赖
 
+> 🧰 **同作者生态**：[walkzzz/moon2dart](https://mooncakes.io/docs/walkzzz/moon2dart)（MoonBit → Dart/Flutter transpiler，MCP 服务器）+ [walkzzz/astrolabe](https://mooncakes.io/docs/walkzzz/astrolabe)（解析器组合子库，形式化验证 8 goals）——三库组成 **walkzzz MoonBit 工具集**
+
 ## ✨ 亮点
 
 <table>

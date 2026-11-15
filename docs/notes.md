@@ -38,6 +38,41 @@
 >
 > `safe_mul` / `safe_mul3` 提供溢出安全乘法，返回 `Int?`（溢出时返回 `None`）。
 
+## 主流程速查（任务流图）
+
+```mermaid
+flowchart LR
+    A[Bytes / 文件] --> B[load_from_bytes_auto<br/>自动格式检测解码]
+    B --> C{Image / Image16 / ImageF}
+    C --> D[process 算法<br/>resize / 色彩 / OCR / CV]
+    C --> E[photography<br/>计算摄影]
+    D --> F[codec encode<br/>18 格式输出]
+    E --> F
+    F --> G[Bytes / 文件]
+```
+
+## 三级像素深度决策表
+
+| 类型 | 每像素 | 适用场景 | 注意 |
+|---|---|---|---|
+| `Image`（8-bit） | 1-4 字节 | 常规图像 / 显示 / 编码 / OCR-CV 输入 | 主力类型 |
+| `Image16`（16-bit） | 2-8 字节 | 医学 / 遥感 / 高精度色彩 | 独家能力；内存 ×2 |
+| `ImageF`（HDR float） | 12 字节（RGB float） | HDR / 光传输 / 合成 | 独家能力；**受 MAX_TOTAL_PIXELS=5e8 约束（峰值 ≈12 GB）** |
+
+## 格式变体支持矩阵
+
+| 格式 | 支持 | 不支持（明确报错） | 备注 |
+|---|---|---|---|
+| PNG | 8/16-bit、Adam7、APNG | — | 完整 |
+| JPEG | 基线（sequential） | progressive（规划中） | — |
+| TIFF | 无压缩 | LZW / PackBits（规划中） | `decode_tiff` 手动调用 |
+| WebP | lossy 编码 + 解码 | lossless 自解码 | — |
+| AVIF / HEIF / JPEG-XL | 基础解码 | 编码 | 边界见 README |
+| PSD / ICNS / CUR | 解码 | — | — |
+
+> [!NOTE]
+> 不支持的变体会以 `LoadError::DecodeFailed` 明确报错（含原因），不会误解码——边界清晰承诺的深化。
+
 ## 形式化验证
 
 > [!TIP]

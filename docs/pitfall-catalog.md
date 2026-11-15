@@ -74,6 +74,13 @@
 - **来源**：【实测】CI --deny-warn 门禁（0078）。
 - **可自动化**：✅。
 
+### M10 `many` 零消耗死循环防护：mut 引用比较必须用运行前快照
+
+- **现象**：`many(p)` 中 `p` 零消耗成功（如 `pure`/零宽 `option`）→ 尾递归同位置无限循环挂起；防护比较 `st.offset == state.offset` 因 `State` 为 mut 引用（run 原地推进）恒为 true，反而误伤全部正常匹配。
+- **修法**：`p.run` 前取 `let before = state.offset` 快照，运行后比较 `st.offset == before`。
+- **来源**：【实测】astrolabe 侧同类实现（walkzzz/astrolabe v0.5.2，M 系列同源）。
+- **可自动化**：✅ 正反向测试。
+
 ---
 
 ## I 系列 · image 项目特有

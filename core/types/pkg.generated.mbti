@@ -16,6 +16,8 @@ pub const DOC_TEST_QOI_1X1 : Bytes = b"\x71\x6f\x69\x66\x00\x00\x00\x01\x00\x00\
 
 pub const MAX_IMAGE_DIMENSION : Int32 = 65535
 
+pub const MAX_TOTAL_PIXELS : Int32 = 500000000
+
 pub fn any_image_to_u8(AnyImage) -> Image
 
 pub fn check_dims(Int32, Int32, Int32) -> Unit raise LoadError
